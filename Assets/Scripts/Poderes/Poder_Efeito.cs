@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class Poder_Efeito : Poder_Ofensivo
+public class Poder_Efeito : Poder_Ofensivo
 {
     public Status _status;
 }

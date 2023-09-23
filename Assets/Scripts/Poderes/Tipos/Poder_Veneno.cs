@@ -4,5 +4,4 @@ using UnityEngine;
 [System.Serializable]
 public class Poder_Veneno : Poder_Efeito
 {
-
 }

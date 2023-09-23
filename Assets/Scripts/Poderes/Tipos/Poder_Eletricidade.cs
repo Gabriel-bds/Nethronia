@@ -4,5 +4,5 @@ using UnityEngine;
 [System.Serializable]
 public class Poder_Eletricidade : Poder_Efeito
 {
-
+   
 }

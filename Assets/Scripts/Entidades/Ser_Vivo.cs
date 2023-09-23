@@ -21,7 +21,7 @@ public class Ser_Vivo : MonoBehaviour
     public int _experiencia;
 
     [Header("Poderes:")]
-    public Poder_Forca _poderForca;
+    public Poder_Forca _poderForca = new Poder_Forca(0,0,0,0,Tipo_Dano.Eletricidade);
     public Poder_Resistencia _poderResistencia;
     public Poder_Vitalidade _poderVitalidade;
     public Poder_Velocidade _poderVelocidade;

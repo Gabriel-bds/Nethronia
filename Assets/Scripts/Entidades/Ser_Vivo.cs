@@ -1,34 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TMPro;
 using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
 
 public class Ser_Vivo : MonoBehaviour
 {
     [Header("Atributos Base:")]
+    [ReadOnly(true)]
     public float _vidaMax;
     public float _vidaAtual;
-    public float _danoFisicoMax = 10;
+    public float _danoFisicoMax = 5;
     public float _negacaoDano;
     public float _repulsaoFisicaMax = 0.2f;
+    public float _negacaoRepulsao;
     public float _velocidadeMovimento;
     public int _experiencia;
 
     [Header("Poderes:")]
-    public Poder_Forca _poderForca = new Poder_Forca(0,0,0,0,Tipo_Dano.Eletricidade);
+    public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
     public Poder_Resistencia _poderResistencia;
     public Poder_Vitalidade _poderVitalidade;
     public Poder_Velocidade _poderVelocidade;
-    public Poder_Fogo _poderFogo;
-    public Poder_Gelo _poderGelo;
-    public Poder_Veneno _poderVeneno;
-    public Poder_Eletricidade _poderEletricidade;
+    public Poder_Fogo _poderFogo = new Poder_Fogo(Tipo_Dano.Fogo);
+    public Poder_Gelo _poderGelo = new Poder_Gelo(Tipo_Dano.Gelo);
+    public Poder_Veneno _poderVeneno = new Poder_Veneno(Tipo_Dano.Veneno);
+    public Poder_Eletricidade _poderEletricidade = new Poder_Eletricidade(Tipo_Dano.Eletricidade);
 
     protected Rigidbody2D _rigidbody;
     protected Animator _animator;
@@ -71,7 +75,6 @@ public class Ser_Vivo : MonoBehaviour
         ControleAnimacoesMovimento();
         Virar();
         TemVida();
-        DefinirAtributos();
     }
 
     protected void Mover(float _direcaoX, float _direcaoY)
@@ -206,40 +209,56 @@ public class Ser_Vivo : MonoBehaviour
     }
     void DefinirAtributos()
     {
-        _danoFisicoMax = ControleAtributos(_poderForca._nivel, 10f, 1.5f);
-        _repulsaoFisicaMax = ControleAtributos(_poderForca._nivel, 10f, 1.5f);
-        /*_negacaoDano = ControleAtributos(_poderResistencia._nivel, 0f, 1.5f);
-        _negacaoRepulsao = ControleAtributos(_poderResistencia._nivel, 0f, 1.5f);*/
-    }
-    float ControleAtributos(int _nivel, float _valorInicial, float _progressao)
-    {
-        return _valorInicial + _nivel * _progressao;
-    }
-    float ControleAtributos(int _nivel, float _valorInicial, float _progressao, float _limite)
-    {
-        if (_valorInicial + _nivel * _progressao > _limite)
-        {
-            return _limite;
-        }
-        else
-        {
-            return _valorInicial + _nivel * _progressao;
-        }
-    }
-    float ControleAtributos(int _nivel, int _nivelAlvo, float _valorAlvo)
-    {
-        return _nivel * 100 / _nivelAlvo * _valorAlvo / 100;
-    }
-    float ControleAtributos(int _nivel, int _nivelAlvo, float _valorAlvo, float _valorLimite)
-    {
-        if (_nivel * 100 / _nivelAlvo * _valorAlvo / 100 > _valorLimite)
-        {
-            return _valorLimite;
-        }
-        else
-        {
-            return _nivel * 100 / _nivelAlvo * _valorAlvo / 100;
-        }
+        //Força:
+        _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 0, 1);
+        _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 0, 0.02f);
+        _danoFisicoMax += _poderForca._dano;
+        _repulsaoFisicaMax += _poderForca._repulsao;
+
+        //Resistência:
+        _poderResistencia._negacaoDano = Utilidades.Escala(_poderResistencia._nivel, 0, 1);
+        _poderResistencia._negacaoRepulsao = Utilidades.Escala(_poderResistencia._nivel, 0, 0.02f);
+        _negacaoDano += _poderResistencia._negacaoDano;
+        _negacaoRepulsao += _poderResistencia._negacaoRepulsao;
+
+        //Vitalidade:
+        _poderVitalidade._acrescimoVidaMax = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.5f);
+        _poderVitalidade._valorCura = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.01f);
+        _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 5f, Utilidades.Escala(_poderVitalidade._nivel, 5, -0.01f));
+        _poderVitalidade._rouboVida = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.05f);
+        _poderVitalidade._vidasExtras = Utilidades.LimitadorNumero(0, 3, Utilidades.Escala(_poderVitalidade._nivel, 0, 50));
+        _vidaMax += _poderVitalidade._acrescimoVidaMax;
+
+        //Velocidade
+        _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 50, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
+        _poderVelocidade._acrescimoVelocidadeAnimações = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
+        _poderVelocidade._reducaoRecargaAtaques = Utilidades.ArredondarNegativo(Utilidades.Escala(_poderVelocidade._nivel, 0, 0.005f));
+        _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 1f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
+
+        //Fogo
+        _poderFogo._dano = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);
+        _poderFogo._negacaoDano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
+        _poderFogo._repulsao = Utilidades.Escala(_poderFogo._nivel, 0.15f, 0.015f);
+        _poderFogo._negacaoRepulsao = Utilidades.Escala(_poderFogo._nivel, 0, 0.015f);
+
+        //Gelo
+        _poderGelo._dano = Utilidades.Escala(_poderGelo._nivel, 7.5f, 0.75f);
+        _poderGelo._negacaoDano = Utilidades.Escala(_poderGelo._nivel, 0, 0.75f);
+        _poderGelo._repulsao = Utilidades.Escala(_poderGelo._nivel, 0.15f, 0.015f);
+        _poderGelo._negacaoRepulsao = Utilidades.Escala(_poderGelo._nivel, 0, 0.015f);
+
+        //Veneno
+        _poderVeneno._dano = Utilidades.Escala(_poderVeneno._nivel, 7.5f, 0.75f);
+        _poderVeneno._negacaoDano = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.75f);
+        _poderVeneno._repulsao = Utilidades.Escala(_poderVeneno._nivel, 0.15f, 0.015f);
+        _poderVeneno._negacaoRepulsao = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.015f);
+
+        //Eletricidade
+        _poderEletricidade._dano = Utilidades.Escala(_poderEletricidade._nivel, 7.5f, 0.75f);
+        _poderEletricidade._negacaoDano = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.75f);
+        _poderEletricidade._repulsao = Utilidades.Escala(_poderEletricidade._nivel, 0.15f, 0.015f);
+        _poderEletricidade._negacaoRepulsao = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.015f);
+
     }
     public void IniciarSom(int _numeroNaLista)
     {

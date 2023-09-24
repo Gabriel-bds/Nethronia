@@ -30,6 +30,14 @@ public class Utilidades : MonoBehaviour
             return _valor;
         }
     }
+    public static float Escala(int _nivel, float _valorInicial, float _progressao)
+    {
+        return _valorInicial + _nivel * _progressao;
+    }
+    public static int Escala(int _nivel, int _valorInicial, int _progressao)
+    {
+        return _valorInicial + _nivel / _progressao;
+    }
     public static float LimitadorNumero(float _min, float _max, float _valor)
     {
         if(_valor > _max)
@@ -37,6 +45,21 @@ public class Utilidades : MonoBehaviour
             return _max;
         }
         else if(_valor < _min)
+        {
+            return _min;
+        }
+        else
+        {
+            return _valor;
+        }
+    }
+    public static int LimitadorNumero(int _min, int _max, int _valor)
+    {
+        if (_valor > _max)
+        {
+            return _max;
+        }
+        else if (_valor < _min)
         {
             return _min;
         }

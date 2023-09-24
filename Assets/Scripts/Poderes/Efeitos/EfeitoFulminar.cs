@@ -15,11 +15,11 @@ public class EfeitoFulminar : Efeito
     }
     public override void Aplicar(Ser_Vivo _atacante, Ser_Vivo _vitima)
     {
-        _vitima._efeitoFulminar._acumuloAtual += _atacante._efeitoFulminar._infligirAcumulo;
-        if(_vitima._efeitoFulminar._acumuloAtual >= _vitima._efeitoFulminar._acumuloMax)
+        _vitima._poderEletricidade._status._acumuloAtual += _atacante._poderEletricidade._status._infligirAcumulo;
+        if(_vitima._poderEletricidade._status._acumuloAtual >= _vitima._poderEletricidade._status._acumuloMax)
         {
             base.Aplicar(_atacante, _vitima);
-            _vitima._efeitoFulminar._acumuloAtual = 0;
+            _vitima._poderEletricidade._status._acumuloAtual = 0;
             CircleCollider2D _area =  CriarArea(_vitima, _atacante);
             GameObject _instanciaParticula =  Instantiate(_particulaExplosao, _vitima.transform.position, Quaternion.Euler(0, 0, 0));
             var _configuracao = _instanciaParticula.GetComponent<ParticleSystem>().main;
@@ -33,7 +33,7 @@ public class EfeitoFulminar : Efeito
         _intanciaArea.AddComponent<CircleCollider2D>();
         _intanciaArea.tag = "Combate/Area eletrica";
         _intanciaArea.GetComponent<CircleCollider2D>().isTrigger = true;
-        _intanciaArea.GetComponent<CircleCollider2D>().radius = Utilidades.LimitadorNumero(1, 15,_atacante._efeitoFulminar._utilidade1 - _vitima._efeitoFulminar._negacaoUtilidade1);
+        _intanciaArea.GetComponent<CircleCollider2D>().radius = Utilidades.LimitadorNumero(1, 15,_atacante._poderEletricidade._status._utilidade1 - _vitima._poderEletricidade._status._negacaoUtilidade1);
         _intanciaArea.AddComponent<AreaEletricidade>();
         _intanciaArea.GetComponent<AreaEletricidade>()._atacante = _atacante;
         _intanciaArea.GetComponent<AreaEletricidade>()._vitima = _vitima;
@@ -54,7 +54,7 @@ public class AreaEletricidade : MonoBehaviour
         if (collision.gameObject.layer == _vitima.gameObject.layer)
         {
             Ser_Vivo _atingido = collision.GetComponent<Ser_Vivo>();
-            float _danoSofrido = Utilidades.ArredondarNegativo(_atacante._efeitoFulminar._dano - _atingido._efeitoFulminar._negacaoDano);
+            float _danoSofrido = Utilidades.ArredondarNegativo(_atacante._poderEletricidade._status._dano - _atingido._poderEletricidade._status._negacaoDano);
             _atingido._vidaAtual -= _danoSofrido;
             _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);

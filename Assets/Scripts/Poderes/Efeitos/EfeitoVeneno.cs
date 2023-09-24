@@ -12,12 +12,12 @@ public class EfeitoVeneno : Efeito
     }
     public override void Aplicar(Ser_Vivo _atacante, Ser_Vivo _vitima)
     {
-        _vitima._efeitoEnvenenar._acumuloAtual += _atacante._efeitoEnvenenar._infligirAcumulo;
-        if(_vitima._efeitoEnvenenar._acumuloAtual >= _vitima._efeitoEnvenenar._acumuloMax)
+        _vitima._poderVeneno._status._acumuloAtual += _atacante._poderVeneno._status._infligirAcumulo;
+        if(_vitima._poderVeneno._status._acumuloAtual >= _vitima._poderVeneno._status._acumuloMax)
         {
             base.Aplicar(_atacante, _vitima);
-            Utilidades.AplicarDano(_vitima, Utilidades.ArredondarNegativo(_atacante._efeitoEnvenenar._dano - _vitima._efeitoEnvenenar._negacaoDano), 45, 3, _cor);
-            _vitima._efeitoEnvenenar._acumuloAtual = 0;
+            Utilidades.AplicarDano(_vitima, Utilidades.ArredondarNegativo(_atacante._poderVeneno._status._dano - _vitima._poderVeneno._status._negacaoDano), 45, 3, _cor);
+            _vitima._poderVeneno._status._acumuloAtual = 0;
             InstanciarParticulaEfeito(45, _vitima, _atacante);
         }
     }
@@ -30,7 +30,7 @@ public class EfeitoVeneno : Efeito
         {
             var _config = _particula.main;
             var _emissao = _particula.emission;
-            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._efeitoEnvenenar._dano - _vitima._efeitoEnvenenar._negacaoDano) / (_vitima._vidaMax * 0.07f) * _emissao.rateOverTime.constant));
+            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderVeneno._status._dano - _vitima._poderVeneno._status._negacaoDano) / (_vitima._vidaMax * 0.07f) * _emissao.rateOverTime.constant));
             _config.duration = _duracao;
         }
         Destroy(_instanciaParticula, _duracao);

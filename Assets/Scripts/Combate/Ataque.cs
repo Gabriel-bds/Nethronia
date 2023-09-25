@@ -12,7 +12,8 @@ using UnityEngine.AI;
 [Serializable]
 public class Ataque : MonoBehaviour
 {
-    public Efeito _efeitoAplicado;
+    private Efeito _efeitoAplicado;
+    public Tipo_Dano _tipoDano;
     [Range(0f, 100f)] [SerializeField] float _dano;
     [Range(0f, 100f)] [SerializeField] float _repulsao;
     public float _tempoRecarga;
@@ -31,7 +32,29 @@ public class Ataque : MonoBehaviour
         if (((1 << collision.gameObject.layer) & _alvos) != 0)
         {
             Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
-            float _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * (_dono._danoFisicoMax - _atingido._poderResistencia._negacaoDano));
+            float _danoSofrido = 0;
+            switch(_tipoDano)
+            {
+                case Tipo_Dano.Físico:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._danoFisicoMax - _atingido._poderResistencia._negacaoDano);
+                    break;
+
+                case Tipo_Dano.Fogo:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderFogo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderFogo._negacaoDano);
+                    break;
+
+                case Tipo_Dano.Gelo:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderGelo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderGelo._negacaoDano);
+                    break;
+
+                case Tipo_Dano.Veneno:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderVeneno._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderVeneno._negacaoDano);
+                    break;
+
+                case Tipo_Dano.Eletricidade:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderEletricidade._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderEletricidade._negacaoDano);
+                    break;
+            }
             _atingido._vidaAtual -= _danoSofrido;
             _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);

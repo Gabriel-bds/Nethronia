@@ -52,17 +52,16 @@ public class Ser_Vivo : MonoBehaviour
 
     protected virtual void Start()
     {
-        DefinirAtributos();
+        _mao = GetComponentInChildren<Mao>().gameObject;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _mao = GetComponentInChildren<Mao>().gameObject;
-        _vidaAtual = _vidaMax;
         if (_barraVida == null)
         {
             _barraVida = GetComponentInChildren<Barra_Vida>();
         }
         _corBase = Color.white;
         _corBaseMao = Color.white;
+        DefinirAtributos();
     }
     protected virtual void Update()
     {
@@ -250,12 +249,27 @@ public class Ser_Vivo : MonoBehaviour
         _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 5f, Utilidades.Escala(_poderVitalidade._nivel, 5, -0.01f));
         _poderVitalidade._rouboVida = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.05f);
         _vidaMax += _poderVitalidade._acrescimoVidaMax;
+        _vidaAtual = _vidaMax;
 
         //Velocidade
-        _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 50, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
+        _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 30, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
         _poderVelocidade._acrescimoVelocidadeAnimações = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
         _poderVelocidade._reducaoRecargaAtaques = Utilidades.ArredondarNegativo(Utilidades.Escala(_poderVelocidade._nivel, 0, 0.005f));
-        _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 1f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
+        _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 0.99f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
+        _velocidadeMovimento += _poderVelocidade._acrescimoVelocidadeMovimento;
+        GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
+        _mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
+        foreach(GameObject _atq in _mao.GetComponent<Mao>()._ataques)
+        {
+            if(_atq.GetComponent<Ataque>() != null)
+            {
+                _atq.GetComponent<Ataque>()._tempoRecarga -= _poderVelocidade._reducaoRecargaAtaques;
+            }
+            else
+            {
+                _atq.GetComponent<Projetil>()._tempoRecarga -= _poderVelocidade._reducaoRecargaAtaques;
+            }
+        }
 
         //Fogo
         _poderFogo._dano = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);

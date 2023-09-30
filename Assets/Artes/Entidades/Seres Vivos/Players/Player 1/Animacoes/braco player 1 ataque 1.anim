@@ -133,7 +133,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5833333
+  - time: 0.5416667
     functionName: TravarMao
     data: 
     objectReferenceParameter: {fileID: 0}

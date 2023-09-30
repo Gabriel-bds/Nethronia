@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -96,6 +97,20 @@ public class Utilidades : MonoBehaviour
         _instanciaNumeroDano.GetComponent<TextMeshPro>().color = _cor;
         _instanciaNumeroDano.GetComponent<TextMeshPro>().fontSize = _tamanho;
     }
+    public static void AplicarDano(Ser_Vivo _vitima, float _dano)
+    {
+        _vitima._vidaAtual -= _dano;
+        _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+        InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
+
+    }
+    public static void AplicarDano(Ser_Vivo _vitima, float _dano, Color _corNumeroDano)
+    {
+        _vitima._vidaAtual -= _dano;
+        _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+        InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corNumeroDano);
+
+    }
     public static async void AplicarDano(Ser_Vivo _vitima, float _dano, int _duracao, int _intervalo) 
     {
         for(int _vez=0; _vez <_duracao /_intervalo; _vez++)
@@ -104,6 +119,16 @@ public class Utilidades : MonoBehaviour
             _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
             await Task.Delay(_intervalo * 1000);
+        }
+    }
+    public static async void AplicarDano(Ser_Vivo _vitima, float _dano, float _duracao, float _intervalo)
+    {
+        for (int _vez = 0; _vez < _duracao / _intervalo; _vez++)
+        {
+            _vitima._vidaAtual -= _dano;
+            _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+            InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
+            await Task.Delay((int)Math.Ceiling(_intervalo * 1000));
         }
     }
     public static async void AplicarDano(Ser_Vivo _vitima, float _dano, int _duracao, int _intervalo, Color _corDano)

@@ -158,9 +158,36 @@ public class Ser_Vivo : MonoBehaviour
     {
         _animator.SetFloat("Vida", _vidaAtual);
         _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
+        if(_vidaAtual < _vidaMax)
+        {
+            if (!_poderVitalidade._estaRegenerando)
+            {
+                RegenerarVida();
+            }
+        }
+        else
+        {
+            _poderVitalidade._estaRegenerando = false;
+        }
+        if(_vidaAtual > _vidaMax)
+        {
+            _vidaAtual = _vidaMax;
+        }
         if (_vidaAtual < 1e-05)
         {
             _mao.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+    public async void RegenerarVida()
+    {
+        for (float _vidaAtual = this._vidaAtual; _vidaAtual < _vidaMax; _vidaAtual = this._vidaAtual)
+        {
+            _poderVitalidade._estaRegenerando = true;
+            await System.Threading.Tasks.Task.Delay((int)Math.Ceiling(_poderVitalidade._intervaloCura * 1000));
+            this._vidaAtual += _poderVitalidade._valorCura;
+            _barraVida.AtualizarVida(_vidaMax, this._vidaAtual);
+            Utilidades.InstanciarNumeroDano((_poderVitalidade._valorCura).ToString(), transform, Color.green);
+            _poderVitalidade._estaRegenerando = false;
         }
     }
     public void Knockback(float _knockback, Vector2 _distancia)
@@ -189,6 +216,8 @@ public class Ser_Vivo : MonoBehaviour
         if (GetComponent<NavMeshAgent>() != null)
         {
             GetComponent<NavMeshAgent>().enabled = false;
+            Player _player = FindAnyObjectByType<Player>();
+            Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
         }
         StartCoroutine(DestruirCorpo(_tempo));
     }
@@ -220,7 +249,6 @@ public class Ser_Vivo : MonoBehaviour
         _poderVitalidade._valorCura = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.01f);
         _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 5f, Utilidades.Escala(_poderVitalidade._nivel, 5, -0.01f));
         _poderVitalidade._rouboVida = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.05f);
-        _poderVitalidade._vidasExtras = Utilidades.LimitadorNumero(0, 3, Utilidades.Escala(_poderVitalidade._nivel, 0, 50));
         _vidaMax += _poderVitalidade._acrescimoVidaMax;
 
         //Velocidade

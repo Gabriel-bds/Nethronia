@@ -30,13 +30,13 @@ public class EfeitoIncinerar : Efeito
         GameObject _instanciaParticula = Instantiate(_particulaEfeito, _vitima.gameObject.transform);
         _instanciaParticula.transform.position = new Vector2(_vitima.gameObject.GetComponent<Collider2D>().bounds.center.x, _vitima.gameObject.GetComponent<Collider2D>().bounds.center.y - _vitima.gameObject.GetComponent<Collider2D>().bounds.extents.y);
         Light2D _luz = _instanciaParticula.GetComponentInChildren<Light2D>();
-        _luz.intensity = Utilidades.LimitadorNumero(0, _luz.intensity, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.1f) * _luz.intensity);
+        _luz.intensity = Utilidades.LimitadorNumero(0, _luz.intensity, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _luz.intensity);
         ParticleSystem[] _particulas =  _instanciaParticula.GetComponentsInChildren<ParticleSystem>();
         foreach(ParticleSystem _particula in _particulas)
         {
             var _config = _particula.main;
             var _emissao = _particula.emission;
-            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.1f) * _emissao.rateOverTime.constant));
+            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _emissao.rateOverTime.constant));
             _config.duration = _duracao;
         }
         Destroy(_instanciaParticula, _duracao);
@@ -46,16 +46,12 @@ public class EfeitoIncinerar : Efeito
         GameObject _instanciaParticula = Instantiate(_particulaExplosao, _vitima.transform.position, Quaternion.Euler(0,0,0));
         _instanciaParticula.transform.position = new Vector2(_vitima.gameObject.GetComponent<Collider2D>().bounds.center.x, _vitima.gameObject.GetComponent<Collider2D>().bounds.center.y);
         ParticleSystem[] _particulas = _instanciaParticula.GetComponentsInChildren<ParticleSystem>();
-        float _particulaMaior = 0;
         foreach (ParticleSystem _particula in _particulas)
         {
             var _config = _particula.main;
-            _config.startLifetime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _config.startLifetime.constant, _atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.1f) * _config.startLifetime.constant);
-            if(_config.duration + _config.startLifetime.constant > _particulaMaior)
-            {
-                _particulaMaior = _config.duration + _config.startLifetime.constant;
-            }
+            var _emissao = _particula.emission;
+            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _emissao.rateOverTime.constant));
         }
-        Destroy(_instanciaParticula, _particulaMaior);
+        Destroy(_instanciaParticula, 2);
     }
 }

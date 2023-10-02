@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2819042560779362940}
   - component: {fileID: 5764511211257206898}
   - component: {fileID: -6170245253528977393}
-  - component: {fileID: 213630937679563563}
+  - component: {fileID: 5296284780405002238}
   m_Layer: 0
   m_Name: Ataque 1 Player
   m_TagString: Untagged
@@ -82,10 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6ce94a7b8abe04c976ac5dd24e798a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tipoDano: 3
+  _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _tempoRecarga: 1
+  _tempoRecarga: -24.3
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -237,7 +237,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &213630937679563563
+--- !u!114 &5296284780405002238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1398755498870554847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4f25c3d8d7c99439714e747c30cdf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 219939f2babc3794fae698b2d9d9ef5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1820297805603077135

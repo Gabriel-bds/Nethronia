@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class EfeitoFulminar : Efeito
 {
@@ -21,19 +22,23 @@ public class EfeitoFulminar : Efeito
             base.Aplicar(_atacante, _vitima);
             _vitima._poderEletricidade._status._acumuloAtual = 0;
             CircleCollider2D _area =  CriarArea(_vitima, _atacante);
-            GameObject _instanciaParticula =  Instantiate(_particulaExplosao, _vitima.transform.position, Quaternion.Euler(0, 0, 0));
-            var _configuracao = _instanciaParticula.GetComponent<ParticleSystem>().main;
-            _configuracao.startLifetime = _area.radius / 15 * 0.35f;
+            GameObject _instanciaParticula =  Instantiate(_particulaExplosao, new Vector2(_vitima.gameObject.GetComponent<Collider2D>().bounds.center.x, _vitima.gameObject.GetComponent<Collider2D>().bounds.center.y), Quaternion.Euler(0, 0, 0));
+            var _configuracao = _instanciaParticula.GetComponentInChildren<ParticleSystem>().main;
+            Light2D _luz = _instanciaParticula.GetComponentInChildren<Light2D>();
+            _luz.pointLightOuterRadius = _area.radius * 1.5f;
+            _luz.pointLightInnerRadius = _area.radius * 0.5f;
+            _configuracao.startLifetime = _area.radius * 0.1f;
+            Destroy(_instanciaParticula, 1.5f);
         }
     }
     CircleCollider2D CriarArea(Ser_Vivo _vitima, Ser_Vivo _atacante)
     {
         GameObject _area = new GameObject();
-        GameObject _intanciaArea = Instantiate(_area, _vitima.transform.position, _vitima.transform.rotation);
+        GameObject _intanciaArea = Instantiate(_area, new Vector2(_vitima.gameObject.GetComponent<Collider2D>().bounds.center.x, _vitima.gameObject.GetComponent<Collider2D>().bounds.center.y), _vitima.transform.rotation);
         _intanciaArea.AddComponent<CircleCollider2D>();
         _intanciaArea.tag = "Combate/Area eletrica";
         _intanciaArea.GetComponent<CircleCollider2D>().isTrigger = true;
-        _intanciaArea.GetComponent<CircleCollider2D>().radius = Utilidades.LimitadorNumero(1, 15,_atacante._poderEletricidade._status._utilidade1 - _vitima._poderEletricidade._status._negacaoUtilidade1);
+        _intanciaArea.GetComponent<CircleCollider2D>().radius = Utilidades.LimitadorNumero(3, 10,_atacante._poderEletricidade._status._utilidade1 - _vitima._poderEletricidade._status._negacaoUtilidade1);
         _intanciaArea.AddComponent<AreaEletricidade>();
         _intanciaArea.GetComponent<AreaEletricidade>()._atacante = _atacante;
         _intanciaArea.GetComponent<AreaEletricidade>()._vitima = _vitima;

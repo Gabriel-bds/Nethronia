@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
 
@@ -22,7 +23,9 @@ public class Ser_Vivo : MonoBehaviour
     public float _repulsaoFisicaMax = 0.2f;
     public float _negacaoRepulsao;
     public float _velocidadeMovimento;
+    public int _nivelGeral = 0;
     public int _experiencia;
+    public int _experienciaParaProximoNivel;
 
     [Header("Poderes:")]
     public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
@@ -203,6 +206,19 @@ public class Ser_Vivo : MonoBehaviour
         }
 
     }
+    void AdicionarExperiencia(Ser_Vivo _player)
+    {
+        _player._experiencia += _experiencia;
+        Debug.Log(_experiencia);
+        if(_player._experiencia >= _player._experienciaParaProximoNivel)
+        {
+            _player._experiencia -= _player._experienciaParaProximoNivel;
+            _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);
+        }
+        Barra_Xp _barraXp = FindAnyObjectByType<Barra_Xp>();
+        _barraXp.AtualizarBarra();
+        Utilidades.InstanciarNumeroDano($"+{_experiencia}Exp", _player.transform);
+    }
     public void Morte(float _tempo)
     {
         GetComponent<Collider2D>().enabled = false;
@@ -217,16 +233,14 @@ public class Ser_Vivo : MonoBehaviour
             GetComponent<NavMeshAgent>().enabled = false;
             Player _player = FindAnyObjectByType<Player>();
             Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
+            AdicionarExperiencia(_player);
+
         }
         StartCoroutine(DestruirCorpo(_tempo));
     }
     IEnumerator DestruirCorpo(float _tempo)
     {
         yield return new WaitForSeconds(_tempo);
-        if (GetComponent<Inimigo>() != null)
-        {
-            FindAnyObjectByType(typeof(Player)).GetComponent<Player>()._experiencia += _experiencia;
-        }
         Destroy(gameObject);
     }
     void DefinirAtributos()

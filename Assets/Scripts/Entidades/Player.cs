@@ -9,6 +9,10 @@ using UnityEngine;
 
 public class Player : Ser_Vivo
 {
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     protected override void Update()
     {
         base.Update();

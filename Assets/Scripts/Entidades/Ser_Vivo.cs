@@ -52,12 +52,14 @@ public class Ser_Vivo : MonoBehaviour
     [Header("Sons:")]
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
 
-
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         _mao = GetComponentInChildren<Mao>().gameObject;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+    }
+    protected virtual void Start()
+    {
         if (_barraVida == null)
         {
             _barraVida = GetComponentInChildren<Barra_Vida>();

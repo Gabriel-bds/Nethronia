@@ -7,9 +7,10 @@ using UnityEngine.AI;
 public class Inimigo : Ser_Vivo
 {
     private NavMeshAgent _agent;
-
-    //[HideInInspector] public bool _travarAgent;
-    // Start is called before the first frame update
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     protected override void Start()
     {
         base.Start();

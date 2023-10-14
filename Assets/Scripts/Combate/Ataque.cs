@@ -8,6 +8,7 @@ using System;
 using UnityEditor.U2D.Aseprite;
 using TMPro;
 using UnityEngine.AI;
+using System.Threading.Tasks;
 
 [Serializable]
 public class Ataque : MonoBehaviour
@@ -17,14 +18,17 @@ public class Ataque : MonoBehaviour
     [Range(0f, 100f)] [SerializeField] float _dano;
     [Range(0f, 100f)] [SerializeField] float _repulsao;
     public float _tempoRecarga;
+    [HideInInspector] public float _tempoAtual;
     [SerializeField] LayerMask _alvos;
     [SerializeField] Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
+    [SerializeField] int _numeroQuadro;
     [SerializeField] AudioSource _somHit;
 
     private void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
+        DefinirTempo();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,6 +82,25 @@ public class Ataque : MonoBehaviour
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
 
             _somHit.Play();
+        }
+    }
+    async void DefinirTempo()
+    {
+        _tempoAtual = _tempoRecarga;
+        Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
+        Quadro_Habilidade _quadro = new Quadro_Habilidade();
+        foreach(Quadro_Habilidade q in _quadros)
+        {
+            if(q._numeroQuadro == _numeroQuadro)
+            {
+                _quadro = q;
+            }
+        }
+        _quadro.CarregarHabilidade(_tempoAtual, _tempoRecarga);
+        for(float t = _tempoAtual; t > 0; t -= Time.deltaTime)
+        {
+            _tempoAtual = t;
+            await Task.Delay(1);
         }
     }
 

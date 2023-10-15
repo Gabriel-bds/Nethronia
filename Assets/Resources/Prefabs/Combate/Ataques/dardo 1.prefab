@@ -229,21 +229,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a86c61109bf7941a5a306629d41832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icone: {fileID: 0}
+  _idAtaque: 2
+  _tipoDano: 0
   _dano: 100
   _repulsao: 100
-  _velocidade: 15
   _tempoRecarga: 5
-  _tempoDeVida: 5
+  _tempoAtual: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 256
+  _corDano: {r: 0.19318059, g: 0.46226418, b: 0.1250148, a: 1}
+  _dono: {fileID: 0}
+  _numeroQuadro: 0
+  _somHit: {fileID: 0}
+  _velocidade: 15
+  _tempoDeVida: 5
   _colisoes:
     serializedVersion: 2
     m_Bits: 256
-  _corDano: {r: 0.19318059, g: 0.46226418, b: 0.1250148, a: 1}
-  _numeroDano: {fileID: -2868294718686178116, guid: 90db76f3c9cc597408344c9ce7f9d7b1, type: 3}
   _quebrandoSom: {fileID: 5082428435521603072}
-  _dono: {fileID: 0}
 --- !u!50 &612469773770839907
 Rigidbody2D:
   serializedVersion: 4

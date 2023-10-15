@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 public class Ataque : MonoBehaviour
 {
     public Sprite _icone;
+    public int _idAtaque;
     private Efeito _efeitoAplicado;
     public Tipo_Dano _tipoDano;
     [Range(0f, 100f)] [SerializeField] float _dano;

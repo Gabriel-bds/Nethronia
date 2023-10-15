@@ -28,10 +28,22 @@ public class Player : Ser_Vivo
         _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
         if (Input.GetMouseButtonDown(0))
         {
-            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
+            Ataque _atq = new Ataque();
+            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
+            foreach (GameObject o in _ataques)
             {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", 1);
+                if (o.GetComponent<Ataque>()._numeroQuadro == 0)
+                {
+                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
+                    {
+                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
+                    }
+                }
             }
+            /*if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
+            {
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
+            }*/
         }
         if(Input.GetMouseButtonDown(1)) 
         {

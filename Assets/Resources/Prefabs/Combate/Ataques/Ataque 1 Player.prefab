@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: 390ad66b5e490784b9766705b750b79f, type: 3}
+  _idAtaque: 1
   _tipoDano: 0
   _dano: 75
   _repulsao: 100
@@ -93,7 +94,7 @@ MonoBehaviour:
     m_Bits: 512
   _corDano: {r: 1, g: 0, b: 0, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 2
+  _numeroQuadro: 0
   _somHit: {fileID: 3174268678380704388}
 --- !u!61 &8848848721308651987
 BoxCollider2D:

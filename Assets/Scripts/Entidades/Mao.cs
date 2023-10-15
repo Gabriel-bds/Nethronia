@@ -72,7 +72,16 @@ public class Mao : MonoBehaviour
     }
     public void InstanciarAtaque(int _numeroAtaque)
     {
-        Ataque _atq = Instantiate(_ataques[_numeroAtaque], _spawnsAtaques[_numeroAtaque].position, _spawnsAtaques[_numeroAtaque].rotation).GetComponent<Ataque>();
+        Ataque _atq = new Ataque();
+        int _indiceAtq = 0;
+        foreach (GameObject o in _ataques)
+        {
+            if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
+            {
+                _atq = Instantiate(_ataques[_indiceAtq], _spawnsAtaques[_indiceAtq].position, _spawnsAtaques[_indiceAtq].rotation).GetComponent<Ataque>();
+            }
+            _indiceAtq += 1;
+        }
         _atq._dono = _dono;
         _atq.gameObject.transform.localScale = _dono.transform.localScale;
         StartCoroutine(ResetarAtaque(_numeroAtaque, _atq._tempoRecarga));
@@ -96,7 +105,16 @@ public class Mao : MonoBehaviour
     }
     IEnumerator ResetarAtaque(int _numeroAtaque, float _tempoReset)
     {
-        GameObject _atq = _ataques[_numeroAtaque];
+        GameObject _atq = new GameObject();
+        int _indiceAtq = 0;
+        foreach (GameObject o in _ataques)
+        {
+            if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
+            {
+                _atq = o;
+            }
+            _indiceAtq += 1;
+        }
         _ataquesDisponiveis.Remove(_atq);
         yield return new WaitForSeconds(_tempoReset);
         _ataquesDisponiveis.Add(_atq);

@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 612469773770839907}
   - component: {fileID: 7691312128443339701}
   - component: {fileID: 8279003787504765710}
+  - component: {fileID: -71146883265091906}
   m_Layer: 0
   m_Name: dardo
   m_TagString: Untagged
@@ -229,21 +230,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a86c61109bf7941a5a306629d41832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _velocidade: 15
   _tempoRecarga: 2
-  _tempoDeVida: 5
+  _tempoAtual: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 256
+  _corDano: {r: 1, g: 0, b: 0, a: 1}
+  _dono: {fileID: 0}
+  _numeroQuadro: 0
+  _somHit: {fileID: 0}
+  _velocidade: 15
+  _tempoDeVida: 5
   _colisoes:
     serializedVersion: 2
     m_Bits: 256
-  _corDano: {r: 1, g: 0, b: 0, a: 1}
-  _numeroDano: {fileID: -2868294718686178116, guid: 90db76f3c9cc597408344c9ce7f9d7b1, type: 3}
   _quebrandoSom: {fileID: 8136683283121331279}
-  _dono: {fileID: 0}
 --- !u!50 &612469773770839907
 Rigidbody2D:
   serializedVersion: 4
@@ -337,6 +341,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-71146883265091906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215243577983026014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4f25c3d8d7c99439714e747c30cdf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3966742425889719609
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 [Serializable]
 public class Ataque : MonoBehaviour
 {
+    public Sprite _icone;
     private Efeito _efeitoAplicado;
     public Tipo_Dano _tipoDano;
     [Range(0f, 100f)] [SerializeField] float _dano;
@@ -22,16 +23,16 @@ public class Ataque : MonoBehaviour
     [SerializeField] LayerMask _alvos;
     [SerializeField] Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
-    [SerializeField] int _numeroQuadro;
+    public int _numeroQuadro;
     [SerializeField] AudioSource _somHit;
 
-    private void Start()
+    protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
-        DefinirTempo();
+        DefinirTempoRecarga();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (((1 << collision.gameObject.layer) & _alvos) != 0)
         {
@@ -84,23 +85,26 @@ public class Ataque : MonoBehaviour
             _somHit.Play();
         }
     }
-    async void DefinirTempo()
+    async void DefinirTempoRecarga()
     {
-        _tempoAtual = _tempoRecarga;
-        Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
-        Quadro_Habilidade _quadro = new Quadro_Habilidade();
-        foreach(Quadro_Habilidade q in _quadros)
+        if (_dono.GetComponent<Player>() != null)
         {
-            if(q._numeroQuadro == _numeroQuadro)
+            _tempoAtual = _tempoRecarga;
+            Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
+            Quadro_Habilidade _quadro = new Quadro_Habilidade();
+            foreach (Quadro_Habilidade q in _quadros)
             {
-                _quadro = q;
+                if (q._numeroQuadro == _numeroQuadro)
+                {
+                    _quadro = q;
+                }
             }
-        }
-        _quadro.CarregarHabilidade(_tempoAtual, _tempoRecarga);
-        for(float t = _tempoAtual; t > 0; t -= Time.deltaTime)
-        {
-            _tempoAtual = t;
-            await Task.Delay(1);
+            _quadro.CarregarHabilidade(_tempoAtual, _tempoRecarga);
+            for (float t = _tempoAtual; t > 0; t -= Time.deltaTime)
+            {
+                _tempoAtual = t;
+                await Task.Delay(1);
+            }
         }
     }
 

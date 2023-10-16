@@ -48,8 +48,16 @@ public class Projetil : Ataque
     void IniciarDestruicao()
     {
         _velocidade = 0;
-        Animator _animator = GetComponent<Animator>();
-        _animator.SetBool("Destruir", true);
+        if(GetComponent<Animator>() != null)
+        {
+            Animator _animator = GetComponent<Animator>();
+            _animator.SetBool("Destruir", true);
+        }
+        if(GetComponent<ParticleSystem>() != null)
+        {
+            ParticleSystem _particula = GetComponent<ParticleSystem>();
+            _particula.Stop();
+        }
     }
     public void AutoDestruir()
     {

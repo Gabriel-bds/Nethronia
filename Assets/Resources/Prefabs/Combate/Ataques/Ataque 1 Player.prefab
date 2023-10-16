@@ -87,14 +87,14 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _tempoRecarga: 3
+  _tempoRecarga: 2
   _tempoAtual: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 1, g: 0, b: 0, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 0
+  _numeroQuadro: 1
   _somHit: {fileID: 3174268678380704388}
 --- !u!61 &8848848721308651987
 BoxCollider2D:

@@ -26,7 +26,7 @@ public class Player : Ser_Vivo
     void Atacar()
     {
         _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
         {
             Ataque _atq = new Ataque();
             List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
@@ -41,9 +41,35 @@ public class Player : Ser_Vivo
                 }
             }
         }
-        if(Input.GetMouseButtonDown(1)) 
+        if(Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(0)) 
         {
-            CongelarTempo();
+            Ataque _atq = new Ataque();
+            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
+            foreach (GameObject o in _ataques)
+            {
+                if (o.GetComponent<Ataque>()._numeroQuadro == 1)
+                {
+                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
+                    {
+                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
+                    }
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
+        {
+            Ataque _atq = new Ataque();
+            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
+            foreach (GameObject o in _ataques)
+            {
+                if (o.GetComponent<Ataque>()._numeroQuadro == 2)
+                {
+                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
+                    {
+                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
+                    }
+                }
+            }
         }
     }
     public void CongelarTempo()

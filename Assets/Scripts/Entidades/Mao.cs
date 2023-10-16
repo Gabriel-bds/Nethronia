@@ -10,7 +10,7 @@ public class Mao : MonoBehaviour
     public float _latenciaMira;
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
-    [HideInInspector] public List<GameObject> _ataquesDisponiveis = new List<GameObject>();
+    public List<GameObject> _ataquesDisponiveis = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
     [SerializeField] public Transform[] _spawnsAtaques;
     public int _travar;
@@ -85,12 +85,6 @@ public class Mao : MonoBehaviour
         _atq._dono = _dono;
         _atq.gameObject.transform.localScale = _dono.transform.localScale;
         StartCoroutine(ResetarAtaque(_numeroAtaque, _atq._tempoRecarga));
-    }
-    public void InstanciarProjetil(int _numeroAtaque)
-    {
-        Projetil _projetil = Instantiate(_ataques[_numeroAtaque], _spawnsAtaques[_numeroAtaque].position, _spawnsAtaques[_numeroAtaque].rotation).GetComponent<Projetil>();
-        _projetil._dono = _dono;
-        StartCoroutine(ResetarAtaque(_numeroAtaque, _projetil._tempoRecarga));
     }
     public void TravarMao(int _travarMao)
     {

@@ -40,10 +40,6 @@ public class Player : Ser_Vivo
                     }
                 }
             }
-            /*if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
-            }*/
         }
         if(Input.GetMouseButtonDown(1)) 
         {

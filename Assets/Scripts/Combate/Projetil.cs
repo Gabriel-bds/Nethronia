@@ -58,6 +58,15 @@ public class Projetil : Ataque
             ParticleSystem _particula = GetComponent<ParticleSystem>();
             _particula.Stop();
         }
+        if(GetComponentInChildren<ParticleSystem>() != null)
+        {
+            ParticleSystem[] _particulas = GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem _particula in _particulas)
+            {
+                _particula.Stop();
+            }
+            AutoDestruir();
+        }
     }
     public void AutoDestruir()
     {

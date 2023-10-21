@@ -27,7 +27,7 @@ public class EfeitoFulminar : Efeito
             Light2D _luz = _instanciaParticula.GetComponentInChildren<Light2D>();
             _luz.pointLightOuterRadius = _area.radius * 1.5f;
             _luz.pointLightInnerRadius = _area.radius * 0.5f;
-            _configuracao.startLifetime = _area.radius * 0.1f;
+            _configuracao.startLifetime = _area.radius * 0.05f;
             Destroy(_instanciaParticula, 1.5f);
         }
     }

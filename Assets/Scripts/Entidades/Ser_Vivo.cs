@@ -209,7 +209,6 @@ public class Ser_Vivo : MonoBehaviour
     void AdicionarExperiencia(Ser_Vivo _player)
     {
         _player._experiencia += _experiencia;
-        Debug.Log(_experiencia);
         if(_player._experiencia >= _player._experienciaParaProximoNivel)
         {
             _player._experiencia -= _player._experienciaParaProximoNivel;
@@ -234,7 +233,6 @@ public class Ser_Vivo : MonoBehaviour
             Player _player = FindAnyObjectByType<Player>();
             Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
             AdicionarExperiencia(_player);
-
         }
         StartCoroutine(DestruirCorpo(_tempo));
     }

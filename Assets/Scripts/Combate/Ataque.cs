@@ -35,7 +35,6 @@ public class Ataque : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & _alvos) != 0)
         {
-            Debug.Log("Acertou");
             Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
             float _danoSofrido = 0;
             switch(_tipoDano)

@@ -37,26 +37,35 @@ public class Ataque : MonoBehaviour
         {
             Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
             float _danoSofrido = 0;
-            switch(_tipoDano)
+
+            Vector2 _distancia = (Vector2)(collision.transform.position - _dono.transform.position).normalized;
+
+            switch (_tipoDano)
             {
                 case Tipo_Dano.Físico:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._danoFisicoMax - _atingido._poderResistencia._negacaoDano);
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderForca._dano - _atingido._poderResistencia._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderForca._repulsao - _atingido._poderResistencia._negacaoRepulsao), _distancia);
                     break;
 
                 case Tipo_Dano.Fogo:
                     _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderFogo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderFogo._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderFogo._repulsao - _atingido._poderFogo._negacaoRepulsao), _distancia);
+
                     break;
 
                 case Tipo_Dano.Gelo:
                     _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderGelo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderGelo._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderGelo._repulsao - _atingido._poderGelo._negacaoRepulsao), _distancia);
                     break;
 
                 case Tipo_Dano.Veneno:
                     _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderVeneno._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderVeneno._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderVeneno._repulsao - _atingido._poderVeneno._negacaoRepulsao), _distancia);
                     break;
 
                 case Tipo_Dano.Eletricidade:
                     _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderEletricidade._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderEletricidade._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
                     break;
             }
             _atingido._vidaAtual -= _danoSofrido;
@@ -69,9 +78,6 @@ public class Ataque : MonoBehaviour
             ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, _atingido.transform.rotation).GetComponent<ParticleSystem>();
             var _emissao = _objSangue.emission;
             _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * 2000;
-
-            Vector2 _distancia = (Vector2)(collision.transform.position - _dono.transform.position).normalized;
-            _atingido.Knockback(_repulsao / 100 * (_dono._repulsaoFisicaMax - _atingido._poderResistencia._negacaoRepulsao), _distancia);
 
             if(_efeitoAplicado != null) 
             {

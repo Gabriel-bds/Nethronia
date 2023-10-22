@@ -4859,7 +4859,7 @@ MonoBehaviour:
     m_Bits: 512
   _corDano: {r: 0.2730146, g: 0.5943396, b: 0.22241005, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 1
+  _numeroQuadro: 2
   _somHit: {fileID: 3458804620226726342}
   _velocidade: 15
   _tempoDeVida: 15

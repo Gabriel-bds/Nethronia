@@ -48,7 +48,6 @@ public class EfeitoIncinerar : Efeito
         ParticleSystem[] _particulas = _instanciaParticula.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem _particula in _particulas)
         {
-            var _config = _particula.main;
             var _emissao = _particula.emission;
             _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _emissao.rateOverTime.constant));
         }

@@ -118,7 +118,7 @@ MonoBehaviour:
   _tipoDano: 3
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 3
+  _tempoRecarga: 1
   _tempoAtual: 0
   _alvos:
     serializedVersion: 2

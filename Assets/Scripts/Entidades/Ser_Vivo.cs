@@ -16,10 +16,6 @@ public class Ser_Vivo : MonoBehaviour
     [ReadOnly(true)]
     public float _vidaMax;
     public float _vidaAtual;
-    public float _danoFisicoMax = 5;
-    public float _negacaoDano;
-    public float _repulsaoFisicaMax = 0.2f;
-    public float _negacaoRepulsao;
     public float _velocidadeMovimento;
     public int _nivelGeral = 0;
     public int _experiencia;
@@ -72,7 +68,6 @@ public class Ser_Vivo : MonoBehaviour
         Virar();
         TemVida();
     }
-
     protected void Mover(float _direcaoX, float _direcaoY)
     {
         if (_travar == 0)
@@ -244,16 +239,12 @@ public class Ser_Vivo : MonoBehaviour
     void DefinirAtributos()
     {
         //Força:
-        _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 0, 1);
-        _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 0, 0.02f);
-        _danoFisicoMax += _poderForca._dano;
-        _repulsaoFisicaMax += _poderForca._repulsao;
+        _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);
+        _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 7.5f, 0.75f);
 
         //Resistência:
         _poderResistencia._negacaoDano = Utilidades.Escala(_poderResistencia._nivel, 0, 1);
-        _poderResistencia._negacaoRepulsao = Utilidades.Escala(_poderResistencia._nivel, 0, 0.02f);
-        _negacaoDano += _poderResistencia._negacaoDano;
-        _negacaoRepulsao += _poderResistencia._negacaoRepulsao;
+        _poderResistencia._negacaoRepulsao = Utilidades.Escala(_poderResistencia._nivel, 0, 0.75f);
 
         //Vitalidade:
         _poderVitalidade._acrescimoVidaMax = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.5f);
@@ -286,8 +277,8 @@ public class Ser_Vivo : MonoBehaviour
         //Fogo
         _poderFogo._dano = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);
         _poderFogo._negacaoDano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
-        _poderFogo._repulsao = Utilidades.Escala(_poderFogo._nivel, 0.15f, 0.015f);
-        _poderFogo._negacaoRepulsao = Utilidades.Escala(_poderFogo._nivel, 0, 0.015f);
+        _poderFogo._repulsao = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);
+        _poderFogo._negacaoRepulsao = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
         _poderFogo._status._dano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
         _poderFogo._status._negacaoDano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
         _poderFogo._status._infligirAcumulo = Utilidades.Escala(_poderFogo._nivel, 0f, 1f);
@@ -296,8 +287,8 @@ public class Ser_Vivo : MonoBehaviour
         //Gelo
         _poderGelo._dano = Utilidades.Escala(_poderGelo._nivel, 7.5f, 0.75f);
         _poderGelo._negacaoDano = Utilidades.Escala(_poderGelo._nivel, 0, 0.75f);
-        _poderGelo._repulsao = Utilidades.Escala(_poderGelo._nivel, 0.15f, 0.015f);
-        _poderGelo._negacaoRepulsao = Utilidades.Escala(_poderGelo._nivel, 0, 0.015f);
+        _poderGelo._repulsao = Utilidades.Escala(_poderGelo._nivel, 7.5f, 0.75f);
+        _poderGelo._negacaoRepulsao = Utilidades.Escala(_poderGelo._nivel, 0, 0.75f);
         _poderGelo._status._utilidade1 = Utilidades.Escala(_poderGelo._nivel, 30, 1.5f);
         _poderGelo._status._negacaoUtilidade1 = Utilidades.Escala(_poderGelo._nivel, 0, 1.5f);
         _poderGelo._status._infligirAcumulo = Utilidades.Escala(_poderGelo._nivel, 0f, 1f);
@@ -306,8 +297,8 @@ public class Ser_Vivo : MonoBehaviour
         //Veneno
         _poderVeneno._dano = Utilidades.Escala(_poderVeneno._nivel, 7.5f, 0.75f);
         _poderVeneno._negacaoDano = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.75f);
-        _poderVeneno._repulsao = Utilidades.Escala(_poderVeneno._nivel, 0.15f, 0.015f);
-        _poderVeneno._negacaoRepulsao = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.015f);
+        _poderVeneno._repulsao = Utilidades.Escala(_poderVeneno._nivel, 7.5f, 0.75f);
+        _poderVeneno._negacaoRepulsao = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.75f);
         _poderVeneno._status._dano = Utilidades.Escala(_poderVeneno._nivel, 0, 1f);
         _poderVeneno._status._negacaoDano = Utilidades.Escala(_poderVeneno._nivel, 0, 1f);
         _poderVeneno._status._infligirAcumulo = Utilidades.Escala(_poderVeneno._nivel, 0, 1f);
@@ -316,8 +307,8 @@ public class Ser_Vivo : MonoBehaviour
         //Eletricidade
         _poderEletricidade._dano = Utilidades.Escala(_poderEletricidade._nivel, 7.5f, 0.75f);
         _poderEletricidade._negacaoDano = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.75f);
-        _poderEletricidade._repulsao = Utilidades.Escala(_poderEletricidade._nivel, 0.15f, 0.015f);
-        _poderEletricidade._negacaoRepulsao = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.015f);
+        _poderEletricidade._repulsao = Utilidades.Escala(_poderEletricidade._nivel, 7.5f, 0.75f);
+        _poderEletricidade._negacaoRepulsao = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.75f);
         _poderEletricidade._status._dano = Utilidades.Escala(_poderEletricidade._nivel, 3.5f, 0.35f);
         _poderEletricidade._status._negacaoDano = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.35f);
         _poderEletricidade._status._utilidade1 = Utilidades.Escala(_poderEletricidade._nivel, 1, 0.28f);

@@ -876,7 +876,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4852,7 +4852,7 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 1
+  _tempoRecarga: -4
   _tempoAtual: 0
   _alvos:
     serializedVersion: 2

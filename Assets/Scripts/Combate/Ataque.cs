@@ -22,13 +22,11 @@ public class Ataque : MonoBehaviour
     [SerializeField] LayerMask _alvos;
     [SerializeField] Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
-    public int _numeroQuadro;
     [SerializeField] AudioSource _somHit;
 
     protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
-        DefinirTempoRecarga();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -90,10 +88,11 @@ public class Ataque : MonoBehaviour
             _somHit.Play();
         }
     }
-    async void DefinirTempoRecarga()
+    public void DefinirTempoRecarga(int _numeroQuadro)
     {
         if (_dono.GetComponent<Player>() != null)
         {
+            Debug.Log("Foi");
             _tempoAtual = _tempoRecarga;
             Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
             Quadro_Habilidade _quadro = new Quadro_Habilidade();
@@ -108,7 +107,6 @@ public class Ataque : MonoBehaviour
             for (float t = _tempoAtual; t > 0; t -= Time.deltaTime)
             {
                 _tempoAtual = t;
-                await Task.Delay(1);
             }
         }
     }

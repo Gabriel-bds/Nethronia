@@ -13,19 +13,7 @@ public class Quadro_Habilidade : MonoBehaviour
 
     private void Start()
     {
-        List<GameObject> _ataques = FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataques;
-        foreach (GameObject o in _ataques)
-        {
-            if (o.GetComponent<Ataque>()._numeroQuadro == _numeroQuadro)
-            {
-                _quadroHabilidade.sprite = o.GetComponent<Ataque>()._icone;
-                _quadroHabilidade.color = Color.white;
-            }
-        }
-        if (_quadroHabilidade.sprite == null)
-        {
-            Destroy(_quadroHabilidade.gameObject);
-        }
+        AtualizarQuadro();
     }
     public async void CarregarHabilidade(float _tempoAtual, float _tempoRecarga)
     {
@@ -33,6 +21,18 @@ public class Quadro_Habilidade : MonoBehaviour
         {
             _quadroNegro.fillAmount = (t - Time.deltaTime) / _tempoRecarga;
             await Task.Delay(1);
+        }
+    }
+    public void AtualizarQuadro()
+    {
+        _quadroHabilidade.sprite = FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataques[_numeroQuadro].GetComponent<Ataque>()._icone;
+        if(_quadroHabilidade.sprite != null)
+        {
+            _quadroHabilidade.color = Color.white;
+        }
+        else
+        {
+            _quadroHabilidade.color = new Color32(255, 255, 255, 0);
         }
     }
 }

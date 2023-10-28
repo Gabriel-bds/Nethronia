@@ -19,7 +19,11 @@ public class Mao : MonoBehaviour
     void Start()
     {
         _dono = GetComponentInParent<Ser_Vivo>();
-        _ataquesDisponiveis = _ataques;
+        foreach(GameObject _obj in _ataques)
+        {
+            _ataquesDisponiveis.Add(_obj);
+            _obj.GetComponent<Ataque>()._dono = _dono;
+        }
     }
 
     // Update is called once per frame
@@ -82,7 +86,6 @@ public class Mao : MonoBehaviour
             }
             _indiceAtq += 1;
         }
-        _atq._dono = _dono;
         _atq.gameObject.transform.localScale = _dono.transform.localScale;
         StartCoroutine(ResetarAtaque(_numeroAtaque, _atq._tempoRecarga));
     }
@@ -115,5 +118,4 @@ public class Mao : MonoBehaviour
     {
         _sons[_numeroNaLista].Play();
     }
-
 }

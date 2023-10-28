@@ -2,6 +2,7 @@ using Cinemachine;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,47 +28,26 @@ public class Player : Ser_Vivo
         _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
         if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
         {
-            Ataque _atq = new Ataque();
-            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
-            foreach (GameObject o in _ataques)
+            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[0]))
             {
-                if (o.GetComponent<Ataque>()._numeroQuadro == 0)
-                {
-                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
-                    {
-                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
-                    }
-                }
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
+                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(0);
             }
         }
         if(Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(0)) 
         {
-            Ataque _atq = new Ataque();
-            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
-            foreach (GameObject o in _ataques)
+            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[1]))
             {
-                if (o.GetComponent<Ataque>()._numeroQuadro == 1)
-                {
-                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
-                    {
-                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
-                    }
-                }
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._idAtaque);
+                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(1);
             }
         }
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
         {
-            Ataque _atq = new Ataque();
-            List<GameObject> _ataques = _mao.GetComponent<Mao>()._ataques;
-            foreach (GameObject o in _ataques)
+            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[2]))
             {
-                if (o.GetComponent<Ataque>()._numeroQuadro == 2)
-                {
-                    if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
-                    {
-                        _mao.GetComponent<Animator>().SetInteger("Ataque", o.GetComponent<Ataque>()._idAtaque);
-                    }
-                }
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._idAtaque);
+                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(2);
             }
         }
     }

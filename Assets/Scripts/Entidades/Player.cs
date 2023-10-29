@@ -31,7 +31,6 @@ public class Player : Ser_Vivo
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[0]))
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
-                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(0);
             }
         }
         if(Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(0)) 
@@ -39,7 +38,6 @@ public class Player : Ser_Vivo
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[1]))
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._idAtaque);
-                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(1);
             }
         }
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
@@ -47,7 +45,6 @@ public class Player : Ser_Vivo
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[2]))
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._idAtaque);
-                _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>().DefinirTempoRecarga(2);
             }
         }
     }

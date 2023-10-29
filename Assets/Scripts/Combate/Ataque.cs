@@ -92,7 +92,6 @@ public class Ataque : MonoBehaviour
     {
         if (_dono.GetComponent<Player>() != null)
         {
-            Debug.Log("Foi");
             _tempoAtual = _tempoRecarga;
             Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
             Quadro_Habilidade _quadro = new Quadro_Habilidade();

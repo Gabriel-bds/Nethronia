@@ -83,11 +83,13 @@ public class Mao : MonoBehaviour
             if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
             {
                 _atq = Instantiate(_ataques[_indiceAtq], _spawnsAtaques[_indiceAtq].position, _spawnsAtaques[_indiceAtq].rotation).GetComponent<Ataque>();
+                break;
             }
             _indiceAtq += 1;
         }
         _atq.gameObject.transform.localScale = _dono.transform.localScale;
         StartCoroutine(ResetarAtaque(_numeroAtaque, _atq._tempoRecarga));
+        _atq.DefinirTempoRecarga(_indiceAtq);
     }
     public void TravarMao(int _travarMao)
     {
@@ -113,6 +115,16 @@ public class Mao : MonoBehaviour
             }
             _indiceAtq += 1;
         }
+    }
+    public void AtualizarAtaque(int _index, GameObject _ataqueNovo)
+    {
+        _ataqueNovo.GetComponent<Ataque>()._dono = _dono;
+        if (_ataquesDisponiveis.Contains(_ataques[_index]))
+        {
+            _ataquesDisponiveis.Remove(_ataques[_index]);
+        }
+        _ataques[_index] = _ataqueNovo;
+        _ataquesDisponiveis.Add(_ataqueNovo);
     }
     public void IniciarSom(int _numeroNaLista)
     {

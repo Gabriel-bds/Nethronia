@@ -236,7 +236,7 @@ public class Ser_Vivo : MonoBehaviour
         yield return new WaitForSeconds(_tempo);
         Destroy(gameObject);
     }
-    void DefinirAtributos()
+    public void DefinirAtributos()
     {
         //Força:
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);

@@ -208,6 +208,7 @@ public class Ser_Vivo : MonoBehaviour
         {
             _player._experiencia -= _player._experienciaParaProximoNivel;
             _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);
+            _player.GetComponent<Player>()._pontosHabilidade += 1;
         }
         Barra_Xp _barraXp = FindAnyObjectByType<Barra_Xp>();
         _barraXp.AtualizarBarra();

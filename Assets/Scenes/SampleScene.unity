@@ -577,7 +577,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 877963787}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 877963787}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1035,7 +1047,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2067116417}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2067116417}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1768,6 +1792,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1058707548}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &299792931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,7 +2206,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 799176900}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 799176900}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3920,6 +3968,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 799176900}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &546537230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4377,6 +4437,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1464935954}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
         m_MethodName: DiminuirNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1464935954}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5109,7 +5181,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2146908103}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2146908103}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6644,6 +6728,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 869761419}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &927960472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7445,6 +7541,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2067116417}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1074834005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7819,7 +7927,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 964250026}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 964250026}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7951,7 +8071,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058707548}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058707548}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8366,171 +8498,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!43 &1333982973
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.053942487, y: -0.9426838, z: 0}
-      m_Extent: {x: 0.4136157, y: 0.057316452, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000004000100030005000100040006000100050001000600070002000800000000000900030001000a00020007000b00010003000c00040004000d00050005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: aae0eb3e2c1f70bf00000000dfd97d3fc86604be0000008000000080c963ef3e6fa762bf8b5de83eea967dbfccf25c3dba9863bf00000000e7d511bc67fd7f3f00000080000000801627b8be048a64bfc963ef3e6fa762bfc963ef3e6fa762bf0000000082d611bc67fd7f3f0000008000000080c963ef3e6fa762bfc963ef3e6fa762bf8b5de83eea967dbf00000000e0d97d3fbe6604be00000080000000808b5de83eea967dbf8b5de83eea967dbfdcd9403d77cb7ebf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf1427b8be020080bf1427b8be020080bf00000000e8a03d3c9dfb7fbf00000080000000801427b8be020080bf1427b8be020080bf1527b8be044572bf00000000000080bf472815b500000000000000801427b8be020080bf1627b8be048a64bf1627b8be048a64bf00000000000080bf472815b500000000000000801627b8be048a64bf1627b8be048a64bfc963ef3e6fa762bf00000000dfd97d3fc86604be0000008000000080c963ef3e6fa762bfc963ef3e6fa762bfaae0eb3e2c1f70bf00000000e0d97d3fbe6604be0000008000000080c963ef3e6fa762bf8b5de83eea967dbfccf25c3dba9863bf0000000082d611bc67fd7f3f00000080000000801627b8be048a64bfc963ef3e6fa762bf1627b8be048a64bf00000000e7d511bc67fd7f3f00000080000000801627b8be048a64bf1627b8be048a64bf8b5de83eea967dbf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf8b5de83eea967dbfdcd9403d77cb7ebf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf1427b8be020080bf1427b8be020080bf00000000000080bf472815b500000000000000801427b8be020080bf1427b8be020080bf1527b8be044572bf00000000000080bf472815b500000000000000801427b8be020080bf1627b8be048a64bf
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.053942487, y: -0.9426838, z: 0}
-    m_Extent: {x: 0.4136157, y: 0.057316452, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1348812035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8615,7 +8582,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1464935954}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1464935954}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8999,6 +8978,171 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450704315}
   m_CullTransparentMesh: 1
+--- !u!43 &1458777209
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0.009127259, y: -0.9446676, z: 0}
+      m_Extent: {x: 0.20593154, y: 0.055332392, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020000000300010004000300000004000500030004000600050006000400070002000800000000000900040001000a00020003000b00010005000c00030004000d00070006000e00050007000f000600
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: 60385c3e000080bf0000000031967c3ff0a8263e000000800000008060385c3e000080bf60385c3e000080bf1087493e79ab63bf00000000000000800000803f00000080000000801087493e79ab63bf1087493e79ab63bfb8df523ebcd571bf0000000030967c3ffba8263e00000080000000801087493e79ab63bf60385c3e000080bf008b153c79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bf1087493e79ab63bf808a153cd7a97dbf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf108749beae537bbfb0d536be79ab63bf0000000092257bbf3372463e0000008000000080b0d536be79ab63bfb0d536be79ab63bf602e40be947f6fbf0000000091257bbf4472463e0000008000000080108749beae537bbfb0d536be79ab63bf108749beae537bbf00000000e85c35bdbabf7fbf0000000000000080108749beae537bbf108749beae537bbfb8df523ebcd571bf0000000031967c3ff0a8263e00000080000000801087493e79ab63bf60385c3e000080bf60385c3e000080bf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf60385c3e000080bf1087493e79ab63bf0000000030967c3ffba8263e00000080000000801087493e79ab63bf1087493e79ab63bf008b153c79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bf1087493e79ab63bfb0d536be79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bfb0d536be79ab63bf808a153cd7a97dbf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf108749beae537bbf602e40be947f6fbf0000000092257bbf3372463e0000008000000080108749beae537bbfb0d536be79ab63bf108749beae537bbf0000000091257bbf4472463e0000008000000080108749beae537bbf108749beae537bbf
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.009127259, y: -0.9446676, z: 0}
+    m_Extent: {x: 0.20593154, y: 0.055332392, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1464935952
 GameObject:
   m_ObjectHideFlags: 0
@@ -9300,6 +9444,171 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519970127}
   m_CullTransparentMesh: 1
+--- !u!43 &1540979844
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0.053942487, y: -0.9426838, z: 0}
+      m_Extent: {x: 0.4136157, y: 0.057316452, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000004000100030005000100040006000100050001000600070002000800000000000900030001000a00020007000b00010003000c00040004000d00050005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: aae0eb3e2c1f70bf00000000dfd97d3fc86604be0000008000000080c963ef3e6fa762bf8b5de83eea967dbfccf25c3dba9863bf00000000e7d511bc67fd7f3f00000080000000801627b8be048a64bfc963ef3e6fa762bfc963ef3e6fa762bf0000000082d611bc67fd7f3f0000008000000080c963ef3e6fa762bfc963ef3e6fa762bf8b5de83eea967dbf00000000e0d97d3fbe6604be00000080000000808b5de83eea967dbf8b5de83eea967dbfdcd9403d77cb7ebf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf1427b8be020080bf1427b8be020080bf00000000e8a03d3c9dfb7fbf00000080000000801427b8be020080bf1427b8be020080bf1527b8be044572bf00000000000080bf472815b500000000000000801427b8be020080bf1627b8be048a64bf1627b8be048a64bf00000000000080bf472815b500000000000000801627b8be048a64bf1627b8be048a64bfc963ef3e6fa762bf00000000dfd97d3fc86604be0000008000000080c963ef3e6fa762bfc963ef3e6fa762bfaae0eb3e2c1f70bf00000000e0d97d3fbe6604be0000008000000080c963ef3e6fa762bf8b5de83eea967dbfccf25c3dba9863bf0000000082d611bc67fd7f3f00000080000000801627b8be048a64bfc963ef3e6fa762bf1627b8be048a64bf00000000e7d511bc67fd7f3f00000080000000801627b8be048a64bf1627b8be048a64bf8b5de83eea967dbf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf8b5de83eea967dbfdcd9403d77cb7ebf00000000e8a03d3c9dfb7fbf00000080000000808b5de83eea967dbf1427b8be020080bf1427b8be020080bf00000000000080bf472815b500000000000000801427b8be020080bf1427b8be020080bf1527b8be044572bf00000000000080bf472815b500000000000000801427b8be020080bf1627b8be048a64bf
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.053942487, y: -0.9426838, z: 0}
+    m_Extent: {x: 0.4136157, y: 0.057316452, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1607187510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9529,6 +9838,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 877963787}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1638225938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9652,6 +9973,18 @@ MonoBehaviour:
       - m_Target: {fileID: 964250026}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
         m_MethodName: DiminuirNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 964250026}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10054,6 +10387,7 @@ MonoBehaviour:
   _corBaseMao: {r: 0, g: 0, b: 0, a: 0}
   _sons:
   - {fileID: 1959545447}
+  _pontosHabilidade: 0
 --- !u!95 &1710108995
 Animator:
   serializedVersion: 5
@@ -10270,7 +10604,7 @@ MonoBehaviour:
   _vidaAtual: 0
   _velocidadeMovimento: 2
   _nivelGeral: 0
-  _experiencia: 25
+  _experiencia: 125
   _experienciaParaProximoNivel: 0
   _poderForca:
     _nivel: 0
@@ -10959,171 +11293,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778869694}
   m_CullTransparentMesh: 1
---- !u!43 &1788063935
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0.009127259, y: -0.9446676, z: 0}
-      m_Extent: {x: 0.20593154, y: 0.055332392, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020000000300010004000300000004000500030004000600050006000400070002000800000000000900040001000a00020003000b00010005000c00030004000d00070006000e00050007000f000600
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 60385c3e000080bf0000000031967c3ff0a8263e000000800000008060385c3e000080bf60385c3e000080bf1087493e79ab63bf00000000000000800000803f00000080000000801087493e79ab63bf1087493e79ab63bfb8df523ebcd571bf0000000030967c3ffba8263e00000080000000801087493e79ab63bf60385c3e000080bf008b153c79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bf1087493e79ab63bf808a153cd7a97dbf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf108749beae537bbfb0d536be79ab63bf0000000092257bbf3372463e0000008000000080b0d536be79ab63bfb0d536be79ab63bf602e40be947f6fbf0000000091257bbf4472463e0000008000000080108749beae537bbfb0d536be79ab63bf108749beae537bbf00000000e85c35bdbabf7fbf0000000000000080108749beae537bbf108749beae537bbfb8df523ebcd571bf0000000031967c3ff0a8263e00000080000000801087493e79ab63bf60385c3e000080bf60385c3e000080bf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf60385c3e000080bf1087493e79ab63bf0000000030967c3ffba8263e00000080000000801087493e79ab63bf1087493e79ab63bf008b153c79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bf1087493e79ab63bfb0d536be79ab63bf00000000000000800000803f0000008000000080b0d536be79ab63bfb0d536be79ab63bf808a153cd7a97dbf00000000e85c35bdbabf7fbf000000000000008060385c3e000080bf108749beae537bbf602e40be947f6fbf0000000092257bbf3372463e0000008000000080108749beae537bbfb0d536be79ab63bf108749beae537bbf0000000091257bbf4472463e0000008000000080108749beae537bbf108749beae537bbf
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.009127259, y: -0.9446676, z: 0}
-    m_Extent: {x: 0.20593154, y: 0.055332392, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1851051936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11341,7 +11510,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 869761419}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
-        m_MethodName: AumentarNIvel
+        m_MethodName: AumentarNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 869761419}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12248,6 +12429,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2146908103}
         m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
         m_MethodName: DiminuirNivel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2146908103}
+        m_TargetAssemblyTypeName: Controle_Status, Assembly-CSharp
+        m_MethodName: AtualizarTexto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

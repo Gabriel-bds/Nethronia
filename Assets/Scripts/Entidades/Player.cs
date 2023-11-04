@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class Player : Ser_Vivo
 {
+    public int _pontosHabilidade;
     protected override void Awake()
     {
         base.Awake();

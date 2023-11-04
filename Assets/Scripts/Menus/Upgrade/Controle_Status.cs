@@ -9,30 +9,40 @@ public class Controle_Status : MonoBehaviour
 {
     public int _addNivel;
     public Tipo_Poder _tipoPoder;
+    public Poder _poder;
 
     private void Start()
-    {  
-        if(GetComponent<TextMeshProUGUI>() != null)
+    {
+        if (GetComponent<TextMeshProUGUI>() != null)
         {
             AtualizarTexto();
         }
     }
     public void AumentarNivel()
     {
-        _addNivel += 1;
+        Controle_PontosHabilidade _controle = FindAnyObjectByType<Controle_PontosHabilidade>();
+        if (_controle._pontosDisponiveis > 0)
+        {
+            _addNivel += 1;
+            _controle.AlterarValorPontos(-1);
+        }
     }
     public void DiminuirNivel()
     {
-        _addNivel = (int)Utilidades.ArredondarNegativo(_addNivel - 1);
+        Controle_PontosHabilidade _controle = FindAnyObjectByType<Controle_PontosHabilidade>();
+        if(_controle._pontosDisponiveis < FindAnyObjectByType<Player>()._pontosHabilidade && _addNivel > 0)
+        {
+            _addNivel = (int)Utilidades.ArredondarNegativo(_addNivel - 1);
+            _controle.AlterarValorPontos(1);
+        }
     }
     public void AtualizarTexto()
     {
         Player _player = FindAnyObjectByType<Player>();
-        TextMeshProUGUI _texto = GetComponent<TextMeshProUGUI>(); 
+        TextMeshProUGUI _texto = GetComponent<TextMeshProUGUI>();
         switch (_tipoPoder)
         {
             case Tipo_Poder.Forca:
-                Debug.Log(_texto.text);
                 _texto.text = $"Força: {_player._poderForca._nivel + _addNivel}";
                 break;
 
@@ -107,6 +117,7 @@ public class Controle_Status : MonoBehaviour
             }
             _controle._addNivel = 0;
         }
+        _player.DefinirNivelGeral();
         _player.DefinirAtributos();
     }
 }

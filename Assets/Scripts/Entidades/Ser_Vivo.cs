@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
 
@@ -318,6 +319,17 @@ public class Ser_Vivo : MonoBehaviour
         _poderEletricidade._status._acumuloMax = Utilidades.Escala(_poderEletricidade._nivel, 0, 5f);
 
 
+    }
+    public void DefinirNivelGeral()
+    {
+        _nivelGeral = _poderForca._nivel +
+                    _poderResistencia._nivel +
+                    _poderVitalidade._nivel +
+                    _poderVelocidade._nivel +
+                    _poderFogo._nivel +
+                    _poderGelo._nivel +
+                    _poderVeneno._nivel +
+                    _poderEletricidade._nivel;
     }
     public void IniciarSom(int _numeroNaLista)
     {

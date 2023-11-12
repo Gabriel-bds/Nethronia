@@ -10,6 +10,7 @@ public class Inimigo : Ser_Vivo
     protected override void Awake()
     {
         base.Awake();
+        _alvo = FindAnyObjectByType<Player>().gameObject;
     }
     protected override void Start()
     {

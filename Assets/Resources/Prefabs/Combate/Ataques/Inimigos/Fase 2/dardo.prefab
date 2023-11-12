@@ -241,8 +241,7 @@ MonoBehaviour:
     m_Bits: 256
   _corDano: {r: 1, g: 0, b: 0, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 0
-  _somHit: {fileID: 0}
+  _somHit: {fileID: 8136683283121331279}
   _velocidade: 15
   _tempoDeVida: 5
   _colisoes:

@@ -24,6 +24,7 @@ public class Mao : MonoBehaviour
             _ataquesDisponiveis.Add(_obj);
             _obj.GetComponent<Ataque>()._dono = _dono;
         }
+        _alvo = _dono._alvo;
     }
 
     // Update is called once per frame

@@ -37,7 +37,7 @@ public class Ser_Vivo : MonoBehaviour
     [HideInInspector] public GameObject _mao;
 
     [Header("Outros:")]
-    [SerializeField] protected GameObject _alvo;
+    public GameObject _alvo;
     [SerializeField] public Barra_Vida _barraVida;
     [SerializeField] public GameObject _sangue;
     [HideInInspector] public int _travar;

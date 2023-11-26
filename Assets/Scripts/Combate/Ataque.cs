@@ -17,8 +17,8 @@ public class Ataque : MonoBehaviour
     public Tipo_Dano _tipoDano;
     [Range(0f, 100f)] [SerializeField] float _dano;
     [Range(0f, 100f)] [SerializeField] float _repulsao;
-    public float _tempoRecarga;
-    [HideInInspector] public float _tempoAtual;
+    public float _consumoEstamina;
+    public float _consumoMana;
     [SerializeField] LayerMask _alvos;
     [SerializeField] Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
@@ -86,27 +86,6 @@ public class Ataque : MonoBehaviour
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
 
             _somHit.Play();
-        }
-    }
-    public void DefinirTempoRecarga(int _numeroQuadro)
-    {
-        if (_dono.GetComponent<Player>() != null)
-        {
-            _tempoAtual = _tempoRecarga;
-            Quadro_Habilidade[] _quadros = FindObjectsOfType<Quadro_Habilidade>();
-            Quadro_Habilidade _quadro = new Quadro_Habilidade();
-            foreach (Quadro_Habilidade q in _quadros)
-            {
-                if (q._numeroQuadro == _numeroQuadro)
-                {
-                    _quadro = q;
-                }
-            }
-            _quadro.CarregarHabilidade(_tempoAtual, _tempoRecarga);
-            for (float t = _tempoAtual; t > 0; t -= Time.deltaTime)
-            {
-                _tempoAtual = t;
-            }
         }
     }
 

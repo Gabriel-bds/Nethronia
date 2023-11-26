@@ -4852,8 +4852,8 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 3
-  _tempoAtual: 0
+  _consumoEstamina: 10
+  _consumoMana: 25
   _alvos:
     serializedVersion: 2
     m_Bits: 512

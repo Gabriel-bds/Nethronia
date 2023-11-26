@@ -51,11 +51,10 @@ public class Inimigo : Ser_Vivo
         {
             if (_mao.GetComponent<Mao>()._mirandoAlvo)
             {
-                if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Count != 0)
-                {
-                    int _numeroAtq = Random.Range(0, _mao.GetComponent<Mao>()._ataquesDisponiveis.Count);
-                    _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[_numeroAtq].GetComponent<Ataque>()._idAtaque);
-                }
+
+                int _numeroAtq = Random.Range(0, _mao.GetComponent<Mao>()._ataques.Count);
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[_numeroAtq].GetComponent<Ataque>()._idAtaque);
+
             }
         }
     }

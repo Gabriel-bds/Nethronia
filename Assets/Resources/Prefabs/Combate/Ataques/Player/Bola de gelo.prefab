@@ -118,14 +118,13 @@ MonoBehaviour:
   _tipoDano: 3
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 1
-  _tempoAtual: 0
+  _consumoEstamina: 50
+  _consumoMana: 75
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 0, g: 0.89807534, b: 1, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 1
   _somHit: {fileID: 8298483648616165601}
   _velocidade: 15
   _tempoDeVida: 15

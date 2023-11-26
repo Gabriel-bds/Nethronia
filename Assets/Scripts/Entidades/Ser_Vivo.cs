@@ -17,6 +17,12 @@ public class Ser_Vivo : MonoBehaviour
     [ReadOnly(true)]
     public float _vidaMax;
     public float _vidaAtual;
+    public float _estaminaMax;
+    public float _estaminaAtual;
+    private bool _regenerandoEstamina;
+    public float _manaMax;
+    public float _manaAtual;
+    private bool _regenerandoMana;
     public float _velocidadeMovimento;
     public int _nivelGeral = 0;
     public int _experiencia;
@@ -38,8 +44,8 @@ public class Ser_Vivo : MonoBehaviour
 
     [Header("Outros:")]
     public GameObject _alvo;
-    [SerializeField] public Barra_Vida _barraVida;
-    [SerializeField] public GameObject _sangue;
+    public Barra_Vida _barraVida;
+    public GameObject _sangue;
     [HideInInspector] public int _travar;
     [HideInInspector] public Color _corBase;
     [HideInInspector] public Color _corBaseMao;
@@ -188,6 +194,32 @@ public class Ser_Vivo : MonoBehaviour
             _poderVitalidade._estaRegenerando = false;
         }
     }
+    public IEnumerator RegenerarEstamina()
+    {
+        if (!_regenerandoEstamina)
+        {
+            while (_estaminaAtual < _estaminaMax)
+            {
+                _regenerandoEstamina = true;
+                yield return new WaitForSeconds(0.5f);
+                _estaminaAtual += 1;
+            }
+            _regenerandoEstamina = false;
+        }
+    }
+    public IEnumerator RegenerarMana()
+    {
+        if (!_regenerandoMana)
+        {
+            while (_manaAtual < _manaMax)
+            {
+                _regenerandoMana = true;
+                yield return new WaitForSeconds(0.75f);
+                _manaAtual += 1;
+            }
+            _regenerandoMana = false;
+        }
+    }
     public void Knockback(float _knockback, Vector2 _distancia)
     {
         if (GetComponent<NavMeshAgent>() != null)
@@ -211,8 +243,6 @@ public class Ser_Vivo : MonoBehaviour
             _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);
             _player.GetComponent<Player>()._pontosHabilidade += 1;
         }
-        Barra_Xp _barraXp = FindAnyObjectByType<Barra_Xp>();
-        _barraXp.AtualizarBarra();
         Utilidades.InstanciarNumeroDano($"+{_experiencia}Exp", _player.transform);
     }
     public void Morte(float _tempo)
@@ -240,6 +270,10 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void DefinirAtributos()
     {
+        //Base:
+        _estaminaAtual = _estaminaMax;
+        _manaAtual = _manaMax;
+
         //Força:
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);
         _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 7.5f, 0.75f);
@@ -259,22 +293,10 @@ public class Ser_Vivo : MonoBehaviour
         //Velocidade
         _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 30, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
         _poderVelocidade._acrescimoVelocidadeAnimações = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
-        _poderVelocidade._reducaoRecargaAtaques = Utilidades.ArredondarNegativo(Utilidades.Escala(_poderVelocidade._nivel, 0, 0.005f));
         _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 0.99f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
         _velocidadeMovimento += _poderVelocidade._acrescimoVelocidadeMovimento;
         GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
         _mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
-        foreach(GameObject _atq in _mao.GetComponent<Mao>()._ataques)
-        {
-            if(_atq.GetComponent<Ataque>() != null)
-            {
-                _atq.GetComponent<Ataque>()._tempoRecarga -= _poderVelocidade._reducaoRecargaAtaques;
-            }
-            else
-            {
-                _atq.GetComponent<Projetil>()._tempoRecarga -= _poderVelocidade._reducaoRecargaAtaques;
-            }
-        }
 
         //Fogo
         _poderFogo._dano = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);

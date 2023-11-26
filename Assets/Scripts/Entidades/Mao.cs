@@ -10,7 +10,6 @@ public class Mao : MonoBehaviour
     public float _latenciaMira;
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
-    public List<GameObject> _ataquesDisponiveis = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
     [SerializeField] public Transform[] _spawnsAtaques;
     public int _travar;
@@ -19,11 +18,6 @@ public class Mao : MonoBehaviour
     void Start()
     {
         _dono = GetComponentInParent<Ser_Vivo>();
-        foreach(GameObject _obj in _ataques)
-        {
-            _ataquesDisponiveis.Add(_obj);
-            _obj.GetComponent<Ataque>()._dono = _dono;
-        }
         _alvo = _dono._alvo;
     }
 
@@ -84,13 +78,18 @@ public class Mao : MonoBehaviour
             if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
             {
                 _atq = Instantiate(_ataques[_indiceAtq], _spawnsAtaques[_indiceAtq].position, _spawnsAtaques[_indiceAtq].rotation).GetComponent<Ataque>();
+                _dono._estaminaAtual -= _atq._consumoEstamina;
+                _dono._manaAtual -= _atq._consumoMana;
                 break;
             }
             _indiceAtq += 1;
         }
+        _atq._dono = _dono;
         _atq.gameObject.transform.localScale = _dono.transform.localScale;
-        StartCoroutine(ResetarAtaque(_numeroAtaque, _atq._tempoRecarga));
-        _atq.DefinirTempoRecarga(_indiceAtq);
+        FindAnyObjectByType<Barra_Estamina>().AtualizarEstamina(_dono._estaminaMax, _dono._estaminaAtual);
+        FindAnyObjectByType<Barra_Mana>().AtualizarMana(_dono._manaMax, _dono._manaAtual);
+        StartCoroutine(_dono.RegenerarEstamina());
+        StartCoroutine(_dono.RegenerarMana());
     }
     public void TravarMao(int _travarMao)
     {
@@ -103,29 +102,10 @@ public class Mao : MonoBehaviour
         GetComponent<SpriteRenderer>().flipX = _dono.GetComponent<SpriteRenderer>().flipX;
         GetComponent<SpriteRenderer>().flipY = _dono.GetComponent<SpriteRenderer>().flipY;
     }
-    IEnumerator ResetarAtaque(int _numeroAtaque, float _tempoReset)
-    {
-        int _indiceAtq = 0;
-        foreach (GameObject o in _ataques)
-        {
-            if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
-            {
-                _ataquesDisponiveis.Remove(o);
-                yield return new WaitForSeconds(_tempoReset);
-                _ataquesDisponiveis.Add(o);
-            }
-            _indiceAtq += 1;
-        }
-    }
     public void AtualizarAtaque(int _index, GameObject _ataqueNovo)
     {
         _ataqueNovo.GetComponent<Ataque>()._dono = _dono;
-        if (_ataquesDisponiveis.Contains(_ataques[_index]))
-        {
-            _ataquesDisponiveis.Remove(_ataques[_index]);
-        }
         _ataques[_index] = _ataqueNovo;
-        _ataquesDisponiveis.Add(_ataqueNovo);
     }
     public void IniciarSom(int _numeroNaLista)
     {

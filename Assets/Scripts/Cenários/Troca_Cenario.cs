@@ -8,7 +8,7 @@ public class Troca_Cenario : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)
         {
             FindAnyObjectByType<Controle_Cenarios>().SortearCenario();
         }

@@ -4848,18 +4848,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: e63d6f1abbde40f4f9cd33cb4748a448, type: 3}
-  _idAtaque: 4
+  _idAtaque: 15
   _tipoDano: 2
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 1
-  _tempoAtual: 0
+  _consumoEstamina: 0
+  _consumoMana: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 0.2730146, g: 0.5943396, b: 0.22241005, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 2
   _somHit: {fileID: 3458804620226726342}
   _velocidade: 15
   _tempoDeVida: 15

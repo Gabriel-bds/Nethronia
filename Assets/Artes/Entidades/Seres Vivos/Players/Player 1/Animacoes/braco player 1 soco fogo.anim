@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: braco player 1 ataque 1
+  m_Name: braco player 1 soco fogo
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -124,9 +124,9 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 1
+    intParameter: 5
     messageOptions: 0
-  - time: 0.5416667
+  - time: 0.5833333
     functionName: TravarMao
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -114,12 +114,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: e054e5bc68de6e94db65c0c9fbcab956, type: 3}
-  _idAtaque: 3
+  _idAtaque: 9
   _tipoDano: 3
   _dano: 100
   _repulsao: 100
-  _consumoEstamina: 50
-  _consumoMana: 75
+  _consumoEstamina: 5
+  _consumoMana: 10
   _alvos:
     serializedVersion: 2
     m_Bits: 512

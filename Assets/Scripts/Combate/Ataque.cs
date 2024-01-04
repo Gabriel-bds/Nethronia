@@ -27,6 +27,7 @@ public class Ataque : MonoBehaviour
     protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
+        ControlarParticulas();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -92,5 +93,60 @@ public class Ataque : MonoBehaviour
     public void AutoDestruir()
     {
         Destroy(gameObject);
+    }
+    void ControlarParticulas()
+    {
+        float _minParticulas = 0.3f;
+        if (GetComponent<ParticleSystem>() != null)
+        {
+            var _emissao = GetComponent<ParticleSystem>().emission;
+            switch (_tipoDano)
+            {
+                case Tipo_Dano.Fogo:
+                    _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderFogo._nivel / 100));
+                    break;
+
+                case Tipo_Dano.Gelo:
+                    _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderGelo._nivel / 100));
+                    break;
+
+                case Tipo_Dano.Veneno:
+                    _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderVeneno._nivel / 100));
+                    break;
+
+                case Tipo_Dano.Eletricidade:
+                    _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderEletricidade._nivel / 100));
+                    break;
+            }
+        }
+        else
+        {
+            if (GetComponentInChildren<ParticleSystem>() != null)
+            {
+                ParticleSystem[] _particulas = GetComponentsInChildren<ParticleSystem>();
+                foreach (ParticleSystem _particula in _particulas)
+                {
+                    var _emissao = _particula.emission;
+                    switch (_tipoDano)
+                    {
+                        case Tipo_Dano.Fogo:
+                            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderFogo._nivel / 100));
+                            break;
+
+                        case Tipo_Dano.Gelo:
+                            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderGelo._nivel / 100));
+                            break;
+
+                        case Tipo_Dano.Veneno:
+                            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderVeneno._nivel / 100));
+                            break;
+
+                        case Tipo_Dano.Eletricidade:
+                            _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(_emissao.rateOverTime.constant * _minParticulas, _emissao.rateOverTime.constant, _emissao.rateOverTime.constant * _minParticulas + (_emissao.rateOverTime.constant - _emissao.rateOverTime.constant * _minParticulas) * _dono._poderEletricidade._nivel / 100));
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

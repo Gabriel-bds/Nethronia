@@ -14,6 +14,7 @@ public class Player : Ser_Vivo
     public int _pontosHabilidade;
     protected override void Awake()
     {
+        DontDestroyOnLoad(this);
         base.Awake();
     }
     protected override void Update()

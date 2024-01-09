@@ -16,8 +16,6 @@ public class Projetil : Ataque
         base.Start();
         _tempoDeVidaAtual = _tempoDeVida;
     }
-
-    // Update is called once per frame
     void Update()
     {
         Movimentar();

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7604282321646826828}
   m_Layer: 9
   m_Name: Spawn dardo
-  m_TagString: Untagged
+  m_TagString: Spawn_Ataque/Spawn1
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,11 +356,7 @@ MonoBehaviour:
   _ataques:
   - {fileID: 2215243577983026014, guid: eb2ac31a82ed75d4b88957bcdebdc87b, type: 3}
   - {fileID: 2215243577983026014, guid: a7492a293d8fe544f8ec2f9161976734, type: 3}
-  _ataquesDisponiveis: []
   _mirandoAlvo: 0
-  _spawnsAtaques:
-  - {fileID: 7604282321646826828}
-  - {fileID: 7604282321646826828}
   _travar: 0
   _sons: []
 --- !u!1 &6092448654784177098
@@ -869,6 +865,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vidaMax: 100
   _vidaAtual: 0
+  _estaminaMax: 0
+  _estaminaAtual: 0
+  _manaMax: 0
+  _manaAtual: 0
   _velocidadeMovimento: 2
   _nivelGeral: 0
   _experiencia: 125
@@ -895,7 +895,6 @@ MonoBehaviour:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoRecargaAtaques: 0
     _reducaoTempo: 0
   _poderFogo:
     _nivel: 0
@@ -1051,7 +1050,7 @@ MonoBehaviour:
   - {x: 0.15683669, y: -0.46322742, z: 0}
   m_ShapePathHash: 680466155
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30072
+  m_InstanceId: 97742
   m_LocalBounds:
     m_Center: {x: 0.0011905879, y: -0.13097754, z: 0}
     m_Extent: {x: 0.15564609, y: 0.338762, z: 0}

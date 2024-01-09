@@ -61,8 +61,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398755498870554847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.06597313, y: -0.01272652, z: 0.16496506, w: 0.9840082}
+  m_LocalPosition: {x: -14.086485, y: 3.5548074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86,15 +86,17 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _tempoRecarga: 2
-  _tempoAtual: 0
+  _consumoEstamina: 0
+  _consumoMana: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 1, g: 0, b: 0, a: 1}
   _dono: {fileID: 0}
-  _numeroQuadro: 0
   _somHit: {fileID: 3174268678380704388}
+  _spawnPosicao: {x: -14.086485, y: 3.5548074, z: 0}
+  _spawnRotacao: {x: 0.06597313, y: -0.01272652, z: 0.16496506, w: 0.9840082}
+  _localSpawn: 0
 --- !u!61 &8848848721308651987
 BoxCollider2D:
   m_ObjectHideFlags: 0

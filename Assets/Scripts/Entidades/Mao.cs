@@ -11,7 +11,7 @@ public class Mao : MonoBehaviour
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
-    [SerializeField] public Transform[] _spawnsAtaques;
+    //[SerializeField] public Transform[] _spawnsAtaques;
     public int _travar;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
     // Start is called before the first frame update
@@ -71,21 +71,21 @@ public class Mao : MonoBehaviour
     }
     public void InstanciarAtaque(int _numeroAtaque)
     {
-        Ataque _atq = new Ataque();
         int _indiceAtq = 0;
         foreach (GameObject o in _ataques)
         {
             if (o.GetComponent<Ataque>()._idAtaque == _numeroAtaque)
             {
-                _atq = Instantiate(_ataques[_indiceAtq], _spawnsAtaques[_indiceAtq].position, _spawnsAtaques[_indiceAtq].rotation).GetComponent<Ataque>();
+                Ataque _atq = Instantiate(_ataques[_indiceAtq], _ataques[_indiceAtq].GetComponent<Ataque>()._spawnPosicao, _ataques[_indiceAtq].GetComponent<Ataque>()._spawnRotacao).GetComponent<Ataque>();
+                _atq._dono = _dono;
+                _atq.gameObject.transform.localScale = _dono.transform.localScale;
                 _dono._estaminaAtual -= _atq._consumoEstamina;
                 _dono._manaAtual -= _atq._consumoMana;
+                _atq.DefinirSpawn();
                 break;
             }
             _indiceAtq += 1;
         }
-        _atq._dono = _dono;
-        _atq.gameObject.transform.localScale = _dono.transform.localScale;
         FindAnyObjectByType<Barra_Estamina>().AtualizarEstamina(_dono._estaminaMax, _dono._estaminaAtual);
         FindAnyObjectByType<Barra_Mana>().AtualizarMana(_dono._manaMax, _dono._manaAtual);
         StartCoroutine(_dono.RegenerarEstamina());

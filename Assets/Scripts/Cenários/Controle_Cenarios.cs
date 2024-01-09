@@ -16,7 +16,6 @@ public class Controle_Cenarios : MonoBehaviour
         {
             _cenariosDisponiveis.Add(n);
         }
-        //SortearCenario()
     }
 
     public void SortearCenario()

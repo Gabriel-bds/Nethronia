@@ -7,6 +7,9 @@ using System;
 using TMPro;
 using UnityEngine.AI;
 using System.Threading.Tasks;
+using UnityEditor.Experimental.GraphView;
+
+public enum Spawn_Atq { Mao, Spawn1, Mouse}
 
 [Serializable]
 public class Ataque : MonoBehaviour
@@ -23,7 +26,9 @@ public class Ataque : MonoBehaviour
     [SerializeField] Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
     [SerializeField] AudioSource _somHit;
-
+     public Vector3 _spawnPosicao;
+    [HideInInspector] public Quaternion _spawnRotacao;
+    [SerializeField] Spawn_Atq _localSpawn;
     protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
@@ -148,5 +153,37 @@ public class Ataque : MonoBehaviour
                 }
             }
         }
+    }
+    public void DefinirSpawn()
+    {
+        switch(_localSpawn) 
+        {
+            case Spawn_Atq.Mao:
+
+                _spawnPosicao = _dono.GetComponentInChildren<Mao>().transform.position;
+                _spawnRotacao = _dono.GetComponentInChildren<Mao>().transform.rotation;
+                break;
+
+            case Spawn_Atq.Spawn1:
+                var _spawns1 = GameObject.FindGameObjectsWithTag("Spawn_Ataque/Spawn1");
+                foreach(var _spawn in _spawns1)
+                {
+                    if(_spawn.GetComponentInParent<Ser_Vivo>() == _dono)
+                    {
+                        _spawnPosicao = _spawn.transform.position;
+                        _spawnRotacao = _spawn.transform.rotation;
+                        //Debug.Log(_dono);
+                        break;
+                    }
+                }
+                break;
+
+            case Spawn_Atq.Mouse:
+                _spawnPosicao = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+                _spawnRotacao = Quaternion.Euler(0, 0, 0);
+                break;
+        }
+        transform.position = _spawnPosicao;
+        transform.rotation = _spawnRotacao;
     }
 }

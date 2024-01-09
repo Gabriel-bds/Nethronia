@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Combate/Area eletrica
+  - Spawn_Ataque/Mao
+  - Spawn_Ataque/Spawn1
   layers:
   - Default
   - TransparentFX

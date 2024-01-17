@@ -7,7 +7,7 @@ public class Area_Dano : Ataque
     [SerializeField] float _delayInicialArea;
     protected override void Start()
     {
-        DelayInicial();
+        StartCoroutine(DelayInicial());
         base.Start();
     }
     protected override void OnTriggerEnter2D(Collider2D collision)

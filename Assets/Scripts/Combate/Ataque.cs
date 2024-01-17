@@ -172,7 +172,6 @@ public class Ataque : MonoBehaviour
                     {
                         _spawnPosicao = _spawn.transform.position;
                         _spawnRotacao = _spawn.transform.rotation;
-                        //Debug.Log(_dono);
                         break;
                     }
                 }

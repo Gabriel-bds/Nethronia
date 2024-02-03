@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 200886348180273099}
   - component: {fileID: 191460625332542867}
+  - component: {fileID: 707988819225214698}
   - component: {fileID: 3589241031077788780}
-  - component: {fileID: 2207014073453665979}
-  - component: {fileID: 865990060721981108}
   - component: {fileID: -2967019613308167191}
   - component: {fileID: 997926606729828591}
+  - component: {fileID: 4144805187824826390}
   m_Layer: 0
   m_Name: Rajada de fogo
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4772,6 +4772,35 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &707988819225214698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299947594664116185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c9253b7f93ca44b91602ed8035c9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icone: {fileID: 21300000, guid: 00bb6a173ade8f7499f5d387fd157f10, type: 3}
+  _idAtaque: 7
+  _tipoDano: 1
+  _dano: 100
+  _repulsao: 0
+  _consumoEstamina: 1
+  _consumoMana: 1
+  _alvos:
+    serializedVersion: 2
+    m_Bits: 512
+  _corDano: {r: 1, g: 0.6199103, b: 0, a: 1}
+  _dono: {fileID: 0}
+  _somHit: {fileID: 3458804620226726342}
+  _spawnPosicao: {x: 0, y: 0, z: 0}
+  _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
+  _localSpawn: 1
+  _intervaloDano: 1
 --- !u!199 &3589241031077788780
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4844,52 +4873,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2207014073453665979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299947594664116185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a86c61109bf7941a5a306629d41832, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _icone: {fileID: 21300000, guid: 00bb6a173ade8f7499f5d387fd157f10, type: 3}
-  _idAtaque: 6
-  _tipoDano: 1
-  _dano: 100
-  _repulsao: 100
-  _consumoEstamina: 0
-  _consumoMana: 0
-  _alvos:
-    serializedVersion: 2
-    m_Bits: 512
-  _corDano: {r: 1, g: 0.61815464, b: 0, a: 1}
-  _dono: {fileID: 0}
-  _somHit: {fileID: 3458804620226726342}
-  _spawnPosicao: {x: -21.078812, y: -9.995678, z: 0}
-  _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
-  _localSpawn: 1
-  _velocidade: 15
-  _tempoDeVida: 15
-  _colisoes:
-    serializedVersion: 2
-    m_Bits: 512
-  _quebrandoSom: {fileID: 3458804620226726342}
---- !u!114 &865990060721981108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299947594664116185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4f25c3d8d7c99439714e747c30cdf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-2967019613308167191
 Rigidbody2D:
   serializedVersion: 4
@@ -4968,6 +4951,18 @@ PolygonCollider2D:
       - {x: 0.0000058778537, y: -0.000008090169}
       - {x: 8.490724, y: -0.7491392}
   m_UseDelaunayMesh: 0
+--- !u!114 &4144805187824826390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299947594664116185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4f25c3d8d7c99439714e747c30cdf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3561425368686495174
 GameObject:
   m_ObjectHideFlags: 0

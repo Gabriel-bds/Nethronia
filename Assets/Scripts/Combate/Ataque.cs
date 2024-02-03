@@ -7,7 +7,6 @@ using System;
 using TMPro;
 using UnityEngine.AI;
 using System.Threading.Tasks;
-using UnityEditor.Experimental.GraphView;
 
 public enum Spawn_Atq { Mao, Spawn1, Mouse}
 
@@ -16,17 +15,17 @@ public class Ataque : MonoBehaviour
 {
     public Sprite _icone;
     public int _idAtaque;
-    private Efeito _efeitoAplicado;
+    protected Efeito _efeitoAplicado;
     public Tipo_Dano _tipoDano;
-    [Range(0f, 100f)] [SerializeField] float _dano;
-    [Range(0f, 100f)] [SerializeField] float _repulsao;
+    [Range(0f, 100f)] [SerializeField] protected float _dano;
+    [Range(0f, 100f)] [SerializeField] protected float _repulsao;
     public float _consumoEstamina;
     public float _consumoMana;
-    [SerializeField] LayerMask _alvos;
-    [SerializeField] Color _corDano;
+    [SerializeField]protected LayerMask _alvos;
+    [SerializeField] protected Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
-    [SerializeField] AudioSource _somHit;
-     public Vector3 _spawnPosicao;
+    [SerializeField] protected AudioSource _somHit;
+    [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
     protected virtual void Start()
@@ -87,7 +86,6 @@ public class Ataque : MonoBehaviour
             {
                 _efeitoAplicado.Aplicar(_dono, _atingido);
             }
-
             Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
 

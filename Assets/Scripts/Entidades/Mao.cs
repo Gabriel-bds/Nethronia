@@ -11,22 +11,18 @@ public class Mao : MonoBehaviour
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
-    //[SerializeField] public Transform[] _spawnsAtaques;
-    public int _travar;
+    [HideInInspector] public int _travar;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
-    // Start is called before the first frame update
+    GameObject _ultimoAtq;
     void Start()
     {
         _dono = GetComponentInParent<Ser_Vivo>();
         _alvo = _dono._alvo;
     }
-
-    // Update is called once per frame
     void Update()
     {
         ControlarMao();
     }
-
     private void ApontarMao()
     {
         Vector3 _posicaoAlvo;
@@ -82,6 +78,7 @@ public class Mao : MonoBehaviour
                 _dono._estaminaAtual -= _atq._consumoEstamina;
                 _dono._manaAtual -= _atq._consumoMana;
                 _atq.DefinirSpawn();
+                _ultimoAtq = _atq.gameObject;
                 break;
             }
             _indiceAtq += 1;
@@ -90,6 +87,14 @@ public class Mao : MonoBehaviour
         FindAnyObjectByType<Barra_Mana>().AtualizarMana(_dono._manaMax, _dono._manaAtual);
         StartCoroutine(_dono.RegenerarEstamina());
         StartCoroutine(_dono.RegenerarMana());
+    }
+    public void ForcarDestruicaoAtaque(float _tempo)
+    {
+        Destroy(_ultimoAtq, _tempo);
+        if(_ultimoAtq.GetComponent<Rajada>() != null)
+        {
+            _ultimoAtq.GetComponent<Rajada>().PararRajada();
+        }
     }
     public void TravarMao(int _travarMao)
     {
@@ -110,5 +115,9 @@ public class Mao : MonoBehaviour
     public void IniciarSom(int _numeroNaLista)
     {
         _sons[_numeroNaLista].Play();
+    }
+    public void ControleVelocidadeAnimacao(float _velocidadeAnimacao)
+    {
+        GetComponent<Animator>().speed = _velocidadeAnimacao;
     }
 }

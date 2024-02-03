@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
 
@@ -270,35 +269,40 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void DefinirAtributos()
     {
-        //Base:
+        #region Base
         _estaminaAtual = _estaminaMax;
         _manaAtual = _manaMax;
+        #endregion
 
-        //Força:
+        #region Força
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);
         _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 7.5f, 0.75f);
+        #endregion
 
-        //Resistência:
+        #region Resistência
         _poderResistencia._negacaoDano = Utilidades.Escala(_poderResistencia._nivel, 0, 1);
         _poderResistencia._negacaoRepulsao = Utilidades.Escala(_poderResistencia._nivel, 0, 0.75f);
+        #endregion
 
-        //Vitalidade:
+        #region Vitalidade
         _poderVitalidade._acrescimoVidaMax = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.5f);
         _poderVitalidade._valorCura = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.01f);
         _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 5f, Utilidades.Escala(_poderVitalidade._nivel, 5, -0.01f));
         _poderVitalidade._rouboVida = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.05f);
         _vidaMax += _poderVitalidade._acrescimoVidaMax;
         _vidaAtual = _vidaMax;
+        #endregion
 
-        //Velocidade
+        #region Velocidade
         _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 30, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
         _poderVelocidade._acrescimoVelocidadeAnimações = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
         _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 0.99f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
         _velocidadeMovimento += _poderVelocidade._acrescimoVelocidadeMovimento;
         GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
         _mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
+        #endregion
 
-        //Fogo
+        #region Fogo
         _poderFogo._dano = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);
         _poderFogo._negacaoDano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
         _poderFogo._repulsao = Utilidades.Escala(_poderFogo._nivel, 7.5f, 0.75f);
@@ -307,8 +311,9 @@ public class Ser_Vivo : MonoBehaviour
         _poderFogo._status._negacaoDano = Utilidades.Escala(_poderFogo._nivel, 0, 0.75f);
         _poderFogo._status._infligirAcumulo = Utilidades.Escala(_poderFogo._nivel, 0f, 1f);
         _poderFogo._status._acumuloMax = Utilidades.Escala(_poderFogo._nivel, 0f, 5f);
+        #endregion
 
-        //Gelo
+        #region Gelo    
         _poderGelo._dano = Utilidades.Escala(_poderGelo._nivel, 7.5f, 0.75f);
         _poderGelo._negacaoDano = Utilidades.Escala(_poderGelo._nivel, 0, 0.75f);
         _poderGelo._repulsao = Utilidades.Escala(_poderGelo._nivel, 7.5f, 0.75f);
@@ -317,8 +322,9 @@ public class Ser_Vivo : MonoBehaviour
         _poderGelo._status._negacaoUtilidade1 = Utilidades.Escala(_poderGelo._nivel, 0, 1.5f);
         _poderGelo._status._infligirAcumulo = Utilidades.Escala(_poderGelo._nivel, 0f, 1f);
         _poderGelo._status._acumuloMax = Utilidades.Escala(_poderGelo._nivel, 0f, 5f);
+        #endregion
 
-        //Veneno
+        #region Veneno
         _poderVeneno._dano = Utilidades.Escala(_poderVeneno._nivel, 7.5f, 0.75f);
         _poderVeneno._negacaoDano = Utilidades.Escala(_poderVeneno._nivel, 0f, 0.75f);
         _poderVeneno._repulsao = Utilidades.Escala(_poderVeneno._nivel, 7.5f, 0.75f);
@@ -327,8 +333,9 @@ public class Ser_Vivo : MonoBehaviour
         _poderVeneno._status._negacaoDano = Utilidades.Escala(_poderVeneno._nivel, 0, 1f);
         _poderVeneno._status._infligirAcumulo = Utilidades.Escala(_poderVeneno._nivel, 0, 1f);
         _poderVeneno._status._acumuloMax = Utilidades.Escala(_poderVeneno._nivel, 0, 5f);
+        #endregion
 
-        //Eletricidade
+        #region Eletricidade
         _poderEletricidade._dano = Utilidades.Escala(_poderEletricidade._nivel, 7.5f, 0.75f);
         _poderEletricidade._negacaoDano = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.75f);
         _poderEletricidade._repulsao = Utilidades.Escala(_poderEletricidade._nivel, 7.5f, 0.75f);
@@ -339,7 +346,7 @@ public class Ser_Vivo : MonoBehaviour
         _poderEletricidade._status._negacaoUtilidade1 = Utilidades.Escala(_poderEletricidade._nivel, 0, 0.28f);
         _poderEletricidade._status._infligirAcumulo = Utilidades.Escala(_poderEletricidade._nivel, 0, 1f);
         _poderEletricidade._status._acumuloMax = Utilidades.Escala(_poderEletricidade._nivel, 0, 5f);
-
+        #endregion
 
     }
     public void DefinirNivelGeral()

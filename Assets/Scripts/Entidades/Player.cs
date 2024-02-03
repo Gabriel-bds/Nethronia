@@ -31,16 +31,20 @@ public class Player : Ser_Vivo
 
     void Atacar()
     {
-        _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             if (_mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._consumoEstamina <= _estaminaAtual &&
                 _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._consumoMana <= _manaAtual)
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
             }
+            else
+            {
+                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+                _mao.GetComponent<Animator>().speed = 1;
+            }
         }
-        if(Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(0)) 
+        if(Input.GetMouseButton(1) && !Input.GetMouseButton(0)) 
         {
             if (_mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._consumoEstamina <= _estaminaAtual &&
                 _mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._consumoMana <= _manaAtual)
@@ -48,13 +52,18 @@ public class Player : Ser_Vivo
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._idAtaque);
             }
         }
-        if (Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
         {
             if (_mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._consumoEstamina <= _estaminaAtual &&
                 _mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._consumoMana <= _manaAtual)
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._idAtaque);
             }
+        }
+        if(!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+        {
+            _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+            _mao.GetComponent<Animator>().speed = 1;
         }
     }
     public void CongelarTempo()

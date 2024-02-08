@@ -12,12 +12,14 @@ public class Mao : MonoBehaviour
     public List<GameObject> _ataques = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
     [HideInInspector] public int _travar;
+    [HideInInspector] public Animator _animator;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
     GameObject _ultimoAtq;
     void Start()
     {
         _dono = GetComponentInParent<Ser_Vivo>();
         _alvo = _dono._alvo;
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {

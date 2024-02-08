@@ -38,7 +38,7 @@ public class Ser_Vivo : MonoBehaviour
     public Poder_Eletricidade _poderEletricidade = new Poder_Eletricidade(Tipo_Dano.Eletricidade);
 
     protected Rigidbody2D _rigidbody;
-    protected Animator _animator;
+    [HideInInspector] public Animator _animator;
     [HideInInspector] public GameObject _mao;
 
     [Header("Outros:")]

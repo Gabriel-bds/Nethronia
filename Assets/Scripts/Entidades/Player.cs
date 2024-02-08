@@ -14,7 +14,7 @@ public class Player : Ser_Vivo
     public int _pontosHabilidade;
     protected override void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         base.Awake();
     }
     protected override void Update()
@@ -28,9 +28,13 @@ public class Player : Ser_Vivo
     {
         Mover(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
-
     void Atacar()
     {
+        float _velocidadeMaoAnimator = 1;
+        if(_mao.GetComponent<Animator>().speed > 0)
+        {
+            _velocidadeMaoAnimator = _mao.GetComponent<Animator>().speed;
+        }
         if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             if (_mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._consumoEstamina <= _estaminaAtual &&
@@ -41,7 +45,7 @@ public class Player : Ser_Vivo
             else
             {
                 _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = 1;
+                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
             }
         }
         if(Input.GetMouseButton(1) && !Input.GetMouseButton(0)) 
@@ -63,7 +67,7 @@ public class Player : Ser_Vivo
         if(!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
         {
             _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-            _mao.GetComponent<Animator>().speed = 1;
+            _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
         }
     }
     public void CongelarTempo()

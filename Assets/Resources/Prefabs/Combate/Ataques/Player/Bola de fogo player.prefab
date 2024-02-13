@@ -4865,6 +4865,7 @@ MonoBehaviour:
   _localSpawn: 1
   _velocidade: 15
   _tempoDeVida: 15
+  _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2
     m_Bits: 512

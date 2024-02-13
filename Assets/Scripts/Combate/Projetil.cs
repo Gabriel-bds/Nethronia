@@ -9,10 +9,36 @@ public class Projetil : Ataque
     [SerializeField] float _velocidade;
     [SerializeField] float _tempoDeVida;
     float _tempoDeVidaAtual;
+    [SerializeField] bool _progressaoEscala;
     [SerializeField] LayerMask _colisoes;
     [SerializeField] AudioSource _quebrandoSom;
     protected override void Start()
     {
+        if (_progressaoEscala)
+        {
+            switch (_tipoDano)
+            {
+                case Tipo_Dano.Físico:
+                    transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)));
+                    break;
+
+                case Tipo_Dano.Fogo:
+                    transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderFogo._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderFogo._nivel, 1, 0.033f)));
+                    break;
+
+                case Tipo_Dano.Gelo:
+                    transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderGelo._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderGelo._nivel, 1, 0.033f)));
+                    break;
+
+                case Tipo_Dano.Veneno:
+                    transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderVeneno._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderVeneno._nivel, 1, 0.033f)));
+                    break;
+
+                case Tipo_Dano.Eletricidade:
+                    transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderEletricidade._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderEletricidade._nivel, 1, 0.033f)));
+                    break;
+            }
+        }
         base.Start();
         _tempoDeVidaAtual = _tempoDeVida;
     }
@@ -24,7 +50,14 @@ public class Projetil : Ataque
     {
         if (((1 << collision.gameObject.layer) & _colisoes) != 0)
         {
-            _quebrandoSom.Play();
+            try
+            { 
+                _quebrandoSom.Play();
+            }
+            catch 
+            {
+                Debug.Log("Projetil sem som de hit anexado");
+            }
             IniciarDestruicao();
         }
         base.OnTriggerEnter2D(collision);
@@ -68,6 +101,10 @@ public class Projetil : Ataque
     public void AutoDestruir()
     {
         Destroy(gameObject);
+    }
+    public void AutoDestruir(float _tempo)
+    {
+        Destroy(gameObject, _tempo);
     }
 
 }

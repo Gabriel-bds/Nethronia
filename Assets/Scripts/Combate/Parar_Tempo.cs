@@ -1,12 +1,38 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class Parar_Tempo : Ataque
 {
     protected override void Start()
     {
+        if (Time.timeScale == 1)
+        {
+            _dono._estaminaAtual -= _consumoEstamina;
+            _dono._manaAtual -= _consumoMana;
+
+            foreach (GameObject _atq in _dono._mao.GetComponent<Mao>()._ataques)
+            {
+                if (_atq.GetComponent<Ataque>()._idAtaque == _idAtaque)
+                {
+                    _atq.GetComponent<Ataque>()._consumoEstamina = 0;
+                    _atq.GetComponent<Ataque>()._consumoMana = 0;
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject _atq in _dono._mao.GetComponent<Mao>()._ataques)
+            {
+                if (_atq.GetComponent<Ataque>()._idAtaque == _idAtaque)
+                {
+                    _atq.GetComponent<Ataque>()._consumoEstamina = 20;
+                    _atq.GetComponent<Ataque>()._consumoMana = 30;
+                }
+            }
+        }
         CongelarTempo();
     }
     public void CongelarTempo()
@@ -38,3 +64,4 @@ public class Parar_Tempo : Ataque
         }
     }
 }
+

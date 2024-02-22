@@ -5450,7 +5450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: 211bab8b16c726c4196a01adfd5a2c5e, type: 3}
-  _idAtaque: 13
+  _idAtaque: 12
   _tipoDano: 4
   _dano: 100
   _repulsao: 88.1
@@ -5465,8 +5465,7 @@ MonoBehaviour:
   _spawnPosicao: {x: 6.882842, y: -12.465155, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 1}
   _localSpawn: 2
-  _delayInicial: 0
-  _tempoAtivo: 0
+  _delayInicialArea: 0
 --- !u!58 &1411795060330258617
 CircleCollider2D:
   m_ObjectHideFlags: 0

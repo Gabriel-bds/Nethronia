@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: c98d803005c3c994ea3a9577b351a553, type: 3}
-  _idAtaque: 11
+  _idAtaque: 10
   _tipoDano: 4
   _dano: 75
   _repulsao: 100
@@ -4860,6 +4860,9 @@ MonoBehaviour:
   _corDano: {r: 0.9667603, g: 1, b: 0, a: 1}
   _dono: {fileID: 0}
   _somHit: {fileID: 3174268678380704388, guid: e63c389a132fbad4899a62e9f9ce2eb0, type: 3}
+  _spawnPosicao: {x: 0, y: 0, z: 0}
+  _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
+  _localSpawn: 0
 --- !u!61 &2250721781872118897
 BoxCollider2D:
   m_ObjectHideFlags: 0

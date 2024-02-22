@@ -11,7 +11,7 @@ public class Mao : MonoBehaviour
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
-    [HideInInspector] public int _travar;
+    public int _travar;
     [HideInInspector] public Animator _animator;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
     GameObject _ultimoAtq;
@@ -45,7 +45,7 @@ public class Mao : MonoBehaviour
 
         Quaternion _rotacaoAtual = transform.rotation;
         Quaternion _rotacaoAlvo = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _angulo);
-        Quaternion _novaRotacao = Quaternion.Lerp(_rotacaoAtual, _rotacaoAlvo, _latenciaMira * Time.fixedDeltaTime);
+        Quaternion _novaRotacao = Quaternion.Lerp(_rotacaoAtual, _rotacaoAlvo, _latenciaMira * Time.deltaTime);
         transform.rotation = _novaRotacao;
 
         if(Math.Round(Mathf.Abs(transform.rotation.x), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.x), 1) &&
@@ -77,8 +77,8 @@ public class Mao : MonoBehaviour
                 Ataque _atq = Instantiate(_ataques[_indiceAtq], _ataques[_indiceAtq].GetComponent<Ataque>()._spawnPosicao, _ataques[_indiceAtq].GetComponent<Ataque>()._spawnRotacao).GetComponent<Ataque>();
                 _atq._dono = _dono;
                 _atq.gameObject.transform.localScale = _dono.transform.localScale;
-                _dono._estaminaAtual -= _atq._consumoEstamina;
-                _dono._manaAtual -= _atq._consumoMana;
+                /*_dono._estaminaAtual -= _atq._consumoEstamina;
+                _dono._manaAtual -= _atq._consumoMana;*/
                 _atq.DefinirSpawn();
                 _ultimoAtq = _atq.gameObject;
                 break;
@@ -100,8 +100,7 @@ public class Mao : MonoBehaviour
     }
     public void TravarMao(int _travarMao)
     {
-        _travar = _travarMao;
-        
+        _travar = _travarMao;     
     }
     public void ResetarMao()
     {

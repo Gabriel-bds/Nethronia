@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: 00bb6a173ade8f7499f5d387fd157f10, type: 3}
-  _idAtaque: 6
+  _idAtaque: 5
   _tipoDano: 1
   _dano: 100
   _repulsao: 100

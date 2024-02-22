@@ -4850,12 +4850,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: aea395bc4f78c5247ad2466ea21ea78d, type: 3}
-  _idAtaque: 12
+  _idAtaque: 11
   _tipoDano: 4
   _dano: 100
   _repulsao: 100
-  _consumoEstamina: 0
-  _consumoMana: 0
+  _consumoEstamina: 3
+  _consumoMana: 5
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -4867,6 +4867,7 @@ MonoBehaviour:
   _localSpawn: 1
   _velocidade: 25
   _tempoDeVida: 15
+  _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2
     m_Bits: 512

@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: e63d6f1abbde40f4f9cd33cb4748a448, type: 3}
-  _idAtaque: 15
+  _idAtaque: 14
   _tipoDano: 2
   _dano: 100
   _repulsao: 100
@@ -4865,6 +4865,7 @@ MonoBehaviour:
   _localSpawn: 1
   _velocidade: 15
   _tempoDeVida: 15
+  _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2
     m_Bits: 512

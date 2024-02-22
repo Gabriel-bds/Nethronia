@@ -32,6 +32,8 @@ public class Ataque : MonoBehaviour
     {
         _efeitoAplicado = GetComponent<Efeito>();
         ControlarParticulas();
+        _dono._estaminaAtual -= _consumoEstamina;
+        _dono._manaAtual -= _consumoMana;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

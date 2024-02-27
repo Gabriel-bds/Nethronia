@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Utilidades : MonoBehaviour
 {
@@ -139,6 +141,17 @@ public class Utilidades : MonoBehaviour
             _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corDano);
             await Task.Delay(_intervalo * 1000);
+        }
+    }
+    public static void CopiarPropriedades(object _origem, object _destino)
+    {
+        Type type = _origem.GetType();
+        FieldInfo[] fields = type.GetFields();
+
+        // Copia os valores dos campos
+        foreach (var field in fields)
+        {
+            field.SetValue(_destino, field.GetValue(_origem));
         }
     }
 }

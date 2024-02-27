@@ -20,6 +20,7 @@ public class Controle_Cenarios : MonoBehaviour
 
     public void SortearCenario()
     {
+        FindAnyObjectByType<Player>().SalvarDadosPrefab("Prefabs/Entidades/Player");
         int _novaCenario = _cenariosDisponiveis[Random.Range(1, _cenariosDisponiveis.Count)];
         SceneManager.LoadSceneAsync($"{_fase}.{_novaCenario}", LoadSceneMode.Single);
         _cenariosDisponiveis.Remove(_novaCenario);

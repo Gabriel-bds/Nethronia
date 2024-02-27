@@ -364,4 +364,9 @@ public class Ser_Vivo : MonoBehaviour
     {
         _sons[_numeroNaLista].Play();
     }
+    public void SalvarDadosPrefab(string _caminhoPrefab)
+    {
+        Ser_Vivo _prefab = Resources.Load<GameObject>(_caminhoPrefab).GetComponent<Ser_Vivo>();
+        Utilidades.CopiarPropriedades(GetComponent<Ser_Vivo>(), _prefab);
+    }
 }

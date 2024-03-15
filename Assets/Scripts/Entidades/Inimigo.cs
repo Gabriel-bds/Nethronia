@@ -18,6 +18,7 @@ public class Inimigo : Ser_Vivo
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        DefinirAtributos();
     }
     protected override void Update()
     {

@@ -10,6 +10,7 @@ public class Troca_Cenario : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             FindAnyObjectByType<Controle_Cenarios>().SortearCenario();
+            FindAnyObjectByType<Player>().SalvarDadosPrefab("Prefabs/Entidades/Player");
         }
     }
 }

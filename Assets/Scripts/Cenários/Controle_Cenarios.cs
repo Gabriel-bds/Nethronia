@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class Controle_Cenarios : MonoBehaviour
 {
     [SerializeField] int _fase;
-    [SerializeField] int _qtdCenarios;
+    public int _qtdCenarios;
     [SerializeField] int _cenarioAtual;
-    [SerializeField] List<int> _cenariosDisponiveis = new List<int>();
+    public List<int> _cenariosDisponiveis = new List<int>();
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -16,14 +16,16 @@ public class Controle_Cenarios : MonoBehaviour
         {
             _cenariosDisponiveis.Add(n);
         }
+        
+        SortearCenario();
     }
 
     public void SortearCenario()
     {
-        FindAnyObjectByType<Player>().SalvarDadosPrefab("Prefabs/Entidades/Player");
-        int _novaCenario = _cenariosDisponiveis[Random.Range(1, _cenariosDisponiveis.Count)];
+        int _novaCenario = _cenariosDisponiveis[Random.Range(0, _cenariosDisponiveis.Count)];
         SceneManager.LoadSceneAsync($"{_fase}.{_novaCenario}", LoadSceneMode.Single);
         _cenariosDisponiveis.Remove(_novaCenario);
         _cenarioAtual = _novaCenario;
+
     }
 }

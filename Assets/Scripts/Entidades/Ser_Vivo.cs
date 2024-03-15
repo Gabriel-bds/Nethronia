@@ -66,7 +66,6 @@ public class Ser_Vivo : MonoBehaviour
         }
         _corBase = Color.white;
         _corBaseMao = Color.white;
-        DefinirAtributos();
     }
     protected virtual void Update()
     {

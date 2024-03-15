@@ -21,6 +21,10 @@ public class Player : Ser_Vivo
         _barraEstamina = FindAnyObjectByType<Barra_Estamina>();
         _barraMana = FindAnyObjectByType<Barra_Mana>();
         base.Awake();
+        if(FindAnyObjectByType<Controle_Cenarios>()._cenariosDisponiveis.Count + 1 == FindAnyObjectByType<Controle_Cenarios>()._qtdCenarios)
+        {
+            DefinirAtributos();
+        }
     }
     protected override void Update()
     {
@@ -28,6 +32,7 @@ public class Player : Ser_Vivo
         Atacar();
         _barraEstamina.AtualizarEstamina(_estaminaMax, _estaminaAtual);
         _barraMana.AtualizarMana(_manaMax, _manaAtual);
+        _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
         
 
     }

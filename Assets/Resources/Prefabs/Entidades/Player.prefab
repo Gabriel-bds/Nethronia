@@ -363,12 +363,12 @@ MonoBehaviour:
   _estaminaAtual: 0
   _manaMax: 100
   _manaAtual: 0
-  _velocidadeMovimento: 40
+  _velocidadeMovimento: 20
   _nivelGeral: 0
   _experiencia: 0
   _experienciaParaProximoNivel: 100
   _poderForca:
-    _nivel: 0
+    _nivel: 10
     _tipoDano: 0
     _dano: 0
     _negacaoDano: 0

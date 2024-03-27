@@ -18,11 +18,17 @@ public class Controle_Cenarios : MonoBehaviour
         }
         
         SortearCenario();
+        
+    }
+    private void Start()
+    {
+        //SceneManager.LoadSceneAsync($"2.inicio", LoadSceneMode.Single);
     }
 
     public void SortearCenario()
     {
-        int _novaCenario = _cenariosDisponiveis[Random.Range(0, _cenariosDisponiveis.Count)];
+        int _indexNovo = Random.Range(0, _cenariosDisponiveis.Count);
+        int _novaCenario = _cenariosDisponiveis[_indexNovo];
         SceneManager.LoadSceneAsync($"{_fase}.{_novaCenario}", LoadSceneMode.Single);
         _cenariosDisponiveis.Remove(_novaCenario);
         _cenarioAtual = _novaCenario;

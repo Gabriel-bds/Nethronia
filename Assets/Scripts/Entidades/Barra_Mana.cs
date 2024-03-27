@@ -7,6 +7,10 @@ public class Barra_Mana : MonoBehaviour
 {
     [SerializeField] private Image _barraAtual;
     [SerializeField] private Image _barraTransicao;
+    private void Awake()
+    {
+        FindAnyObjectByType<Player>()._barraMana = this;
+    }
     public void AtualizarMana(float _manaMax, float _manaAtual)
     {
         _barraAtual.fillAmount = _manaAtual / _manaMax;

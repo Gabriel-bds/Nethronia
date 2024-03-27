@@ -7,6 +7,7 @@ TagManager:
   - Combate/Area eletrica
   - Spawn_Ataque/Mao
   - Spawn_Ataque/Spawn1
+  - Spawn_Player
   layers:
   - Default
   - TransparentFX

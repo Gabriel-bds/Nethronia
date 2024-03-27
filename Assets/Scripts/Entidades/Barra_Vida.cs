@@ -7,6 +7,14 @@ public class Barra_Vida : MonoBehaviour
 {
     [SerializeField] private Image _barraAtual;
     [SerializeField] private Image _barraTransicao;
+    private void Awake()
+    {
+        FindAnyObjectByType<Player>()._barraVida = this;
+    }
+    private void Start()
+    {
+        
+    }
     public void AtualizarVida(float _vidaMax, float _vidaAtual)
     {
         _barraAtual.fillAmount = _vidaAtual / _vidaMax;

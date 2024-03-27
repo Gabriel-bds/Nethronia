@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vidaMax: 100
-  _vidaAtual: 0
+  _vidaAtual: 100
   _estaminaMax: 100
   _estaminaAtual: 0
   _manaMax: 100
@@ -368,7 +368,7 @@ MonoBehaviour:
   _experiencia: 0
   _experienciaParaProximoNivel: 100
   _poderForca:
-    _nivel: 10
+    _nivel: 8
     _tipoDano: 0
     _dano: 0
     _negacaoDano: 0
@@ -466,8 +466,9 @@ MonoBehaviour:
       _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
+  _rigidbody: {fileID: 0}
   _animator: {fileID: 0}
-  _mao: {fileID: 0}
+  _mao: {fileID: 6103966647750852281}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 0}
   _sangue: {fileID: 7385109916253285456, guid: 545ca0877584c64488be3e7738bd84bd, type: 3}
@@ -475,7 +476,7 @@ MonoBehaviour:
   _corBase: {r: 1, g: 1, b: 1, a: 1}
   _corBaseMao: {r: 1, g: 1, b: 1, a: 1}
   _sons:
-  - {fileID: 6421879364348472167, guid: 363e353ea117ac843b47cce925e515aa, type: 3}
+  - {fileID: 6421879364348472167}
   _barraEstamina: {fileID: 0}
   _barraMana: {fileID: 0}
   _pontosHabilidade: 0
@@ -529,7 +530,7 @@ MonoBehaviour:
   - {x: 0.12820454, y: -0.4637456, z: 0}
   m_ShapePathHash: -1515845407
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1306
+  m_InstanceId: -1326
   m_LocalBounds:
     m_Center: {x: -0.008488387, y: -0.1266734, z: 0}
     m_Extent: {x: 0.13669293, y: 0.3370722, z: 0}

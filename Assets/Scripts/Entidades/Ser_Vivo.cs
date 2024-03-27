@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
 using UnityEngine.Rendering;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
@@ -37,9 +39,9 @@ public class Ser_Vivo : MonoBehaviour
     public Poder_Veneno _poderVeneno = new Poder_Veneno(Tipo_Dano.Veneno);
     public Poder_Eletricidade _poderEletricidade = new Poder_Eletricidade(Tipo_Dano.Eletricidade);
 
-    protected Rigidbody2D _rigidbody;
-    [HideInInspector] public Animator _animator;
-    [HideInInspector] public GameObject _mao;
+    public Rigidbody2D _rigidbody;
+    public Animator _animator;
+    public GameObject _mao;
 
     [Header("Outros:")]
     public GameObject _alvo;
@@ -54,6 +56,7 @@ public class Ser_Vivo : MonoBehaviour
 
     protected virtual void Awake()
     {
+        //DefinirAtributos();
         _mao = GetComponentInChildren<Mao>().gameObject;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -62,7 +65,14 @@ public class Ser_Vivo : MonoBehaviour
     {
         if (_barraVida == null)
         {
-            _barraVida = GetComponentInChildren<Barra_Vida>();
+            try
+            {
+                _barraVida = GetComponentInChildren<Barra_Vida>();
+            }
+            finally
+            {
+                _barraVida = FindAnyObjectByType<Barra_Vida>();
+            }
         }
         _corBase = Color.white;
         _corBaseMao = Color.white;
@@ -160,7 +170,7 @@ public class Ser_Vivo : MonoBehaviour
     {
         _animator.SetFloat("Vida", _vidaAtual);
         _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
-        if(_vidaAtual < _vidaMax)
+        if (_vidaAtual < _vidaMax)
         {
             if (!_poderVitalidade._estaRegenerando)
             {
@@ -171,7 +181,7 @@ public class Ser_Vivo : MonoBehaviour
         {
             _poderVitalidade._estaRegenerando = false;
         }
-        if(_vidaAtual > _vidaMax)
+        if (_vidaAtual > _vidaMax)
         {
             _vidaAtual = _vidaMax;
         }
@@ -235,7 +245,7 @@ public class Ser_Vivo : MonoBehaviour
     void AdicionarExperiencia(Ser_Vivo _player)
     {
         _player._experiencia += _experiencia;
-        if(_player._experiencia >= _player._experienciaParaProximoNivel)
+        if (_player._experiencia >= _player._experienciaParaProximoNivel)
         {
             _player._experiencia -= _player._experienciaParaProximoNivel;
             _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);

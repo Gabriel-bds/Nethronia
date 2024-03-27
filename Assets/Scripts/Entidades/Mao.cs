@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Mao : MonoBehaviour
@@ -77,8 +78,6 @@ public class Mao : MonoBehaviour
                 Ataque _atq = Instantiate(_ataques[_indiceAtq], _ataques[_indiceAtq].GetComponent<Ataque>()._spawnPosicao, _ataques[_indiceAtq].GetComponent<Ataque>()._spawnRotacao).GetComponent<Ataque>();
                 _atq._dono = _dono;
                 _atq.gameObject.transform.localScale = _dono.transform.localScale;
-                /*_dono._estaminaAtual -= _atq._consumoEstamina;
-                _dono._manaAtual -= _atq._consumoMana;*/
                 _atq.DefinirSpawn();
                 _ultimoAtq = _atq.gameObject;
                 break;

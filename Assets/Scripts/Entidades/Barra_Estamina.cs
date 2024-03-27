@@ -7,6 +7,11 @@ public class Barra_Estamina : MonoBehaviour
 {
     [SerializeField] private Image _barraAtual;
     [SerializeField] private Image _barraTransicao;
+
+    private void Awake()
+    {
+        FindAnyObjectByType<Player>()._barraEstamina = this;
+    }
     public void AtualizarEstamina(float _estaminaMax, float _estaminaAtual)
     {
         _barraAtual.fillAmount = _estaminaAtual / _estaminaMax;

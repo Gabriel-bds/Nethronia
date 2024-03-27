@@ -15,16 +15,24 @@ public class Player : Ser_Vivo
     public Barra_Mana _barraMana;
     public int _pontosHabilidade;
     protected override void Awake()
-    {
-        //DontDestroyOnLoad(this);
-        _barraVida = FindAnyObjectByType<Barra_Vida>();
-        _barraEstamina = FindAnyObjectByType<Barra_Estamina>();
-        _barraMana = FindAnyObjectByType<Barra_Mana>();
+    { 
+        
+        FindAnyObjectByType<CinemachineVirtualCamera>().Follow = gameObject.transform;
         base.Awake();
         if(FindAnyObjectByType<Controle_Cenarios>()._cenariosDisponiveis.Count + 1 == FindAnyObjectByType<Controle_Cenarios>()._qtdCenarios)
         {
             DefinirAtributos();
+            
         }
+        
+    }
+    protected override void Start()
+    {
+        _barraVida = FindAnyObjectByType<Barra_Vida>();
+        _barraEstamina = FindAnyObjectByType<Barra_Estamina>();
+        _barraMana = FindAnyObjectByType<Barra_Mana>();
+        base.Start();
+        SalvarDadosPrefab("Prefabs/Entidades/Player");
     }
     protected override void Update()
     {

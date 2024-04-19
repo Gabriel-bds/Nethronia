@@ -7,6 +7,8 @@ public class Controle_Cenarios : MonoBehaviour
 {
     [SerializeField] int _fase;
     public int _qtdCenarios;
+    public int _limiteCenarios;
+    public int _cenariosPassados;
     [SerializeField] int _cenarioAtual;
     public List<int> _cenariosDisponiveis = new List<int>();
     private void Awake()
@@ -20,18 +22,20 @@ public class Controle_Cenarios : MonoBehaviour
         SortearCenario();
         
     }
-    private void Start()
-    {
-        //SceneManager.LoadSceneAsync($"2.inicio", LoadSceneMode.Single);
-    }
-
     public void SortearCenario()
     {
-        int _indexNovo = Random.Range(0, _cenariosDisponiveis.Count);
-        int _novaCenario = _cenariosDisponiveis[_indexNovo];
-        SceneManager.LoadSceneAsync($"{_fase}.{_novaCenario}", LoadSceneMode.Single);
-        _cenariosDisponiveis.Remove(_novaCenario);
-        _cenarioAtual = _novaCenario;
-
+        if(_cenariosPassados >= _limiteCenarios)
+        {
+            SceneManager.LoadSceneAsync($"{_fase}.f", LoadSceneMode.Single);
+        }
+        else
+        {
+            int _indexNovo = Random.Range(0, _cenariosDisponiveis.Count);
+            int _novaCenario = _cenariosDisponiveis[_indexNovo];
+            SceneManager.LoadSceneAsync($"{_fase}.{_novaCenario}", LoadSceneMode.Single);
+            _cenariosDisponiveis.Remove(_novaCenario);
+            _cenarioAtual = _novaCenario;
+            _cenariosPassados++;
+        }       
     }
 }

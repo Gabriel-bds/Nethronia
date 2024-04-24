@@ -9,6 +9,8 @@ namespace UnityEngine.Rendering.Universal
 
     internal static class ShadowRendering
     {
+        private static readonly int k_ShadowFalloffRateID = Shader.PropertyToID("_ShadowFalloffRate");
+        private static readonly int k_ShadowFalloffIntensityID = Shader.PropertyToID("_ShadowFalloffIntensity");
         private static readonly int k_LightPosID = Shader.PropertyToID("_LightPos");
         private static readonly int k_SelfShadowingID = Shader.PropertyToID("_SelfShadowing");
         private static readonly int k_ShadowStencilGroupID = Shader.PropertyToID("_ShadowStencilGroup");
@@ -154,6 +156,8 @@ namespace UnityEngine.Rendering.Universal
             cmdBuffer.SetGlobalColor(k_ShadowColorMaskID, k_ColorLookup[colorChannel]);
             cmdBuffer.SetGlobalFloat(k_ShadowIntensityID, 1 - light.shadowIntensity);
             cmdBuffer.SetGlobalFloat(k_ShadowVolumeIntensityID, 1 - light.shadowVolumeIntensity);
+            cmdBuffer.SetGlobalFloat(k_ShadowFalloffRateID, light.shadowFalloffRate);
+            cmdBuffer.SetGlobalFloat(k_ShadowFalloffIntensityID, light.shadowFalloffIntensity);
         }
 
         public static void DisableGlobalShadowTexture(CommandBuffer cmdBuffer)

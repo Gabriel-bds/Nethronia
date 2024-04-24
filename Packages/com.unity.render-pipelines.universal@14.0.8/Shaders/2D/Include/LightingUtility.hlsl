@@ -51,6 +51,8 @@
 
 #define SHADOW_VARIABLES\
     float  _ShadowIntensity;\
+    float _ShadowFalloffRate;\
+    float _ShadowFalloffIntensity;\
     float  _ShadowVolumeIntensity;\
     half4  _ShadowColorMask = 1;\
     TEXTURE2D(_ShadowTex);\

@@ -108,6 +108,9 @@ namespace UnityEditor.Rendering.Universal
             public static GUIContent renderPipelineUnassignedWarning = EditorGUIUtility.TrTextContentWithIcon("Universal scriptable renderpipeline asset must be assigned in Graphics Settings or Quality Settings.", MessageType.Warning);
             public static GUIContent asset2DUnassignedWarning = EditorGUIUtility.TrTextContentWithIcon("2D renderer data must be assigned to your universal render pipeline asset or camera.", MessageType.Warning);
 
+            public static GUIContent generalshadowFalloffRate = EditorGUIUtility.TrTextContent("Shadow Falloff Rate");
+            public static GUIContent generalshadowFalloffIntensity = EditorGUIUtility.TrTextContent("Shadow Falloff Intensity");
+
             public static string deprecatedParametricLightDialogTextSingle = "The upgrade will convert the selected parametric light into a freeform light. You can't undo this operation.";
             public static string deprecatedParametricLightDialogTextMulti = "The upgrade will convert the selected parametric lights into freeform lights. You can't undo this operation.";
             public static string deprecatedParametricLightDialogTitle = "Parametric Light Upgrader";
@@ -140,6 +143,8 @@ namespace UnityEditor.Rendering.Universal
         SerializedProperty m_LightOrder;
         SerializedProperty m_OverlapOperation;
         SerializedProperty m_ShadowRadius;
+        SerializedProperty m_shadowFalloffRate;
+        SerializedProperty m_shadowFalloffIntensity;
 
         // Point Light Properties
         SerializedProperty m_PointInnerAngle;
@@ -187,6 +192,8 @@ namespace UnityEditor.Rendering.Universal
         void OnEnable()
         {
             m_ShadowRadius = serializedObject.FindProperty("m_ShadowRadius");
+            m_shadowFalloffRate = serializedObject.FindProperty("m_shadowFalloffRate");
+            m_shadowFalloffIntensity = serializedObject.FindProperty("m_shadowFalloffIntensity");
             m_Analytics = Analytics.Renderer2DAnalytics.instance;
             m_ModifiedLights = new HashSet<Light2D>();
             m_SortingLayerDropDown = new SortingLayerDropDown();
@@ -525,6 +532,8 @@ namespace UnityEditor.Rendering.Universal
         void DrawSpotLight(SerializedObject serializedObject)
         {
             EditorGUILayout.Slider(m_ShadowRadius, 0, 1.42f, Styles.generalShadowRadius);
+            EditorGUILayout.Slider(m_shadowFalloffRate, 0, 10f, Styles.generalshadowFalloffRate);
+            EditorGUILayout.Slider(m_shadowFalloffIntensity, 0, 10f, Styles.generalshadowFalloffIntensity);
             DrawRadiusProperties(Styles.pointLightRadius, m_PointInnerRadius, Styles.pointLightInner, m_PointOuterRadius, Styles.pointLightOuter);
             DrawInnerAndOuterSpotAngle(m_PointInnerAngle, m_PointOuterAngle, Styles.InnerOuterSpotAngle);
             EditorGUILayout.Slider(m_FalloffIntensity, 0, 1, Styles.generalFalloffIntensity);

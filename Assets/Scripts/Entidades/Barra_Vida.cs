@@ -11,10 +11,6 @@ public class Barra_Vida : MonoBehaviour
     {
         FindAnyObjectByType<Player>()._barraVida = this;
     }
-    private void Start()
-    {
-        
-    }
     public void AtualizarVida(float _vidaMax, float _vidaAtual)
     {
         _barraAtual.fillAmount = _vidaAtual / _vidaMax;

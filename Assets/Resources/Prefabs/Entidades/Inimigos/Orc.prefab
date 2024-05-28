@@ -372,15 +372,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dono: {fileID: 8413057205986569780}
-  _latenciaMira: 2
+  _latenciaMira: 10
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 575152200097329226, guid: c6320d7ca02cbf74f89c5bf9f7f62af2, type: 3}
-  _ataquesDisponiveis: []
   _mirandoAlvo: 0
-  _spawnsAtaques:
-  - {fileID: 3076026808157538096}
   _travar: 0
+  _animator: {fileID: 0}
   _sons: []
 --- !u!1 &4330983313221606912
 GameObject:
@@ -731,7 +729,7 @@ MonoBehaviour:
   - {x: 0.18112564, y: -0.47666788, z: 0}
   m_ShapePathHash: 1527190589
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29748
+  m_InstanceId: 40928
   m_LocalBounds:
     m_Center: {x: -0.0019443035, y: -0.13269418, z: 0}
     m_Extent: {x: 0.18306994, y: 0.3439737, z: 0}
@@ -749,6 +747,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vidaMax: 100
   _vidaAtual: 0
+  _estaminaMax: 0
+  _estaminaAtual: 0
+  _manaMax: 0
+  _manaAtual: 0
   _velocidadeMovimento: 0
   _nivelGeral: 0
   _experiencia: 100
@@ -775,7 +777,6 @@ MonoBehaviour:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoRecargaAtaques: 0
     _reducaoTempo: 0
   _poderFogo:
     _nivel: 0
@@ -853,6 +854,8 @@ MonoBehaviour:
       _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
+  _rigidbody: {fileID: 0}
+  _animator: {fileID: 0}
   _mao: {fileID: 0}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 2100925408196761778}

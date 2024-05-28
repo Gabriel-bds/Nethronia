@@ -36,6 +36,6 @@ public class Controle_Cenarios : MonoBehaviour
             _cenariosDisponiveis.Remove(_novaCenario);
             _cenarioAtual = _novaCenario;
             _cenariosPassados++;
-        }       
+        }
     }
 }

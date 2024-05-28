@@ -121,7 +121,8 @@ Shader "Hidden/Light2D-Point"
 #endif
 
                 APPLY_NORMALS_LIGHTING(input, lightColor);
-                _ShadowIntensity = saturate(_ShadowIntensity - ((_ShadowFalloffRate - (attenuation * _ShadowFalloffIntensity )) * -_FalloffIntensity));
+                //_ShadowIntensity = saturate(_ShadowIntensity - ((_ShadowFalloffRate - (attenuation * _ShadowFalloffIntensity )) * -_FalloffIntensity));
+                //_ShadowIntensity =  saturate(1);
                 APPLY_SHADOWS(input, lightColor, _ShadowIntensity);
 
                 return lightColor * _InverseHDREmulationScale;

@@ -56,7 +56,6 @@ public class Ser_Vivo : MonoBehaviour
 
     protected virtual void Awake()
     {
-        //DefinirAtributos();
         _mao = GetComponentInChildren<Mao>().gameObject;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -137,30 +136,32 @@ public class Ser_Vivo : MonoBehaviour
     }
     private void Virar()
     {
-        _barraVida.transform.rotation = Quaternion.Euler(0, 0, 0);
-        if (_travar == 0)
+        if(_vidaAtual > 0)
         {
-            Vector2 _posicaoAlvo;
-            if (_alvo != null)
+            _barraVida.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (_travar == 0)
             {
-                _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
-            }
-            else
-            {
-                _posicaoAlvo = Input.mousePosition;
-            }
-            if (_posicaoAlvo.x < Camera.main.WorldToScreenPoint(transform.position).x)
-            {
-                transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-                _mao.transform.localScale = new Vector3(1, -1, 1);
-            }
-            else
-            {
-                transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
-                _mao.transform.localScale = new Vector3(1, 1, 1);
+                Vector2 _posicaoAlvo;
+                if (_alvo != null)
+                {
+                    _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
+                }
+                else
+                {
+                    _posicaoAlvo = Input.mousePosition;
+                }
+                if (_posicaoAlvo.x < Camera.main.WorldToScreenPoint(transform.position).x)
+                {
+                    transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
+                    _mao.transform.localScale = new Vector3(1, -1, 1);
+                }
+                else
+                {
+                    transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
+                    _mao.transform.localScale = new Vector3(1, 1, 1);
+                }
             }
         }
-
     }
     public void TravarCorpo(int _travarCorpo)
     {

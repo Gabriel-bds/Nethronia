@@ -19,16 +19,15 @@ public class Player : Ser_Vivo
         
         FindAnyObjectByType<CinemachineVirtualCamera>().Follow = gameObject.transform;
         base.Awake();
-        if(FindAnyObjectByType<Controle_Cenarios>()._cenariosDisponiveis.Count + 1 == FindAnyObjectByType<Controle_Cenarios>()._qtdCenarios)
+        if (FindAnyObjectByType<Controle_Cenarios>()._cenariosDisponiveis.Count + 1 == FindAnyObjectByType<Controle_Cenarios>()._qtdCenarios)
         {
-            DefinirAtributos();
-            
+            DefinirAtributos(); 
         }
         
     }
     protected override void Start()
     {
-        _barraVida = FindAnyObjectByType<Barra_Vida>();
+        _barraVida = GameObject.FindGameObjectWithTag("Hud").GetComponentInChildren<Barra_Vida>();
         _barraEstamina = FindAnyObjectByType<Barra_Estamina>();
         _barraMana = FindAnyObjectByType<Barra_Mana>();
         base.Start();

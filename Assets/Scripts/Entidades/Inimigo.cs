@@ -14,6 +14,17 @@ public class Inimigo : Ser_Vivo
     }
     protected override void Start()
     {
+        if (_barraVida == null)
+        {
+            try
+            {
+                _barraVida = GetComponentInChildren<Barra_Vida>();
+            }
+            finally
+            {
+                _barraVida = GameObject.FindGameObjectWithTag("Barra_vida_Boss").GetComponent<Barra_Vida>();
+            }
+        }
         base.Start();
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;

@@ -9,6 +9,7 @@ TagManager:
   - Spawn_Ataque/Spawn1
   - Spawn_Player
   - Hud
+  - Barra_vida_Boss
   layers:
   - Default
   - TransparentFX

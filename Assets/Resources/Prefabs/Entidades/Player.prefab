@@ -476,7 +476,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0
   _poderFogo:
-    _nivel: 0
+    _nivel: 50
     _tipoDano: 1
     _dano: 0
     _negacaoDano: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
       _utilidade2: 0
       _negacaoUtilidade2: 0
   _poderEletricidade:
-    _nivel: 0
+    _nivel: 50
     _tipoDano: 4
     _dano: 0
     _negacaoDano: 0

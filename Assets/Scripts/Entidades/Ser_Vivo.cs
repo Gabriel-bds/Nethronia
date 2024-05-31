@@ -62,17 +62,6 @@ public class Ser_Vivo : MonoBehaviour
     }
     protected virtual void Start()
     {
-        if (_barraVida == null)
-        {
-            try
-            {
-                _barraVida = GetComponentInChildren<Barra_Vida>();
-            }
-            finally
-            {
-                _barraVida = FindAnyObjectByType<Barra_Vida>();
-            }
-        }
         _corBase = Color.white;
         _corBaseMao = Color.white;
     }

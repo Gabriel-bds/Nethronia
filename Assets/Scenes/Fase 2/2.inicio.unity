@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fase: 2
   _qtdCenarios: 3
-  _limiteCenarios: 0
+  _limiteCenarios: 2
   _cenariosPassados: 0
   _cenarioAtual: 1
   _cenariosDisponiveis: 

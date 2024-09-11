@@ -19,7 +19,7 @@ public class Controle_Cenarios : MonoBehaviour
             _cenariosDisponiveis.Add(n);
         }
         
-        SortearCenario();
+        //SortearCenario();
         
     }
     public void SortearCenario()
@@ -30,12 +30,12 @@ public class Controle_Cenarios : MonoBehaviour
         }
         else
         {
-            /*int _indexNovo = Random.Range(0, _cenariosDisponiveis.Count);
-            int _novaCenario = _cenariosDisponiveis[_indexNovo];*/
-            SceneManager.LoadSceneAsync($"{_fase}.{1}", LoadSceneMode.Single);
-            /*_cenariosDisponiveis.Remove(_novaCenario);
+            int _indexNovo = Random.Range(0, _cenariosDisponiveis.Count);
+            int _novaCenario = _cenariosDisponiveis[_indexNovo];
+            //SceneManager.LoadSceneAsync($"{_fase}.{2}", LoadSceneMode.Single);
+            _cenariosDisponiveis.Remove(_novaCenario);
             _cenarioAtual = _novaCenario;
-            _cenariosPassados++;*/
+            _cenariosPassados++;
         }
     }
 }

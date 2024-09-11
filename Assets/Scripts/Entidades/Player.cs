@@ -19,10 +19,7 @@ public class Player : Ser_Vivo
         
         FindAnyObjectByType<CinemachineVirtualCamera>().Follow = gameObject.transform;
         base.Awake();
-        if (FindAnyObjectByType<Controle_Cenarios>()._cenariosDisponiveis.Count + 1 >= FindAnyObjectByType<Controle_Cenarios>()._qtdCenarios)
-        {
-            DefinirAtributos(); 
-        }
+        DefinirAtributos(); 
         
     }
     protected override void Start()
@@ -37,11 +34,12 @@ public class Player : Ser_Vivo
     {
         base.Update();
         Atacar();
+        Esquivar();
         _barraEstamina.AtualizarEstamina(_estaminaMax, _estaminaAtual);
         _barraMana.AtualizarMana(_manaMax, _manaAtual);
         _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
-        
-
+        /*Debug.Log(Input.GetAxis("Horizontal"));
+        Debug.Log(Input.GetAxis("Vertical"));*/
     }
     private void FixedUpdate()
     {
@@ -87,6 +85,18 @@ public class Player : Ser_Vivo
         {
             _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
             _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
+        }
+    }
+    void Esquivar()
+    {
+        _animator.SetBool("Esquivar", false);
+        _mao.GetComponent<Animator>().SetBool("Esquivar", false);
+
+        if (Input.GetButtonDown("Esquiva"))
+        {
+            Knockback(50f, new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            _animator.SetBool("Esquivar", true);
+            _mao.GetComponent<Animator>().SetBool("Esquivar", true);
         }
     }
     public void CongelarTempo()

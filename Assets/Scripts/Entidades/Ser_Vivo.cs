@@ -76,7 +76,7 @@ public class Ser_Vivo : MonoBehaviour
         if (_travar == 0)
         {
             Vector2 _ultimaPosicao = transform.position;
-            _rigidbody.velocity = new Vector2(_velocidadeMovimento * _direcaoX,
+            _rigidbody.velocity += new Vector2(_velocidadeMovimento * _direcaoX,
             _velocidadeMovimento * _direcaoY);
         }
 
@@ -256,7 +256,6 @@ public class Ser_Vivo : MonoBehaviour
         {
             GetComponent<NavMeshAgent>().enabled = false;
             Player _player = FindAnyObjectByType<Player>();
-            Debug.Log("Travou");
             _mao.GetComponent<Mao>().ResetarMao();
             _mao.GetComponent<Mao>().TravarMao(1);
             Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);

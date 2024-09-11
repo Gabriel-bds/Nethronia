@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class Mao : MonoBehaviour
 {
@@ -103,7 +105,7 @@ public class Mao : MonoBehaviour
     }
     public void ResetarMao()
     {
-        transform.rotation = new Quaternion(0,0,0,0);
+        transform.rotation *= new Quaternion(1, 1, 0, 0);
         GetComponent<SpriteRenderer>().flipX = _dono.GetComponent<SpriteRenderer>().flipX;
         GetComponent<SpriteRenderer>().flipY = _dono.GetComponent<SpriteRenderer>().flipY;
     }

@@ -7,9 +7,6 @@ using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
-    private void Start()
-    {
-    }
     private void Update()
     {
         OlharCamera();

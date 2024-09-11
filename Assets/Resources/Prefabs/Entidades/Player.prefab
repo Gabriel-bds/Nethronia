@@ -445,19 +445,19 @@ MonoBehaviour:
   _vidaMax: 100
   _vidaAtual: 100
   _estaminaMax: 100
-  _estaminaAtual: 0
+  _estaminaAtual: 100
   _manaMax: 100
-  _manaAtual: 0
-  _velocidadeMovimento: 20
+  _manaAtual: 100
+  _velocidadeMovimento: 10
   _nivelGeral: 0
   _experiencia: 0
   _experienciaParaProximoNivel: 100
   _poderForca:
     _nivel: 8
     _tipoDano: 0
-    _dano: 0
+    _dano: 13
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 13.5
     _negacaoRepulsao: 0
   _poderResistencia:
     _nivel: 0
@@ -467,27 +467,27 @@ MonoBehaviour:
     _nivel: 0
     _acrescimoVidaMax: 0
     _valorCura: 0
-    _intervaloCura: 0
+    _intervaloCura: 5
     _rouboVida: 0
     _estaRegenerando: 0
   _poderVelocidade:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoTempo: 0
+    _reducaoTempo: 0.5
   _poderFogo:
     _nivel: 50
     _tipoDano: 1
-    _dano: 0
-    _negacaoDano: 0
-    _repulsao: 0
-    _negacaoRepulsao: 0
+    _dano: 45
+    _negacaoDano: 37.5
+    _repulsao: 45
+    _negacaoRepulsao: 37.5
     _status:
-      _acumuloMax: 0
+      _acumuloMax: 250
       _acumuloAtual: 0
-      _infligirAcumulo: 0
-      _dano: 0
-      _negacaoDano: 0
+      _infligirAcumulo: 50
+      _dano: 37.5
+      _negacaoDano: 37.5
       _dano2: 0
       _negacaoDano2: 0
       _utilidade1: 0
@@ -497,9 +497,9 @@ MonoBehaviour:
   _poderGelo:
     _nivel: 0
     _tipoDano: 3
-    _dano: 0
+    _dano: 7.5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -509,16 +509,16 @@ MonoBehaviour:
       _negacaoDano: 0
       _dano2: 0
       _negacaoDano2: 0
-      _utilidade1: 0
+      _utilidade1: 30
       _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
   _poderVeneno:
     _nivel: 0
     _tipoDano: 2
-    _dano: 0
+    _dano: 7.5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -535,24 +535,24 @@ MonoBehaviour:
   _poderEletricidade:
     _nivel: 50
     _tipoDano: 4
-    _dano: 0
-    _negacaoDano: 0
-    _repulsao: 0
-    _negacaoRepulsao: 0
+    _dano: 45
+    _negacaoDano: 37.5
+    _repulsao: 45
+    _negacaoRepulsao: 37.5
     _status:
-      _acumuloMax: 0
+      _acumuloMax: 250
       _acumuloAtual: 0
-      _infligirAcumulo: 0
-      _dano: 0
-      _negacaoDano: 0
+      _infligirAcumulo: 50
+      _dano: 21
+      _negacaoDano: 17.5
       _dano2: 0
       _negacaoDano2: 0
-      _utilidade1: 0
-      _negacaoUtilidade1: 0
+      _utilidade1: 15
+      _negacaoUtilidade1: 14
       _utilidade2: 0
       _negacaoUtilidade2: 0
-  _rigidbody: {fileID: 0}
-  _animator: {fileID: 0}
+  _rigidbody: {fileID: 7514703155795013676}
+  _animator: {fileID: 5295951590529416875}
   _mao: {fileID: 6103966647750852281}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 0}

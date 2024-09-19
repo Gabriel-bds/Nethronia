@@ -38,7 +38,7 @@ public class Ataque : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & _alvos) != 0)
+        if (((1 << collision.gameObject.layer) & _alvos) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
         {
             Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
             float _danoSofrido = 0;

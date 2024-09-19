@@ -48,7 +48,7 @@ public class Projetil : Ataque
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & _colisoes) != 0)
+        if (((1 << collision.gameObject.layer) & _colisoes) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
         {
             try
             { 

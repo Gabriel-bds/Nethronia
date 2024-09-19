@@ -38,7 +38,7 @@ public class Rajada : Ataque
     }
     async void GerarDano(Collider2D collision)
     {
-        if(GetComponent<Collider2D>().IsTouching(collision))
+        if(GetComponent<Collider2D>().IsTouching(collision) && !collision.GetComponent<Ser_Vivo>()._invulneravel)
         {
             if (((1 << collision.gameObject.layer) & _alvos) != 0)
             {

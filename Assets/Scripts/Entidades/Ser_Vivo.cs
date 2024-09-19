@@ -50,6 +50,7 @@ public class Ser_Vivo : MonoBehaviour
     [HideInInspector] public int _travar;
     [HideInInspector] public Color _corBase;
     [HideInInspector] public Color _corBaseMao;
+    public bool _invulneravel;
 
     [Header("Sons:")]
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
@@ -242,6 +243,17 @@ public class Ser_Vivo : MonoBehaviour
             _player.GetComponent<Player>()._pontosHabilidade += 1;
         }
         Utilidades.InstanciarNumeroDano($"+{_experiencia}Exp", _player.transform);
+    }
+    public void Invulneravel(int _estado)
+    {
+        if (_estado == 0)
+        {
+            _invulneravel = false;
+        }
+        else
+        {
+            _invulneravel = true;
+        }
     }
     public void Morte(float _tempo)
     {

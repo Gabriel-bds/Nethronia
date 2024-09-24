@@ -960,7 +960,7 @@ MonoBehaviour:
   _experiencia: 125
   _experienciaParaProximoNivel: 0
   _poderForca:
-    _nivel: 20
+    _nivel: 1
     _tipoDano: 0
     _dano: 0
     _negacaoDano: 0
@@ -1067,6 +1067,7 @@ MonoBehaviour:
   _travar: 0
   _corBase: {r: 0, g: 0, b: 0, a: 0}
   _corBaseMao: {r: 0, g: 0, b: 0, a: 0}
+  _invulneravel: 0
   _sons:
   - {fileID: 7519571108330514947}
 --- !u!95 &1756905732312363293

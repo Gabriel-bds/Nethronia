@@ -1,5 +1,6 @@
 using Cinemachine;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,8 +39,6 @@ public class Player : Ser_Vivo
         _barraEstamina.AtualizarEstamina(_estaminaMax, _estaminaAtual);
         _barraMana.AtualizarMana(_manaMax, _manaAtual);
         _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
-        /*Debug.Log(Input.GetAxis("Horizontal"));
-        Debug.Log(Input.GetAxis("Vertical"));*/
     }
     private void FixedUpdate()
     {
@@ -127,5 +126,4 @@ public class Player : Ser_Vivo
             Time.timeScale = 1;
         }
     }
-    
 }

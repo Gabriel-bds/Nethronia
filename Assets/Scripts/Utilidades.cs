@@ -33,6 +33,17 @@ public class Utilidades : MonoBehaviour
             return _valor;
         }
     }
+    public static float NegativoParaPositivo(float _valor)
+    {
+        if(_valor < 0)
+        {
+            return _valor * -1;
+        }
+        else 
+        {   
+            return _valor;
+        }
+    }
     public static float Escala(int _nivel, float _valorInicial, float _progressao)
     {
         return _valorInicial + _nivel * _progressao;

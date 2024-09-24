@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Projetil : Ataque
 {
+    [Header("Projetil:")]
     [SerializeField] float _velocidade;
     [SerializeField] float _tempoDeVida;
     float _tempoDeVidaAtual;

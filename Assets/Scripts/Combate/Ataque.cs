@@ -28,6 +28,10 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
+    [Header("Inimigos:")]
+    public float _distanciaMin;
+    public float _distanciaMax;
+    public float _distanciaPerfeita;
     protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();

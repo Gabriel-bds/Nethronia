@@ -448,16 +448,16 @@ MonoBehaviour:
   _estaminaAtual: 100
   _manaMax: 100
   _manaAtual: 100
-  _velocidadeMovimento: 10
+  _velocidadeMovimento: 8
   _nivelGeral: 0
   _experiencia: 0
   _experienciaParaProximoNivel: 100
   _poderForca:
-    _nivel: 8
+    _nivel: 0
     _tipoDano: 0
-    _dano: 13
+    _dano: 0
     _negacaoDano: 0
-    _repulsao: 13.5
+    _repulsao: 0
     _negacaoRepulsao: 0
   _poderResistencia:
     _nivel: 0
@@ -474,14 +474,14 @@ MonoBehaviour:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoTempo: 0.5
+    _reducaoTempo: 0
   _poderFogo:
-    _nivel: 50
+    _nivel: 0
     _tipoDano: 1
-    _dano: 45
-    _negacaoDano: 37.5
-    _repulsao: 45
-    _negacaoRepulsao: 37.5
+    _dano: 0
+    _negacaoDano: 0
+    _repulsao: 0
+    _negacaoRepulsao: 0
     _status:
       _acumuloMax: 250
       _acumuloAtual: 0
@@ -497,9 +497,9 @@ MonoBehaviour:
   _poderGelo:
     _nivel: 0
     _tipoDano: 3
-    _dano: 7.5
+    _dano: 0
     _negacaoDano: 0
-    _repulsao: 7.5
+    _repulsao: 0
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -516,9 +516,9 @@ MonoBehaviour:
   _poderVeneno:
     _nivel: 0
     _tipoDano: 2
-    _dano: 7.5
+    _dano: 0
     _negacaoDano: 0
-    _repulsao: 7.5
+    _repulsao: 0
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -533,38 +533,39 @@ MonoBehaviour:
       _utilidade2: 0
       _negacaoUtilidade2: 0
   _poderEletricidade:
-    _nivel: 50
+    _nivel: 0
     _tipoDano: 4
-    _dano: 45
-    _negacaoDano: 37.5
-    _repulsao: 45
-    _negacaoRepulsao: 37.5
+    _dano: 0
+    _negacaoDano: 0
+    _repulsao: 0
+    _negacaoRepulsao: 0
     _status:
-      _acumuloMax: 250
+      _acumuloMax: 0
       _acumuloAtual: 0
-      _infligirAcumulo: 50
-      _dano: 21
-      _negacaoDano: 17.5
+      _infligirAcumulo: 0
+      _dano: 0
+      _negacaoDano: 0
       _dano2: 0
       _negacaoDano2: 0
-      _utilidade1: 15
-      _negacaoUtilidade1: 14
+      _utilidade1: 0
+      _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
-  _rigidbody: {fileID: 7514703155795013676}
-  _animator: {fileID: 5295951590529416875}
-  _mao: {fileID: 6103966647750852281}
+  _rigidbody: {fileID: 0}
+  _animator: {fileID: 0}
+  _mao: {fileID: 0}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 0}
   _sangue: {fileID: 7385109916253285456, guid: 545ca0877584c64488be3e7738bd84bd, type: 3}
   _travar: 0
   _corBase: {r: 1, g: 1, b: 1, a: 1}
   _corBaseMao: {r: 1, g: 1, b: 1, a: 1}
+  _invulneravel: 0
   _sons:
   - {fileID: 6421879364348472167}
   _barraEstamina: {fileID: 0}
   _barraMana: {fileID: 0}
-  _pontosHabilidade: 0
+  _pontosHabilidade: 1
 --- !u!95 &5295951590529416875
 Animator:
   serializedVersion: 5

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8560884134372733906}
   - component: {fileID: -2967019613308167191}
   m_Layer: 0
-  m_Name: Pedra
+  m_Name: Pedra 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4846,7 +4846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 0}
-  _idAtaque: 2
+  _idAtaque: 1
   _tipoDano: 0
   _dano: 100
   _repulsao: 100
@@ -4861,6 +4861,9 @@ MonoBehaviour:
   _spawnPosicao: {x: -21.078812, y: -9.995678, z: 0}
   _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
   _localSpawn: 1
+  _distanciaMin: 1
+  _distanciaMax: 6
+  _distanciaPerfeita: 3
   _velocidade: 15
   _tempoDeVida: 15
   _progressaoEscala: 0

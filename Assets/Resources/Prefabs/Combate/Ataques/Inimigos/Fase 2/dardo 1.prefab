@@ -234,16 +234,23 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 100
   _repulsao: 100
-  _tempoRecarga: 5
-  _tempoAtual: 0
+  _consumoEstamina: 0
+  _consumoMana: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 256
   _corDano: {r: 0.19318059, g: 0.46226418, b: 0.1250148, a: 1}
   _dono: {fileID: 0}
   _somHit: {fileID: 5082428435521603072}
+  _spawnPosicao: {x: 0, y: 0, z: 0}
+  _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
+  _localSpawn: 0
+  _distanciaMin: 1
+  _distanciaMax: 20
+  _distanciaPerfeita: 10
   _velocidade: 15
   _tempoDeVida: 5
+  _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2
     m_Bits: 256

@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using TMPro;
 using UnityEngine;
 
 public enum Raridade_carta { Comum, Raro, Epico, Lendario}
 public class Carta : MonoBehaviour
 {
     public Raridade_carta _raridade = new Raridade_carta();
-    public string _descricaoCarta;
+
     public string _atributos;
     public float _taxaAlteracao;
-
     public void AlteracaoAtributos()
     {
         Ser_Vivo _player = FindAnyObjectByType<Player>();
@@ -32,5 +32,6 @@ public class Carta : MonoBehaviour
             _instanciaSecundaria = _informacao.GetValue(_instanciaSecundaria);
 
         }
+        Controle_Cartas.DestruirCartas();
     }
 }

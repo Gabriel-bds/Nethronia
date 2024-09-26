@@ -165,4 +165,13 @@ public class Utilidades : MonoBehaviour
             field.SetValue(_destino, field.GetValue(_origem));
         }
     }
+    public static List<object> CopiarListaDe(List<object> lista)
+    {
+        List<object> copia = new List<object>();
+        foreach (object obj in lista)
+        {
+            copia.Add(obj);
+        }
+        return copia;
+    }
 }

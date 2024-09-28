@@ -84,9 +84,9 @@ public class Ataque : MonoBehaviour
 
             Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);
 
-            ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, transform.rotation).GetComponent<ParticleSystem>();
+            ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, Quaternion.Euler(0,0,0)).GetComponent<ParticleSystem>();
             var _emissao = _objSangue.emission;
-            _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * 2000;
+            _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * _emissao.rateOverTime.constant;
 
             if(_efeitoAplicado != null) 
             {

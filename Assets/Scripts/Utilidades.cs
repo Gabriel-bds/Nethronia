@@ -116,12 +116,20 @@ public class Utilidades : MonoBehaviour
         _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
+        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+        var _emissao = _objSangue.emission;
+        _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
+
     }
     public static void AplicarDano(Ser_Vivo _vitima, float _dano, Color _corNumeroDano)
     {
         _vitima._vidaAtual -= _dano;
         _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corNumeroDano);
+
+        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+        var _emissao = _objSangue.emission;
+        _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
     }
     public static async void AplicarDano(Ser_Vivo _vitima, float _dano, int _duracao, int _intervalo) 
@@ -131,7 +139,14 @@ public class Utilidades : MonoBehaviour
             _vitima._vidaAtual -= _dano;
             _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
+
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            var _emissao = _objSangue.emission;
+            _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
+
             await Task.Delay(_intervalo * 1000);
+
+
         }
     }
     public static async void AplicarDano(Ser_Vivo _vitima, float _dano, float _duracao, float _intervalo)
@@ -141,6 +156,11 @@ public class Utilidades : MonoBehaviour
             _vitima._vidaAtual -= _dano;
             _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
+
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            var _emissao = _objSangue.emission;
+            _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
+            
             await Task.Delay((int)Math.Ceiling(_intervalo * 1000));
         }
     }
@@ -151,6 +171,11 @@ public class Utilidades : MonoBehaviour
             _vitima._vidaAtual -= _dano;
             _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corDano);
+
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            var _emissao = _objSangue.emission;
+            _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
+
             await Task.Delay(_intervalo * 1000);
         }
     }

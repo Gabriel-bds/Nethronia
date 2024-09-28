@@ -17,7 +17,7 @@ public class EfeitoFulminar : Efeito
     public override void Aplicar(Ser_Vivo _atacante, Ser_Vivo _vitima)
     {
         _vitima._poderEletricidade._status._acumuloAtual += _atacante._poderEletricidade._status._infligirAcumulo;
-        if(_vitima._poderEletricidade._status._acumuloAtual >= _vitima._poderEletricidade._status._acumuloMax)
+        if(_vitima._poderEletricidade._status._acumuloAtual > _vitima._poderEletricidade._status._acumuloMax)
         {
             base.Aplicar(_atacante, _vitima);
             _vitima._poderEletricidade._status._acumuloAtual = 0;
@@ -65,6 +65,10 @@ public class AreaEletricidade : MonoBehaviour
             _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);
             _atingido.StartCoroutine(_atingido.PiscarCor(new Color(255, 255, 0, 255)));
             Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.gameObject.transform, Color.yellow);
+
+            ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            var _emissao = _objSangue.emission;
+            _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * _emissao.rateOverTime.constant;
         }
     }
 }

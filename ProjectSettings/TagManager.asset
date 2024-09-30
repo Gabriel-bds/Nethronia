@@ -50,3 +50,6 @@ TagManager:
   - name: Camera
     uniqueID: 168548911
     locked: 0
+  - name: Obstaculo
+    uniqueID: 750229157
+    locked: 0

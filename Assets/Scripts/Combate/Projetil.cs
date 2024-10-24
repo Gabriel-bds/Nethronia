@@ -99,7 +99,7 @@ public class Projetil : Ataque
             AutoDestruir();
         }
     }
-    public void AutoDestruir()
+    public new void AutoDestruir()
     {
         Destroy(gameObject);
     }

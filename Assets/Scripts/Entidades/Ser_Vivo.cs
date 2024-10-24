@@ -18,12 +18,6 @@ public class Ser_Vivo : MonoBehaviour
     [ReadOnly(true)]
     public float _vidaMax;
     public float _vidaAtual;
-    public float _estaminaMax;
-    public float _estaminaAtual;
-    private bool _regenerandoEstamina;
-    public float _manaMax;
-    public float _manaAtual;
-    private bool _regenerandoMana;
     public float _velocidadeMovimento;
     public int _nivelGeral = 0;
     public int _experiencia;
@@ -193,32 +187,6 @@ public class Ser_Vivo : MonoBehaviour
             _poderVitalidade._estaRegenerando = false;
         }
     }
-    public IEnumerator RegenerarEstamina()
-    {
-        if (!_regenerandoEstamina)
-        {
-            while (_estaminaAtual < _estaminaMax)
-            {
-                _regenerandoEstamina = true;
-                yield return new WaitForSeconds(0.5f);
-                _estaminaAtual += 1;
-            }
-            _regenerandoEstamina = false;
-        }
-    }
-    public IEnumerator RegenerarMana()
-    {
-        if (!_regenerandoMana)
-        {
-            while (_manaAtual < _manaMax)
-            {
-                _regenerandoMana = true;
-                yield return new WaitForSeconds(0.75f);
-                _manaAtual += 1;
-            }
-            _regenerandoMana = false;
-        }
-    }
     public void Knockback(float _knockback, Vector2 _distancia)
     {
         if (GetComponent<NavMeshAgent>() != null)
@@ -273,7 +241,6 @@ public class Ser_Vivo : MonoBehaviour
             Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
             AdicionarExperiencia(_player);
         }
-        //StartCoroutine(DestruirCorpo(_tempo));
         Destroy(gameObject, _tempo);
     }
     IEnumerator DestruirCorpo(float _tempo)
@@ -283,10 +250,6 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void DefinirAtributos()
     {
-        #region Base
-        _estaminaAtual = _estaminaMax;
-        _manaAtual = _manaMax;
-        #endregion
 
         #region Força
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);

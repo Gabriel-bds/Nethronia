@@ -118,8 +118,7 @@ MonoBehaviour:
   _tipoDano: 3
   _dano: 100
   _repulsao: 100
-  _consumoEstamina: 0
-  _consumoMana: 0
+  _tempoRecargaTotal: 4
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -129,6 +128,11 @@ MonoBehaviour:
   _spawnPosicao: {x: -0.23804462, y: -13.02919, z: 8e-45}
   _spawnRotacao: {x: 3e-45, y: -3e-45, z: 0.24260269, w: 0.97012573}
   _localSpawn: 1
+  _atacarEnquantoDisponivel: 0
+  _percentualDecaimentoRecarga: 0
+  _distanciaMin: 0
+  _distanciaMax: 0
+  _distanciaPerfeita: 0
   _velocidade: 15
   _tempoDeVida: 15
   _progressaoEscala: 0
@@ -9997,6 +10001,9 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
+  m_ShadowRadius: 1.42
+  m_shadowFalloffRate: 1
+  m_shadowFalloffIntensity: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}

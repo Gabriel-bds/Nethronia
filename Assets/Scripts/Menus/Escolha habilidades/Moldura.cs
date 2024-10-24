@@ -19,7 +19,7 @@ public class Moldura : MonoBehaviour
         {
             if(_quadro._numeroQuadro == _numeroMoldura)
             {
-                _quadro.AtualizarQuadro();
+                _quadro.DefinirIconeQuadro();
             }
         }
     }

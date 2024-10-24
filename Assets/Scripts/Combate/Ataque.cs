@@ -19,8 +19,8 @@ public class Ataque : MonoBehaviour
     public Tipo_Dano _tipoDano;
     [Range(0f, 100f)] [SerializeField] protected float _dano;
     [Range(0f, 100f)] [SerializeField] protected float _repulsao;
-    public float _consumoEstamina;
-    public float _consumoMana;
+    public float _tempoRecargaTotal;
+
     [SerializeField]protected LayerMask _alvos;
     [SerializeField] protected Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
@@ -28,6 +28,7 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
+    public float _decaimentoRecarga;
     [Header("Inimigos:")]
     public float _distanciaMin;
     public float _distanciaMax;
@@ -36,8 +37,6 @@ public class Ataque : MonoBehaviour
     {
         _efeitoAplicado = GetComponent<Efeito>();
         ControlarParticulas();
-        _dono._estaminaAtual -= _consumoEstamina;
-        _dono._manaAtual -= _consumoMana;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -188,5 +187,36 @@ public class Ataque : MonoBehaviour
         }
         transform.position = _spawnPosicao;
         transform.rotation = _spawnRotacao;
+    }
+    public static Quadro_Habilidade QuadroDoAtaque(GameObject _dono,GameObject _atq)
+    {
+        Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
+        foreach (Quadro_Habilidade _quadro in _quadros)
+        {
+            if (_quadro._numeroQuadro == _dono.GetComponentInChildren<Mao>()._ataques.IndexOf(_atq))
+            {
+                return _quadro;
+            }
+        }
+        return null;
+        
+    }
+    public Quadro_Habilidade QuadroDoAtaque()
+    {
+        foreach (GameObject _atq in _dono.GetComponentInChildren<Mao>()._ataques)
+        {
+            if(_atq.GetComponent<Ataque>()._idAtaque == _idAtaque)
+            {
+                Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
+                foreach (Quadro_Habilidade _quadro in _quadros)
+                {
+                    if (_quadro._numeroQuadro == _dono.GetComponentInChildren<Mao>()._ataques.IndexOf(_atq))
+                    {
+                        return _quadro;
+                    }
+                }
+            }
+        }  
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TreeEditor;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -13,6 +14,7 @@ public class Mao : MonoBehaviour
     public float _latenciaMira;
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
+     public List<GameObject> _ataquesDisponiveis = new List<GameObject>();
     [HideInInspector] public bool _mirandoAlvo;
     public int _travar;
     [HideInInspector] public Animator _animator;
@@ -82,14 +84,15 @@ public class Mao : MonoBehaviour
                 _atq.gameObject.transform.localScale = _dono.transform.localScale;
                 _atq.DefinirSpawn();
                 _ultimoAtq = _atq.gameObject;
+                if(_atq.gameObject.GetComponent<Rajada>() == null)
+                {
+                    _ataquesDisponiveis.Remove(o);
+                    Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
+                }
                 break;
             }
             _indiceAtq += 1;
         }
-        FindAnyObjectByType<Barra_Estamina>().AtualizarEstamina(_dono._estaminaMax, _dono._estaminaAtual);
-        FindAnyObjectByType<Barra_Mana>().AtualizarMana(_dono._manaMax, _dono._manaAtual);
-        StartCoroutine(_dono.RegenerarEstamina());
-        StartCoroutine(_dono.RegenerarMana());
     }
     public void ForcarDestruicaoAtaque(float _tempo)
     {
@@ -121,5 +124,19 @@ public class Mao : MonoBehaviour
     public void ControleVelocidadeAnimacao(float _velocidadeAnimacao)
     {
         GetComponent<Animator>().speed = _velocidadeAnimacao;
+    }
+    async void RecarregarAtaque(float _tempo, GameObject _ataque)
+    {
+        Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
+        foreach(Quadro_Habilidade _quadro in _quadros)
+        {
+            if(_quadro._numeroQuadro == _ataques.IndexOf(_ataque))
+            {
+                //_quadro.CarregarHabilidade();
+                break;
+            }
+        }
+        await Task.Delay((int)Math.Ceiling(_tempo * 1000));
+        _ataquesDisponiveis.Add(_ataque);
     }
 }

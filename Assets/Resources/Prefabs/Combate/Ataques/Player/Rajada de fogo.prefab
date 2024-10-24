@@ -4789,8 +4789,7 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 0
-  _consumoEstamina: 1
-  _consumoMana: 1
+  _tempoRecargaTotal: 5
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -4800,6 +4799,10 @@ MonoBehaviour:
   _spawnPosicao: {x: 0, y: 0, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
   _localSpawn: 1
+  _decaimentoRecarga: 2
+  _distanciaMin: 0
+  _distanciaMax: 0
+  _distanciaPerfeita: 0
   _intervaloDano: 1
 --- !u!199 &3589241031077788780
 ParticleSystemRenderer:
@@ -5028,6 +5031,9 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
+  m_ShadowRadius: 1.42
+  m_shadowFalloffRate: 1
+  m_shadowFalloffIntensity: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}

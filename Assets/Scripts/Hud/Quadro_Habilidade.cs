@@ -10,20 +10,49 @@ public class Quadro_Habilidade : MonoBehaviour
     public int _numeroQuadro;
     [SerializeField] Image _quadroHabilidade;
     [SerializeField] Image _quadroNegro;
+    public float _recargaMaxima;
+    public float _recargaAtual;
+    Ataque _atq;
+    bool _jaAdicionouAtaque;
 
     private void Start()
     {
+        DefinirIconeQuadro();
+        ConectarHabilidadeComQuadro();
+        _recargaMaxima = _atq._tempoRecargaTotal;
+    }
+    private void Update()
+    {
+        CarregarHabilidade();
         AtualizarQuadro();
     }
-    public async void CarregarHabilidade(float _tempoAtual, float _tempoRecarga)
+
+    void ConectarHabilidadeComQuadro()
     {
-        for (float t = _tempoAtual; t > 0; t -= Time.deltaTime)
+        _atq = FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataques[_numeroQuadro].GetComponent<Ataque>();
+    }
+    public void CarregarHabilidade()
+    {
+        if(_recargaAtual <= _recargaMaxima)
         {
-            _quadroNegro.fillAmount = (t - Time.deltaTime) / _tempoRecarga;
-            await Task.Delay(1);
+            _recargaAtual += Time.deltaTime;
+            _jaAdicionouAtaque = false;
+        }
+        else if (_recargaAtual < 0)
+        {
+            _recargaAtual = 0;
+        }
+        else if(!_jaAdicionouAtaque)
+        {
+            FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataquesDisponiveis.Add(_atq.gameObject);
+            _jaAdicionouAtaque = true;
         }
     }
-    public void AtualizarQuadro()
+    void AtualizarQuadro()
+    {
+        _quadroNegro.fillAmount = 1 - _recargaAtual / _recargaMaxima;
+    }
+    public void DefinirIconeQuadro()
     {
         _quadroHabilidade.sprite = FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataques[_numeroQuadro].GetComponent<Ataque>()._icone;
         if(_quadroHabilidade.sprite != null)

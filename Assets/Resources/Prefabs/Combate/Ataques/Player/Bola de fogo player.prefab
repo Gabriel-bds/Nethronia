@@ -4852,8 +4852,8 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 100
-  _consumoEstamina: 0
-  _consumoMana: 0
+  _tempoRecargaTotal: 5
+  _recargaAtual: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -4863,6 +4863,11 @@ MonoBehaviour:
   _spawnPosicao: {x: -21.078812, y: -9.995678, z: 0}
   _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
   _localSpawn: 1
+  _atacarEnquantoDisponivel: 0
+  _percentualDecaimentoRecarga: 0
+  _distanciaMin: 0
+  _distanciaMax: 0
+  _distanciaPerfeita: 0
   _velocidade: 15
   _tempoDeVida: 15
   _progressaoEscala: 0

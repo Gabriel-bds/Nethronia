@@ -87,7 +87,10 @@ public class Mao : MonoBehaviour
                 if(_atq.gameObject.GetComponent<Rajada>() == null)
                 {
                     _ataquesDisponiveis.Remove(o);
-                    Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
+                    if(_dono.GetComponent<Player>() != null)
+                    {
+                        Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
+                    }
                 }
                 break;
             }

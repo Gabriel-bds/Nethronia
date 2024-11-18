@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
@@ -66,13 +67,11 @@ public class Ser_Vivo : MonoBehaviour
         Virar();
         TemVida();
     }
-    protected void Mover(float _direcaoX, float _direcaoY)
+    public void Mover(Vector2 _vetor)
     {
         if (_travar == 0)
         {
-            Vector2 _ultimaPosicao = transform.position;
-            _rigidbody.velocity += new Vector2(_velocidadeMovimento * _direcaoX,
-            _velocidadeMovimento * _direcaoY);
+            _rigidbody.velocity += _vetor  * _velocidadeMovimento;
         }
 
     }
@@ -209,6 +208,7 @@ public class Ser_Vivo : MonoBehaviour
             _player._experiencia -= _player._experienciaParaProximoNivel;
             _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);
             _player.GetComponent<Player>()._pontosHabilidade += 1;
+            FindAnyObjectByType<Numero_BarraXP>().AtualizarNumero();
         }
         Utilidades.InstanciarNumeroDano($"+{_experiencia}Exp", _player.transform);
     }

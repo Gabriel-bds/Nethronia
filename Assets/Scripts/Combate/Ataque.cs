@@ -76,7 +76,9 @@ public class Ataque : MonoBehaviour
                     _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
                     break;
             }
-            _atingido._vidaAtual -= _danoSofrido;
+            _atingido._vidaAtual = _atingido._vidaAtual - _danoSofrido > 0
+                ? _atingido._vidaAtual -= _danoSofrido
+                : _atingido._vidaAtual = 0;
             _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);
             _atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
@@ -95,6 +97,11 @@ public class Ataque : MonoBehaviour
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
 
             _somHit.Play();
+            
+            if(_atingido.GetComponent<Player>() != null)
+            {
+                FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
+            }
         }
     }
 

@@ -8,6 +8,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Player : Ser_Vivo
@@ -40,55 +41,35 @@ public class Player : Ser_Vivo
     }
     private void FixedUpdate()
     {
-        Mover(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Mover(GetComponent<PlayerInput>().actions["Movimento"].ReadValue<Vector2>());
     }
     void Atacar()
     {
+        float _valorAtaqueAtual = GetComponent<PlayerInput>().actions["Ataques"].ReadValue<float>();
+        //Debug.Log(_valorAtaqueAtual);
         float _velocidadeMaoAnimator = 1;
-        if(_mao.GetComponent<Animator>().speed > 0)
+
+        if (_mao.GetComponent<Animator>().speed > 0)
         {
             _velocidadeMaoAnimator = _mao.GetComponent<Animator>().speed;
         }
-        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-        {
-            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[0]))
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[0].GetComponent<Ataque>()._idAtaque);
-            }
-            else
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
-            }
-        }
-        if(Input.GetMouseButton(1) && !Input.GetMouseButton(0)) 
-        {
-            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[1]))
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[1].GetComponent<Ataque>()._idAtaque);
-            }
-            else
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
-            }
-        }
-        if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
-        {
-            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[2]))
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[2].GetComponent<Ataque>()._idAtaque);
-            }
-            else
-            {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
-            }
-        }
-        if(!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+        if (_valorAtaqueAtual == 0)
         {
             _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
             _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
+
+        }
+        else
+        {
+            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1]))
+            {
+                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
+            }
+            else
+            {
+                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
+            }
         }
     }
     void Esquivar()

@@ -34,8 +34,8 @@ public class Inimigo : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        //Andar();
-        //AtacarPlayer();
+        Andar();
+        AtacarPlayer();
         
     }
     public void TravarAgent(bool _travar)

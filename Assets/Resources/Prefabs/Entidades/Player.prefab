@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 7514703155795013676}
   - component: {fileID: 8609257629539082525}
   - component: {fileID: 5295951590529416875}
-  - component: {fileID: 5307556759668151675}
+  - component: {fileID: 6256765935137229512}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -444,10 +444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vidaMax: 100
   _vidaAtual: 100
-  _estaminaMax: 100
-  _estaminaAtual: 100
-  _manaMax: 100
-  _manaAtual: 100
   _velocidadeMovimento: 8
   _nivelGeral: 0
   _experiencia: 0
@@ -455,9 +451,9 @@ MonoBehaviour:
   _poderForca:
     _nivel: 0
     _tipoDano: 0
-    _dano: 0
+    _dano: 5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
   _poderResistencia:
     _nivel: 0
@@ -474,20 +470,20 @@ MonoBehaviour:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoTempo: 0
+    _reducaoTempo: 0.9
   _poderFogo:
     _nivel: 0
     _tipoDano: 1
-    _dano: 0
+    _dano: 7.5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
-      _acumuloMax: 250
+      _acumuloMax: 0
       _acumuloAtual: 0
-      _infligirAcumulo: 50
-      _dano: 37.5
-      _negacaoDano: 37.5
+      _infligirAcumulo: 0
+      _dano: 10
+      _negacaoDano: 0
       _dano2: 0
       _negacaoDano2: 0
       _utilidade1: 0
@@ -497,9 +493,9 @@ MonoBehaviour:
   _poderGelo:
     _nivel: 0
     _tipoDano: 3
-    _dano: 0
+    _dano: 7.5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -516,9 +512,9 @@ MonoBehaviour:
   _poderVeneno:
     _nivel: 0
     _tipoDano: 2
-    _dano: 0
+    _dano: 7.5
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
@@ -535,25 +531,25 @@ MonoBehaviour:
   _poderEletricidade:
     _nivel: 0
     _tipoDano: 4
-    _dano: 0
+    _dano: 1
     _negacaoDano: 0
-    _repulsao: 0
+    _repulsao: 7.5
     _negacaoRepulsao: 0
     _status:
       _acumuloMax: 0
       _acumuloAtual: 0
-      _infligirAcumulo: 0
-      _dano: 0
+      _infligirAcumulo: 100
+      _dano: 200
       _negacaoDano: 0
       _dano2: 0
       _negacaoDano2: 0
-      _utilidade1: 0
+      _utilidade1: 1000
       _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
-  _rigidbody: {fileID: 0}
-  _animator: {fileID: 0}
-  _mao: {fileID: 0}
+  _rigidbody: {fileID: 7514703155795013676}
+  _animator: {fileID: 5295951590529416875}
+  _mao: {fileID: 6103966647750852281}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 0}
   _sangue: {fileID: 7385109916253285456, guid: 545ca0877584c64488be3e7738bd84bd, type: 3}
@@ -587,38 +583,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5307556759668151675
+--- !u!114 &6256765935137229512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6076101042706034768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 0
-  m_CastsShadows: 1
-  m_SelfShadows: 1
-  m_ApplyToSortingLayers: 00000000ff0e00f9
-  m_ShapePath:
-  - {x: -0.16108797, y: -0.47087082, z: 0}
-  - {x: -0.03159744, y: -0.46862063, z: 0}
-  - {x: -0.029615067, y: -0.40819964, z: 0}
-  - {x: 0.030833263, y: -0.40819964, z: 0}
-  - {x: 0.031431533, y: -0.46881646, z: 0}
-  - {x: 0.15592164, y: -0.46924084, z: 0}
-  m_ShapePathHash: -555727695
-  m_Mesh: {fileID: 0}
-  m_InstanceId: -8964
-  m_LocalBounds:
-    m_Center: {x: -0.002583161, y: -0.43953523, z: 0}
-    m_Extent: {x: 0.15850481, y: 0.031335592, z: 0}
+  m_Actions: {fileID: -944628639613478452, guid: a264afe2abd861644bfef31ecb959839, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99d1ef18-2483-4c45-a288-177568f5b04b
+    m_ActionName: Player/Movimento[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &6103966647750852281
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,8 +742,9 @@ MonoBehaviour:
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-  - {fileID: 2299947594664116185, guid: a94188a1c8dc08144881f85f8e3fe519, type: 3}
+  - {fileID: 2299947594664116185, guid: 0b8351da26d8c874ba431c8dcad1479e, type: 3}
   - {fileID: 2902907867543165995, guid: 94ee6a8ee73f11a4ca052ae2192b8cf1, type: 3}
+  _ataquesDisponiveis: []
   _mirandoAlvo: 0
   _travar: 0
   _animator: {fileID: 0}

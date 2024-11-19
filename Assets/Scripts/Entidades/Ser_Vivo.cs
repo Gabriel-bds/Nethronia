@@ -200,18 +200,7 @@ public class Ser_Vivo : MonoBehaviour
         }
 
     }
-    void AdicionarExperiencia(Ser_Vivo _player)
-    {
-        _player._experiencia += _experiencia;
-        if (_player._experiencia >= _player._experienciaParaProximoNivel)
-        {
-            _player._experiencia -= _player._experienciaParaProximoNivel;
-            _player._experienciaParaProximoNivel = (int)Math.Round(1.5f * _player._experienciaParaProximoNivel);
-            _player.GetComponent<Player>()._pontosHabilidade += 1;
-            FindAnyObjectByType<Numero_BarraXP>().AtualizarNumero();
-        }
-        Utilidades.InstanciarNumeroDano($"+{_experiencia}Exp", _player.transform);
-    }
+    
     public void Invulneravel(int _estado)
     {
         if (_estado == 0)
@@ -223,7 +212,7 @@ public class Ser_Vivo : MonoBehaviour
             _invulneravel = true;
         }
     }
-    public void Morte(float _tempo)
+    public virtual void Morte(float _tempo)
     {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -231,15 +220,6 @@ public class Ser_Vivo : MonoBehaviour
         if (GetComponentInChildren<Canvas>() != null)
         {
             Destroy(GetComponentInChildren<Canvas>().gameObject);
-        }
-        if (GetComponent<NavMeshAgent>() != null)
-        {
-            GetComponent<NavMeshAgent>().enabled = false;
-            Player _player = FindAnyObjectByType<Player>();
-            _mao.GetComponent<Mao>().ResetarMao();
-            _mao.GetComponent<Mao>().TravarMao(1);
-            Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
-            AdicionarExperiencia(_player);
         }
         Destroy(gameObject, _tempo);
     }

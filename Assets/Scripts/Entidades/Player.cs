@@ -16,6 +16,7 @@ public class Player : Ser_Vivo
     public Barra_Estamina _barraEstamina;
     public Barra_Mana _barraMana;
     public int _pontosHabilidade;
+    public int _pontosHabilidadePermanentes;
     protected override void Awake()
     { 
         
@@ -46,7 +47,6 @@ public class Player : Ser_Vivo
     void Atacar()
     {
         float _valorAtaqueAtual = GetComponent<PlayerInput>().actions["Ataques"].ReadValue<float>();
-        //Debug.Log(_valorAtaqueAtual);
         float _velocidadeMaoAnimator = 1;
 
         if (_mao.GetComponent<Animator>().speed > 0)
@@ -83,6 +83,19 @@ public class Player : Ser_Vivo
             _animator.SetBool("Esquivar", true);
             _mao.GetComponent<Animator>().SetBool("Esquivar", true);
         }
+    }
+    public void AdicionarExperiencia(int _xp, int _ptPermanente)
+    {
+        _experiencia += _xp;
+        if (_experiencia >= _experienciaParaProximoNivel)
+        {
+            _experiencia -= _experienciaParaProximoNivel;
+            _experienciaParaProximoNivel = (int)Math.Round(1.5f * _experienciaParaProximoNivel);
+            GetComponent<Player>()._pontosHabilidade += 1;
+            FindAnyObjectByType<Numero_BarraXP>().AtualizarNumero();
+        }
+        _pontosHabilidadePermanentes += _ptPermanente;
+        Utilidades.InstanciarNumeroDano($"+{_xp}Exp", transform);
     }
     public void CongelarTempo()
     {

@@ -1,12 +1,18 @@
 using NavMeshPlus.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class Inimigo : Ser_Vivo
 {
     private NavMeshAgent _agent;
+    [Range(0f, 100f)]
+    public float _taxaDropPontoHabilidadePermanente;
+    public int _minimoDropPontoHabilidadePermanente;
+    public int _maximoDropPontoHabilidadePermanente;
     protected override void Awake()
     {
         base.Awake();
@@ -34,8 +40,8 @@ public class Inimigo : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        Andar();
-        AtacarPlayer();
+        ///Andar();
+        //AtacarPlayer();
         
     }
     public void TravarAgent(bool _travar)
@@ -102,8 +108,7 @@ public class Inimigo : Ser_Vivo
             //Debug.Log("Ataque " + _ataque[index].Item1 + "tem " + _ataque[index].Item2 + "de chance de acontecer");
         }
 
-        float _sorteio = Random.Range(0f, 100f);
-        //Debug.Log(_sorteio);
+        float _sorteio = UnityEngine.Random.Range(0f, 100f);
         float _acumulo = 0;
         int _retorno = -1;
         foreach (var _atq in _ataque)
@@ -118,5 +123,14 @@ public class Inimigo : Ser_Vivo
         return _retorno;
     }
 
-
+    public override void Morte(float _tempo)
+    {
+        GetComponent<NavMeshAgent>().enabled = false;
+        Player _player = FindAnyObjectByType<Player>();
+        _mao.GetComponent<Mao>().ResetarMao();
+        _mao.GetComponent<Mao>().TravarMao(1);
+        Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
+        _player.AdicionarExperiencia(_experiencia, UnityEngine.Random.Range(_minimoDropPontoHabilidadePermanente, _maximoDropPontoHabilidadePermanente +1));
+        base.Morte(_tempo);
+    }
 }

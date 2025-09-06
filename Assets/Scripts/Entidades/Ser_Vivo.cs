@@ -63,7 +63,7 @@ public class Ser_Vivo : MonoBehaviour
     }
     protected virtual void Update()
     {
-        ControleAnimacoesMovimento();
+        //ControleAnimacoesMovimento();
         Virar();
         TemVida();
     }
@@ -72,6 +72,13 @@ public class Ser_Vivo : MonoBehaviour
         if (_travar == 0)
         {
             _rigidbody.velocity += _vetor  * _velocidadeMovimento;
+            _animator.SetFloat("Velocity", Math.Abs(_vetor.x) + Math.Abs(_vetor.y) / 2);
+            if (Math.Abs(_vetor.x) >= 0.05f || Math.Abs(_vetor.y) >= 0.05f)
+            {
+                _animator.SetBool("Run", true);
+                return;
+            }
+            _animator.SetBool("Run", false);
         }
 
     }
@@ -152,8 +159,8 @@ public class Ser_Vivo : MonoBehaviour
     }
     void TemVida()
     {
-        _animator.SetFloat("Vida", _vidaAtual);
-        _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
+        //_animator.SetFloat("Vida", _vidaAtual);
+        //_mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
         if (_vidaAtual < _vidaMax)
         {
             if (!_poderVitalidade._estaRegenerando)

@@ -15,7 +15,7 @@ public class Controle_Cartas : MonoBehaviour
     }
     private void OnEnable()
     {
-        SortearCartas();
+        //SortearCartas();
     }
     public void SortearCartas()
     {

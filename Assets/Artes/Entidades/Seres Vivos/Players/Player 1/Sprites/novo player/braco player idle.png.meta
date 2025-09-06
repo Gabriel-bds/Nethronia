@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f8c5a0630a3f36d4689ad01d88367b87
+guid: fd2488a87cd1c6d4c814f801d2f2b600
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,358 +110,442 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trees_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 442
-        width: 60
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a63438e43d6068643834b362b48976c6
-      internalID: -1667843667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 442
-        width: 61
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba1e0ea5a00681841b3a8f6a1582aa5b
-      internalID: -1055387967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_2
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 442
-        width: 59
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693848260a03eeb4ca4e77a3c3715824
-      internalID: -372771266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_3
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 442
-        width: 59
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ad6cc720918d1146a583906564bb57e
-      internalID: -1482874033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_4
-      rect:
-        serializedVersion: 2
-        x: 268
-        y: 442
-        width: 40
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d29db53fb296a47a200fa469cfec12
-      internalID: -1881526283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_5
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 442
-        width: 40
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c6fea1b144f35f469238a1906290a11
-      internalID: -515873401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trees_6
+      name: braco player idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 330
-        width: 61
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f84acc360ca9f5a4a85bfe35ae2c8a74
-      internalID: -1680682717
+      spriteID: 38c4e9f76f37e444482d86b620568197
+      internalID: -389637561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_7
+      name: braco player idle_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 330
-        width: 61
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932299de40fb3a64b83bd4255db7d879
-      internalID: -614884485
+      spriteID: 1c5e002ba4adb2e4188d7d83d146f4fc
+      internalID: 1467309967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_8
+      name: braco player idle_2
       rect:
         serializedVersion: 2
-        x: 129
-        y: 330
-        width: 59
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a660596ba195ff44adb27f8cee416eb
-      internalID: 1823101454
+      spriteID: ea8050628a0c7e143a485e69d0dfb0a0
+      internalID: -1244685172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_9
+      name: braco player idle_3
       rect:
         serializedVersion: 2
-        x: 193
-        y: 330
-        width: 59
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4aaf2b58090a4b409fde54760f72602
-      internalID: 1339810441
+      spriteID: 8a19560fb26c5344881a64d985e0a687
+      internalID: 1848137435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_10
+      name: braco player idle_4
       rect:
         serializedVersion: 2
-        x: 268
-        y: 330
-        width: 40
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 397c2f970272cc94593b374e4bd1bd9c
-      internalID: -316642478
+      spriteID: 3f50216b99789af4ebedf3489411e676
+      internalID: 1100365537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_11
+      name: braco player idle_5
       rect:
         serializedVersion: 2
-        x: 332
-        y: 330
-        width: 40
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7acdd12e064e14c89a2d1a86a1968e
-      internalID: 888064938
+      spriteID: f83123fd8db8327408f57f47cd37727a
+      internalID: -885577329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_12
+      name: braco player idle_6
       rect:
         serializedVersion: 2
-        x: 1
-        y: 289
-        width: 30
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b081563777970644b83e39be78ed174
-      internalID: -1998440299
+      spriteID: 7bbf148ba30f13d4f95283f81119b1db
+      internalID: 1943482283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_13
+      name: braco player idle_7
       rect:
         serializedVersion: 2
-        x: 39
-        y: 168
-        width: 144
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b95348079dec0f541b710c991862432e
-      internalID: -1770568846
+      spriteID: 962b1fc534df8834c991f915c7517775
+      internalID: -852821402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_14
+      name: braco player idle_8
       rect:
         serializedVersion: 2
-        x: 199
-        y: 168
-        width: 144
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbd889117cd3ad4abdf3db9bad60956
-      internalID: -246102510
+      spriteID: a4fa86dd76818ad49941b560800db64a
+      internalID: -1946003952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_15
+      name: braco player idle_9
       rect:
         serializedVersion: 2
-        x: 39
-        y: 8
-        width: 144
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ba2869692e9e4240ab04b568e5c18c1
-      internalID: -260865668
+      spriteID: cb3b39907790ee342ad53388b5e0cbe4
+      internalID: -762130910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trees_16
+      name: braco player idle_10
       rect:
         serializedVersion: 2
-        x: 199
-        y: 8
-        width: 144
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b807a5b84a13d854cb2998bb4f48d681
-      internalID: 1685291907
+      spriteID: 100bb10a9125da9488edfdd8fe4497f4
+      internalID: -1243506573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ef22016a4386a4db15546f1bb17c33
+      internalID: -999368098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa2ede44da0b9046a40e66fdfdc9300
+      internalID: -321589465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3b2b37d7ac57846a5ee2b132f4ba74
+      internalID: 1125704357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07a8f3ec132f1246974cb41e248f83c
+      internalID: 2133013461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af81becd272e87e41874676f8af8bcaa
+      internalID: 1515632229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700bef983171d1c4db96677eb4ff5b4e
+      internalID: -355190182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a322fc89e3db48141a1fd305cd181770
+      internalID: 968756869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47f53a5f9cd62d4fb963e8400c9146e
+      internalID: 1131554424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18f0d563efd75c47b2381695ecd6e7a
+      internalID: -2097893887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: braco player idle_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5214362, y: 0.5446588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab2f094255772146ad558ea37dc6b79
+      internalID: -625714986
       vertices: []
       indices: 
       edges: []
@@ -490,23 +561,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Trees_0: -1667843667
-      Trees_1: -1055387967
-      Trees_10: -316642478
-      Trees_11: 888064938
-      Trees_12: -1998440299
-      Trees_13: -1770568846
-      Trees_14: -246102510
-      Trees_15: -260865668
-      Trees_16: 1685291907
-      Trees_2: -372771266
-      Trees_3: -1482874033
-      Trees_4: -1881526283
-      Trees_5: -515873401
-      Trees_6: -1680682717
-      Trees_7: -614884485
-      Trees_8: 1823101454
-      Trees_9: 1339810441
+      braco player idle_0: -389637561
+      braco player idle_1: 1467309967
+      braco player idle_10: -1243506573
+      braco player idle_11: -999368098
+      braco player idle_12: -321589465
+      braco player idle_13: 1125704357
+      braco player idle_14: 2133013461
+      braco player idle_15: 1515632229
+      braco player idle_16: -355190182
+      braco player idle_17: 968756869
+      braco player idle_18: 1131554424
+      braco player idle_19: -2097893887
+      braco player idle_2: -1244685172
+      braco player idle_20: -625714986
+      braco player idle_3: 1848137435
+      braco player idle_4: 1100365537
+      braco player idle_5: -885577329
+      braco player idle_6: 1943482283
+      braco player idle_7: -852821402
+      braco player idle_8: -1946003952
+      braco player idle_9: -762130910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

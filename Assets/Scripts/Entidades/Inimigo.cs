@@ -40,7 +40,7 @@ public class Inimigo : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        ///Andar();
+        Andar();
         //AtacarPlayer();
         
     }

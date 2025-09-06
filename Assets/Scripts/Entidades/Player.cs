@@ -36,13 +36,23 @@ public class Player : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        Atacar();
-        Esquivar();
+        //Atacar();
+        //Esquivar();
+        if(Input.GetMouseButtonDown(0)) 
+        {
+            _animator.SetInteger("Ataque", 1);
+            Debug.Log("Clicou");
+        }
+        else
+        {
+            _animator.SetInteger("Ataque", 0);
+        }
         _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
     }
     private void FixedUpdate()
     {
         Mover(GetComponent<PlayerInput>().actions["Movimento"].ReadValue<Vector2>());
+        //Debug.Log(GetComponent<PlayerInput>().actions["Movimento"].ReadValue<Vector2>());
     }
     void Atacar()
     {

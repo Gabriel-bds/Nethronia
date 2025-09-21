@@ -36,12 +36,13 @@ public class Inimigo : Ser_Vivo
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         DefinirAtributos();
+        _mao.GetComponent<Mao>().RecarregarTodosAtaques();
     }
     protected override void Update()
     {
         base.Update();
         Andar();
-        //AtacarPlayer();
+        AtacarPlayer();
         
     }
     public void TravarAgent(bool _travar)
@@ -70,7 +71,14 @@ public class Inimigo : Ser_Vivo
                     (float)Mathf.Pow(transform.position.x - FindAnyObjectByType<Player>().transform.position.x, 2) +
                     (float)Mathf.Pow(transform.position.y - FindAnyObjectByType<Player>().transform.position.y, 2)
                     )); ;
-            _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[_numeroAtq].GetComponent<Ataque>()._idAtaque);
+            //_mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[_numeroAtq].GetComponent<Ataque>()._idAtaque);
+            var ataqueEscolhido = _mao.GetComponent<Mao>()._ataques[_numeroAtq];
+
+            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(ataqueEscolhido))
+            {
+                _mao.GetComponent<Animator>().SetInteger("Ataque",
+                    ataqueEscolhido.GetComponent<Ataque>()._idAtaque);
+            }
 
         }
     }

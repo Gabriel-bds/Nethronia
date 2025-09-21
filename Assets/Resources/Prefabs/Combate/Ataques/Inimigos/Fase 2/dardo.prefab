@@ -234,8 +234,7 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _consumoEstamina: 0
-  _consumoMana: 0
+  _tempoRecargaTotal: 10
   _alvos:
     serializedVersion: 2
     m_Bits: 256
@@ -245,6 +244,7 @@ MonoBehaviour:
   _spawnPosicao: {x: 0, y: 0, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
   _localSpawn: 0
+  _decaimentoRecarga: 0
   _distanciaMin: 1
   _distanciaMax: 20
   _distanciaPerfeita: 10

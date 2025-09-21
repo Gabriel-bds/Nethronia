@@ -23,12 +23,13 @@ public class Ser_Vivo : MonoBehaviour
     public int _nivelGeral = 0;
     public int _experiencia;
     public int _experienciaParaProximoNivel;
+    List<Rigidbody2D> _membros;
 
     [Header("Poderes:")]
     public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
-    public Poder_Resistencia _poderResistencia;
-    public Poder_Vitalidade _poderVitalidade;
-    public Poder_Velocidade _poderVelocidade;
+    public Poder_Resistencia _poderResistencia = new Poder_Resistencia();
+    public Poder_Vitalidade _poderVitalidade = new Poder_Vitalidade();
+    public Poder_Velocidade _poderVelocidade = new Poder_Velocidade();
     public Poder_Fogo _poderFogo = new Poder_Fogo(Tipo_Dano.Fogo);
     public Poder_Gelo _poderGelo = new Poder_Gelo(Tipo_Dano.Gelo);
     public Poder_Veneno _poderVeneno = new Poder_Veneno(Tipo_Dano.Veneno);
@@ -55,6 +56,7 @@ public class Ser_Vivo : MonoBehaviour
         _mao = GetComponentInChildren<Mao>().gameObject;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _membros = new List<Rigidbody2D>(GetComponentsInChildren<Rigidbody2D>(false));
     }
     protected virtual void Start()
     {
@@ -111,8 +113,8 @@ public class Ser_Vivo : MonoBehaviour
             _travar = 1;
             _mao.GetComponent<Mao>()._travar = 1;
         }
-        _animator.SetFloat("Dano_Sofrido", _danoSofrido);
-        _mao.GetComponent<Animator>().SetFloat("Dano_Sofrido", _danoSofrido);
+        _animator.SetFloat("Dano_Sofrido", _danoSofrido / _vidaMax);
+        //_mao.GetComponent<Animator>().SetFloat("Dano_Sofrido", _danoSofrido);
     }
     public IEnumerator PiscarCor(Color _novaCor)
     {
@@ -159,8 +161,8 @@ public class Ser_Vivo : MonoBehaviour
     }
     void TemVida()
     {
-        //_animator.SetFloat("Vida", _vidaAtual);
-        //_mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
+        _animator.SetFloat("Vida", _vidaAtual);
+        _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
         if (_vidaAtual < _vidaMax)
         {
             if (!_poderVitalidade._estaRegenerando)
@@ -179,6 +181,25 @@ public class Ser_Vivo : MonoBehaviour
         if (_vidaAtual < 1e-05)
         {
             _mao.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    protected void Desmembrar(int qtdeMembrosSoltos, float intensidade)
+    {
+
+        for (int i = 0; i < qtdeMembrosSoltos; i++)
+        {
+            if (_membros.Count == 0) break; // evita tentar acessar índice inexistente
+
+            int indiceMembro = UnityEngine.Random.Range(0, _membros.Count);
+
+            Vector2 direcao = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+            _membros[indiceMembro].AddForce(direcao * intensidade, ForceMode2D.Impulse);
+
+            float torque = UnityEngine.Random.Range(-intensidade, intensidade);
+            _membros[indiceMembro].AddTorque(torque, ForceMode2D.Impulse);
+
+            _membros.RemoveAt(indiceMembro); // remove de forma segura
         }
     }
     public async void RegenerarVida()
@@ -263,7 +284,7 @@ public class Ser_Vivo : MonoBehaviour
         _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 0.99f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
         _velocidadeMovimento += _poderVelocidade._acrescimoVelocidadeMovimento;
         GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
-        _mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
+        //_mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
         #endregion
 
         #region Fogo

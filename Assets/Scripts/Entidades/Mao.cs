@@ -87,7 +87,9 @@ public class Mao : MonoBehaviour
                 if(_atq.gameObject.GetComponent<Rajada>() == null)
                 {
                     _ataquesDisponiveis.Remove(o);
-                    if(_dono.GetComponent<Player>() != null)
+                    //Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
+                    RecarregarAtaque(o.GetComponent<Ataque>()._tempoRecargaTotal, o); // <- chama a coroutine/async
+                    if (_dono.GetComponent<Player>() != null)
                     {
                         Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
                     }
@@ -130,16 +132,26 @@ public class Mao : MonoBehaviour
     }
     async void RecarregarAtaque(float _tempo, GameObject _ataque)
     {
-        Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
-        foreach(Quadro_Habilidade _quadro in _quadros)
+        if(_dono.GetComponent<Player>() != null) 
         {
-            if(_quadro._numeroQuadro == _ataques.IndexOf(_ataque))
+            Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
+            foreach (Quadro_Habilidade _quadro in _quadros)
             {
-                //_quadro.CarregarHabilidade();
-                break;
+                if (_quadro._numeroQuadro == _ataques.IndexOf(_ataque))
+                {
+                    //_quadro.CarregarHabilidade();
+                    break;
+                }
             }
         }
         await Task.Delay((int)Math.Ceiling(_tempo * 1000));
         _ataquesDisponiveis.Add(_ataque);
+    }
+    public void RecarregarTodosAtaques()
+    {
+        foreach(GameObject ataque in _ataques)
+        {
+            RecarregarAtaque(ataque.GetComponent<Ataque>()._tempoRecargaTotal, ataque);
+        }
     }
 }

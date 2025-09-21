@@ -40,8 +40,8 @@ public class Player : Ser_Vivo
         //Esquivar();
         if(Input.GetMouseButtonDown(0)) 
         {
-            /*_animator.SetInteger("Ataque", 1);
-            Debug.Log("Clicou");*/
+            _animator.SetInteger("Ataque", 1);
+            Debug.Log("Clicou");
             //Desmembrar(7, 5);
         }
         else

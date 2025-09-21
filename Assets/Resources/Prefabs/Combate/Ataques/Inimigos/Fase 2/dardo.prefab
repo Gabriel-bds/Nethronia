@@ -234,7 +234,7 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 75
   _repulsao: 100
-  _tempoRecargaTotal: 10
+  _tempoRecargaTotal: 5
   _alvos:
     serializedVersion: 2
     m_Bits: 256

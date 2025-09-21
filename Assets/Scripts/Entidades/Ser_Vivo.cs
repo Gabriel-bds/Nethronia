@@ -113,7 +113,9 @@ public class Ser_Vivo : MonoBehaviour
             _travar = 1;
             _mao.GetComponent<Mao>()._travar = 1;
         }
-        _animator.SetFloat("Dano_Sofrido", _danoSofrido / _vidaMax);
+        _animator.SetTrigger("Receber_Dano");
+        _animator.SetFloat("Dano_Sofrido", _danoSofrido);
+        Debug.Log(_danoSofrido);
         //_mao.GetComponent<Animator>().SetFloat("Dano_Sofrido", _danoSofrido);
     }
     public IEnumerator PiscarCor(Color _novaCor)
@@ -162,7 +164,11 @@ public class Ser_Vivo : MonoBehaviour
     void TemVida()
     {
         _animator.SetFloat("Vida", _vidaAtual);
-        _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
+
+        if(GetComponent<Player>() == null) 
+        {
+            _mao.GetComponent<Animator>().SetFloat("Vida", _vidaAtual);
+        }    
         if (_vidaAtual < _vidaMax)
         {
             if (!_poderVitalidade._estaRegenerando)

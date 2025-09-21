@@ -80,8 +80,8 @@ public class Ataque : MonoBehaviour
                 ? _atingido._vidaAtual -= _danoSofrido
                 : _atingido._vidaAtual = 0;
             _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
-            _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);
-            _atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
+            _atingido.AnimacaoDanoSofrido(_danoSofrido / _atingido._vidaMax);
+            //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
 
             Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);
 

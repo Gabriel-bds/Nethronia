@@ -23,7 +23,7 @@ public class Quadro_Habilidade : MonoBehaviour
     }
     private void Update()
     {
-        CarregarHabilidade();
+        //CarregarHabilidade();
         AtualizarQuadro();
     }
 
@@ -31,20 +31,25 @@ public class Quadro_Habilidade : MonoBehaviour
     {
         _atq = FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataques[_numeroQuadro].GetComponent<Ataque>();
     }
-    public void CarregarHabilidade()
+    public IEnumerator CarregarHabilidade(float tempo)
     {
-        if(_recargaAtual <= _recargaMaxima)
+        _recargaAtual = 0f; // começa do zero
+        _jaAdicionouAtaque = false;
+
+        while (_recargaAtual < tempo)
         {
-            _recargaAtual += Time.deltaTime;
-            _jaAdicionouAtaque = false;
+            _recargaAtual += Time.deltaTime; // soma o tempo já percorrido
+                                             // aqui você pode atualizar a UI de recarga (ex: barra, fillAmount, etc.)
+
+            yield return null; // espera 1 frame antes de continuar
         }
-        else if (_recargaAtual < 0)
+
+        // garante que não passe do limite
+        _recargaAtual = tempo;
+
+        if (!_jaAdicionouAtaque)
         {
-            _recargaAtual = 0;
-        }
-        else if(!_jaAdicionouAtaque)
-        {
-            FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataquesDisponiveis.Add(_atq.gameObject);
+            //FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataquesDisponiveis.Add(_atq.gameObject);
             _jaAdicionouAtaque = true;
         }
     }

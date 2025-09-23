@@ -140,14 +140,14 @@ public class Mao : MonoBehaviour
             {
                 if (_quadro._numeroQuadro == _ataques.IndexOf(_ataque))
                 {
-                    //_quadro.CarregarHabilidade();
+                    StartCoroutine(_quadro.CarregarHabilidade(_tempo));
                     break;
                 }
             }
         }
         await Task.Delay((int)Math.Ceiling(_tempo * 1000));
         Debug.Log("Adicionou");
-        //_ataquesDisponiveis.Add(_ataque);
+        _ataquesDisponiveis.Add(_ataque);
     }
     public void RecarregarTodosAtaques()
     {

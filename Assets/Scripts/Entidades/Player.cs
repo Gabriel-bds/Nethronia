@@ -31,6 +31,7 @@ public class Player : Ser_Vivo
         _barraEstamina = FindAnyObjectByType<Barra_Estamina>();
         _barraMana = FindAnyObjectByType<Barra_Mana>();
         base.Start();
+        _mao.GetComponent<Mao>().RecarregarTodosAtaques();
         //SalvarDadosPrefab("Prefabs/Entidades/Player");
     }
     protected override void Update()

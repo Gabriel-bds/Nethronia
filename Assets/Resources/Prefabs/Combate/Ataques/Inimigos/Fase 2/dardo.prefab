@@ -243,7 +243,7 @@ MonoBehaviour:
   _somHit: {fileID: 8136683283121331279}
   _spawnPosicao: {x: 0, y: 0, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
-  _localSpawn: 0
+  _localSpawn: 2
   _decaimentoRecarga: 0
   _distanciaMin: 1
   _distanciaMax: 20

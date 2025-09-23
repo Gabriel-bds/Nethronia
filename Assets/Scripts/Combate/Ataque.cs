@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine.AI;
 using System.Threading.Tasks;
 
-public enum Spawn_Atq { Mao, Spawn1, Mouse}
+public enum Spawn_Atq { Spawn, Mao, Spawn1, Mouse}
 
 [Serializable]
 public class Ataque : MonoBehaviour
@@ -168,6 +168,19 @@ public class Ataque : MonoBehaviour
     {
         switch(_localSpawn) 
         {
+            case Spawn_Atq.Spawn:
+                var _spawns = GameObject.FindGameObjectsWithTag("SpawnAtaques");
+                foreach (var _spawn in _spawns)
+                {
+                    if (_spawn.GetComponentInParent<Ser_Vivo>() == _dono)
+                    {
+                        _spawnPosicao = _spawn.transform.position;
+                        _spawnRotacao = _spawn.transform.rotation;
+                        break;
+                    }
+                }
+                break;
+
             case Spawn_Atq.Mao:
 
                 _spawnPosicao = _dono.GetComponentInChildren<Mao>().transform.position;

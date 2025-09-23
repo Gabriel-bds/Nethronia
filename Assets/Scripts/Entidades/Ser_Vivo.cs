@@ -360,4 +360,8 @@ public class Ser_Vivo : MonoBehaviour
         Ser_Vivo _prefab = Resources.Load<GameObject>(_caminhoPrefab).GetComponent<Ser_Vivo>();
         Utilidades.CopiarPropriedades(GetComponent<Ser_Vivo>(), _prefab);
     }
+    public void InstanciarAtaque(int indiceAtaque)
+    {
+        _mao.GetComponent<Mao>().InstanciarAtaque(indiceAtaque);
+    }
 }

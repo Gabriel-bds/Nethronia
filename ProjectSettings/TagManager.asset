@@ -6,10 +6,11 @@ TagManager:
   tags:
   - Combate/Area eletrica
   - Spawn_Ataque/Mao
-  - Spawn_Ataque/Spawn1
   - Spawn_Player
   - Hud
   - Barra_vida_Boss
+  - Spawn_Ataque/Spawn1
+  - SpawnAtaques
   layers:
   - Default
   - TransparentFX

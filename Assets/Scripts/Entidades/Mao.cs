@@ -87,8 +87,9 @@ public class Mao : MonoBehaviour
                 if(_atq.gameObject.GetComponent<Rajada>() == null)
                 {
                     _ataquesDisponiveis.Remove(o);
-                    //Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
+                    Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
                     RecarregarAtaque(o.GetComponent<Ataque>()._tempoRecargaTotal, o); // <- chama a coroutine/async
+                    Debug.Log("Recarregou");
                     if (_dono.GetComponent<Player>() != null)
                     {
                         Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
@@ -145,7 +146,8 @@ public class Mao : MonoBehaviour
             }
         }
         await Task.Delay((int)Math.Ceiling(_tempo * 1000));
-        _ataquesDisponiveis.Add(_ataque);
+        Debug.Log("Adicionou");
+        //_ataquesDisponiveis.Add(_ataque);
     }
     public void RecarregarTodosAtaques()
     {

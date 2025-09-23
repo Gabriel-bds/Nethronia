@@ -36,9 +36,9 @@ public class Player : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        //Atacar();
+        Atacar();
         //Esquivar();
-        if(Input.GetMouseButtonDown(0)) 
+        /*if(Input.GetMouseButtonDown(0)) 
         {
             _animator.SetInteger("Ataque", 1);
             Debug.Log("Clicou");
@@ -47,7 +47,7 @@ public class Player : Ser_Vivo
         else
         {
             _animator.SetInteger("Ataque", 0);
-        }
+        }*/
         _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
     }
     private void FixedUpdate()
@@ -58,28 +58,34 @@ public class Player : Ser_Vivo
     void Atacar()
     {
         float _valorAtaqueAtual = GetComponent<PlayerInput>().actions["Ataques"].ReadValue<float>();
-        float _velocidadeMaoAnimator = 1;
+        float _velocidadeAnimator = 1;
 
-        if (_mao.GetComponent<Animator>().speed > 0)
+        if (_animator.speed > 0)
         {
-            _velocidadeMaoAnimator = _mao.GetComponent<Animator>().speed;
+            //_velocidadeAnimator = _mao.GetComponent<Animator>().speed;
+            _velocidadeAnimator = _animator.speed;
         }
         if (_valorAtaqueAtual == 0)
         {
-            _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-            _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
+            /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+            _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
+            _animator.SetInteger("Ataque", 0);
+            _animator.speed = _velocidadeAnimator;
 
         }
         else
         {
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1]))
             {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
+                //_mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
+                _animator.SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
             }
             else
             {
-                _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = _velocidadeMaoAnimator;
+                /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+                _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
+                _animator.SetInteger("Ataque", 0);
+                _animator.speed = _velocidadeAnimator;
             }
         }
     }

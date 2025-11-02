@@ -32,16 +32,16 @@ public class Inimigo : Ser_Vivo
             }
         }
         base.Start();
-        _agent = GetComponent<NavMeshAgent>();
+        /*_agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+        _agent.updateUpAxis = false;*/
         DefinirAtributos();
         _mao.GetComponent<Mao>().RecarregarTodosAtaques();
     }
     protected override void Update()
     {
         base.Update();
-        Andar();
+        //Andar();
         AtacarPlayer();
         
     }
@@ -63,7 +63,7 @@ public class Inimigo : Ser_Vivo
     }
     void AtacarPlayer()
     {
-        _mao.GetComponent<Animator>().SetInteger("Ataque", 0);
+        _animator.GetComponent<Animator>().SetInteger("Ataque", 0);
         if (_mao.GetComponent<Mao>()._mirandoAlvo)
         {
             int _numeroAtq = SortearAtaque(
@@ -71,12 +71,12 @@ public class Inimigo : Ser_Vivo
                     (float)Mathf.Pow(transform.position.x - FindAnyObjectByType<Player>().transform.position.x, 2) +
                     (float)Mathf.Pow(transform.position.y - FindAnyObjectByType<Player>().transform.position.y, 2)
                     )); ;
-            //_mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[_numeroAtq].GetComponent<Ataque>()._idAtaque);
             var ataqueEscolhido = _mao.GetComponent<Mao>()._ataques[_numeroAtq];
 
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(ataqueEscolhido))
             {
-                _mao.GetComponent<Animator>().SetInteger("Ataque",
+                Debug.Log(_mao.GetComponent<Mao>()._ataquesDisponiveis.IndexOf(ataqueEscolhido));
+                _animator.GetComponent<Animator>().SetInteger("Ataque",
                     ataqueEscolhido.GetComponent<Ataque>()._idAtaque);
             }
 

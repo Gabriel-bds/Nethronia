@@ -15,7 +15,7 @@ public class Mao : MonoBehaviour
     [SerializeField] protected GameObject _alvo;
     public List<GameObject> _ataques = new List<GameObject>();
      public List<GameObject> _ataquesDisponiveis = new List<GameObject>();
-    [HideInInspector] public bool _mirandoAlvo;
+     public bool _mirandoAlvo;
     public int _travar;
     [HideInInspector] public Animator _animator;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
@@ -88,7 +88,7 @@ public class Mao : MonoBehaviour
                 {
                     _ataquesDisponiveis.Remove(o);
                     Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
-                    RecarregarAtaque(o.GetComponent<Ataque>()._tempoRecargaTotal, o); // <- chama a coroutine/async
+                    StartCoroutine(RecarregarAtaque(o.GetComponent<Ataque>()._tempoRecargaTotal, o)); // <- chama a coroutine/async
                     Debug.Log("Recarregou");
                     if (_dono.GetComponent<Player>() != null)
                     {
@@ -99,6 +99,7 @@ public class Mao : MonoBehaviour
             }
             _indiceAtq += 1;
         }
+        Debug.Log("Ataques disponíveis: " + _ataquesDisponiveis.Count);
     }
     public void ForcarDestruicaoAtaque(float _tempo)
     {
@@ -131,7 +132,7 @@ public class Mao : MonoBehaviour
     {
         GetComponent<Animator>().speed = _velocidadeAnimacao;
     }
-    async void RecarregarAtaque(float _tempo, GameObject _ataque)
+    IEnumerator RecarregarAtaque(float _tempo, GameObject _ataque)
     {
         if(_dono.GetComponent<Player>() != null) 
         {
@@ -145,7 +146,7 @@ public class Mao : MonoBehaviour
                 }
             }
         }
-        await Task.Delay((int)Math.Ceiling(_tempo * 1000));
+        yield return new WaitForSeconds(_tempo);
         Debug.Log("Adicionou");
         _ataquesDisponiveis.Add(_ataque);
     }
@@ -153,7 +154,8 @@ public class Mao : MonoBehaviour
     {
         foreach(GameObject ataque in _ataques)
         {
-            RecarregarAtaque(ataque.GetComponent<Ataque>()._tempoRecargaTotal, ataque);
+            StartCoroutine(RecarregarAtaque(ataque.GetComponent<Ataque>()._tempoRecargaTotal, ataque));
+            //Debug.Log("Começou");
         }
     }
 }

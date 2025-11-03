@@ -32,18 +32,17 @@ public class Inimigo : Ser_Vivo
             }
         }
         base.Start();
-        /*_agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
-        _agent.updateUpAxis = false;*/
+        _agent.updateUpAxis = false;
         DefinirAtributos();
         _mao.GetComponent<Mao>().RecarregarTodosAtaques();
     }
     protected override void Update()
     {
         base.Update();
-        //Andar();
+        Andar();
         AtacarPlayer();
-        
     }
     public void TravarAgent(bool _travar)
     {
@@ -60,11 +59,12 @@ public class Inimigo : Ser_Vivo
     void Andar()
     {
         _agent.SetDestination(_alvo.transform.position);
+        ControleAnimacoesMovimento();
     }
     void AtacarPlayer()
     {
         _animator.GetComponent<Animator>().SetInteger("Ataque", 0);
-        if (_mao.GetComponent<Mao>()._mirandoAlvo)
+        if (_mao.GetComponent<Mao>()._mirandoAlvo && _mao.GetComponent<Mao>()._ataquesDisponiveis.Count > 0)
         {
             int _numeroAtq = SortearAtaque(
                 (float)Mathf.Sqrt(
@@ -118,7 +118,7 @@ public class Inimigo : Ser_Vivo
 
         float _sorteio = UnityEngine.Random.Range(0f, 100f);
         float _acumulo = 0;
-        int _retorno = -1;
+        int _retorno = 0;
         foreach (var _atq in _ataque)
         {
             _acumulo += _atq.Item2;

@@ -84,20 +84,28 @@ public class Ser_Vivo : MonoBehaviour
         }
 
     }
-    private void ControleAnimacoesMovimento()
+    protected void ControleAnimacoesMovimento()
     {
         NavMeshAgent _agent = GetComponent<NavMeshAgent>();
         if (_animator != null)
         {
             if (_agent != null)
             {
-                _animator.SetFloat("Velocidade_Movimento", _agent.velocity.x + _agent.velocity.y + _agent.velocity.x * _agent.velocity.y);
-                _mao.GetComponent<Animator>().SetFloat("Velocidade_Movimento", _agent.velocity.x + _agent.velocity.y);
+                if(_agent.velocity.magnitude > 0) 
+                { 
+                    _animator.SetBool("Run", true);
+                    //Debug.Log(_agent.velocity.magnitude);
+                }
+                else
+                {
+                    _animator.SetBool("Run", false);
+                }
+                //_mao.GetComponent<Animator>().SetFloat("Velocidade_Movimento", _agent.velocity.x + _agent.velocity.y);
             }
             else
             {
-                _animator.SetFloat("Velocidade_Movimento", _rigidbody.velocity.x + _rigidbody.velocity.y + _rigidbody.velocity.x * _rigidbody.velocity.y);
-                _mao.GetComponent<Animator>().SetFloat("Velocidade_Movimento", _rigidbody.velocity.x + _rigidbody.velocity.y);
+                _animator.SetFloat("Velocity", _rigidbody.velocity.x + _rigidbody.velocity.y + _rigidbody.velocity.x * _rigidbody.velocity.y);
+                //_mao.GetComponent<Animator>().SetFloat("Velocidade_Movimento", _rigidbody.velocity.x + _rigidbody.velocity.y);
             }
         }
     }

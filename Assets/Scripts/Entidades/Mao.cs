@@ -89,7 +89,7 @@ public class Mao : MonoBehaviour
                     _ataquesDisponiveis.Remove(o);
                     Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
                     StartCoroutine(RecarregarAtaque(o.GetComponent<Ataque>()._tempoRecargaTotal, o)); // <- chama a coroutine/async
-                    Debug.Log("Recarregou");
+                    //Debug.Log("Recarregou");
                     if (_dono.GetComponent<Player>() != null)
                     {
                         Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
@@ -99,7 +99,7 @@ public class Mao : MonoBehaviour
             }
             _indiceAtq += 1;
         }
-        Debug.Log("Ataques disponíveis: " + _ataquesDisponiveis.Count);
+        //Debug.Log("Ataques disponíveis: " + _ataquesDisponiveis.Count);
     }
     public void ForcarDestruicaoAtaque(float _tempo)
     {
@@ -108,10 +108,6 @@ public class Mao : MonoBehaviour
         {
             _ultimoAtq.GetComponent<Rajada>().PararRajada();
         }
-    }
-    public void TravarMao(int _travarMao)
-    {
-        _travar = _travarMao;     
     }
     public void ResetarMao()
     {
@@ -147,7 +143,7 @@ public class Mao : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(_tempo);
-        Debug.Log("Adicionou");
+        //Debug.Log("Adicionou");
         _ataquesDisponiveis.Add(_ataque);
     }
     public void RecarregarTodosAtaques()

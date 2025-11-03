@@ -75,7 +75,7 @@ public class Inimigo : Ser_Vivo
 
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(ataqueEscolhido))
             {
-                Debug.Log(_mao.GetComponent<Mao>()._ataquesDisponiveis.IndexOf(ataqueEscolhido));
+                //Debug.Log(_mao.GetComponent<Mao>()._ataquesDisponiveis.IndexOf(ataqueEscolhido));
                 _animator.GetComponent<Animator>().SetInteger("Ataque",
                     ataqueEscolhido.GetComponent<Ataque>()._idAtaque);
             }
@@ -135,8 +135,8 @@ public class Inimigo : Ser_Vivo
     {
         GetComponent<NavMeshAgent>().enabled = false;
         Player _player = FindAnyObjectByType<Player>();
-        _mao.GetComponent<Mao>().ResetarMao();
-        _mao.GetComponent<Mao>().TravarMao(1);
+        //_mao.GetComponent<Mao>().ResetarMao();
+        TravarMao(1);
         Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
         _player.AdicionarExperiencia(_experiencia, UnityEngine.Random.Range(_minimoDropPontoHabilidadePermanente, _maximoDropPontoHabilidadePermanente +1));
         base.Morte(_tempo);

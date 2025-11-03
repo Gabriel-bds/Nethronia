@@ -43,7 +43,7 @@ public class Ser_Vivo : MonoBehaviour
     public GameObject _alvo;
     public Barra_Vida _barraVida;
     public GameObject _sangue;
-    [HideInInspector] public int _travar;
+    public int _travar;
     [HideInInspector] public Color _corBase;
     [HideInInspector] public Color _corBaseMao;
     public bool _invulneravel;
@@ -103,7 +103,7 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void AnimacaoDanoSofrido(float _danoSofrido)
     {
-        if (_danoSofrido <= 0)
+        /*if (_danoSofrido <= 0)
         {
             _travar = 0;
             _mao.GetComponent<Mao>()._travar = 0;
@@ -112,7 +112,7 @@ public class Ser_Vivo : MonoBehaviour
         {
             _travar = 1;
             _mao.GetComponent<Mao>()._travar = 1;
-        }
+        }*/
         _animator.SetTrigger("Receber_Dano");
         _animator.SetFloat("Dano_Sofrido", _danoSofrido);
         //Debug.Log(_danoSofrido);
@@ -160,6 +160,16 @@ public class Ser_Vivo : MonoBehaviour
     public void TravarCorpo(int _travarCorpo)
     {
         _travar = _travarCorpo;
+    }
+    public void TravarMao(int _travarMao)
+    {
+        _mao.GetComponent<Mao>()._travar = _travarMao;
+    }
+    public void TravarCorpoMao(int _travar)
+    {
+        this._travar = _travar;
+        _mao.GetComponent<Mao>()._travar = _travar;
+
     }
     void TemVida()
     {

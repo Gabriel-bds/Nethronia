@@ -36494,7 +36494,7 @@ MonoBehaviour:
       _utilidade2: 0
       _negacaoUtilidade2: 0
   _poderGelo:
-    _nivel: 0
+    _nivel: 10
     _tipoDano: 3
     _dano: 7.5
     _negacaoDano: 0

@@ -70,19 +70,24 @@ public class Player : Ser_Vivo
         {
             /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
             _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
-            _animator.SetInteger("Ataque", 0);
+            //_animator.SetInteger("Ataque", 0);
+            //Debug.Log("zerou");
             _animator.speed = _velocidadeAnimator;
 
         }
         else
         {
+            //Debug.Log(_valorAtaqueAtual);
             if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1]))
             {
+                //Debug.Log("Foi");
+                Debug.Log(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
                 //_mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
                 _animator.SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
             }
             else
             {
+                Debug.Log("Não Foi");
                 /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
                 _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
                 _animator.SetInteger("Ataque", 0);

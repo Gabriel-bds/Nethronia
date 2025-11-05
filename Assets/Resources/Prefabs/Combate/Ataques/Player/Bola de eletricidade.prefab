@@ -4854,9 +4854,7 @@ MonoBehaviour:
   _tipoDano: 4
   _dano: 100
   _repulsao: 100
-  _consumoEstamina: 3
-  _consumoMana: 5
-  _tempoRecarga: 7
+  _tempoRecargaTotal: 2
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -4865,7 +4863,8 @@ MonoBehaviour:
   _somHit: {fileID: 3458804620226726342}
   _spawnPosicao: {x: -30.08561, y: -5.548787, z: 0}
   _spawnRotacao: {x: -0, y: -0, z: -0.08332939, w: 0.99652207}
-  _localSpawn: 1
+  _localSpawn: 0
+  _decaimentoRecarga: 0
   _distanciaMin: 0
   _distanciaMax: 0
   _distanciaPerfeita: 0

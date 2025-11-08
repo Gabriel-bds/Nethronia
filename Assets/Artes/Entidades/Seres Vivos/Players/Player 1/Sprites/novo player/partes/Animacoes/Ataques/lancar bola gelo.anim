@@ -2626,3 +2626,10 @@ AnimationClip:
     floatParameter: 0
     intParameter: 8
     messageOptions: 0
+  - time: 0.9125
+    functionName: ResetarAtaque
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

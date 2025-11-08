@@ -17,13 +17,21 @@ public class Player : Ser_Vivo
     public Barra_Mana _barraMana;
     public int _pontosHabilidade;
     public int _pontosHabilidadePermanentes;
+    private PlayerInput _playerInput;
     protected override void Awake()
     { 
         
         FindAnyObjectByType<CinemachineVirtualCamera>().Follow = gameObject.transform;
         base.Awake();
-        DefinirAtributos(); 
-        
+        DefinirAtributos();
+        _playerInput = GetComponent<PlayerInput>();
+
+        // pega a ação "Ataques"
+        InputAction ataques = _playerInput.actions["Ataques"];
+
+        // Adiciona callback
+        ataques.performed += QuandoAtacar;
+
     }
     protected override void Start()
     {
@@ -37,7 +45,7 @@ public class Player : Ser_Vivo
     protected override void Update()
     {
         base.Update();
-        Atacar();
+        //Atacar();
         //Esquivar();
         /*if(Input.GetMouseButtonDown(0)) 
         {
@@ -56,44 +64,29 @@ public class Player : Ser_Vivo
         Mover(GetComponent<PlayerInput>().actions["Movimento"].ReadValue<Vector2>());
         //Debug.Log(GetComponent<PlayerInput>().actions["Movimento"].ReadValue<Vector2>());
     }
-    void Atacar()
+
+    private void QuandoAtacar(InputAction.CallbackContext context)
     {
-        float _valorAtaqueAtual = GetComponent<PlayerInput>().actions["Ataques"].ReadValue<float>();
-        float _velocidadeAnimator = 1;
-
-        if (_animator.speed > 0)
+        float valor = context.ReadValue<float>();
+        Mao _mao = this._mao.GetComponent<Mao>();
+        if (valor > 0)
         {
-            //_velocidadeAnimator = _mao.GetComponent<Animator>().speed;
-            _velocidadeAnimator = _animator.speed;
-        }
-        if (_valorAtaqueAtual == 0)
-        {
-            /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-            _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
-            //_animator.SetInteger("Ataque", 0);
-            //Debug.Log("zerou");
-            _animator.speed = _velocidadeAnimator;
-
-        }
-        else
-        {
-            //Debug.Log(_valorAtaqueAtual);
-            if (_mao.GetComponent<Mao>()._ataquesDisponiveis.Contains(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1]))
+            // Só entra aqui quando o valor deixa de ser 0
+            if (_mao._ataquesDisponiveis.Contains(_mao._ataques[(int)valor - 1]))
             {
-                //Debug.Log("Foi");
-                Debug.Log(_mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
-                //_mao.GetComponent<Animator>().SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
-                _animator.SetInteger("Ataque", _mao.GetComponent<Mao>()._ataques[(int)_valorAtaqueAtual - 1].GetComponent<Ataque>()._idAtaque);
+                _animator.SetInteger("Ataque", _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
+                Debug.Log("Ataque iniciado: " + _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
             }
             else
             {
-                Debug.Log("Não Foi");
-                /*_mao.GetComponent<Animator>().SetInteger("Ataque", 0);
-                _mao.GetComponent<Animator>().speed = _velocidadeAnimator;*/
                 _animator.SetInteger("Ataque", 0);
-                _animator.speed = _velocidadeAnimator;
             }
         }
+    }
+
+    public void ResetarAtaque()
+    {
+        _animator.SetInteger("Ataque", 0);
     }
     void Esquivar()
     {

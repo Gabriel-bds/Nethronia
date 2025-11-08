@@ -9,5 +9,6 @@ public class ResetarAtaque : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
             animator.SetInteger("Ataque", 0);
+        Debug.Log("Reset");
     }
 }

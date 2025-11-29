@@ -50,6 +50,7 @@ public class Ser_Vivo : MonoBehaviour
 
     [Header("Sons:")]
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
+    [SerializeField] ControleSons controleSons;
 
     protected virtual void Awake()
     {
@@ -372,6 +373,10 @@ public class Ser_Vivo : MonoBehaviour
     public void IniciarSom(int _numeroNaLista)
     {
         _sons[_numeroNaLista].Play();
+    }
+    public void TocarSom(string tag)
+    {
+        controleSons.TocarSom(tag);
     }
     public void SalvarDadosPrefab(string _caminhoPrefab)
     {

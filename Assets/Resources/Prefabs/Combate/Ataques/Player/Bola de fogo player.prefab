@@ -4858,7 +4858,7 @@ MonoBehaviour:
     m_Bits: 512
   _corDano: {r: 1, g: 0.61815464, b: 0, a: 1}
   _dono: {fileID: 0}
-  _somHit: {fileID: 3458804620226726342}
+  _somHit: {fileID: 0}
   _spawnPosicao: {x: -21.078812, y: -9.995678, z: 0}
   _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
   _localSpawn: 0
@@ -4872,7 +4872,7 @@ MonoBehaviour:
   _colisoes:
     serializedVersion: 2
     m_Bits: 512
-  _quebrandoSom: {fileID: 3458804620226726342}
+  _quebrandoSom: {fileID: 0}
 --- !u!114 &865990060721981108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5075,7 +5075,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c482023b9fe19a8418a61520eec5772e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

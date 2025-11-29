@@ -75,7 +75,7 @@ public class Player : Ser_Vivo
             if (_mao._ataquesDisponiveis.Contains(_mao._ataques[(int)valor - 1]))
             {
                 _animator.SetInteger("Ataque", _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
-                Debug.Log("Ataque iniciado: " + _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
+                //Debug.Log("Ataque iniciado: " + _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
             }
             else
             {

@@ -2628,7 +2628,7 @@ AnimationClip:
     messageOptions: 0
   - time: 0.4375
     functionName: TocarSom
-    data: lancar_fireball
+    data: event:/Player/Fogo/Bola Fogo/lancando bola fogo
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

@@ -7,6 +7,7 @@ using System;
 using TMPro;
 using UnityEngine.AI;
 using System.Threading.Tasks;
+using FMODUnity;
 
 public enum Spawn_Atq { Spawn, Mao, Spawn1, Mouse}
 
@@ -25,6 +26,7 @@ public class Ataque : MonoBehaviour
     [SerializeField] protected Color _corDano;
     [HideInInspector] public Ser_Vivo _dono;
     [SerializeField] protected AudioSource _somHit;
+    [SerializeField] protected string _tagSomHit;
     [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
@@ -96,9 +98,11 @@ public class Ataque : MonoBehaviour
             Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
 
-            _somHit.Play();
-            
-            if(_atingido.GetComponent<Player>() != null)
+            //_somHit.Play();
+            //RuntimeManager.PlayOneShot(_tagSomHit);
+            SomHit(_danoSofrido / _atingido._vidaMax);
+
+            if (_atingido.GetComponent<Player>() != null)
             {
                 FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
             }
@@ -239,4 +243,16 @@ public class Ataque : MonoBehaviour
         }  
         return null;
     }
+    public void SomHit(float danoProporcionalSofrido)
+    {
+
+        var instance = RuntimeManager.CreateInstance(_tagSomHit);
+        instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
+        instance.set3DAttributes(
+            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+        );
+        instance.start();
+        instance.release();
+    }
+
 }

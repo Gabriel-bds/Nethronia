@@ -4852,13 +4852,14 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 100
-  _tempoRecargaTotal: 5
+  _tempoRecargaTotal: 1
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 1, g: 0.61815464, b: 0, a: 1}
   _dono: {fileID: 0}
   _somHit: {fileID: 0}
+  _tagSomHit: event:/Player/Fogo/Bola Fogo/hit bola fogo
   _spawnPosicao: {x: -21.078812, y: -9.995678, z: 0}
   _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
   _localSpawn: 0
@@ -5074,11 +5075,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c482023b9fe19a8418a61520eec5772e, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: bb2d687d23f6c584c925ecca04a04bd0, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5120,7 +5121,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

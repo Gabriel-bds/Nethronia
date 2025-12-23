@@ -10,6 +10,7 @@ using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using FMODUnity;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 [System.Serializable]
 
@@ -376,7 +377,8 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void TocarSom(string tag)
     {
-        controleSons.TocarSom(tag);
+        RuntimeManager.PlayOneShot(tag);
+        //controleSons.TocarSom(tag);
     }
     public void SalvarDadosPrefab(string _caminhoPrefab)
     {

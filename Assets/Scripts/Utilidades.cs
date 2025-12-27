@@ -85,7 +85,7 @@ public class Utilidades : MonoBehaviour
     public static void InstanciarNumeroDano(string _dano, Transform _origem)
     {
         Numero_Dano _numeroDano = Resources.Load<Numero_Dano>("Prefabs/Combate/Numero dano");
-        Numero_Dano _instanciaNumeroDano =  Instantiate(_numeroDano, _origem.transform.position, Quaternion.Euler(0, 0, 0));
+        Numero_Dano _instanciaNumeroDano = Instantiate(_numeroDano, _origem.transform.position, Quaternion.Euler(0, 0, 0));
         _instanciaNumeroDano._novoTexto = _dano;
     }
     public static void InstanciarNumeroDano(string _dano, Transform _origem, float _tamanho)

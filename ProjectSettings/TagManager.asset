@@ -23,7 +23,7 @@ TagManager:
   - Player
   - Inimigo
   - Bordas
-  - 
+  - Efeitos
   - 
   - 
   - 
@@ -53,4 +53,13 @@ TagManager:
     locked: 0
   - name: Obstaculo
     uniqueID: 750229157
+    locked: 0
+  - name: CameraSortingLayer
+    uniqueID: 108280749
+    locked: 0
+  - name: Efeitos
+    uniqueID: 430393885
+    locked: 0
+  - name: SobEfeitos
+    uniqueID: 2325905815
     locked: 0

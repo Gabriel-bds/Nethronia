@@ -43,6 +43,9 @@ public class Ataque : MonoBehaviour
         //ControlarParticulas();
         ControleParticulasAoInstanciarAtaque();
         ControlarMagnitudadeVisual();
+        float maximoShakeCamera = 20f;
+        Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
+        _camera.Tremer(Utilidades.LimitadorNumero(0, maximoShakeCamera, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual * maximoShakeCamera));
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

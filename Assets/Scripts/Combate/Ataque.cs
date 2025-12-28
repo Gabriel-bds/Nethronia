@@ -30,6 +30,7 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
+    [SerializeField] GameObject _particulasAoInstanciar;
     public float _decaimentoRecarga;
     [Header("Inimigos:")]
     public float _distanciaMin;
@@ -39,6 +40,7 @@ public class Ataque : MonoBehaviour
     {
         _efeitoAplicado = GetComponent<Efeito>();
         ControlarParticulas();
+        ControleParticulasAoInstanciarAtaque();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -253,6 +255,15 @@ public class Ataque : MonoBehaviour
         );
         instance.start();
         instance.release();
+    }
+
+    public void ControleParticulasAoInstanciarAtaque()
+    {
+        if(_particulasAoInstanciar != null)
+        {
+            Debug.Log(Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / 100));
+            Instantiate(_particulasAoInstanciar, _spawnPosicao, _spawnRotacao).GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / 100));
+        }
     }
 
 }

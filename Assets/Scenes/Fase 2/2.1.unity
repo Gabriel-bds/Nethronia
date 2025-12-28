@@ -7963,7 +7963,7 @@ Transform:
   m_GameObject: {fileID: 324479103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.4496, y: -1.9882, z: 0}
+  m_LocalPosition: {x: -29.04, y: -2.7, z: 0}
   m_LocalScale: {x: 10.677367, y: 10.465507, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36775,7 +36775,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
   _poderFogo:
-    _nivel: 50
+    _nivel: 1
     _tipoDano: 1
     _dano: 7.5
     _negacaoDano: 0

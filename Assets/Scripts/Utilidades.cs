@@ -199,4 +199,28 @@ public class Utilidades : MonoBehaviour
         }
         return copia;
     }
+
+    public static int NivelAtualTipoDano(Tipo_Dano tipo, Ser_Vivo serVivo) 
+    {
+        switch (tipo)
+        {
+            case Tipo_Dano.Físico:
+                return serVivo._poderForca._nivel;
+
+            case Tipo_Dano.Fogo:
+                return serVivo._poderFogo._nivel;
+
+            case Tipo_Dano.Gelo:
+                return serVivo._poderGelo._nivel;
+
+
+            case Tipo_Dano.Veneno:
+                return serVivo._poderVeneno._nivel;
+
+
+            case Tipo_Dano.Eletricidade:
+                return serVivo._poderEletricidade._nivel;
+        }
+        return -1;
+    }
 }

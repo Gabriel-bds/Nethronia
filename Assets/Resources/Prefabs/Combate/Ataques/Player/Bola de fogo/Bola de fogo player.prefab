@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 865990060721981108}
   - component: {fileID: 8560884134372733906}
   - component: {fileID: -2967019613308167191}
+  - component: {fileID: 6141623033520255876}
   m_Layer: 0
   m_Name: Bola de fogo player
   m_TagString: Untagged
@@ -611,7 +612,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 1
-    maxNumParticles: 1000
+    maxNumParticles: 5000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4865,6 +4866,7 @@ MonoBehaviour:
   _spawnRotacao: {x: -0, y: -0, z: -0.19255523, w: 0.98128617}
   _localSpawn: 0
   _particulasAoInstanciar: {fileID: 1867541775879302499, guid: c389c94b3b6caf74dae210b3798b3e70, type: 3}
+  nivelMaximoMagnitudeVisual: 100
   _decaimentoRecarga: 0
   _distanciaMin: 0
   _distanciaMax: 0
@@ -4950,6 +4952,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &6141623033520255876
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299947594664116185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4113c86730d65854a95e4607a83ef5d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3190672079676121851
 GameObject:
   m_ObjectHideFlags: 0

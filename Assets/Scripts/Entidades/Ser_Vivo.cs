@@ -24,7 +24,7 @@ public class Ser_Vivo : MonoBehaviour
     public int _nivelGeral = 0;
     public int _experiencia;
     public int _experienciaParaProximoNivel;
-    List<Rigidbody2D> _membros;
+    [HideInInspector] public List<Rigidbody2D> _membros;
 
     [Header("Poderes:")]
     public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);

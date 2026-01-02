@@ -5454,17 +5454,23 @@ MonoBehaviour:
   _tipoDano: 4
   _dano: 100
   _repulsao: 88.1
-  _consumoEstamina: 0
-  _consumoMana: 0
+  _tempoRecargaTotal: 1
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 0.990566, g: 0.965907, b: 0.09967952, a: 1}
   _dono: {fileID: 0}
   _somHit: {fileID: 0}
+  _tagSomHit: 
   _spawnPosicao: {x: 6.882842, y: -12.465155, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 1}
   _localSpawn: 2
+  _particulasAoInstanciar: {fileID: 0}
+  nivelMaximoMagnitudeVisual: 0
+  _decaimentoRecarga: 0
+  _distanciaMin: 0
+  _distanciaMax: 0
+  _distanciaPerfeita: 0
   _delayInicialArea: 0
 --- !u!58 &1411795060330258617
 CircleCollider2D:
@@ -10569,6 +10575,9 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
+  m_ShadowRadius: 1.42
+  m_shadowFalloffRate: 1
+  m_shadowFalloffIntensity: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}

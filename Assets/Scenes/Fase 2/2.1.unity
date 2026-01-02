@@ -43963,7 +43963,7 @@ MonoBehaviour:
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-  - {fileID: 2299947594664116185, guid: a94188a1c8dc08144881f85f8e3fe519, type: 3}
+  - {fileID: 1398755498870554847, guid: f277e97966b1f594988bf38fe90e066f, type: 3}
   - {fileID: 2902907867543165995, guid: 94ee6a8ee73f11a4ca052ae2192b8cf1, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0

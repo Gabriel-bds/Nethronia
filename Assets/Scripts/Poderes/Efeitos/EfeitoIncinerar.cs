@@ -29,7 +29,7 @@ public class EfeitoIncinerar : Efeito
     {
         GameObject _instanciaParticula = Instantiate(_particulaEfeito, _vitima.gameObject.transform);
         _instanciaParticula.transform.position = new Vector2(_vitima.gameObject.GetComponent<Collider2D>().bounds.center.x, _vitima.gameObject.GetComponent<Collider2D>().bounds.center.y - _vitima.gameObject.GetComponent<Collider2D>().bounds.extents.y);
-        Light2D _luz = _instanciaParticula.GetComponentInChildren<Light2D>();
+        /*Light2D _luz = _instanciaParticula.GetComponentInChildren<Light2D>();
         _luz.intensity = Utilidades.LimitadorNumero(0, _luz.intensity, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _luz.intensity);
         ParticleSystem[] _particulas =  _instanciaParticula.GetComponentsInChildren<ParticleSystem>();
         foreach(ParticleSystem _particula in _particulas)
@@ -38,7 +38,8 @@ public class EfeitoIncinerar : Efeito
             var _emissao = _particula.emission;
             _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano) / (_vitima._vidaMax * 0.5f) * _emissao.rateOverTime.constant));
             _config.duration = _duracao;
-        }
+        }*/
+        _instanciaParticula.GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(Tipo_Dano.Fogo, _atacante) / 100));
         Destroy(_instanciaParticula, _duracao);
     }
     void InstanciarParticulaExplosao(Ser_Vivo _vitima, Ser_Vivo _atacante)

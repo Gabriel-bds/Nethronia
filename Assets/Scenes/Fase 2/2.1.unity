@@ -14065,67 +14065,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &555914501
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.981286
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.19255616
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 200886348180273099, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -22.204
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_Name
-      value: Bola de fogo player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
 --- !u!1 &572813848
 GameObject:
   m_ObjectHideFlags: 0
@@ -43377,7 +43316,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 808871481
   m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &1892567504
@@ -80213,4 +80152,3 @@ SceneRoots:
   - {fileID: 265235483}
   - {fileID: 324479105}
   - {fileID: 582954169}
-  - {fileID: 555914501}

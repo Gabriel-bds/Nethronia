@@ -50,70 +50,7 @@ public class Ataque : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & _alvos) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
-        {
-            Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
-            float _danoSofrido = 0;
-
-            Vector2 _distancia = (Vector2)(collision.transform.position - _dono.transform.position).normalized;
-
-            switch (_tipoDano)
-            {
-                case Tipo_Dano.Físico:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderForca._dano - _atingido._poderResistencia._negacaoDano);
-                    _atingido.Knockback(_repulsao / 100 * (_dono._poderForca._repulsao - _atingido._poderResistencia._negacaoRepulsao), _distancia);
-                    break;
-
-                case Tipo_Dano.Fogo:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderFogo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderFogo._negacaoDano);
-                    _atingido.Knockback(_repulsao / 100 * (_dono._poderFogo._repulsao - _atingido._poderFogo._negacaoRepulsao), _distancia);
-
-                    break;
-
-                case Tipo_Dano.Gelo:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderGelo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderGelo._negacaoDano);
-                    _atingido.Knockback(_repulsao / 100 * (_dono._poderGelo._repulsao - _atingido._poderGelo._negacaoRepulsao), _distancia);
-                    break;
-
-                case Tipo_Dano.Veneno:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderVeneno._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderVeneno._negacaoDano);
-                    _atingido.Knockback(_repulsao / 100 * (_dono._poderVeneno._repulsao - _atingido._poderVeneno._negacaoRepulsao), _distancia);
-                    break;
-
-                case Tipo_Dano.Eletricidade:
-                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderEletricidade._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderEletricidade._negacaoDano);
-                    _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
-                    break;
-            }
-            _atingido._vidaAtual = _atingido._vidaAtual - _danoSofrido > 0
-                ? _atingido._vidaAtual -= _danoSofrido
-                : _atingido._vidaAtual = 0;
-            _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
-            _atingido.AnimacaoDanoSofrido(_danoSofrido / _atingido._vidaMax);
-            //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
-
-            Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);
-
-            ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, Quaternion.Euler(0,0,0)).GetComponent<ParticleSystem>();
-            var _emissao = _objSangue.emission;
-            _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * _emissao.rateOverTime.constant;
-
-            if(_efeitoAplicado != null) 
-            {
-                _efeitoAplicado.Aplicar(_dono, _atingido);
-            }
-            Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
-            _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
-
-            //_somHit.Play();
-            //RuntimeManager.PlayOneShot(_tagSomHit);
-            SomHit(_danoSofrido / _atingido._vidaMax);
-
-            if (_atingido.GetComponent<Player>() != null)
-            {
-                FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
-            }
-        }
+        AplicarAtaque(collision);
     }
 
     public void AutoDestruir()
@@ -329,5 +266,71 @@ public class Ataque : MonoBehaviour
             Instantiate(_particulasAoInstanciar, _spawnPosicao, _spawnRotacao).GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual));
         }
     }
+    protected virtual void AplicarAtaque(Collider2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & _alvos) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
+        {
+            Ser_Vivo _atingido = collision.gameObject.GetComponent<Ser_Vivo>();
+            float _danoSofrido = 0;
 
+            Vector2 _distancia = (Vector2)(collision.transform.position - _dono.transform.position).normalized;
+
+            switch (_tipoDano)
+            {
+                case Tipo_Dano.Físico:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderForca._dano - _atingido._poderResistencia._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderForca._repulsao - _atingido._poderResistencia._negacaoRepulsao), _distancia);
+                    break;
+
+                case Tipo_Dano.Fogo:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderFogo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderFogo._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderFogo._repulsao - _atingido._poderFogo._negacaoRepulsao), _distancia);
+
+                    break;
+
+                case Tipo_Dano.Gelo:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderGelo._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderGelo._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderGelo._repulsao - _atingido._poderGelo._negacaoRepulsao), _distancia);
+                    break;
+
+                case Tipo_Dano.Veneno:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderVeneno._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderVeneno._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderVeneno._repulsao - _atingido._poderVeneno._negacaoRepulsao), _distancia);
+                    break;
+
+                case Tipo_Dano.Eletricidade:
+                    _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderEletricidade._dano - _atingido._poderResistencia._negacaoDano / 2 - _atingido._poderEletricidade._negacaoDano);
+                    _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
+                    break;
+            }
+            _atingido._vidaAtual = _atingido._vidaAtual - _danoSofrido > 0
+                ? _atingido._vidaAtual -= _danoSofrido
+                : _atingido._vidaAtual = 0;
+            _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
+            _atingido.AnimacaoDanoSofrido(_danoSofrido / _atingido._vidaMax);
+            //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
+
+            Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);
+
+            ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            var _emissao = _objSangue.emission;
+            _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * _emissao.rateOverTime.constant;
+
+            if (_efeitoAplicado != null)
+            {
+                _efeitoAplicado.Aplicar(_dono, _atingido);
+            }
+            Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
+            _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
+
+            //_somHit.Play();
+            //RuntimeManager.PlayOneShot(_tagSomHit);
+            SomHit(_danoSofrido / _atingido._vidaMax);
+
+            if (_atingido.GetComponent<Player>() != null)
+            {
+                FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
+            }
+        }
+    }
 }

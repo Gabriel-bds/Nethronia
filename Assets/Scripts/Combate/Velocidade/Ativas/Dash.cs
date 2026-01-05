@@ -12,14 +12,18 @@ public class Dash : Ataque
 
     Ser_Vivo _serVivo;
     Rigidbody2D _rigidbody;
+
+    Vector2 _alvo;
     Vector2 _direcaoDash;
+
+    float _distanciaAnterior;
     bool _ativo;
 
     protected override void Start()
     {
-        //base.Start();
         transform.SetParent(_dono.transform);
         transform.localPosition = Vector3.zero;
+
         _serVivo = GetComponentInParent<Ser_Vivo>();
         if (_serVivo == null)
         {
@@ -30,12 +34,11 @@ public class Dash : Ataque
 
         _rigidbody = _serVivo._rigidbody;
 
-        // Posiciona o dash exatamente no player
-        transform.localPosition = Vector3.zero;
+        _alvo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Direção até o mouse
-        Vector2 alvo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _direcaoDash = (alvo - (Vector2)_serVivo.transform.position).normalized;
+        Vector2 origem = _serVivo.transform.position;
+        _direcaoDash = (_alvo - origem).normalized;
+        _distanciaAnterior = Vector2.Distance(origem, _alvo);
 
         IniciarDash();
     }
@@ -44,17 +47,35 @@ public class Dash : Ataque
     {
         _ativo = true;
 
-        // Trava ações normais
         _serVivo.TravarCorpoMao(1);
         _serVivo.Invulneravel(1);
 
-        // Zera movimento anterior
         _rigidbody.velocity = Vector2.zero;
 
-        // Impulso (mesma lógica do knockback)
+        // IMPULSO FÍSICO
         _rigidbody.AddForce(_direcaoDash * _forcaDash, ForceMode2D.Impulse);
 
         StartCoroutine(TempoDash());
+    }
+
+    void FixedUpdate()
+    {
+        if (!_ativo) return;
+
+        float distanciaAtual =
+            Vector2.Distance(_serVivo.transform.position, _alvo);
+
+        // Passou do alvo ou chegou muito perto
+        if (distanciaAtual > _distanciaAnterior || distanciaAtual <= 0.05f)
+        {
+            // Clamp exato no mouse
+            _serVivo.transform.position = _alvo;
+            EncerrarDash();
+        }
+        else
+        {
+            _distanciaAnterior = distanciaAtual;
+        }
     }
 
     IEnumerator TempoDash()
@@ -81,12 +102,12 @@ public class Dash : Ataque
     {
         if (!_ativo) return;
 
-        // Colisão com parede → encerra dash
         if (((1 << col.gameObject.layer) & _layerParede) != 0)
         {
             EncerrarDash();
             return;
         }
-        base.OnTriggerEnter2D (col);
+
+        base.OnTriggerEnter2D(col);
     }
 }

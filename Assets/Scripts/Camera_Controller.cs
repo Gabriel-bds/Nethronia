@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
+    [HideInInspector] public float intensidadeShakeCamera;
     private void Update()
     {
         OlharCamera();
@@ -19,10 +20,11 @@ public class Camera_Controller : MonoBehaviour
     }
     public void Tremer(float _porcentagemIntensidade)
     {
-        if(_porcentagemIntensidade > 100)
+        intensidadeShakeCamera += _porcentagemIntensidade;
+        if(intensidadeShakeCamera > 50)
         {
-            _porcentagemIntensidade = 100;
+            intensidadeShakeCamera = 50;
         }
-        GetComponent<CinemachineImpulseSource>().GenerateImpulseWithVelocity(new Vector2(_porcentagemIntensidade / 100 * 2f, _porcentagemIntensidade / 100 * 2f));
+        GetComponent<CinemachineImpulseSource>().GenerateImpulseWithVelocity(new Vector2(intensidadeShakeCamera / 100 * 2f, intensidadeShakeCamera / 100 * 2f));
     }
 }

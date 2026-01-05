@@ -42,7 +42,7 @@ public class Inimigo : Ser_Vivo
     {
         base.Update();
         Andar();
-        AtacarPlayer();
+        //AtacarPlayer();
     }
     public void TravarAgent(bool _travar)
     {

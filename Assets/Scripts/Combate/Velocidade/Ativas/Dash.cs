@@ -41,6 +41,7 @@ public class Dash : Ataque
         _distanciaAnterior = Vector2.Distance(origem, _alvo);
 
         IniciarDash();
+        ControlarRecarga();
     }
 
     void IniciarDash()

@@ -84,7 +84,7 @@ public class Mao : MonoBehaviour
                 _atq.gameObject.transform.localScale = _dono.transform.localScale;
                 _atq.DefinirSpawn();
                 _ultimoAtq = _atq.gameObject;
-                if(_atq.gameObject.GetComponent<Rajada>() == null)
+                /*if(_atq.gameObject.GetComponent<Rajada>() == null)
                 {
                     _ataquesDisponiveis.Remove(o);
                     Ataque.QuadroDoAtaque(_dono.gameObject, o)._recargaAtual = 0; // funciona tanto p/ player quanto inimigo
@@ -94,7 +94,7 @@ public class Mao : MonoBehaviour
                     {
                         Ataque.QuadroDoAtaque(_dono.gameObject ,o)._recargaAtual = 0;
                     }
-                }
+                }*/
                 break;
             }
             _indiceAtq += 1;
@@ -128,24 +128,25 @@ public class Mao : MonoBehaviour
     {
         GetComponent<Animator>().speed = _velocidadeAnimacao;
     }
-    IEnumerator RecarregarAtaque(float _tempo, GameObject _ataque)
+    public IEnumerator RecarregarAtaque(float tempo, GameObject ataque)
     {
-        if(_dono.GetComponent<Player>() != null) 
+        Debug.Log("Chamou recarga");
+        if (_ataquesDisponiveis.Contains(ataque))
         {
-            Quadro_Habilidade[] _quadros = FindObjectsByType<Quadro_Habilidade>(FindObjectsSortMode.InstanceID);
-            foreach (Quadro_Habilidade _quadro in _quadros)
-            {
-                if (_quadro._numeroQuadro == _ataques.IndexOf(_ataque))
-                {
-                    StartCoroutine(_quadro.CarregarHabilidade(_tempo));
-                    break;
-                }
-            }
+            _ataquesDisponiveis.Remove(ataque);
         }
-        yield return new WaitForSeconds(_tempo);
-        //Debug.Log("Adicionou");
-        _ataquesDisponiveis.Add(_ataque);
+        if (_dono.GetComponent<Player>() != null)
+        {
+            var quadro = Ataque.QuadroDoAtaque(_dono.gameObject, ataque);
+            if (quadro != null)
+                StartCoroutine(quadro.CarregarHabilidade(tempo));
+        }
+
+        yield return new WaitForSeconds(tempo);
+
+        _ataquesDisponiveis.Add(ataque);
     }
+
     public void RecarregarTodosAtaques()
     {
         foreach(GameObject ataque in _ataques)
@@ -153,5 +154,25 @@ public class Mao : MonoBehaviour
             StartCoroutine(RecarregarAtaque(ataque.GetComponent<Ataque>()._tempoRecargaTotal, ataque));
             //Debug.Log("Começou");
         }
+    }
+
+    public void RemoverAtaqueDisponivel(GameObject ataque)
+    {
+        //Debug.Log("Atauqe removido");
+        foreach(GameObject habilidade in _ataquesDisponiveis)
+        {
+            if(habilidade.GetComponent<Ataque>()._idAtaque == ataque.GetComponent<Ataque>()._idAtaque)
+            {
+                _ataquesDisponiveis.Remove(habilidade);
+                if (_dono.GetComponent<Player>() != null)
+                {
+                    var quadro = Ataque.QuadroDoAtaque(_dono.gameObject, habilidade);
+                    if (quadro != null)
+                        quadro._recargaAtual = 0;
+                }
+                return;
+            }
+        }
+        
     }
 }

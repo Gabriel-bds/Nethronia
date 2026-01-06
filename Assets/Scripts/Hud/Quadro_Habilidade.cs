@@ -33,26 +33,17 @@ public class Quadro_Habilidade : MonoBehaviour
     }
     public IEnumerator CarregarHabilidade(float tempo)
     {
-        _recargaAtual = 0f; // começa do zero
-        _jaAdicionouAtaque = false;
+        _recargaAtual = 0f;
 
         while (_recargaAtual < tempo)
         {
-            _recargaAtual += Time.deltaTime; // soma o tempo já percorrido
-                                             // aqui você pode atualizar a UI de recarga (ex: barra, fillAmount, etc.)
-
-            yield return null; // espera 1 frame antes de continuar
+            _recargaAtual += Time.deltaTime;
+            yield return null;
         }
 
-        // garante que não passe do limite
         _recargaAtual = tempo;
-
-        if (!_jaAdicionouAtaque)
-        {
-            //FindAnyObjectByType<Player>()._mao.GetComponent<Mao>()._ataquesDisponiveis.Add(_atq.gameObject);
-            _jaAdicionouAtaque = true;
-        }
     }
+
     void AtualizarQuadro()
     {
         _quadroNegro.fillAmount = 1 - _recargaAtual / _recargaMaxima;

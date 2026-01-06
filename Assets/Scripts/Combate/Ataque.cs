@@ -46,6 +46,7 @@ public class Ataque : MonoBehaviour
         float maximoShakeCamera = 20f;
         Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
         _camera.Tremer(Utilidades.LimitadorNumero(0, maximoShakeCamera, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual * maximoShakeCamera));
+        ControlarRecarga();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -248,7 +249,7 @@ public class Ataque : MonoBehaviour
     }
     public void SomHit(float danoProporcionalSofrido)
     {
-        Debug.Log(danoProporcionalSofrido);
+        //Debug.Log(danoProporcionalSofrido);
         var instance = RuntimeManager.CreateInstance(_tagSomHit);
         instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
         instance.set3DAttributes(
@@ -262,7 +263,7 @@ public class Ataque : MonoBehaviour
     {
         if(_particulasAoInstanciar != null)
         {
-            Debug.Log(Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / 100));
+            //Debug.Log(Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / 100));
             Instantiate(_particulasAoInstanciar, _spawnPosicao, _spawnRotacao).GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual));
         }
     }
@@ -332,5 +333,16 @@ public class Ataque : MonoBehaviour
                 FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
             }
         }
+    }
+    protected void ControlarRecarga()
+    {
+        foreach(GameObject habilidade in _dono._mao.GetComponent<Mao>()._ataquesDisponiveis)
+        {
+            if(habilidade.GetComponent<Ataque>()._idAtaque == _idAtaque) 
+            {
+                _dono._mao.GetComponent<Mao>().StartCoroutine(_dono._mao.GetComponent<Mao>().RecarregarAtaque(habilidade.GetComponent<Ataque>()._tempoRecargaTotal,habilidade));
+                break;
+            }
+        }  
     }
 }

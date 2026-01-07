@@ -31,7 +31,7 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
     [SerializeField] GameObject _particulasAoInstanciar;
-    [SerializeField] int nivelMaximoMagnitudeVisual;
+    [SerializeField] protected int nivelMaximoMagnitudeVisual;
     public float _decaimentoRecarga;
     [Header("Inimigos:")]
     public float _distanciaMin;
@@ -168,7 +168,7 @@ public class Ataque : MonoBehaviour
         }
     }
     }
-    void ControlarMagnitudadeVisual()
+    protected void ControlarMagnitudadeVisual()
     {
         GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual));
     }

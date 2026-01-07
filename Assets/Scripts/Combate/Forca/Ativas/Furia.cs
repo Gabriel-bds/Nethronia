@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class Furia : Ataque
 {
@@ -14,12 +15,17 @@ public class Furia : Ataque
     [SerializeField] float aumentoMinimoPercentualAtributos;
     [SerializeField] float tempoMinimoFuria;
     [SerializeField] float tempoTransicaoCor = 0.25f;
-    [SerializeField] Color32 corCorpoFurioso;
+    public Color corCorpoFurioso;
+    public Color corMinimaCorpoFurioso;
 
     List<SpriteRenderer> spritesMembros = new();
     Color corPadrao;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        //MagnitudeVisualFuria();
+    }
     void Start()
     {
         transform.SetParent(_dono.transform);
@@ -34,6 +40,7 @@ public class Furia : Ataque
         }
 
         corPadrao = spritesMembros[0].color;
+        MagnitudeVisualFuria();
         DefinirNivelFuria();
         StartCoroutine(FuriaCoroutine());
         _dono._mao.GetComponent<Mao>().RemoverAtaqueDisponivel(gameObject);
@@ -81,8 +88,11 @@ public class Furia : Ataque
                 _dono._mao.GetComponent<Mao>().StartCoroutine(_dono._mao.GetComponent<Mao>().RecarregarAtaque(_tempoRecargaTotal, habilidade));
             }
         }
-        
+        var ps = GetComponentInChildren<ParticleSystem>();
+        var emission = ps.emission;
+        emission.rateOverTime = 0f;
 
+        Destroy(gameObject, 3f);
         //ControlarRecarga();
     }
 
@@ -105,6 +115,23 @@ public class Furia : Ataque
         foreach (var sr in spritesMembros)
             sr.color = corFinal;
     }
+
+    void MagnitudeVisualFuria()
+    {
+        var ps = GetComponentInChildren<ParticleSystem>();
+        var emission = ps.emission;
+
+        float fatorMagnitude = Mathf.Clamp01(
+            (float)nivelHabilidade / nivelMaximoMagnitudeVisual
+        );
+
+        // Intensidade das partículas
+        emission.rateOverTime = Mathf.Lerp(3f, 30f, fatorMagnitude);
+
+        // Cor alvo da fúria baseada na magnitude
+        corCorpoFurioso = Color.Lerp(corMinimaCorpoFurioso, corCorpoFurioso, fatorMagnitude);
+    }
+
 
 
 }

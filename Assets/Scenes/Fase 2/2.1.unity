@@ -43985,7 +43985,7 @@ MonoBehaviour:
   _ataques:
   - {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
   - {fileID: 1288559953085570875, guid: cd2ba780159c44347a7ef998f32d44b0, type: 3}
-  - {fileID: 319265299233502739, guid: 64d3bc2c8a87ab241af8e609b97cc52e, type: 3}
+  - {fileID: 1398755498870554847, guid: f277e97966b1f594988bf38fe90e066f, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0
   _travar: 0

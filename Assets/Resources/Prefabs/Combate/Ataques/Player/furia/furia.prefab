@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288559953085570875}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -45.32, y: 0.1, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   _tipoDano: 0
   _dano: 0
   _repulsao: 0
-  _tempoRecargaTotal: 5
+  _tempoRecargaTotal: 1
   _alvos:
     serializedVersion: 2
     m_Bits: 0
@@ -62,22 +62,21 @@ MonoBehaviour:
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
   _localSpawn: 0
   _particulasAoInstanciar: {fileID: 0}
-  nivelMaximoMagnitudeVisual: 0
+  nivelMaximoMagnitudeVisual: 100
   _decaimentoRecarga: 0
   _distanciaMin: 0
   _distanciaMax: 0
   _distanciaPerfeita: 0
-  nivelHabilidade: 10
+  nivelHabilidade: 100
   aumentoPercentualAtributos: 0
   tempoFuria: 5
   aumentoPercentualAtributosPorNivel: 1
   aumentoTempoFuriaPorNivel: 0
   aumentoMinimoPercentualAtributos: 10
   tempoMinimoFuria: 5
-  tempoTransicaoCor: 0.25
-  corCorpoFurioso:
-    serializedVersion: 2
-    rgba: 4286940671
+  tempoTransicaoCor: 0.5
+  corCorpoFurioso: {r: 1, g: 0.54971087, b: 0.44716978, a: 1}
+  corMinimaCorpoFurioso: {r: 1, g: 0.83396226, b: 0.83396226, a: 1}
 --- !u!1 &5748963606694390211
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +436,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1020,7 +1019,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2

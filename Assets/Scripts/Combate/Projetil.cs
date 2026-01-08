@@ -8,8 +8,6 @@ public class Projetil : Ataque
 {
     [Header("Projetil:")]
     [SerializeField] float _velocidade;
-    [SerializeField] float _tempoDeVida;
-    float _tempoDeVidaAtual;
     [SerializeField] bool _progressaoEscala;
     [SerializeField] LayerMask _colisoes;
     [SerializeField] AudioSource _quebrandoSom;

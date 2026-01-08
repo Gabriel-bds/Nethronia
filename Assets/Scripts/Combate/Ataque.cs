@@ -21,6 +21,9 @@ public class Ataque : MonoBehaviour
     [Range(0f, 100f)] [SerializeField] protected float _dano;
     [Range(0f, 100f)] [SerializeField] protected float _repulsao;
     public float _tempoRecargaTotal;
+    [SerializeField] protected float _tempoDeVida;
+    protected float _tempoDeVidaAtual;
+
 
     [SerializeField]protected LayerMask _alvos;
     [SerializeField] protected Color _corDano;
@@ -43,10 +46,14 @@ public class Ataque : MonoBehaviour
         //ControlarParticulas();
         ControleParticulasAoInstanciarAtaque();
         ControlarMagnitudadeVisual();
-        float maximoShakeCamera = 20f;
+        /*float maximoShakeCamera = 20f;
         Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
-        _camera.Tremer(Utilidades.LimitadorNumero(0, maximoShakeCamera, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual * maximoShakeCamera));
+        _camera.Tremer(Utilidades.LimitadorNumero(0, maximoShakeCamera, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual * maximoShakeCamera));*/
         ControlarRecarga();
+        if(_tempoDeVida > 0) 
+        {
+            Destroy(gameObject, _tempoDeVida);
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -170,7 +177,10 @@ public class Ataque : MonoBehaviour
     }
     protected void ControlarMagnitudadeVisual()
     {
-        GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual));
+        if(GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().SetFloat("Forca", Utilidades.LimitadorNumero(0, 1, (float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual));
+        }
     }
     public void DefinirSpawn()
     {

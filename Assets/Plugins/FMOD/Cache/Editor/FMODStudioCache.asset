@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: ../../Sons/Fmod/SonsNethronia/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639034742016909652
+  lastModified: 639035851520280872
   FileSizes:
   - Name: 
-    Value: 1166
+    Value: 1280
   Exists: 1
 --- !u!114 &-5656703142650613564
 MonoBehaviour:
@@ -99,6 +99,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-2892583420105330182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Velocidade/acelerarTempo
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Velocidade/acelerarTempo
+  Guid:
+    Data1: 297338702
+    Data2: 1122082162
+    Data3: -773520964
+    Data4: -884786362
+  Banks:
+  - {fileID: 7522182334700450377}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5287681676125667073}
+  MinDistance: 0
+  MaxDistance: 10000
+  Length: 1593
 --- !u!114 &-2782790434704690895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,13 +176,15 @@ MonoBehaviour:
   - {fileID: -8059618466815617736}
   - {fileID: -2782790434704690895}
   - {fileID: 5732561975164775589}
+  - {fileID: 8832574028349211217}
+  - {fileID: -2892583420105330182}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7522182334700450377}
   StringsBanks:
   - {fileID: -7066638151901055827}
   cacheVersion: 131857
-  cacheTime: 639034742016909652
+  cacheTime: 639035851520280872
   SerializableEventsDict:
   - key: event:/Player/Fogo/Bola Fogo/lancando bola fogo
     index: 0
@@ -166,6 +196,10 @@ MonoBehaviour:
     index: 3
   - key: event:/Inimigos/Fase 2/Cacador/Base/receber dano
     index: 4
+  - key: event:/Player/Velocidade/desacelerarTempo
+    index: 5
+  - key: event:/Player/Velocidade/acelerarTempo
+    index: 6
 --- !u!114 &671024778092000875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +276,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &5287681676125667073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/acelerarTempo/hitProjetil
+  m_EditorClassIdentifier: 
+  Name: hitProjetil
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2925919448
+    data2: 3978425769
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &5732561975164775589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +352,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &6055580723101094310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/desacelerarTempo/hitProjetil
+  m_EditorClassIdentifier: 
+  Name: hitProjetil
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2925919448
+    data2: 3978425769
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &7522182334700450377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +391,34 @@ MonoBehaviour:
   Path: ../../Sons/Fmod/SonsNethronia/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639034742016874203
+  lastModified: 639035851520248891
   FileSizes: []
   Exists: 1
+--- !u!114 &8832574028349211217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Velocidade/desacelerarTempo
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Velocidade/desacelerarTempo
+  Guid:
+    Data1: 240358086
+    Data2: 1151655153
+    Data3: 1478904218
+    Data4: 610626454
+  Banks:
+  - {fileID: 7522182334700450377}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6055580723101094310}
+  MinDistance: 0
+  MaxDistance: 10000
+  Length: 4920

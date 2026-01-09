@@ -41,6 +41,7 @@ public class Player : Ser_Vivo
         base.Start();
         _mao.GetComponent<Mao>().RecarregarTodosAtaques();
         //SalvarDadosPrefab("Prefabs/Entidades/Player");
+        FindAnyObjectByType<Camera_Controller>().Tremer(2);
     }
     protected override void Update()
     {

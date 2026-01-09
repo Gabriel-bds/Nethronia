@@ -115,7 +115,7 @@ public class Parar_Tempo : Ataque
         }
     }
 
-    void DesativarPararTempo()
+    public void DesativarPararTempo()
     {
         _dono.GetComponent<GhostTrail>().ativo = false;
 
@@ -209,8 +209,10 @@ public class Parar_Tempo : Ataque
     IEnumerator FinalizarHabilidade()
     {
         yield return new WaitForSecondsRealtime(_tempoDeVida);
-        DesativarPararTempo();
-        Destroy(gameObject, 1f);
+        transform.position = _dono.transform.position;
+        GetComponent<Animator>().Play("pararTempoForteVolta");
+        //DesativarPararTempo();
+        Destroy(gameObject, 3f);
     }
 
     void OnDisable()

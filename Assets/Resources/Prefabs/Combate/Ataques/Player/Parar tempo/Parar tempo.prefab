@@ -136,7 +136,7 @@ MonoBehaviour:
   _dano: 0
   _repulsao: 0
   _tempoRecargaTotal: 2
-  _tempoDeVida: 5
+  _tempoDeVida: 10
   _alvos:
     serializedVersion: 2
     m_Bits: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   _distanciaMax: 0
   _distanciaPerfeita: 0
   slowTimeScale: 0.05
-  tempoTransicao: 1
+  tempoTransicao: 0.5
 --- !u!95 &7785192401161566788
 Animator:
   serializedVersion: 5

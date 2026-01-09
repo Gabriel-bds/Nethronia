@@ -13771,7 +13771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
+  m_IgnoreTimeScale: 1
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
@@ -43984,7 +43984,7 @@ MonoBehaviour:
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 5803088307428071658, guid: 8199e7cef08108b4492e217ab241aac0, type: 3}
-  - {fileID: 1288559953085570875, guid: cd2ba780159c44347a7ef998f32d44b0, type: 3}
+  - {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
   - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0

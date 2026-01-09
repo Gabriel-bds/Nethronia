@@ -355,4 +355,14 @@ public class Ataque : MonoBehaviour
             }
         }  
     }
+
+    public void TocarSom(string tag)
+    {
+        var instance = RuntimeManager.CreateInstance(tag);
+        instance.set3DAttributes(
+            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+        );
+        instance.start();
+        instance.release();
+    }
 }

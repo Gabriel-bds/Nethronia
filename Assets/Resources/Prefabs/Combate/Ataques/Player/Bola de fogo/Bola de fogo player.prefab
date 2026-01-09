@@ -4854,7 +4854,8 @@ MonoBehaviour:
   _tipoDano: 1
   _dano: 100
   _repulsao: 100
-  _tempoRecargaTotal: 3
+  _tempoRecargaTotal: 1
+  _tempoDeVida: 15
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -4872,7 +4873,6 @@ MonoBehaviour:
   _distanciaMax: 0
   _distanciaPerfeita: 0
   _velocidade: 15
-  _tempoDeVida: 15
   _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2

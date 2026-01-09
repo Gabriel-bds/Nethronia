@@ -50,10 +50,21 @@ public class Mao : MonoBehaviour
 
         Quaternion _rotacaoAtual = transform.rotation;
         Quaternion _rotacaoAlvo = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _angulo);
-        Quaternion _novaRotacao = Quaternion.Lerp(_rotacaoAtual, _rotacaoAlvo, _latenciaMira * Time.deltaTime);
-        transform.rotation = _novaRotacao;
+        float delta =
+        (_dono is Player)
+        ? Time.unscaledDeltaTime
+        : Time.deltaTime;
 
-        if(Math.Round(Mathf.Abs(transform.rotation.x), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.x), 1) &&
+            float velocidadeRotacao = _latenciaMira * 360f; // ajuste fino aqui
+
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                _rotacaoAlvo,
+                velocidadeRotacao * delta
+            );
+
+
+        if (Math.Round(Mathf.Abs(transform.rotation.x), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.x), 1) &&
             Math.Round(Mathf.Abs(transform.rotation.y), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.y), 1) &&
             Math.Round(Mathf.Abs(transform.rotation.w), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.w), 1) &&
             Math.Round(Mathf.Abs(transform.rotation.z), 1) == Math.Round(Mathf.Abs(_rotacaoAlvo.z), 1))
@@ -142,7 +153,7 @@ public class Mao : MonoBehaviour
                 StartCoroutine(quadro.CarregarHabilidade(tempo));
         }
 
-        yield return new WaitForSeconds(tempo);
+        yield return new WaitForSecondsRealtime(tempo);
 
         _ataquesDisponiveis.Add(ataque);
     }

@@ -377,8 +377,12 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void TocarSom(string tag)
     {
-        RuntimeManager.PlayOneShot(tag);
-        //controleSons.TocarSom(tag);
+        var instance = RuntimeManager.CreateInstance(tag);
+        instance.set3DAttributes(
+            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+        );
+        instance.start();
+        instance.release();
     }
     public void SalvarDadosPrefab(string _caminhoPrefab)
     {

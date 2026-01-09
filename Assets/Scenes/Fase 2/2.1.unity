@@ -36774,7 +36774,7 @@ MonoBehaviour:
     _rouboVida: 0
     _estaRegenerando: 0
   _poderVelocidade:
-    _nivel: 0
+    _nivel: 1
     _acrescimoVelocidadeMovimento: 0
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
@@ -43985,7 +43985,7 @@ MonoBehaviour:
   _ataques:
   - {fileID: 5803088307428071658, guid: 8199e7cef08108b4492e217ab241aac0, type: 3}
   - {fileID: 1288559953085570875, guid: cd2ba780159c44347a7ef998f32d44b0, type: 3}
-  - {fileID: 1398755498870554847, guid: f277e97966b1f594988bf38fe90e066f, type: 3}
+  - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0
   _travar: 0

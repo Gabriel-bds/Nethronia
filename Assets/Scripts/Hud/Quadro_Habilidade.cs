@@ -37,7 +37,7 @@ public class Quadro_Habilidade : MonoBehaviour
 
         while (_recargaAtual < tempo)
         {
-            _recargaAtual += Time.deltaTime;
+            _recargaAtual += Time.unscaledDeltaTime;
             yield return null;
         }
 

@@ -46,6 +46,8 @@ public class Dash : Ataque
 
     void IniciarDash()
     {
+        _dono.GetComponent<GhostTrail>().ativo = true;
+
         _ativo = true;
 
         _serVivo.TravarCorpoMao(1);
@@ -87,6 +89,8 @@ public class Dash : Ataque
 
     void EncerrarDash()
     {
+        _dono.GetComponent<GhostTrail>().ativo = false;
+
         if (!_ativo) return;
 
         _ativo = false;

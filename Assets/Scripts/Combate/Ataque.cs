@@ -30,6 +30,7 @@ public class Ataque : MonoBehaviour
     [HideInInspector] public Ser_Vivo _dono;
     [SerializeField] protected AudioSource _somHit;
     [SerializeField] protected string _tagSomHit;
+    [SerializeField] protected string _tagSomInstanciar;
     [HideInInspector] public Vector3 _spawnPosicao;
     [HideInInspector] public Quaternion _spawnRotacao;
     [SerializeField] Spawn_Atq _localSpawn;
@@ -54,6 +55,7 @@ public class Ataque : MonoBehaviour
         {
             Destroy(gameObject, _tempoDeVida);
         }
+        SomIntanciar();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -257,18 +259,6 @@ public class Ataque : MonoBehaviour
         }  
         return null;
     }
-    public void SomHit(float danoProporcionalSofrido)
-    {
-        //Debug.Log(danoProporcionalSofrido);
-        var instance = RuntimeManager.CreateInstance(_tagSomHit);
-        instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
-        instance.set3DAttributes(
-            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
-        );
-        instance.start();
-        instance.release();
-    }
-
     public void ControleParticulasAoInstanciarAtaque()
     {
         if(_particulasAoInstanciar != null)
@@ -364,5 +354,36 @@ public class Ataque : MonoBehaviour
         );
         instance.start();
         instance.release();
+    }
+
+    public void SomHit(float danoProporcionalSofrido)
+    {
+        //Debug.Log(danoProporcionalSofrido);
+        var instance = RuntimeManager.CreateInstance(_tagSomHit);
+        instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
+        instance.set3DAttributes(
+            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+        );
+        instance.start();
+        instance.release();
+    }
+    public void SomIntanciar()
+    {
+        //Debug.Log(danoProporcionalSofrido);
+        if (!String.IsNullOrEmpty(_tagSomInstanciar))
+        {
+            var instance = RuntimeManager.CreateInstance(_tagSomInstanciar);
+            try
+            {
+                instance.setParameterByName("somIntanciarAtaque", Mathf.Clamp((float)Utilidades.NivelAtualTipoDano(_tipoDano, _dono) / nivelMaximoMagnitudeVisual, 0f, 1f));
+            }
+            catch { }
+            instance.set3DAttributes(
+                FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+            );
+            instance.start();
+            instance.release();
+        }
+       
     }
 }

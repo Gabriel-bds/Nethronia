@@ -78,8 +78,8 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _strengh: 7
+    - _strengh: 16.18
     m_Colors:
-    - _GradienteEfeito: {r: 1, g: -25, b: 0, a: 0}
+    - _GradienteEfeito: {r: 1, g: -9.1, b: 0, a: 0}
     - _velocity: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

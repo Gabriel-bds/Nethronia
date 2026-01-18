@@ -43,10 +43,10 @@ MonoBehaviour:
   Path: ../../Sons/Fmod/SonsNethronia/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639035851520280872
+  lastModified: 639042769510223469
   FileSizes:
   - Name: 
-    Value: 1280
+    Value: 1394
   Exists: 1
 --- !u!114 &-5656703142650613564
 MonoBehaviour:
@@ -75,6 +75,30 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 10000
   Length: 830
+--- !u!114 &-4521652720155801998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/palmadaSonica/somIntanciarAtaque
+  m_EditorClassIdentifier: 
+  Name: somIntanciarAtaque
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 4089272794
+    data2: 1003027994
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-3147287853799073595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +179,59 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 10000
   Length: 1000
+--- !u!114 &-1887481278360774616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Forca/Palmada/palmadaSonica
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Forca/Palmada/palmadaSonica
+  Guid:
+    Data1: -1913357799
+    Data2: 1275518216
+    Data3: -1803581249
+    Data4: 2033644790
+  Banks:
+  - {fileID: 7522182334700450377}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -126675083310601847}
+  - {fileID: -4521652720155801998}
+  MinDistance: 0
+  MaxDistance: 10000
+  Length: 3020
+--- !u!114 &-126675083310601847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/palmadaSonica/hitProjetil
+  m_EditorClassIdentifier: 
+  Name: hitProjetil
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2925919448
+    data2: 3978425769
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,13 +255,14 @@ MonoBehaviour:
   - {fileID: 5732561975164775589}
   - {fileID: 8832574028349211217}
   - {fileID: -2892583420105330182}
+  - {fileID: -1887481278360774616}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7522182334700450377}
   StringsBanks:
   - {fileID: -7066638151901055827}
   cacheVersion: 131857
-  cacheTime: 639035851520280872
+  cacheTime: 639042769510223469
   SerializableEventsDict:
   - key: event:/Player/Fogo/Bola Fogo/lancando bola fogo
     index: 0
@@ -200,6 +278,8 @@ MonoBehaviour:
     index: 5
   - key: event:/Player/Velocidade/acelerarTempo
     index: 6
+  - key: event:/Player/Forca/Palmada/palmadaSonica
+    index: 7
 --- !u!114 &671024778092000875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +471,7 @@ MonoBehaviour:
   Path: ../../Sons/Fmod/SonsNethronia/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639035851520248891
+  lastModified: 639042769510203485
   FileSizes: []
   Exists: 1
 --- !u!114 &8832574028349211217

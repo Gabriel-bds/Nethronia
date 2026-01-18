@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -45, y: -0.1, z: -0.84188724}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 50, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2150131872985659829}
@@ -74,6 +74,7 @@ MonoBehaviour:
   _dano: 100
   _repulsao: 81.7
   _tempoRecargaTotal: 1
+  _tempoDeVida: 0
   _alvos:
     serializedVersion: 2
     m_Bits: 512
@@ -81,6 +82,7 @@ MonoBehaviour:
   _dono: {fileID: 0}
   _somHit: {fileID: 0}
   _tagSomHit: 
+  _tagSomInstanciar: event:/Player/Forca/Palmada/palmadaSonica
   _spawnPosicao: {x: 0, y: 0, z: 0}
   _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
   _localSpawn: 0
@@ -227,7 +229,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 430393885
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

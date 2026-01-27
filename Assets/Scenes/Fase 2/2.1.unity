@@ -36764,7 +36764,7 @@ MonoBehaviour:
     _repulsao: 7.5
     _negacaoRepulsao: 0
   _poderResistencia:
-    _nivel: 0
+    _nivel: 10
     _negacaoDano: 0
     _negacaoRepulsao: 0
   _poderVitalidade:
@@ -43984,7 +43984,7 @@ MonoBehaviour:
   _latenciaMira: 10
   _alvo: {fileID: 0}
   _ataques:
-  - {fileID: 5803088307428071658, guid: 8199e7cef08108b4492e217ab241aac0, type: 3}
+  - {fileID: 1288559953085570875, guid: 02ed4340ccf483f43b9dc08ffcfeff25, type: 3}
   - {fileID: 319265299233502739, guid: 64d3bc2c8a87ab241af8e609b97cc52e, type: 3}
   - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []

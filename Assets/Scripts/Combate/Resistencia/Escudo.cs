@@ -64,7 +64,7 @@ public class Escudo : Ataque
         _dono._poderResistencia._negacaoDano += _dono._poderResistencia._negacaoDano * aumentoPercentualAtributos / 100f;
         _dono._poderResistencia._negacaoRepulsao += _dono._poderResistencia._negacaoRepulsao * aumentoPercentualAtributos / 100f;
         yield return new WaitForSeconds(tempoEscudo);
-        Debug.Log("Final furia");
+        //Debug.Log("Final furia");
         _dono._poderResistencia._negacaoDano = resistenciaPadrao;
         _dono._poderResistencia._negacaoRepulsao = resistenciaRepulsaoPadrao;
     }

@@ -393,4 +393,5 @@ public class Ser_Vivo : MonoBehaviour
     {
         _mao.GetComponent<Mao>().InstanciarAtaque(indiceAtaque);
     }
+    
 }

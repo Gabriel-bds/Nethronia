@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +17,7 @@ public class Projetil : Ataque
         {
             switch (_tipoDano)
             {
-                case Tipo_Dano.F�sico:
+                case Tipo_Dano.Físico:
                     transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)));
                     break;
 
@@ -49,6 +49,31 @@ public class Projetil : Ataque
     {
         if (((1 << collision.gameObject.layer) & _colisoes) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
         {
+            Ser_Vivo atingido = collision.GetComponent<Ser_Vivo>();
+
+            if (atingido != null)
+            {
+                PeitoAco peito = atingido.GetComponentInChildren<PeitoAco>();
+
+                if (peito != null && peito.ativo)
+                {
+                    float danoTotal = _dano / 100f * Utilidades.NivelAtualTipoDano(_tipoDano, _dono);
+
+                    float danoNegado = peito.CalcularNegacao(danoTotal);
+                    float danoFinal = danoTotal - danoNegado;
+
+                    // Aplica o dano reduzido manualmente
+                    AplicarAtaque(collision);
+
+                    // Deflete o projetil
+                    Defletir(
+                        atingido,
+                        danoNegado
+                    );
+
+                    return;
+                }
+            }
             try
             { 
                 _quebrandoSom.Play();
@@ -105,5 +130,34 @@ public class Projetil : Ataque
     {
         Destroy(gameObject, _tempo);
     }
+
+    public void Defletir(Ser_Vivo novoDono, float danoRefletido)
+    {
+        int layerNovoDono = novoDono.gameObject.layer;
+        int layerAntigoDono = _dono.gameObject.layer;
+
+        _dono = novoDono;
+
+        // Recalcula o dano percentual
+        float danoBase = _dano / 100f * Utilidades.NivelAtualTipoDano(_tipoDano, novoDono);
+        _dano = (danoRefletido / danoBase) * 100f;
+
+        Debug.Log($"rotação atual projetil: {transform.rotation}");
+        // Inverte a direção
+        transform.rotation = Quaternion.Euler(
+            0,
+            0,
+            transform.eulerAngles.z + 180f
+        );
+        Debug.Log($"rotação nova projetil: {transform.rotation}");
+
+        // ❌ remove a layer de quem defletiu
+        _alvos &= ~(1 << layerNovoDono);
+
+        // ✅ adiciona a layer do antigo dono
+        _alvos |= (1 << layerAntigoDono);
+    }
+
+
 
 }

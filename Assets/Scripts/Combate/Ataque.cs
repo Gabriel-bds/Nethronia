@@ -359,6 +359,7 @@ public class Ataque : MonoBehaviour
     public void SomHit(float danoProporcionalSofrido)
     {
         //Debug.Log(danoProporcionalSofrido);
+        if (string.IsNullOrEmpty(_tagSomHit)) return;
         var instance = RuntimeManager.CreateInstance(_tagSomHit);
         instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
         instance.set3DAttributes(

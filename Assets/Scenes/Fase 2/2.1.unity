@@ -43984,8 +43984,8 @@ MonoBehaviour:
   _latenciaMira: 10
   _alvo: {fileID: 0}
   _ataques:
-  - {fileID: 1288559953085570875, guid: 02ed4340ccf483f43b9dc08ffcfeff25, type: 3}
-  - {fileID: 319265299233502739, guid: 64d3bc2c8a87ab241af8e609b97cc52e, type: 3}
+  - {fileID: 2299947594664116185, guid: 73a2aac9a0458314798241c8da8ef30a, type: 3}
+  - {fileID: 4948706573861794547, guid: 4ee67577df11a574ab9aa1c99677cace, type: 3}
   - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0

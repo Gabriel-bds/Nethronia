@@ -141,7 +141,7 @@ public class Mao : MonoBehaviour
     }
     public IEnumerator RecarregarAtaque(float tempo, GameObject ataque)
     {
-        Debug.Log("Chamou recarga");
+        //Debug.Log("Chamou recarga");
         if (_ataquesDisponiveis.Contains(ataque))
         {
             _ataquesDisponiveis.Remove(ataque);

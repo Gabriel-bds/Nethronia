@@ -47,8 +47,9 @@ public class Projetil : Ataque
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & _colisoes) != 0 && !collision.GetComponent<Ser_Vivo>()._invulneravel)
+        if (((1 << collision.gameObject.layer) & _colisoes) != 0)
         {
+            Debug.Log("Tocou");
             Ser_Vivo atingido = collision.GetComponent<Ser_Vivo>();
 
             if (atingido != null)
@@ -73,6 +74,7 @@ public class Projetil : Ataque
 
                     return;
                 }
+                AplicarAtaque(collision);
             }
             try
             { 
@@ -82,9 +84,10 @@ public class Projetil : Ataque
             {
                 Debug.Log("Projetil sem som de hit anexado");
             }
+            Debug.Log("Chegou na destruição");
             IniciarDestruicao();
         }
-        base.OnTriggerEnter2D(collision);
+        //base.OnTriggerEnter2D(collision);
     }
     void Movimentar()
     {
@@ -124,6 +127,7 @@ public class Projetil : Ataque
     }
     public new void AutoDestruir()
     {
+        Debug.Log("projetil auto destruindo");
         Destroy(gameObject);
     }
     public void AutoDestruir(float _tempo)
@@ -142,20 +146,23 @@ public class Projetil : Ataque
         float danoBase = _dano / 100f * Utilidades.NivelAtualTipoDano(_tipoDano, novoDono);
         _dano = (danoRefletido / danoBase) * 100f;
 
-        Debug.Log($"rotação atual projetil: {transform.rotation}");
+        //Debug.Log($"rotação atual projetil: {transform.rotation}");
         // Inverte a direção
         transform.rotation = Quaternion.Euler(
             0,
             0,
             transform.eulerAngles.z + 180f
         );
-        Debug.Log($"rotação nova projetil: {transform.rotation}");
+        //Debug.Log($"rotação nova projetil: {transform.rotation}");
 
         // ❌ remove a layer de quem defletiu
         _alvos &= ~(1 << layerNovoDono);
 
         // ✅ adiciona a layer do antigo dono
         _alvos |= (1 << layerAntigoDono);
+
+        _colisoes &= ~(1 << layerNovoDono);
+        _colisoes |= (1 << layerAntigoDono);
     }
 
 

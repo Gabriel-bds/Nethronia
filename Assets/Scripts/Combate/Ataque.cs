@@ -304,9 +304,7 @@ public class Ataque : MonoBehaviour
                     _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
                     break;
             }
-            _atingido._vidaAtual = _atingido._vidaAtual - _danoSofrido > 0
-                ? _atingido._vidaAtual -= _danoSofrido
-                : _atingido._vidaAtual = 0;
+            _atingido.AplicarDano(_danoSofrido);
             _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             _atingido.AnimacaoDanoSofrido(_danoSofrido / _atingido._vidaMax);
             //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));

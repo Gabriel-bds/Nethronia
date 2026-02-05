@@ -123,6 +123,7 @@ public class Ser_Vivo : MonoBehaviour
             _travar = 1;
             _mao.GetComponent<Mao>()._travar = 1;
         }*/
+
         _animator.SetTrigger("Receber_Dano");
         _animator.SetFloat("Dano_Sofrido", _danoSofrido);
         //Debug.Log(_danoSofrido);
@@ -138,35 +139,40 @@ public class Ser_Vivo : MonoBehaviour
         _sprite.color = _corBase;
         _spriteMao.color = _corBaseMao;
     }
-    private void Virar()
+    protected void Virar()
     {
-        if(_vidaAtual > 0)
+        // posição do personagem na tela
+        Vector3 posTela = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 _posicaoAlvo;
+        if (_alvo != null)
         {
-            _barraVida.transform.rotation = Quaternion.Euler(0, 0, 0);
-            if (_travar == 0)
-            {
-                Vector2 _posicaoAlvo;
-                if (_alvo != null)
-                {
-                    _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
-                }
-                else
-                {
-                    _posicaoAlvo = Input.mousePosition;
-                }
-                if (_posicaoAlvo.x < Camera.main.WorldToScreenPoint(transform.position).x)
-                {
-                    transform.rotation = new Quaternion(transform.rotation.x, 180, transform.rotation.z, transform.rotation.w);
-                    _mao.transform.localScale = new Vector3(1, -1, 1);
-                }
-                else
-                {
-                    transform.rotation = new Quaternion(transform.rotation.x, 0, transform.rotation.z, transform.rotation.w);
-                    _mao.transform.localScale = new Vector3(1, 1, 1);
-                }
-            }
+            _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
+        }
+        else
+        {
+            _posicaoAlvo = Input.mousePosition;
+        }
+
+        bool olharParaEsquerda = _posicaoAlvo.x < posTela.x;
+
+        if (olharParaEsquerda)
+        {
+            // gira SOMENTE no eixo Y, de forma válida
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+            if (_mao != null)
+                _mao.transform.localScale = new Vector3(1f, -1f, 1f);
+        }
+        else
+        {
+            // rotação neutra (Quaternion válido)
+            transform.rotation = Quaternion.identity;
+
+            if (_mao != null)
+                _mao.transform.localScale = Vector3.one;
         }
     }
+
     public void TravarCorpo(int _travarCorpo)
     {
         _travar = _travarCorpo;
@@ -218,11 +224,17 @@ public class Ser_Vivo : MonoBehaviour
             if (_membros.Count == 0) break; // evita tentar acessar índice inexistente
 
             int indiceMembro = UnityEngine.Random.Range(0, _membros.Count);
+            /*UnityEngine.Transform t = _membros[indiceMembro].transform;
+            t.SetParent(null, true);*/
 
             Vector2 direcao = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+            //Debug.Log($"Membro: {_membros[indiceMembro]}, direção: {direcao}, intensidade: {intensidade}");
             _membros[indiceMembro].AddForce(direcao * intensidade, ForceMode2D.Impulse);
 
+
+
             float torque = UnityEngine.Random.Range(-intensidade, intensidade);
+            //Debug.Log($"Membro: {_membros[indiceMembro]}, torque: {torque}");
             _membros[indiceMembro].AddTorque(torque, ForceMode2D.Impulse);
 
             _membros.RemoveAt(indiceMembro); // remove de forma segura
@@ -392,6 +404,28 @@ public class Ser_Vivo : MonoBehaviour
     public void InstanciarAtaque(int indiceAtaque)
     {
         _mao.GetComponent<Mao>().InstanciarAtaque(indiceAtaque);
+    }
+    public void AplicarDano(float _danoSofrido)
+    {
+        _vidaAtual = _vidaAtual - _danoSofrido > 0
+                ? _vidaAtual -= _danoSofrido
+                : _vidaAtual = 0;
+        if( _vidaAtual <= 0 ) 
+        {
+            Debug.Log("Morreu");
+            TravarCorpoMao(1);
+            InterromperEfeitos();
+            _animator.enabled = false;
+            Desmembrar(10, 10);
+        }
+    }
+
+    void InterromperEfeitos()
+    {
+        foreach(var efeito in GetComponentsInChildren<ParticleSystem>())
+        {
+            Destroy(efeito.gameObject);
+        }
     }
     
 }

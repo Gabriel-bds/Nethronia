@@ -82,9 +82,9 @@ public class Projetil : Ataque
             }
             catch 
             {
-                Debug.Log("Projetil sem som de hit anexado");
+                //Debug.Log("Projetil sem som de hit anexado");
             }
-            Debug.Log("Chegou na destruição");
+            //Debug.Log("Chegou na destruição");
             IniciarDestruicao();
         }
         //base.OnTriggerEnter2D(collision);

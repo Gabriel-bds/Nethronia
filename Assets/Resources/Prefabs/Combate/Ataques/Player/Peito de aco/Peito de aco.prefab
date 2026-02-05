@@ -69,7 +69,7 @@ MonoBehaviour:
   _distanciaMax: 0
   _distanciaPerfeita: 0
   ativo: 0
-  nivelHabilidade: 20
+  nivelHabilidade: 100
   tempoPeitoAco: 0
   negacaoDano: 0
   aumentonegacaoDanoPorNivel: 1

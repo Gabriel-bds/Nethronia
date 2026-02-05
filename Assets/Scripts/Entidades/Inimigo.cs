@@ -58,8 +58,11 @@ public class Inimigo : Ser_Vivo
     }
     void Andar()
     {
-        _agent.SetDestination(_alvo.transform.position);
-        ControleAnimacoesMovimento();
+        if(_vidaAtual > 0) 
+        {
+            _agent.SetDestination(_alvo.transform.position);
+            ControleAnimacoesMovimento();
+        } 
     }
     void AtacarPlayer()
     {
@@ -131,7 +134,7 @@ public class Inimigo : Ser_Vivo
         return _retorno;
     }
 
-    public override void Morte(float _tempo)
+    public override IEnumerator Morte(float _tempo)
     {
         GetComponent<NavMeshAgent>().enabled = false;
         Player _player = FindAnyObjectByType<Player>();
@@ -139,6 +142,6 @@ public class Inimigo : Ser_Vivo
         TravarMao(1);
         Utilidades.AplicarDano(_player, -_player._poderVitalidade._rouboVida, Color.green);
         _player.AdicionarExperiencia(_experiencia, UnityEngine.Random.Range(_minimoDropPontoHabilidadePermanente, _maximoDropPontoHabilidadePermanente +1));
-        base.Morte(_tempo);
+        yield return StartCoroutine(base.Morte(_tempo));
     }
 }

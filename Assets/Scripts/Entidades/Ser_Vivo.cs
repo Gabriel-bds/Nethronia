@@ -224,8 +224,8 @@ public class Ser_Vivo : MonoBehaviour
             if (_membros.Count == 0) break; // evita tentar acessar índice inexistente
 
             int indiceMembro = UnityEngine.Random.Range(0, _membros.Count);
-            /*UnityEngine.Transform t = _membros[indiceMembro].transform;
-            t.SetParent(null, true);*/
+            UnityEngine.Transform t = _membros[indiceMembro].transform;
+            t.SetParent(null, true);
 
             Vector2 direcao = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
             //Debug.Log($"Membro: {_membros[indiceMembro]}, direção: {direcao}, intensidade: {intensidade}");
@@ -278,11 +278,12 @@ public class Ser_Vivo : MonoBehaviour
             _invulneravel = true;
         }
     }
-    public virtual void Morte(float _tempo)
+    public virtual IEnumerator Morte(float _tempo)
     {
+        yield return null;
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().sortingOrder = 1;
-        _mao.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        if(GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().sortingOrder = 1;
+        if(_mao.GetComponent<SpriteRenderer>() != null) _mao.GetComponent<SpriteRenderer>().sortingOrder = 1;
         if (GetComponentInChildren<Canvas>() != null)
         {
             Destroy(GetComponentInChildren<Canvas>().gameObject);
@@ -412,11 +413,13 @@ public class Ser_Vivo : MonoBehaviour
                 : _vidaAtual = 0;
         if( _vidaAtual <= 0 ) 
         {
-            Debug.Log("Morreu");
+            //Debug.Log("Morreu");
             TravarCorpoMao(1);
             InterromperEfeitos();
             _animator.enabled = false;
-            Desmembrar(10, 10);
+            //Debug.Log($"Quantidade de membros a soltar: {(int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count)}");
+            Desmembrar((int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count), Math.Clamp(_danoSofrido / _vidaMax * 30, 3, 30));
+            StartCoroutine(Morte(0));
         }
     }
 

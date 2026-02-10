@@ -12,6 +12,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using FMODUnity;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using FMOD;
 [System.Serializable]
 
 public class Ser_Vivo : MonoBehaviour
@@ -141,36 +142,40 @@ public class Ser_Vivo : MonoBehaviour
     }
     protected void Virar()
     {
-        // posição do personagem na tela
-        Vector3 posTela = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 _posicaoAlvo;
-        if (_alvo != null)
+        if(_vidaAtual > 0)
         {
-            _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
-        }
-        else
-        {
-            _posicaoAlvo = Input.mousePosition;
-        }
+            // posição do personagem na tela
+            Vector3 posTela = Camera.main.WorldToScreenPoint(transform.position);
+            Vector3 _posicaoAlvo;
+            if (_alvo != null)
+            {
+                _posicaoAlvo = Camera.main.WorldToScreenPoint(_alvo.transform.position);
+            }
+            else
+            {
+                _posicaoAlvo = Input.mousePosition;
+            }
 
-        bool olharParaEsquerda = _posicaoAlvo.x < posTela.x;
+            bool olharParaEsquerda = _posicaoAlvo.x < posTela.x;
 
-        if (olharParaEsquerda)
-        {
-            // gira SOMENTE no eixo Y, de forma válida
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            if (olharParaEsquerda)
+            {
+                // gira SOMENTE no eixo Y, de forma válida
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
-            if (_mao != null)
-                _mao.transform.localScale = new Vector3(1f, -1f, 1f);
+                if (_mao != null)
+                    _mao.transform.localScale = new Vector3(1f, -1f, 1f);
+            }
+            else
+            {
+                // rotação neutra (Quaternion válido)
+                transform.rotation = Quaternion.identity;
+
+                if (_mao != null)
+                    _mao.transform.localScale = Vector3.one;
+            }
         }
-        else
-        {
-            // rotação neutra (Quaternion válido)
-            transform.rotation = Quaternion.identity;
-
-            if (_mao != null)
-                _mao.transform.localScale = Vector3.one;
-        }
+        
     }
 
     public void TravarCorpo(int _travarCorpo)
@@ -218,28 +223,55 @@ public class Ser_Vivo : MonoBehaviour
 
     protected void Desmembrar(int qtdeMembrosSoltos, float intensidade)
     {
+        if (_animator == null) return;
 
         for (int i = 0; i < qtdeMembrosSoltos; i++)
         {
-            if (_membros.Count == 0) break; // evita tentar acessar índice inexistente
+            if (_membros.Count == 0) break;
 
-            int indiceMembro = UnityEngine.Random.Range(0, _membros.Count);
-            UnityEngine.Transform t = _membros[indiceMembro].transform;
+            int indice = UnityEngine.Random.Range(0, _membros.Count);
+            Rigidbody2D rb = _membros[indice];
+            UnityEngine.Transform t = rb.transform;
+
+            // --- 1) Salva pose WORLD antes de qualquer coisa
+            Vector3 posWorld = t.position;
+            Quaternion rotWorld = t.rotation;
+
+            // --- 2) Quebra hierarquia animada
             t.SetParent(null, true);
 
-            Vector2 direcao = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
-            //Debug.Log($"Membro: {_membros[indiceMembro]}, direção: {direcao}, intensidade: {intensidade}");
-            _membros[indiceMembro].AddForce(direcao * intensidade, ForceMode2D.Impulse);
+            // --- 3) Congela física antes do Rebind
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.isKinematic = true;
+            rb.simulated = false;
 
+            // --- 4) Força Animator a esquecer o bone
+            _animator.Rebind();
+            _animator.Update(0f);
 
+            // --- 5) Restaura pose correta
+            t.position = posWorld;
+            t.rotation = rotWorld;
+
+            // --- 6) Reativa física com segurança
+            rb.simulated = true;
+            rb.isKinematic = false;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            rb.gravityScale = 0f;
+
+            // --- 7) Aplica forças reais
+            Vector2 direcao = UnityEngine.Random.insideUnitCircle.normalized;
+            rb.AddForce(direcao * intensidade, ForceMode2D.Impulse);
 
             float torque = UnityEngine.Random.Range(-intensidade, intensidade);
-            //Debug.Log($"Membro: {_membros[indiceMembro]}, torque: {torque}");
-            _membros[indiceMembro].AddTorque(torque, ForceMode2D.Impulse);
+            rb.AddTorque(torque, ForceMode2D.Impulse);
 
-            _membros.RemoveAt(indiceMembro); // remove de forma segura
+            // --- 8) Remove da lista para não tentar desmembrar de novo
+            _membros.RemoveAt(indice);
         }
     }
+
     public async void RegenerarVida()
     {
         for (float _vidaAtual = this._vidaAtual; _vidaAtual < _vidaMax; _vidaAtual = this._vidaAtual)
@@ -414,12 +446,18 @@ public class Ser_Vivo : MonoBehaviour
         if( _vidaAtual <= 0 ) 
         {
             //Debug.Log("Morreu");
-            TravarCorpoMao(1);
-            InterromperEfeitos();
-            _animator.enabled = false;
-            //Debug.Log($"Quantidade de membros a soltar: {(int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count)}");
+            //TravarCorpoMao(1);
             Desmembrar((int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count), Math.Clamp(_danoSofrido / _vidaMax * 30, 3, 30));
-            StartCoroutine(Morte(0));
+            InterromperEfeitos();
+            //_mao.GetComponent<Mao>().ResetarMao();
+            //_animator.enabled = false;
+            //Debug.Log($"Quantidade de membros a soltar: {(int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count)}");
+            _animator.SetTrigger("Morrer");
+            StartCoroutine(Morte(5f));
+        }
+        else 
+        {
+            AnimacaoDanoSofrido(_danoSofrido / _vidaMax);
         }
     }
 

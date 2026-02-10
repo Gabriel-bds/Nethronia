@@ -70,7 +70,7 @@ public class Player : Ser_Vivo
     {
         float valor = context.ReadValue<float>();
         Mao _mao = this._mao.GetComponent<Mao>();
-        if (valor > 0)
+        if (valor > 0 && _vidaAtual > 0)
         {
             // Só entra aqui quando o valor deixa de ser 0
             if (_mao._ataquesDisponiveis.Contains(_mao._ataques[(int)valor - 1]))

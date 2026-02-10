@@ -67,7 +67,7 @@ public class Inimigo : Ser_Vivo
     void AtacarPlayer()
     {
         _animator.GetComponent<Animator>().SetInteger("Ataque", 0);
-        if (_mao.GetComponent<Mao>()._mirandoAlvo && _mao.GetComponent<Mao>()._ataquesDisponiveis.Count > 0)
+        if (_mao.GetComponent<Mao>()._mirandoAlvo && _mao.GetComponent<Mao>()._ataquesDisponiveis.Count > 0 && _vidaAtual > 0)
         {
             int _numeroAtq = SortearAtaque(
                 (float)Mathf.Sqrt(

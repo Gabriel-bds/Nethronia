@@ -122,9 +122,10 @@ public class Mao : MonoBehaviour
     }
     public void ResetarMao()
     {
-        transform.rotation *= new Quaternion(1, 1, 0, 0);
-        GetComponent<SpriteRenderer>().flipX = _dono.GetComponent<SpriteRenderer>().flipX;
-        GetComponent<SpriteRenderer>().flipY = _dono.GetComponent<SpriteRenderer>().flipY;
+        transform.localRotation = Quaternion.identity;
+
+        /*GetComponent<SpriteRenderer>().flipX = _dono.GetComponent<SpriteRenderer>().flipX;
+        GetComponent<SpriteRenderer>().flipY = _dono.GetComponent<SpriteRenderer>().flipY;*/
     }
     public void AtualizarAtaque(int _index, GameObject _ataqueNovo)
     {

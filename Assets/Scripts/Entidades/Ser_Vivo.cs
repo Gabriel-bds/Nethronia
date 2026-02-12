@@ -13,6 +13,7 @@ using UnityEngine.Rendering;
 using FMODUnity;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using FMOD;
+using Unity.Collections.LowLevel.Unsafe;
 [System.Serializable]
 
 public class Ser_Vivo : MonoBehaviour
@@ -26,6 +27,7 @@ public class Ser_Vivo : MonoBehaviour
     public int _experiencia;
     public int _experienciaParaProximoNivel;
     [HideInInspector] public List<Rigidbody2D> _membros;
+    private int _membrosIniciais;
 
     [Header("Poderes:")]
     public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
@@ -60,6 +62,7 @@ public class Ser_Vivo : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _membros = new List<Rigidbody2D>(GetComponentsInChildren<Rigidbody2D>(false));
+        _membrosIniciais = _membros.Count;
     }
     protected virtual void Start()
     {
@@ -448,7 +451,7 @@ public class Ser_Vivo : MonoBehaviour
             //Debug.Log("Morreu");
             //TravarCorpoMao(1);
             Desmembrar((int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count), Math.Clamp(_danoSofrido / _vidaMax * 30, 3, 30));
-            InterromperEfeitos();
+            StartCoroutine(InterromperEfeitos(1f));
             //_mao.GetComponent<Mao>().ResetarMao();
             //_animator.enabled = false;
             //Debug.Log($"Quantidade de membros a soltar: {(int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count)}");
@@ -461,12 +464,50 @@ public class Ser_Vivo : MonoBehaviour
         }
     }
 
-    void InterromperEfeitos()
+    IEnumerator InterromperEfeitos(float duracao)
     {
-        foreach(var efeito in GetComponentsInChildren<ParticleSystem>())
+        yield return new WaitForEndOfFrame();
+
+        int membrosAtivos = GetComponentsInChildren<Rigidbody2D>().Length;
+
+        if ((float)membrosAtivos / _membrosIniciais >= 0.5f)
+            yield break;
+
+        foreach (UnityEngine.Transform t in GetComponentsInChildren<UnityEngine.Transform>(true))
         {
-            Destroy(efeito.gameObject);
+            if (t == transform) continue;
+
+            if (t.CompareTag("Combate/Efeitos"))
+            {
+                Animator anim = t.GetComponent<Animator>();
+
+                if (anim != null)
+                {
+                    StartCoroutine(SuavizarForcaEfeito(anim, duracao));
+                }
+            }
         }
     }
-    
+
+    IEnumerator SuavizarForcaEfeito(Animator anim, float duracao)
+    {
+        float tempo = 0f;
+        float valorInicial = anim.GetFloat("Forca");
+        float valorFinal = -1f;
+
+        while (tempo < duracao)
+        {
+            tempo += Time.deltaTime;
+            float t = tempo / duracao;
+
+            float valorAtual = Mathf.Lerp(valorInicial, valorFinal, t);
+            anim.SetFloat("Forca", valorAtual);
+
+            yield return null;
+        }
+
+        anim.SetFloat("Forca", valorFinal);
+    }
+
+
 }

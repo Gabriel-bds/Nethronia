@@ -49,7 +49,7 @@ public class Projetil : Ataque
     {
         if (((1 << collision.gameObject.layer) & _colisoes) != 0)
         {
-            Debug.Log("Tocou");
+            //Debug.Log("Tocou");
             Ser_Vivo atingido = collision.GetComponent<Ser_Vivo>();
 
             if (atingido != null)
@@ -127,7 +127,7 @@ public class Projetil : Ataque
     }
     public new void AutoDestruir()
     {
-        Debug.Log("projetil auto destruindo");
+        //Debug.Log("projetil auto destruindo");
         Destroy(gameObject);
     }
     public void AutoDestruir(float _tempo)

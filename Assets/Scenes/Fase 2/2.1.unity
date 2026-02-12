@@ -7138,7 +7138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &305134582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7241,7 +7241,7 @@ Transform:
   m_GameObject: {fileID: 305134580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.8, y: 0.66, z: 0}
+  m_LocalPosition: {x: -40.25, y: -6.73, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36780,7 +36780,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
   _poderFogo:
-    _nivel: 200
+    _nivel: 50
     _tipoDano: 1
     _dano: 7.5
     _negacaoDano: 0

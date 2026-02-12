@@ -4840,7 +4840,7 @@ GameObject:
   - component: {fileID: 4700286248090257782}
   m_Layer: 0
   m_Name: Incineracao
-  m_TagString: Untagged
+  m_TagString: Combate/Efeitos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

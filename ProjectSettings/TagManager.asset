@@ -11,6 +11,7 @@ TagManager:
   - Barra_vida_Boss
   - Spawn_Ataque/Spawn1
   - SpawnAtaques
+  - Combate/Efeitos
   layers:
   - Default
   - TransparentFX

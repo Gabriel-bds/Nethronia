@@ -80,7 +80,14 @@ public class Ser_Vivo : MonoBehaviour
         if (_travar == 0)
         {
             _rigidbody.velocity += _vetor  * _velocidadeMovimento;
-            _animator.SetFloat("Velocity", Math.Abs(_vetor.x) + Math.Abs(_vetor.y) / 2);
+            if(GetComponent<Player>() != null) 
+            {
+                _animator.SetFloat("Velocity", _vetor.x + _vetor.y / 2);
+            }
+            else 
+            {
+                _animator.SetFloat("Velocity", Math.Abs(_vetor.x) + Math.Abs(_vetor.y) / 2);
+            }
             if (Math.Abs(_vetor.x) >= 0.05f || Math.Abs(_vetor.y) >= 0.05f)
             {
                 _animator.SetBool("Run", true);
@@ -165,12 +172,22 @@ public class Ser_Vivo : MonoBehaviour
             {
                 // gira SOMENTE no eixo Y, de forma válida
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                try
+                {
+                    _animator.SetFloat("Direcao", -1);
+                }
+                catch { }
 
                 if (_mao != null)
                     _mao.transform.localScale = new Vector3(1f, -1f, 1f);
             }
             else
             {
+                try
+                {
+                    _animator.SetFloat("Direcao", 1);
+                }
+                catch { }
                 // rotação neutra (Quaternion válido)
                 transform.rotation = Quaternion.identity;
 

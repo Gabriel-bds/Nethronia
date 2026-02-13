@@ -357,13 +357,17 @@ public class Ataque : MonoBehaviour
     {
         //Debug.Log(danoProporcionalSofrido);
         if (string.IsNullOrEmpty(_tagSomHit)) return;
-        var instance = RuntimeManager.CreateInstance(_tagSomHit);
-        instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
-        instance.set3DAttributes(
-            FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
-        );
-        instance.start();
-        instance.release();
+        try
+        {
+            var instance = RuntimeManager.CreateInstance(_tagSomHit);
+            instance.setParameterByName("hitProjetil", Mathf.Clamp(danoProporcionalSofrido, 0f, 1f));
+            instance.set3DAttributes(
+                FMODUnity.RuntimeUtils.To3DAttributes(transform.position)
+            );
+            instance.start();
+            instance.release();
+        }
+        catch { }
     }
     public void SomIntanciar()
     {

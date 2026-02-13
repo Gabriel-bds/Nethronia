@@ -172,22 +172,20 @@ public class Ser_Vivo : MonoBehaviour
             {
                 // gira SOMENTE no eixo Y, de forma válida
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                try
+
+                if (GetComponent<Player>() != null)
                 {
                     _animator.SetFloat("Direcao", -1);
                 }
-                catch { }
-
                 if (_mao != null)
                     _mao.transform.localScale = new Vector3(1f, -1f, 1f);
             }
             else
             {
-                try
+                if (GetComponent<Player>() != null)
                 {
                     _animator.SetFloat("Direcao", 1);
                 }
-                catch { }
                 // rotação neutra (Quaternion válido)
                 transform.rotation = Quaternion.identity;
 
@@ -463,9 +461,11 @@ public class Ser_Vivo : MonoBehaviour
         _vidaAtual = _vidaAtual - _danoSofrido > 0
                 ? _vidaAtual -= _danoSofrido
                 : _vidaAtual = 0;
+        _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
         if( _vidaAtual <= 0 ) 
         {
-            //Debug.Log("Morreu");
+            StopAllCoroutines();
+            UnityEngine.Debug.Log("Morreu");
             //TravarCorpoMao(1);
             Desmembrar((int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count), Math.Clamp(_danoSofrido / _vidaMax * 30, 3, 30));
             StartCoroutine(InterromperEfeitos(1f));

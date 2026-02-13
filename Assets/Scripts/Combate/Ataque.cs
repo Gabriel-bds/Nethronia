@@ -305,7 +305,7 @@ public class Ataque : MonoBehaviour
                     break;
             }
             _atingido.AplicarDano(_danoSofrido);
-            _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
+            //_atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
 
             Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);

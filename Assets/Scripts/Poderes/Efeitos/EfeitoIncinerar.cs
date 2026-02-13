@@ -19,10 +19,8 @@ public class EfeitoIncinerar : Efeito
         if(_vitima._poderFogo._status._acumuloAtual >= _vitima._poderFogo._status._acumuloMax)
         {
             base.Aplicar(_atacante, _vitima);
-            Utilidades.AplicarDano(_vitima, Utilidades.ArredondarNegativo(_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano), 10, 1, _cor);
-            _vitima._poderFogo._status._acumuloAtual = 0;
-            InstanciarParticulaExplosao(_vitima, _atacante);
-            InstanciarParticulaEfeito(10, _vitima, _atacante);
+            //Utilidades.AplicarDano(_vitima, Utilidades.ArredondarNegativo(_atacante._poderFogo._status._dano - _vitima._poderFogo._status._negacaoDano), 10, 1, _cor);
+            _vitima.StartCoroutine(Incinerar(15, 1, _atacante, _vitima));
         }
     }
     void InstanciarParticulaEfeito(float _duracao, Ser_Vivo _vitima, Ser_Vivo _atacante)
@@ -54,4 +52,33 @@ public class EfeitoIncinerar : Efeito
         }
         Destroy(_instanciaParticula, 2);
     }
+
+    IEnumerator Incinerar(float duracao, float intervalo, Ser_Vivo atacante, Ser_Vivo vitima)
+    {
+        if(vitima._vidaAtual > 0)
+        {
+            if (vitima == null || atacante == null) yield break;
+            if (duracao <= 0f || intervalo <= 0f) yield break;
+
+            vitima._poderFogo._status._acumuloAtual = 0;
+
+            InstanciarParticulaExplosao(vitima, atacante);
+            InstanciarParticulaEfeito(duracao, vitima, atacante);
+
+            float tempoRestante = duracao;
+
+            while (tempoRestante > 0f && vitima != null)
+            {
+                float dano = atacante._poderFogo._status._dano - vitima._poderFogo._status._negacaoDano;
+                if (dano < 0) dano = 0;
+
+                vitima.AplicarDano(dano);
+
+                yield return new WaitForSeconds(intervalo);
+                tempoRestante -= intervalo;
+            }
+        }
+        
+    }
+
 }

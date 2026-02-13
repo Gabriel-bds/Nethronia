@@ -36780,7 +36780,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
   _poderFogo:
-    _nivel: 200
+    _nivel: 10
     _tipoDano: 1
     _dano: 7.5
     _negacaoDano: 0

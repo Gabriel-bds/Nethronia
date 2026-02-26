@@ -55,7 +55,7 @@ public class EfeitoIncinerar : Efeito
 
     IEnumerator Incinerar(float duracao, float intervalo, Ser_Vivo atacante, Ser_Vivo vitima)
     {
-        if(vitima._vidaAtual > 0)
+        if(vitima.VidaAtual > 0)
         {
             if (vitima == null || atacante == null) yield break;
             if (duracao <= 0f || intervalo <= 0f) yield break;

@@ -60,8 +60,8 @@ public class AreaEletricidade : MonoBehaviour
         {
             Ser_Vivo _atingido = collision.GetComponent<Ser_Vivo>();
             float _danoSofrido = Utilidades.ArredondarNegativo(_atacante._poderEletricidade._status._dano - _atingido._poderEletricidade._status._negacaoDano);
-            _atingido._vidaAtual -= _danoSofrido;
-            _atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
+            _atingido.VidaAtual -= _danoSofrido;
+            //_atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido.VidaAtual);
             _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);
             _atingido.StartCoroutine(_atingido.PiscarCor(new Color(255, 255, 0, 255)));
             Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.gameObject.transform, Color.yellow);

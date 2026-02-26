@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Numero_BarraVida : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
-        AtualizarNumero();
+
+        FindAnyObjectByType<Player>().OnVidaAlterada += AtualizarNumero;
     }
-    public void AtualizarNumero()
+    public void AtualizarNumero(Ser_Vivo dono, float vidaAtual, float vidaMax)
     {
         Player _player = FindAnyObjectByType<Player>();
-        GetComponent<TextMeshProUGUI>().text = string.Format("{0}/{1}", _player._vidaAtual, _player._vidaMax);
+        GetComponent<TextMeshProUGUI>().text = string.Format("{0}/{1}", vidaAtual, vidaMax);
     }
 }

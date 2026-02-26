@@ -7,11 +7,17 @@ public class Barra_Vida : MonoBehaviour
 {
     [SerializeField] private Image _barraAtual;
     [SerializeField] private Image _barraTransicao;
+    [SerializeField] private Ser_Vivo _dono;
     private void Awake()
     {
-        FindAnyObjectByType<Player>()._barraVida = this;
+        //FindAnyObjectByType<Player>()._barraVida = this;
+        if(_dono == null)
+        {
+            _dono = FindAnyObjectByType<Player>();
+        }
+        _dono.OnVidaAlterada += AtualizarVida;
     }
-    public void AtualizarVida(float _vidaMax, float _vidaAtual)
+    private void AtualizarVida(Ser_Vivo dono, float _vidaAtual, float _vidaMax)
     {
         _barraAtual.fillAmount = _vidaAtual / _vidaMax;
         StartCoroutine(RegredirBarra(_vidaAtual / _vidaMax));

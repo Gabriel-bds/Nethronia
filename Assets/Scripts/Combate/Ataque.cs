@@ -324,11 +324,6 @@ public class Ataque : MonoBehaviour
             //_somHit.Play();
             //RuntimeManager.PlayOneShot(_tagSomHit);
             SomHit(_danoSofrido / _atingido._vidaMax);
-
-            if (_atingido.GetComponent<Player>() != null)
-            {
-                FindAnyObjectByType<Numero_BarraVida>().AtualizarNumero();
-            }
         }
     }
     protected void ControlarRecarga()

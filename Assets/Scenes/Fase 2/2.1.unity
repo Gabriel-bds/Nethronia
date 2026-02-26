@@ -7384,9 +7384,6 @@ MonoBehaviour:
   _corBase: {r: 0, g: 0, b: 0, a: 0}
   _corBaseMao: {r: 0, g: 0, b: 0, a: 0}
   _invulneravel: 0
-  _sons:
-  - {fileID: 3624404430030994894}
-  controleSons: {fileID: 0}
   _taxaDropPontoHabilidadePermanente: 0
   _minimoDropPontoHabilidadePermanente: 1
   _maximoDropPontoHabilidadePermanente: 2
@@ -31560,6 +31557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barraAtual: {fileID: 693012428}
   _barraTransicao: {fileID: 370560455}
+  _dono: {fileID: 970686657}
 --- !u!1 &955576545
 GameObject:
   m_ObjectHideFlags: 0
@@ -31686,6 +31684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barraAtual: {fileID: 424274538}
   _barraTransicao: {fileID: 471697709}
+  _dono: {fileID: 305134587}
 --- !u!1 &957696815
 GameObject:
   m_ObjectHideFlags: 0
@@ -36641,6 +36640,7 @@ GameObject:
   - component: {fileID: 970686656}
   - component: {fileID: 970686659}
   - component: {fileID: 970686660}
+  - component: {fileID: 970686661}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -36764,7 +36764,7 @@ MonoBehaviour:
     _repulsao: 7.5
     _negacaoRepulsao: 0
   _poderResistencia:
-    _nivel: 100
+    _nivel: 1
     _negacaoDano: 0
     _negacaoRepulsao: 0
   _poderVitalidade:
@@ -36780,7 +36780,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
   _poderFogo:
-    _nivel: 10
+    _nivel: 200
     _tipoDano: 1
     _dano: 7.5
     _negacaoDano: 0
@@ -36865,9 +36865,6 @@ MonoBehaviour:
   _corBase: {r: 1, g: 1, b: 1, a: 1}
   _corBaseMao: {r: 1, g: 1, b: 1, a: 1}
   _invulneravel: 0
-  _sons:
-  - {fileID: 836012874}
-  controleSons: {fileID: 470214499}
   _barraEstamina: {fileID: 1930407329}
   _barraMana: {fileID: 262240133}
   _pontosHabilidade: 1
@@ -36949,6 +36946,20 @@ MonoBehaviour:
   intervalo: 0.01
   tempoVida: 0.7
   alphaInicial: 0.5
+--- !u!114 &970686661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970686653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427ddfe43aec50b459ed46dbbcd0b00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _valorPorTick: 1
+  _intervalo: 0.5
 --- !u!1 &980358998
 GameObject:
   m_ObjectHideFlags: 0
@@ -41326,8 +41337,6 @@ MonoBehaviour:
   _corBase: {r: 0, g: 0, b: 0, a: 0}
   _corBaseMao: {r: 0, g: 0, b: 0, a: 0}
   _invulneravel: 0
-  _sons: []
-  controleSons: {fileID: 0}
   _taxaDropPontoHabilidadePermanente: 0
   _minimoDropPontoHabilidadePermanente: 0
   _maximoDropPontoHabilidadePermanente: 0
@@ -80145,11 +80154,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d61a363384d8543a5e86edb75510de, type: 3}
---- !u!82 &3624404430030994894 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7519571108330514947, guid: 80d61a363384d8543a5e86edb75510de, type: 3}
-  m_PrefabInstance: {fileID: 3624404430030994893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

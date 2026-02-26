@@ -112,8 +112,8 @@ public class Utilidades : MonoBehaviour
     }
     public static void AplicarDano(Ser_Vivo _vitima, float _dano)
     {
-        _vitima._vidaAtual -= _dano;
-        _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+        _vitima.VidaAtual -= _dano;
+        //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
         ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
@@ -123,8 +123,8 @@ public class Utilidades : MonoBehaviour
     }
     public static void AplicarDano(Ser_Vivo _vitima, float _dano, Color _corNumeroDano)
     {
-        _vitima._vidaAtual -= _dano;
-        _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+        _vitima.VidaAtual -= _dano;
+        //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corNumeroDano);
 
         ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
@@ -136,8 +136,8 @@ public class Utilidades : MonoBehaviour
     {
         for(int _vez=0; _vez <_duracao /_intervalo; _vez++)
         {
-            _vitima._vidaAtual -= _dano;
-            _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+            _vitima.VidaAtual -= _dano;
+            //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
             ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
@@ -153,8 +153,8 @@ public class Utilidades : MonoBehaviour
     {
         for (int _vez = 0; _vez < _duracao / _intervalo; _vez++)
         {
-            _vitima._vidaAtual -= _dano;
-            _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+            _vitima.VidaAtual -= _dano;
+           // _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
             ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
@@ -168,8 +168,8 @@ public class Utilidades : MonoBehaviour
     {
         for (int _vez = 0; _vez < _duracao / _intervalo; _vez++)
         {
-            _vitima._vidaAtual -= _dano;
-            _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima._vidaAtual);
+            _vitima.VidaAtual -= _dano;
+            //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corDano);
 
             ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();

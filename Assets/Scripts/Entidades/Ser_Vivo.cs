@@ -21,11 +21,32 @@ public class Ser_Vivo : MonoBehaviour
     [Header("Atributos Base:")]
     [ReadOnly(true)]
     public float _vidaMax;
-    public float _vidaAtual;
+
+    [SerializeField]
+    private float _vidaAtual;
+    public float VidaAtual
+    {
+        get => _vidaAtual;
+        set
+        {
+            float valorClamped = Mathf.Clamp(value, 0, _vidaMax);
+
+            if (_vidaAtual == valorClamped)
+                return;
+
+            _vidaAtual = valorClamped;
+            //UnityEngine.Debug.Log("Vida alterada");
+            OnVidaAlterada?.Invoke(this, _vidaAtual, _vidaMax);
+        }
+    }
+
+    public event Action<Ser_Vivo, float, float> OnVidaAlterada;
+
     public float _velocidadeMovimento;
     public int _nivelGeral = 0;
     public int _experiencia;
     public int _experienciaParaProximoNivel;
+
     [HideInInspector] public List<Rigidbody2D> _membros;
     private int _membrosIniciais;
 
@@ -51,10 +72,6 @@ public class Ser_Vivo : MonoBehaviour
     [HideInInspector] public Color _corBase;
     [HideInInspector] public Color _corBaseMao;
     public bool _invulneravel;
-
-    [Header("Sons:")]
-    [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
-    [SerializeField] ControleSons controleSons;
 
     protected virtual void Awake()
     {
@@ -222,7 +239,7 @@ public class Ser_Vivo : MonoBehaviour
         {
             if (!_poderVitalidade._estaRegenerando)
             {
-                RegenerarVida();
+                //RegenerarVida();
             }
         }
         else
@@ -290,7 +307,7 @@ public class Ser_Vivo : MonoBehaviour
         }
     }
 
-    public async void RegenerarVida()
+    /*public async void RegenerarVida()
     {
         for (float _vidaAtual = this._vidaAtual; _vidaAtual < _vidaMax; _vidaAtual = this._vidaAtual)
         {
@@ -301,7 +318,7 @@ public class Ser_Vivo : MonoBehaviour
             Utilidades.InstanciarNumeroDano((_poderVitalidade._valorCura).ToString(), transform, Color.green);
             _poderVitalidade._estaRegenerando = false;
         }
-    }
+    }*/
     public void Knockback(float _knockback, Vector2 _distancia)
     {
         if (GetComponent<NavMeshAgent>() != null)
@@ -434,10 +451,10 @@ public class Ser_Vivo : MonoBehaviour
                     _poderVeneno._nivel +
                     _poderEletricidade._nivel;
     }
-    public void IniciarSom(int _numeroNaLista)
+    /*public void IniciarSom(int _numeroNaLista)
     {
         _sons[_numeroNaLista].Play();
-    }
+    }*/
     public void TocarSom(string tag)
     {
         var instance = RuntimeManager.CreateInstance(tag);
@@ -458,11 +475,11 @@ public class Ser_Vivo : MonoBehaviour
     }
     public void AplicarDano(float _danoSofrido)
     {
-        _vidaAtual = _vidaAtual - _danoSofrido > 0
-                ? _vidaAtual -= _danoSofrido
-                : _vidaAtual = 0;
-        _barraVida.AtualizarVida(_vidaMax, _vidaAtual);
-        if( _vidaAtual <= 0 ) 
+        VidaAtual = VidaAtual - _danoSofrido > 0
+                ? VidaAtual -= _danoSofrido
+                : VidaAtual = 0;
+        //_barraVida.AtualizarVida(_vidaMax, VidaAtual);
+        if( VidaAtual <= 0 ) 
         {
             StopAllCoroutines();
             UnityEngine.Debug.Log("Morreu");

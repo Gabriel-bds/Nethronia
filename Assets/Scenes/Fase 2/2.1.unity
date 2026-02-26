@@ -36764,7 +36764,7 @@ MonoBehaviour:
     _repulsao: 7.5
     _negacaoRepulsao: 0
   _poderResistencia:
-    _nivel: 1
+    _nivel: 20
     _negacaoDano: 0
     _negacaoRepulsao: 0
   _poderVitalidade:
@@ -36780,7 +36780,7 @@ MonoBehaviour:
     "_acrescimoVelocidadeAnima\xE7\xF5es": 0
     _reducaoTempo: 0.9
   _poderFogo:
-    _nivel: 200
+    _nivel: 10
     _tipoDano: 1
     _dano: 7.5
     _negacaoDano: 0
@@ -36958,7 +36958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ddfe43aec50b459ed46dbbcd0b00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valorPorTick: 1
+  _valorPorTick: 5
   _intervalo: 0.5
 --- !u!1 &980358998
 GameObject:
@@ -37132,6 +37132,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980358998}
   m_CullTransparentMesh: 1
+--- !u!1 &1028753072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1028753075}
+  - component: {fileID: 1028753074}
+  - component: {fileID: 1028753073}
+  m_Layer: 8
+  m_Name: RitoCura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!58 &1028753073
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028753072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!114 &1028753074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028753072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a15e54f1268f3847b287fb614bdca0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icone: {fileID: 0}
+  _idAtaque: 0
+  _tipoDano: 0
+  _dano: 0
+  _repulsao: 0
+  _tempoRecargaTotal: 0
+  _tempoDeVida: 5
+  _alvos:
+    serializedVersion: 2
+    m_Bits: 0
+  _corDano: {r: 0, g: 0, b: 0, a: 0}
+  _dono: {fileID: 0}
+  _somHit: {fileID: 0}
+  _tagSomHit: 
+  _tagSomInstanciar: 
+  _spawnPosicao: {x: 0, y: 0, z: 0}
+  _spawnRotacao: {x: 0, y: 0, z: 0, w: 0}
+  _localSpawn: 0
+  _particulasAoInstanciar: {fileID: 0}
+  nivelMaximoMagnitudeVisual: 0
+  _decaimentoRecarga: 0
+  _distanciaMin: 0
+  _distanciaMax: 0
+  _distanciaPerfeita: 0
+  _valorPorTick: 2
+  _intervalo: 1
+--- !u!4 &1028753075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028753072}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -34.31, y: 0.35, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029307678
 GameObject:
   m_ObjectHideFlags: 0
@@ -80177,4 +80283,5 @@ SceneRoots:
   - {fileID: 305134586}
   - {fileID: 265235483}
   - {fileID: 324479105}
+  - {fileID: 1028753075}
   - {fileID: 582954169}

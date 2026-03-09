@@ -5,7 +5,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static Unity.VisualScripting.Member;
 
 public class Utilidades : MonoBehaviour
@@ -222,5 +224,20 @@ public class Utilidades : MonoBehaviour
                 return serVivo._poderEletricidade._nivel;
         }
         return -1;
+    }
+
+    public void Vibrar(float intensidadeEsquerda, float intensidadeDireita, float tempo)
+    {
+        if (Gamepad.current != null)
+        {
+            Gamepad.current.SetMotorSpeeds(intensidadeEsquerda, intensidadeDireita);
+            Invoke(nameof(PararVibracao), tempo);
+        }
+    }
+
+    public void PararVibracao()
+    {
+        if (Gamepad.current != null)
+            Gamepad.current.SetMotorSpeeds(0, 0);
     }
 }

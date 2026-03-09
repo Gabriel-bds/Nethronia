@@ -479,10 +479,12 @@ public class Ser_Vivo : MonoBehaviour
                 ? VidaAtual -= _danoSofrido
                 : VidaAtual = 0;
         //_barraVida.AtualizarVida(_vidaMax, VidaAtual);
+
+        VibrarControle.Vibrar(Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f), Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f), Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f));
         if( VidaAtual <= 0 ) 
         {
             StopAllCoroutines();
-            UnityEngine.Debug.Log("Morreu");
+            //UnityEngine.Debug.Log("Morreu");
             //TravarCorpoMao(1);
             Desmembrar((int)Math.Clamp(_danoSofrido / _vidaMax * _membros.Count, 1, _membros.Count), Math.Clamp(_danoSofrido / _vidaMax * 30, 3, 30));
             StartCoroutine(InterromperEfeitos(1f));

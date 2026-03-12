@@ -368,6 +368,7 @@ public class Ser_Vivo : MonoBehaviour
         #region Força
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);
         _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 7.5f, 0.75f);
+        _animator.SetFloat("PoderForca", _poderForca._nivel);
         #endregion
 
         #region Resistência

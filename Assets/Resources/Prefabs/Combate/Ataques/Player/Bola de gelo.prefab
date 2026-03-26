@@ -114,27 +114,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _icone: {fileID: 21300000, guid: e054e5bc68de6e94db65c0c9fbcab956, type: 3}
-  _idAtaque: 8
+  _idAtaque: 15
   _tipoDano: 3
   _dano: 100
   _repulsao: 100
   _tempoRecargaTotal: 4
+  _tempoDeVida: 15
   _alvos:
     serializedVersion: 2
     m_Bits: 512
   _corDano: {r: 0, g: 0.89807534, b: 1, a: 1}
   _dono: {fileID: 0}
   _somHit: {fileID: 8298483648616165601}
+  _tagSomHit: 
+  _tagSomInstanciar: 
   _spawnPosicao: {x: -0.23804462, y: -13.02919, z: 8e-45}
   _spawnRotacao: {x: 3e-45, y: -3e-45, z: 0.24260269, w: 0.97012573}
   _localSpawn: 1
-  _atacarEnquantoDisponivel: 0
-  _percentualDecaimentoRecarga: 0
+  _particulasAoInstanciar: {fileID: 0}
+  nivelMaximoMagnitudeVisual: 0
+  _decaimentoRecarga: 0
   _distanciaMin: 0
   _distanciaMax: 0
   _distanciaPerfeita: 0
   _velocidade: 15
-  _tempoDeVida: 15
   _progressaoEscala: 0
   _colisoes:
     serializedVersion: 2

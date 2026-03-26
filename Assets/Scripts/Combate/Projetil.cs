@@ -13,6 +13,7 @@ public class Projetil : Ataque
     [SerializeField] AudioSource _quebrandoSom;
     protected override void Start()
     {
+        Debug.Log("Instanciou projetil");
         if (_progressaoEscala)
         {
             switch (_tipoDano)
@@ -127,7 +128,7 @@ public class Projetil : Ataque
     }
     public new void AutoDestruir()
     {
-        //Debug.Log("projetil auto destruindo");
+        Debug.Log("projetil auto destruindo");
         Destroy(gameObject);
     }
     public void AutoDestruir(float _tempo)

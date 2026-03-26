@@ -22,7 +22,10 @@ public class Regeneracao
         if (_coroutine != null)
             return;
 
-        _coroutine = _executor.StartCoroutine(Regenerar());
+        if (_valorPorTick > 0)
+        {
+            _coroutine = _executor.StartCoroutine(Regenerar());
+        }
     }
 
     public void Parar()

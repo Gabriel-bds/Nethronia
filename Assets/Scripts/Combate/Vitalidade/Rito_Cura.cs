@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,14 +13,30 @@ public class RitoDeCura : Ataque
 
     protected override void Start()
     {
-        base.Start();
+        //base.Start();
+        ControlarRecarga();
+        _valorPorTick = _dono._poderVitalidade._valorCura;
+        _intervalo = _dono._poderVitalidade._intervaloCura;
         _regeneracao = new Regeneracao(_dono, _valorPorTick, _intervalo, this);
+        _tempoDeVida = Mathf.Clamp(Utilidades.Escala(_dono._poderVitalidade._nivel, 7f, 0.23f), 7f, 30f);
         _ativo = true;
         StartCoroutine(ControleDuracao());
+        ControlarEscalaVisualVitalidade();
+    }
+
+    private void ControlarEscalaVisualVitalidade()
+    {
+        if (GetComponent<Animator>() != null)
+        {
+            float forca = Utilidades.LimitadorNumero(0, 1,
+                (float)_dono._poderVitalidade._nivel / nivelMaximoMagnitudeVisual);
+            GetComponent<Animator>().SetFloat("Forca", forca);
+        }
     }
 
     private IEnumerator ControleDuracao()
     {
+        Debug.Log(_tempoDeVida);
         yield return new WaitForSeconds(_tempoDeVida);
         EncerrarRito();
     }
@@ -46,7 +63,12 @@ public class RitoDeCura : Ataque
     {
         _ativo = false;
         _regeneracao.Parar();
-        Destroy(gameObject);
+        foreach(ParticleSystem particula in GetComponentsInChildren<ParticleSystem>())
+        {
+            particula.Stop();
+        }
+        _ativo = false;
+        Destroy(gameObject, 3f);
     }
 
     private void OnDestroy()

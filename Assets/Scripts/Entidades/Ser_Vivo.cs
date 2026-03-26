@@ -378,8 +378,8 @@ public class Ser_Vivo : MonoBehaviour
 
         #region Vitalidade
         _poderVitalidade._acrescimoVidaMax = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.5f);
-        _poderVitalidade._valorCura = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.01f);
-        _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 5f, Utilidades.Escala(_poderVitalidade._nivel, 5, -0.01f));
+        _poderVitalidade._valorCura = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.2f);
+        _poderVitalidade._intervaloCura = Utilidades.LimitadorNumero(0.1f, 1f, Utilidades.Escala(_poderVitalidade._nivel, 1, -0.01f));
         _poderVitalidade._rouboVida = Utilidades.Escala(_poderVitalidade._nivel, 0, 0.05f);
         _vidaMax += _poderVitalidade._acrescimoVidaMax;
         _vidaAtual = _vidaMax;

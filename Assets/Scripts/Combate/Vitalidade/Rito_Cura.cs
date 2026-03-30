@@ -22,6 +22,7 @@ public class RitoDeCura : Ataque
         _ativo = true;
         StartCoroutine(ControleDuracao());
         ControlarEscalaVisualVitalidade();
+        gameObject.layer = default;
     }
 
     private void ControlarEscalaVisualVitalidade()

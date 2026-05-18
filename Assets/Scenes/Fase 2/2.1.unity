@@ -6823,6 +6823,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 290380468}
+  - component: {fileID: 290380470}
+  - component: {fileID: 290380469}
   m_Layer: 8
   m_Name: Sons
   m_TagString: Untagged
@@ -6846,6 +6848,115 @@ Transform:
   - {fileID: 1170226978}
   m_Father: {fileID: 305134586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290380469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290380467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7678aafd0ca3fd4390e3d66f1cc2e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tagSomDanoRecebido: event:/Inimigos/Fase 2/Cacador/Base/receber dano
+--- !u!82 &290380470
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290380467}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &293625873
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,7 +7407,7 @@ MonoBehaviour:
   _poderVelocidade:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
-    "_acrescimoVelocidadeAnima\xE7\xF5es": 0
+    _acrescimoVelocidadeAnimacoes: 0
     _reducaoTempo: 0
   _poderFogo:
     _nivel: 0
@@ -13680,7 +13791,6 @@ GameObject:
   - component: {fileID: 519420033}
   - component: {fileID: 519420035}
   - component: {fileID: 519420037}
-  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13832,20 +13942,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &519420036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 970686653}
 --- !u!81 &519420037
 AudioListener:
   m_ObjectHideFlags: 0
@@ -30845,6 +30941,8 @@ GameObject:
   - component: {fileID: 867093277}
   - component: {fileID: 867093275}
   - component: {fileID: 867093278}
+  - component: {fileID: 867093279}
+  - component: {fileID: 867093280}
   m_Layer: 0
   m_Name: CM Camera
   m_TagString: Untagged
@@ -30920,7 +31018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensidadeShakeCamera: 0
-  maximoShake: 30
+  maximoShake: 300
 --- !u!114 &867093276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31014,6 +31112,36 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 2054623852}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &867093279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867093272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db68a1dee4ce6e54588a770c4afb003f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duracaoMinima: 0.03
+  _duracaoMaxima: 0.07
+  _reducaoVelocidadeMinima: 0.1
+  _reducaoVelocidadeMaxima: 1
+--- !u!114 &867093280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867093272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 970686653}
 --- !u!1 &879174511
 GameObject:
   m_ObjectHideFlags: 0
@@ -37053,7 +37181,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 100
   _membros: []
   _poderForca:
-    _nivel: 200
+    _nivel: 100
     _tipoDano: 0
     _dano: 5
     _negacaoDano: 0
@@ -37071,9 +37199,9 @@ MonoBehaviour:
     _rouboVida: 0
     _estaRegenerando: 0
   _poderVelocidade:
-    _nivel: 1
+    _nivel: 0
     _acrescimoVelocidadeMovimento: 0
-    "_acrescimoVelocidadeAnima\xE7\xF5es": 0
+    _acrescimoVelocidadeAnimacoes: 0
     _reducaoTempo: 0.9
   _poderFogo:
     _nivel: 200
@@ -41545,7 +41673,7 @@ MonoBehaviour:
   _poderVelocidade:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
-    "_acrescimoVelocidadeAnima\xE7\xF5es": 0
+    _acrescimoVelocidadeAnimacoes: 0
     _reducaoTempo: 0
   _poderFogo:
     _nivel: 0

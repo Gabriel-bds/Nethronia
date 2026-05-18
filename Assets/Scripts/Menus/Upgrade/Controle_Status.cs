@@ -41,11 +41,11 @@ public class Controle_Status : MonoBehaviour
         switch (_tipoPoder)
         {
             case Tipo_Poder.Forca:
-                _texto.text = $"Força: {_player._poderForca._nivel + _addNivel}";
+                _texto.text = $"Forca: {_player._poderForca._nivel + _addNivel}";
                 break;
 
             case Tipo_Poder.Resistencia:
-                _texto.text = $"Resistência: {_player._poderResistencia._nivel + _addNivel}";
+                _texto.text = $"Resistencia: {_player._poderResistencia._nivel + _addNivel}";
                 break;
 
             case Tipo_Poder.Vitalidade:

@@ -19,7 +19,7 @@ public class Controle_PontosHabilidade : MonoBehaviour
     void AtualizarTexto()
     {
         TextMeshProUGUI _texto = GetComponent<TextMeshProUGUI>();
-        _texto.text = $"Pontos disponíveis: {_pontosDisponiveis}";
+        _texto.text = $"Pontos disponiveis: {_pontosDisponiveis}";
     }
     public void Aplicar()
     {

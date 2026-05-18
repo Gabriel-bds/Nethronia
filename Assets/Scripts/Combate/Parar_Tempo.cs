@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Parar_Tempo : Ataque
 {
-    [Header("Configuração do Slow")]
+    [Header("Configuracao do Slow")]
     [Range(0.05f, 1f)]
     [SerializeField] float slowTimeScale = 0.3f;
 
-    [Header("Transição do Tempo")]
+    [Header("Transicao do Tempo")]
     [SerializeField] float tempoTransicao = 0.5f;
 
     // ===== TIME =====

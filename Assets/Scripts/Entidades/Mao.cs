@@ -110,7 +110,7 @@ public class Mao : MonoBehaviour
             }
             _indiceAtq += 1;
         }
-        //Debug.Log("Ataques disponíveis: " + _ataquesDisponiveis.Count);
+        //Debug.Log("Ataques disponiveis: " + _ataquesDisponiveis.Count);
     }
     public void ForcarDestruicaoAtaque(float _tempo)
     {
@@ -164,7 +164,7 @@ public class Mao : MonoBehaviour
         foreach(GameObject ataque in _ataques)
         {
             StartCoroutine(RecarregarAtaque(ataque.GetComponent<Ataque>()._tempoRecargaTotal, ataque));
-            //Debug.Log("Começou");
+            //Debug.Log("Comecou");
         }
     }
 

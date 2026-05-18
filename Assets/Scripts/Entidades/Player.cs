@@ -26,7 +26,7 @@ public class Player : Ser_Vivo
         DefinirAtributos();
         _playerInput = GetComponent<PlayerInput>();
 
-        // pega a ação "Ataques"
+        // pega a acao "Ataques"
         InputAction ataques = _playerInput.actions["Ataques"];
 
         // Adiciona callback
@@ -72,7 +72,7 @@ public class Player : Ser_Vivo
         Mao _mao = this._mao.GetComponent<Mao>();
         if (valor > 0 && VidaAtual > 0)
         {
-            // Só entra aqui quando o valor deixa de ser 0
+            // So entra aqui quando o valor deixa de ser 0
             if (_mao._ataquesDisponiveis.Contains(_mao._ataques[(int)valor - 1]))
             {
                 _animator.SetInteger("Ataque", _mao._ataques[(int)valor - 1].GetComponent<Ataque>()._idAtaque);
@@ -134,8 +134,8 @@ public class Player : Ser_Vivo
             Time.fixedDeltaTime /= Time.timeScale;
             _mao.GetComponent<Mao>()._latenciaMira *= Time.timeScale;
             _velocidadeMovimento = 10 + _poderVelocidade._acrescimoVelocidadeMovimento;
-            GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimações;
-            _mao.GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimações;
+            GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimacoes;
+            _mao.GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimacoes;
             _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_LookaheadTime /= Time.timeScale;
             _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping /= Time.timeScale;
             _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping /= Time.timeScale;

@@ -27,7 +27,7 @@ public class Habilidade_RegeneracaoPassiva : MonoBehaviour
     {
         if (vidaAtual < vidaMax)
         {
-            //Debug.Log("Iniciou regeneração");
+            //Debug.Log("Iniciou regeneracao");
             _regeneracao.Iniciar();
         }
         else

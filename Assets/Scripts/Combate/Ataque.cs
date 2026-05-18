@@ -278,7 +278,7 @@ public class Ataque : MonoBehaviour
 
             switch (_tipoDano)
             {
-                case Tipo_Dano.Físico:
+                case Tipo_Dano.FÃ­sico:
                     _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderForca._dano - _atingido._poderResistencia._negacaoDano);
                     _atingido.Knockback(_repulsao / 100 * (_dono._poderForca._repulsao - _atingido._poderResistencia._negacaoRepulsao), _distancia);
                     break;
@@ -320,6 +320,8 @@ public class Ataque : MonoBehaviour
             }
             Camera_Controller _camera = FindObjectOfType<Camera_Controller>();
             _camera.Tremer(_danoSofrido * 100 / _atingido._vidaMax);
+
+            FindObjectOfType<Hitstop>().Aplicar(_danoSofrido / _atingido._vidaMax);
 
             //_somHit.Play();
             //RuntimeManager.PlayOneShot(_tagSomHit);

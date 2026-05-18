@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GhostTrail : MonoBehaviour
 {
-    [Header("Ativação")]
+    [Header("Ativacao")]
     public bool ativo;
 
-    [Header("Configurações")]
+    [Header("Configuracoes")]
     public float intervalo = 0.03f;
     public float tempoVida = 0.15f;
     public float alphaInicial = 0.6f;

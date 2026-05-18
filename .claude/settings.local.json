@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Gabriel\\\\Documents\\\\Syen\\\\Jogos\\\\Nethronia\\\\Unity\\\\Nethronia\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(grep -i \"\\\\.cs$\")"
+    ]
+  }
+}

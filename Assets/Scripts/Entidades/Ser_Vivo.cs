@@ -41,6 +41,7 @@ public class Ser_Vivo : MonoBehaviour
     }
 
     public event Action<Ser_Vivo, float, float> OnVidaAlterada;
+    public event Action<float> OnDanoRecebido;
 
     public float _velocidadeMovimento;
     public int _nivelGeral = 0;
@@ -51,7 +52,7 @@ public class Ser_Vivo : MonoBehaviour
     private int _membrosIniciais;
 
     [Header("Poderes:")]
-    public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
+    public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.FÃ­sico);
     public Poder_Resistencia _poderResistencia = new Poder_Resistencia();
     public Poder_Vitalidade _poderVitalidade = new Poder_Vitalidade();
     public Poder_Velocidade _poderVelocidade = new Poder_Velocidade();
@@ -171,7 +172,7 @@ public class Ser_Vivo : MonoBehaviour
     {
         if(_vidaAtual > 0)
         {
-            // posição do personagem na tela
+            // posicao do personagem na tela
             Vector3 posTela = Camera.main.WorldToScreenPoint(transform.position);
             Vector3 _posicaoAlvo;
             if (_alvo != null)
@@ -187,7 +188,7 @@ public class Ser_Vivo : MonoBehaviour
 
             if (olharParaEsquerda)
             {
-                // gira SOMENTE no eixo Y, de forma válida
+                // gira SOMENTE no eixo Y, de forma valida
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
                 if (GetComponent<Player>() != null)
@@ -203,7 +204,7 @@ public class Ser_Vivo : MonoBehaviour
                 {
                     _animator.SetFloat("Direcao", 1);
                 }
-                // rotação neutra (Quaternion válido)
+                // rotacao neutra (Quaternion valido)
                 transform.rotation = Quaternion.identity;
 
                 if (_mao != null)
@@ -275,13 +276,13 @@ public class Ser_Vivo : MonoBehaviour
             // --- 2) Quebra hierarquia animada
             t.SetParent(null, true);
 
-            // --- 3) Congela física antes do Rebind
+            // --- 3) Congela fisica antes do Rebind
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.isKinematic = true;
             rb.simulated = false;
 
-            // --- 4) Força Animator a esquecer o bone
+            // --- 4) Forca Animator a esquecer o bone
             _animator.Rebind();
             _animator.Update(0f);
 
@@ -289,20 +290,20 @@ public class Ser_Vivo : MonoBehaviour
             t.position = posWorld;
             t.rotation = rotWorld;
 
-            // --- 6) Reativa física com segurança
+            // --- 6) Reativa fisica com seguranca
             rb.simulated = true;
             rb.isKinematic = false;
             rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             rb.gravityScale = 0f;
 
-            // --- 7) Aplica forças reais
+            // --- 7) Aplica forcas reais
             Vector2 direcao = UnityEngine.Random.insideUnitCircle.normalized;
             rb.AddForce(direcao * intensidade, ForceMode2D.Impulse);
 
             float torque = UnityEngine.Random.Range(-intensidade, intensidade);
             rb.AddTorque(torque, ForceMode2D.Impulse);
 
-            // --- 8) Remove da lista para não tentar desmembrar de novo
+            // --- 8) Remove da lista para nao tentar desmembrar de novo
             _membros.RemoveAt(indice);
         }
     }
@@ -365,13 +366,13 @@ public class Ser_Vivo : MonoBehaviour
     public void DefinirAtributos()
     {
 
-        #region Força
+        #region Forca
         _poderForca._dano = Utilidades.Escala(_poderForca._nivel, 5, 1);
         _poderForca._repulsao = Utilidades.Escala(_poderForca._nivel, 7.5f, 0.75f);
         _animator.SetFloat("PoderForca", _poderForca._nivel);
         #endregion
 
-        #region Resistência
+        #region Resistencia
         _poderResistencia._negacaoDano = Utilidades.Escala(_poderResistencia._nivel, 0, 1);
         _poderResistencia._negacaoRepulsao = Utilidades.Escala(_poderResistencia._nivel, 0, 0.75f);
         #endregion
@@ -387,11 +388,11 @@ public class Ser_Vivo : MonoBehaviour
 
         #region Velocidade
         _poderVelocidade._acrescimoVelocidadeMovimento = Utilidades.LimitadorNumero(0, 30, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.4f));
-        _poderVelocidade._acrescimoVelocidadeAnimações = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
+        _poderVelocidade._acrescimoVelocidadeAnimacoes = Utilidades.LimitadorNumero(0, 2, Utilidades.Escala(_poderVelocidade._nivel, 0, 0.02f));
         _poderVelocidade._reducaoTempo = Utilidades.LimitadorNumero(0.5f, 0.99f, Utilidades.Escala(_poderVelocidade._nivel, 0.5f, 0.0025f));
         _velocidadeMovimento += _poderVelocidade._acrescimoVelocidadeMovimento;
-        GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
-        //_mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimações;
+        GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimacoes;
+        //_mao.GetComponent<Animator>().speed += _poderVelocidade._acrescimoVelocidadeAnimacoes;
         #endregion
 
         #region Fogo
@@ -481,6 +482,7 @@ public class Ser_Vivo : MonoBehaviour
                 : VidaAtual = 0;
         //_barraVida.AtualizarVida(_vidaMax, VidaAtual);
 
+        OnDanoRecebido?.Invoke(_danoSofrido / _vidaMax);
         VibrarControle.Vibrar(Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f), Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f), Math.Clamp(_danoSofrido / _vidaMax, 0f, 1f));
         if( VidaAtual <= 0 ) 
         {

@@ -4,10 +4,10 @@ using UnityEngine;
 [System.Serializable]
 public class Poder_Velocidade : Poder
 {
-    [Tooltip("Valor que será acrescentado à velocidade de movimento")]
+    [Tooltip("Valor que sera acrescentado a velocidade de movimento")]
     public float _acrescimoVelocidadeMovimento;
-    [Tooltip("Valor que será acrescentado à velocidade das animações")]
-    public float _acrescimoVelocidadeAnimações;
-    [Tooltip("Quando o tempo desacelerar, quanto será reduzido da velocidade padrão dele")]
+    [Tooltip("Valor que sera acrescentado a velocidade das animacoes")]
+    public float _acrescimoVelocidadeAnimacoes;
+    [Tooltip("Quando o tempo desacelerar, quanto sera reduzido da velocidade padrao dele")]
     public float _reducaoTempo;
 }

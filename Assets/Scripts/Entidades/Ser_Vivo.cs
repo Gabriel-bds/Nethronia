@@ -297,7 +297,9 @@ public class Ser_Vivo : MonoBehaviour
             rb.gravityScale = 0f;
 
             // --- 7) Aplica forcas reais
-            Vector2 direcao = UnityEngine.Random.insideUnitCircle.normalized;
+            Vector2 direcao = _rigidbody.velocity.sqrMagnitude > 0f
+                ? _rigidbody.velocity.normalized
+                : UnityEngine.Random.insideUnitCircle.normalized;
             rb.AddForce(direcao * intensidade, ForceMode2D.Impulse);
 
             float torque = UnityEngine.Random.Range(-intensidade, intensidade);

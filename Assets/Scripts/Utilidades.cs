@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -118,7 +118,9 @@ public class Utilidades : MonoBehaviour
         //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
-        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform).GetComponent<ParticleSystem>();
+        _objSangue.transform.localPosition = Vector3.zero;
+        _objSangue.transform.rotation = Quaternion.identity;
         var _emissao = _objSangue.emission;
         _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
@@ -129,7 +131,9 @@ public class Utilidades : MonoBehaviour
         //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
         InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corNumeroDano);
 
-        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+        ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform).GetComponent<ParticleSystem>();
+        _objSangue.transform.localPosition = Vector3.zero;
+        _objSangue.transform.rotation = Quaternion.identity;
         var _emissao = _objSangue.emission;
         _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
@@ -142,7 +146,8 @@ public class Utilidades : MonoBehaviour
             //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
-            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform).GetComponent<ParticleSystem>();
+            _objSangue.transform.localPosition = Vector3.zero;
             var _emissao = _objSangue.emission;
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
@@ -159,7 +164,8 @@ public class Utilidades : MonoBehaviour
            // _vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform);
 
-            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform).GetComponent<ParticleSystem>();
+            _objSangue.transform.localPosition = Vector3.zero;
             var _emissao = _objSangue.emission;
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
             
@@ -174,7 +180,8 @@ public class Utilidades : MonoBehaviour
             //_vitima._barraVida.AtualizarVida(_vitima._vidaMax, _vitima.VidaAtual);
             InstanciarNumeroDano((-_dano).ToString(), _vitima.transform, _corDano);
 
-            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<ParticleSystem>();
+            ParticleSystem _objSangue = Instantiate(_vitima._sangue, _vitima.transform).GetComponent<ParticleSystem>();
+            _objSangue.transform.localPosition = Vector3.zero;
             var _emissao = _objSangue.emission;
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
@@ -206,7 +213,7 @@ public class Utilidades : MonoBehaviour
     {
         switch (tipo)
         {
-            case Tipo_Dano.Físico:
+            case Tipo_Dano.Fisico:
                 return serVivo._poderForca._nivel;
 
             case Tipo_Dano.Fogo:

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
@@ -52,7 +52,7 @@ public class Rajada : Ataque
 
                     switch (_tipoDano)
                     {
-                        case Tipo_Dano.Físico:
+                        case Tipo_Dano.Fisico:
                             _danoSofrido = Utilidades.ArredondarNegativo(_dano / 100 * _dono._poderForca._dano - _atingido._poderResistencia._negacaoDano);
                             _atingido.Knockback(_repulsao / 100 * (_dono._poderForca._repulsao - _atingido._poderResistencia._negacaoRepulsao), _distancia);
                             break;
@@ -85,7 +85,9 @@ public class Rajada : Ataque
 
                     Utilidades.InstanciarNumeroDano((-_danoSofrido).ToString(), _atingido.transform);
 
-                    ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform.position, _atingido.transform.rotation).GetComponent<ParticleSystem>();
+                    ParticleSystem _objSangue = Instantiate(_atingido._sangue, _atingido.transform).GetComponent<ParticleSystem>();
+                    _objSangue.transform.localPosition = Vector3.zero;
+                    _objSangue.transform.rotation = Quaternion.identity;
                     var _emissao = _objSangue.emission;
                     _emissao.rateOverTime = _danoSofrido * 100 / _atingido._vidaMax / 100 * 2000;
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,7 +52,7 @@ public class Ser_Vivo : MonoBehaviour
     private int _membrosIniciais;
 
     [Header("Poderes:")]
-    public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Físico);
+    public Poder_Forca _poderForca = new Poder_Forca(Tipo_Dano.Fisico);
     public Poder_Resistencia _poderResistencia = new Poder_Resistencia();
     public Poder_Vitalidade _poderVitalidade = new Poder_Vitalidade();
     public Poder_Velocidade _poderVelocidade = new Poder_Velocidade();

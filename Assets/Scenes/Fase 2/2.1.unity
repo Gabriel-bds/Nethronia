@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _materialBlink: {fileID: 2100000, guid: bb653bf6b9086ea418c54505b561107d, type: 2}
-  _duracaoBlink: 0.08
+  _duracaoBlink: 0.2
 --- !u!1 &53180380
 GameObject:
   m_ObjectHideFlags: 0
@@ -7426,7 +7426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179070195792b247a96302a9a01f444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vidaMax: 100
+  _vidaMax: 1000
   _vidaAtual: 100
   _velocidadeMovimento: 2
   _nivelGeral: 0
@@ -30988,7 +30988,6 @@ GameObject:
   - component: {fileID: 867093277}
   - component: {fileID: 867093275}
   - component: {fileID: 867093278}
-  - component: {fileID: 867093279}
   - component: {fileID: 867093280}
   m_Layer: 0
   m_Name: CM Camera
@@ -31065,7 +31064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensidadeShakeCamera: 0
-  maximoShake: 300
+  maximoShake: 10
 --- !u!114 &867093276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31159,22 +31158,6 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 2054623852}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!114 &867093279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867093272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db68a1dee4ce6e54588a770c4afb003f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duracaoMinima: 0.03
-  _duracaoMaxima: 0.1
-  _reducaoVelocidadeMinima: 0.1
-  _reducaoVelocidadeMaxima: 1
 --- !u!114 &867093280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37229,7 +37212,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 100
   _membros: []
   _poderForca:
-    _nivel: 100
+    _nivel: 500
     _tipoDano: 0
     _dano: 5
     _negacaoDano: 0
@@ -37416,7 +37399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativo: 0
   intervalo: 0.01
-  tempoVida: 0.7
+  tempoVida: 1
   alphaInicial: 0.5
 --- !u!114 &970686661
 MonoBehaviour:
@@ -44512,7 +44495,7 @@ MonoBehaviour:
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 5803088307428071658, guid: 8199e7cef08108b4492e217ab241aac0, type: 3}
-  - {fileID: 5837795388014900685, guid: a7dc8138e217a8f4bbbf1d02a4c02c78, type: 3}
+  - {fileID: 1398755498870554847, guid: f277e97966b1f594988bf38fe90e066f, type: 3}
   - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0

@@ -18,7 +18,7 @@ public class Projetil : Ataque
         {
             switch (_tipoDano)
             {
-                case Tipo_Dano.Físico:
+                case Tipo_Dano.Fisico:
                     transform.localScale = new Vector2(Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)), Utilidades.LimitadorNumero(1, 10, Utilidades.Escala(_dono._poderForca._nivel, 1, 0.033f)));
                     break;
 

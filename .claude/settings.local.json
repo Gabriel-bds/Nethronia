@@ -3,7 +3,17 @@
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Gabriel\\\\Documents\\\\Syen\\\\Jogos\\\\Nethronia\\\\Unity\\\\Nethronia\" -Directory)",
       "Bash(Select-Object Name)",
-      "Bash(grep -i \"\\\\.cs$\")"
+      "Bash(grep -i \"\\\\.cs$\")",
+      "Bash(Get-ChildItem -Recurse -Include \"*.cs\")",
+      "Bash(Measure-Object)",
+      "Bash(Select-Object -ExpandProperty Count)",
+      "Bash(Get-Content \"Assets\\\\Resources\\\\Prefabs\\\\Combate\\\\Ataques\\\\Player\\\\Vitalidade\\\\Rito de cura\\\\RitoCura.prefab\")",
+      "Bash(Select-Object -First 100)",
+      "Bash(findstr /S /I \"tipo_dano\\\\|status\\\\|efeito\" \"Assets\\\\Scripts\\\\Poderes\\\\Efeitos\\\\Efeito.cs\")",
+      "Bash(Get-ChildItem -Path \"Assets\\\\Resources\\\\Prefabs\\\\Combate\\\\Ataques\\\\Player\\\\Vitalidade\" -Recurse)",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\Gabriel\\\\Documents\\\\Syen\\\\Jogos\\\\Nethronia\\\\Unity\\\\Nethronia\\\\Assets\\\\Resources\\\\Prefabs\\\\Combate\\\\Ataques\\\\Player\\\\Vitalidade\\\\Rito de cura\\\\RitoCura.prefab\" | Select-Object -Index \\(150..250\\))",
+      "PowerShell(Set-Content *)"
     ]
   }
 }

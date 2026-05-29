@@ -1,11 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosaoVital : Ataque
 {
     [Header("Explosão Vital")]
     [SerializeField] private EscalaValor _escalaConsumoVida;
-    [SerializeField] private EscalaValor _escalaRaio;
+
+    private float _danoExplosao;
+    private HashSet<Ser_Vivo> _jaAtingidos = new HashSet<Ser_Vivo>();
 
     protected override void Start()
     {
@@ -13,7 +16,8 @@ public class ExplosaoVital : Ataque
         ControlarRecarga();
         ControlarEscalaVisualVitalidade();
         gameObject.layer = default;
-        Explodir();
+        ConsumirVida();
+        StartCoroutine(EncerrarExplosao());
     }
 
     private void ControlarEscalaVisualVitalidade()
@@ -27,50 +31,44 @@ public class ExplosaoVital : Ataque
         }
     }
 
-    private void Explodir()
+    private void ConsumirVida()
     {
         int nivel = _dono._poderVitalidade._nivel;
         float porcentagemConsumo = _escalaConsumoVida.Avaliar(nivel) / 100f;
-        float raio = _escalaRaio.Avaliar(nivel);
 
         float vidaConsumida = _dono.VidaAtual * porcentagemConsumo;
         vidaConsumida = Mathf.Min(vidaConsumida, _dono.VidaAtual - 1f);
 
         if (vidaConsumida <= 0) return;
 
+        _danoExplosao = vidaConsumida;
         _dono.VidaAtual -= vidaConsumida;
         Utilidades.InstanciarNumeroDano((-vidaConsumida).ToString(), _dono.transform, new Color(1f, 0.4f, 0f));
+    }
 
-        Collider2D[] atingidos = Physics2D.OverlapCircleAll(transform.position, raio, _alvos);
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_danoExplosao <= 0) return;
+        if (((1 << other.gameObject.layer) & _alvos) == 0) return;
 
-        int inimigosAtingidos = 0;
-        foreach (Collider2D col in atingidos)
+        Ser_Vivo serVivo = other.GetComponent<Ser_Vivo>();
+        if (serVivo == null || serVivo._invulneravel || _jaAtingidos.Contains(serVivo)) return;
+
+        _jaAtingidos.Add(serVivo);
+        serVivo.AplicarDano(_danoExplosao);
+        Utilidades.InstanciarNumeroDano((-_danoExplosao).ToString(), serVivo.transform);
+
+        if (serVivo._sangue != null)
         {
-            Ser_Vivo serVivo = col.GetComponent<Ser_Vivo>();
-            if (serVivo == null || serVivo._invulneravel) continue;
-
-            serVivo.AplicarDano(vidaConsumida);
-            Utilidades.InstanciarNumeroDano((-vidaConsumida).ToString(), serVivo.transform);
-
-            if (serVivo._sangue != null)
-            {
-                ParticleSystem sangue = Instantiate(serVivo._sangue, serVivo.transform.position, Quaternion.identity)
-                    .GetComponent<ParticleSystem>();
-                var emissao = sangue.emission;
-                emissao.rateOverTime = vidaConsumida / serVivo._vidaMax * emissao.rateOverTime.constant;
-            }
-
-            inimigosAtingidos++;
+            ParticleSystem sangue = Instantiate(serVivo._sangue, serVivo.transform.position, Quaternion.identity)
+                .GetComponent<ParticleSystem>();
+            var emissao = sangue.emission;
+            emissao.rateOverTime = _danoExplosao / serVivo._vidaMax * emissao.rateOverTime.constant;
         }
 
-        if (inimigosAtingidos > 0)
-        {
-            FindObjectOfType<Camera_Controller>()?.Tremer(vidaConsumida / _dono._vidaMax * inimigosAtingidos);
-            FindObjectOfType<Hitstop>()?.Aplicar(vidaConsumida / _dono._vidaMax);
-            SomHit(vidaConsumida / _dono._vidaMax);
-        }
-
-        StartCoroutine(EncerrarExplosao());
+        FindObjectOfType<Camera_Controller>()?.Tremer(_danoExplosao / _dono._vidaMax);
+        FindObjectOfType<Hitstop>()?.Aplicar(_danoExplosao / _dono._vidaMax);
+        SomHit(_danoExplosao / _dono._vidaMax);
     }
 
     private IEnumerator EncerrarExplosao()

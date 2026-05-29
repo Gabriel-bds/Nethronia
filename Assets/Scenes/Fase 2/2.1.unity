@@ -7354,8 +7354,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 30
-  m_AngularDrag: 0.05
+  m_LinearDrag: 4
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -7426,7 +7426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179070195792b247a96302a9a01f444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vidaMax: 1000
+  _vidaMax: 200
   _vidaAtual: 100
   _velocidadeMovimento: 2
   _nivelGeral: 0
@@ -37212,7 +37212,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 100
   _membros: []
   _poderForca:
-    _nivel: 500
+    _nivel: 150
     _tipoDano: 0
     _dano: 5
     _negacaoDano: 0
@@ -44495,7 +44495,7 @@ MonoBehaviour:
   _alvo: {fileID: 0}
   _ataques:
   - {fileID: 5803088307428071658, guid: 8199e7cef08108b4492e217ab241aac0, type: 3}
-  - {fileID: 1398755498870554847, guid: f277e97966b1f594988bf38fe90e066f, type: 3}
+  - {fileID: 5837795388014900685, guid: 587afe22ebcabff4bb18e4712df9649c, type: 3}
   - {fileID: 5768828929581779729, guid: b2adf9b30e2a4e84c8bac3ad073de257, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0

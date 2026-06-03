@@ -1189,6 +1189,7 @@ GameObject:
   - component: {fileID: 177218448}
   - component: {fileID: 177218449}
   - component: {fileID: 177218450}
+  - component: {fileID: 177218451}
   m_Layer: 0
   m_Name: player perna esquerda sup
   m_TagString: Untagged
@@ -1231,7 +1232,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1290,6 +1291,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &177218451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177218447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: b50a420b0fd8fbc4b9293003b98ea5a5, type: 3}
 --- !u!1 &177611809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,6 +6561,7 @@ GameObject:
   - component: {fileID: 226247604}
   - component: {fileID: 226247606}
   - component: {fileID: 226247605}
+  - component: {fileID: 226247607}
   m_Layer: 0
   m_Name: player perna direita inf
   m_TagString: Untagged
@@ -6616,7 +6631,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6648,6 +6663,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &226247607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226247603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 2f58439c0d22ece4a8396cb5c2a22db3, type: 3}
 --- !u!1 &253627111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,6 +6687,7 @@ GameObject:
   - component: {fileID: 253627112}
   - component: {fileID: 253627114}
   - component: {fileID: 253627113}
+  - component: {fileID: 253627115}
   m_Layer: 0
   m_Name: player torso
   m_TagString: Untagged
@@ -6728,7 +6757,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6760,6 +6789,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &253627115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253627111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: c4ac86c55310c254691f3b2ca7cc674d, type: 3}
 --- !u!1 &262240131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,6 +7141,7 @@ GameObject:
   - component: {fileID: 302592044}
   - component: {fileID: 302592046}
   - component: {fileID: 302592045}
+  - component: {fileID: 302592047}
   m_Layer: 0
   m_Name: player perna esquerda inf
   m_TagString: Untagged
@@ -7168,7 +7211,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7200,6 +7243,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &302592047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302592043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 5c5a19eadf2995b4494dbc1b2160c0a5, type: 3}
 --- !u!1 &304325236
 GameObject:
   m_ObjectHideFlags: 0
@@ -7289,6 +7345,7 @@ GameObject:
   - component: {fileID: 305134582}
   - component: {fileID: 305134587}
   - component: {fileID: 305134588}
+  - component: {fileID: 305134589}
   m_Layer: 9
   m_Name: cacador
   m_TagString: Untagged
@@ -7426,7 +7483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2179070195792b247a96302a9a01f444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vidaMax: 200
+  _vidaMax: 100
   _vidaAtual: 100
   _velocidadeMovimento: 2
   _nivelGeral: 0
@@ -7567,6 +7624,18 @@ NavMeshAgent:
   m_BaseOffset: 0.17
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &305134589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305134580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273c2a344db48cc498594e368adb7c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &316782522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,6 +7647,7 @@ GameObject:
   - component: {fileID: 316782523}
   - component: {fileID: 316782524}
   - component: {fileID: 316782525}
+  - component: {fileID: 316782526}
   m_Layer: 0
   m_Name: player torso
   m_TagString: Untagged
@@ -7620,7 +7690,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7679,6 +7749,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &316782526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316782522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: c4ac86c55310c254691f3b2ca7cc674d, type: 3}
 --- !u!1 &318086744
 GameObject:
   m_ObjectHideFlags: 0
@@ -7865,6 +7948,7 @@ GameObject:
   - component: {fileID: 318333480}
   - component: {fileID: 318333482}
   - component: {fileID: 318333481}
+  - component: {fileID: 318333483}
   m_Layer: 0
   m_Name: player perna esquerda sup
   m_TagString: Untagged
@@ -7934,7 +8018,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7966,6 +8050,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &318333483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318333479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: b50a420b0fd8fbc4b9293003b98ea5a5, type: 3}
 --- !u!1 &321457770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8136,6 +8233,7 @@ GameObject:
   - component: {fileID: 350768697}
   - component: {fileID: 350768698}
   - component: {fileID: 350768699}
+  - component: {fileID: 350768700}
   m_Layer: 0
   m_Name: player cabeca
   m_TagString: Untagged
@@ -8178,7 +8276,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8237,6 +8335,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &350768700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350768696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 240d3b35eabd60644b6d4188a7d08383, type: 3}
 --- !u!1 &352968156
 GameObject:
   m_ObjectHideFlags: 0
@@ -12439,7 +12550,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12509,6 +12620,7 @@ GameObject:
   - component: {fileID: 414912456}
   - component: {fileID: 414912458}
   - component: {fileID: 414912457}
+  - component: {fileID: 414912459}
   m_Layer: 0
   m_Name: player braco direito sup (1)
   m_TagString: Untagged
@@ -12578,7 +12690,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12610,6 +12722,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &414912459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414912455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: e2e9a72855ac4cc488286f0ac01b1980, type: 3}
 --- !u!1 &424274536
 GameObject:
   m_ObjectHideFlags: 0
@@ -13649,6 +13774,7 @@ GameObject:
   - component: {fileID: 515102846}
   - component: {fileID: 515102848}
   - component: {fileID: 515102847}
+  - component: {fileID: 515102849}
   m_Layer: 0
   m_Name: player braco esquerdo inf (1)
   m_TagString: Untagged
@@ -13718,7 +13844,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13750,6 +13876,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &515102849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515102845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 22e1cdff5117db545a858d89e1990d4b, type: 3}
 --- !u!1 &518006289
 GameObject:
   m_ObjectHideFlags: 0
@@ -14082,8 +14221,8 @@ GameObject:
   m_Component:
   - component: {fileID: 527959281}
   - component: {fileID: 527959284}
-  - component: {fileID: 527959283}
   - component: {fileID: 527959282}
+  - component: {fileID: 527959285}
   m_Layer: 0
   m_Name: player braco direito inf (1)
   m_TagString: Untagged
@@ -14133,27 +14272,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &527959283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527959280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87f6bdb182a310478cd86647f9d9749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dono: {fileID: 0}
-  _latenciaMira: 0
-  _alvo: {fileID: 0}
-  _ataques: []
-  _ataquesDisponiveis: []
-  _mirandoAlvo: 0
-  _travar: 0
-  _animator: {fileID: 0}
-  _sons: []
 --- !u!212 &527959284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14174,7 +14292,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14206,6 +14324,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &527959285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527959280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 4247cdfe07030ff4bbec26c8194ee29e, type: 3}
 --- !u!1 &572813848
 GameObject:
   m_ObjectHideFlags: 0
@@ -15200,6 +15331,7 @@ GameObject:
   - component: {fileID: 599173903}
   - component: {fileID: 599173904}
   - component: {fileID: 599173905}
+  - component: {fileID: 599173906}
   m_Layer: 0
   m_Name: player perna direita sup
   m_TagString: Untagged
@@ -15242,7 +15374,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15301,6 +15433,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &599173906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599173902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 6d42ab69c317a8443a73069d0576c5cf, type: 3}
 --- !u!1 &608368639
 GameObject:
   m_ObjectHideFlags: 0
@@ -31183,6 +31328,7 @@ GameObject:
   - component: {fileID: 879174512}
   - component: {fileID: 879174514}
   - component: {fileID: 879174513}
+  - component: {fileID: 879174515}
   m_Layer: 0
   m_Name: player braco esquerdo sup (1)
   m_TagString: Untagged
@@ -31252,7 +31398,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31284,6 +31430,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &879174515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879174511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: f51be83997b616746bc84d6eb26d90b8, type: 3}
 --- !u!1 &884894168
 GameObject:
   m_ObjectHideFlags: 0
@@ -32192,7 +32351,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37095,6 +37254,7 @@ GameObject:
   - component: {fileID: 970686659}
   - component: {fileID: 970686660}
   - component: {fileID: 970686661}
+  - component: {fileID: 970686662}
   m_Layer: 8
   m_Name: player
   m_TagString: Untagged
@@ -37212,7 +37372,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 100
   _membros: []
   _poderForca:
-    _nivel: 150
+    _nivel: 200
     _tipoDano: 0
     _dano: 5
     _negacaoDano: 0
@@ -37413,8 +37573,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ddfe43aec50b459ed46dbbcd0b00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valorPorTick: 5
-  _intervalo: 0.2
+  _valorPorTick: 0.5
+  _intervalo: 0.1
+--- !u!114 &970686662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970686653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273c2a344db48cc498594e368adb7c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &980358998
 GameObject:
   m_ObjectHideFlags: 0
@@ -38285,6 +38457,7 @@ GameObject:
   - component: {fileID: 1123158205}
   - component: {fileID: 1123158206}
   - component: {fileID: 1123158207}
+  - component: {fileID: 1123158208}
   m_Layer: 0
   m_Name: player perna esquerda inf
   m_TagString: Untagged
@@ -38327,7 +38500,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38386,6 +38559,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1123158208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123158204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 5c5a19eadf2995b4494dbc1b2160c0a5, type: 3}
 --- !u!1 &1136126993
 GameObject:
   m_ObjectHideFlags: 0
@@ -38640,6 +38826,7 @@ GameObject:
   - component: {fileID: 1175263662}
   - component: {fileID: 1175263663}
   - component: {fileID: 1175263664}
+  - component: {fileID: 1175263665}
   m_Layer: 0
   m_Name: player perna direita inf
   m_TagString: Untagged
@@ -38682,7 +38869,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38741,6 +38928,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1175263665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175263661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 2f58439c0d22ece4a8396cb5c2a22db3, type: 3}
 --- !u!1 &1201841493
 GameObject:
   m_ObjectHideFlags: 0
@@ -40356,6 +40556,7 @@ GameObject:
   - component: {fileID: 1383895689}
   - component: {fileID: 1383895691}
   - component: {fileID: 1383895690}
+  - component: {fileID: 1383895692}
   m_Layer: 0
   m_Name: player perna direita sup
   m_TagString: Untagged
@@ -40425,7 +40626,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40457,6 +40658,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1383895692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383895688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 6d42ab69c317a8443a73069d0576c5cf, type: 3}
 --- !u!1 &1385100461
 GameObject:
   m_ObjectHideFlags: 0
@@ -40771,6 +40985,7 @@ GameObject:
   - component: {fileID: 1445962336}
   - component: {fileID: 1445962338}
   - component: {fileID: 1445962337}
+  - component: {fileID: 1445962339}
   m_Layer: 0
   m_Name: player cabeca
   m_TagString: Untagged
@@ -40840,7 +41055,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40872,6 +41087,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1445962339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445962335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616e49ba70e6eb4ab47f1f8cbfbb750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _esqueleto: {fileID: 21300000, guid: 240d3b35eabd60644b6d4188a7d08383, type: 3}
 --- !u!1 &1450704315
 GameObject:
   m_ObjectHideFlags: 0
@@ -44210,7 +44438,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45709,7 +45937,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2034270021}
   - component: {fileID: 2034270023}
-  - component: {fileID: 2034270022}
   - component: {fileID: 2034270024}
   m_Layer: 0
   m_Name: player braco direito inf (1)
@@ -45733,27 +45960,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1951452280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2034270022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034270020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87f6bdb182a310478cd86647f9d9749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dono: {fileID: 0}
-  _latenciaMira: 0
-  _alvo: {fileID: 0}
-  _ataques: []
-  _ataquesDisponiveis: []
-  _mirandoAlvo: 0
-  _travar: 0
-  _animator: {fileID: 0}
-  _sons: []
 --- !u!212 &2034270023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45774,7 +45980,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6419e0ce7b93b394fbc79074ac702e85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

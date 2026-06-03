@@ -6,6 +6,7 @@ public class ExplosaoVital : Ataque
 {
     [Header("Explosão Vital")]
     [SerializeField] private EscalaValor _escalaConsumoVida;
+    [SerializeField] private int _nivelMaximoVitalidade;
 
     private float _danoExplosao;
     private HashSet<Ser_Vivo> _jaAtingidos = new HashSet<Ser_Vivo>();
@@ -14,9 +15,9 @@ public class ExplosaoVital : Ataque
     {
         //base.Start();
         ControlarRecarga();
-        ControlarEscalaVisualVitalidade();
         gameObject.layer = default;
         ConsumirVida();
+        ControlarEscalaVisualVitalidade();
         StartCoroutine(EncerrarExplosao());
     }
 
@@ -26,7 +27,7 @@ public class ExplosaoVital : Ataque
         if (anim != null)
         {
             float forca = Utilidades.LimitadorNumero(0, 1,
-                (float)_dono._poderVitalidade._nivel / nivelMaximoMagnitudeVisual);
+                (float)_dono._poderVitalidade._nivel / _nivelMaximoVitalidade);
             anim.SetFloat("Forca", forca);
         }
     }

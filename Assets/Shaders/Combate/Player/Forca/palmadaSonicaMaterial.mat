@@ -51,8 +51,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _distanciaCentro: 0.47
-    - _forca: 0.18
-    - _raioAngular: 0.5
+    - _forca: 0.36
+    - _raioAngular: 0
     - _rotacao: 0.25
     - _strengh: 7.19
     - _tamanho: 0.05

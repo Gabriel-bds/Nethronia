@@ -37223,7 +37223,7 @@ MonoBehaviour:
     _negacaoDano: 0
     _negacaoRepulsao: 0
   _poderVitalidade:
-    _nivel: 20
+    _nivel: 1
     _acrescimoVidaMax: 0
     _valorCura: 0
     _intervaloCura: 5
@@ -37413,8 +37413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ddfe43aec50b459ed46dbbcd0b00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valorPorTick: 0
-  _intervalo: 0
+  _valorPorTick: 5
+  _intervalo: 0.2
 --- !u!1 &980358998
 GameObject:
   m_ObjectHideFlags: 0

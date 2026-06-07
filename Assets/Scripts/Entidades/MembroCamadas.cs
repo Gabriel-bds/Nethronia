@@ -3,9 +3,13 @@ using UnityEngine;
 public class MembroCamadas : MonoBehaviour
 {
     [SerializeField] private Sprite _esqueleto;
+    [SerializeField] private Sprite _musculo;
+    [SerializeField] private float _tempoTransicao = 0.1f;
 
     private SpriteRenderer _renderer;
     private MaterialPropertyBlock _bloco;
+    private float _intensidadeAtual = 1f;
+    private float _intensidadeAlvo  = 1f;
 
     private void Start()
     {
@@ -14,21 +18,26 @@ public class MembroCamadas : MonoBehaviour
         _renderer.GetPropertyBlock(_bloco);
         if (_esqueleto != null)
             _bloco.SetTexture("_EsqueletoTex", _esqueleto.texture);
-        _bloco.SetFloat("_Dano", 0f);
-        _bloco.SetFloat("_EscalaRuido", CalcularEscalaRuido(_renderer.sprite));
+        if (_musculo != null)
+            _bloco.SetTexture("_MusculoTex", _musculo.texture);
+        _bloco.SetFloat("_Intensidade", 1f);
+        _renderer.SetPropertyBlock(_bloco);
+    }
+
+    private void Update()
+    {
+        if (_intensidadeAtual == _intensidadeAlvo) return;
+
+        float passo = _tempoTransicao > 0f ? Time.deltaTime / _tempoTransicao : 1f;
+        _intensidadeAtual = Mathf.MoveTowards(_intensidadeAtual, _intensidadeAlvo, passo);
+
+        _renderer.GetPropertyBlock(_bloco);
+        _bloco.SetFloat("_Intensidade", _intensidadeAtual);
         _renderer.SetPropertyBlock(_bloco);
     }
 
     public void DefinirDano(float valor)
     {
-        _renderer.GetPropertyBlock(_bloco);
-        _bloco.SetFloat("_Dano", Mathf.Clamp01(valor));
-        _renderer.SetPropertyBlock(_bloco);
-    }
-
-    private float CalcularEscalaRuido(Sprite sprite)
-    {
-        float tamanhoMaior = Mathf.Max(sprite.bounds.size.x, sprite.bounds.size.y);
-        return 4f / tamanhoMaior;
+        _intensidadeAlvo = 1f - Mathf.Clamp01(valor);
     }
 }

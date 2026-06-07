@@ -1304,6 +1304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: b50a420b0fd8fbc4b9293003b98ea5a5, type: 3}
+  _musculo: {fileID: 21300000, guid: 6245c16817fdcab48b925bddd9422250, type: 3}
 --- !u!1 &177611809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6676,6 +6677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 2f58439c0d22ece4a8396cb5c2a22db3, type: 3}
+  _musculo: {fileID: 21300000, guid: e6f604336ab7a124cb7b3c17af272a17, type: 3}
 --- !u!1 &253627111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6802,6 +6804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: c4ac86c55310c254691f3b2ca7cc674d, type: 3}
+  _musculo: {fileID: 21300000, guid: fd4939241f5cbf640a0771438baf958e, type: 3}
 --- !u!1 &262240131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,6 +7259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 5c5a19eadf2995b4494dbc1b2160c0a5, type: 3}
+  _musculo: {fileID: 21300000, guid: 149088b9325d5494292eafa9b578a499, type: 3}
 --- !u!1 &304325236
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,7 +7495,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 0
   _membros: []
   _poderForca:
-    _nivel: 100
+    _nivel: 10
     _tipoDano: 0
     _dano: 0
     _negacaoDano: 0
@@ -7762,6 +7766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: c4ac86c55310c254691f3b2ca7cc674d, type: 3}
+  _musculo: {fileID: 21300000, guid: fd4939241f5cbf640a0771438baf958e, type: 3}
 --- !u!1 &318086744
 GameObject:
   m_ObjectHideFlags: 0
@@ -8063,6 +8068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: b50a420b0fd8fbc4b9293003b98ea5a5, type: 3}
+  _musculo: {fileID: 21300000, guid: 6245c16817fdcab48b925bddd9422250, type: 3}
 --- !u!1 &321457770
 GameObject:
   m_ObjectHideFlags: 0
@@ -8348,6 +8354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 240d3b35eabd60644b6d4188a7d08383, type: 3}
+  _musculo: {fileID: 21300000, guid: 0e8a10451799a9b42942bd0fbe7619cf, type: 3}
 --- !u!1 &352968156
 GameObject:
   m_ObjectHideFlags: 0
@@ -12735,6 +12742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: e2e9a72855ac4cc488286f0ac01b1980, type: 3}
+  _musculo: {fileID: 21300000, guid: 48ca03d88cea1fe4384c3e36cec19915, type: 3}
 --- !u!1 &424274536
 GameObject:
   m_ObjectHideFlags: 0
@@ -13889,6 +13897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 22e1cdff5117db545a858d89e1990d4b, type: 3}
+  _musculo: {fileID: 21300000, guid: 0bcfedb70cf1e8a4e877fe325a55a42a, type: 3}
 --- !u!1 &518006289
 GameObject:
   m_ObjectHideFlags: 0
@@ -14337,6 +14346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 4247cdfe07030ff4bbec26c8194ee29e, type: 3}
+  _musculo: {fileID: 21300000, guid: 9acd95270a1dba942a2a2feb5a2937be, type: 3}
 --- !u!1 &572813848
 GameObject:
   m_ObjectHideFlags: 0
@@ -15446,6 +15456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 6d42ab69c317a8443a73069d0576c5cf, type: 3}
+  _musculo: {fileID: 21300000, guid: fcbd062f9b2050742befda7d7296cc41, type: 3}
 --- !u!1 &608368639
 GameObject:
   m_ObjectHideFlags: 0
@@ -31443,6 +31454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: f51be83997b616746bc84d6eb26d90b8, type: 3}
+  _musculo: {fileID: 21300000, guid: 7c1f630d939b23a48b9d76dae657fe30, type: 3}
 --- !u!1 &884894168
 GameObject:
   m_ObjectHideFlags: 0
@@ -37372,7 +37384,7 @@ MonoBehaviour:
   _experienciaParaProximoNivel: 100
   _membros: []
   _poderForca:
-    _nivel: 200
+    _nivel: 100
     _tipoDano: 0
     _dano: 5
     _negacaoDano: 0
@@ -37383,7 +37395,7 @@ MonoBehaviour:
     _negacaoDano: 0
     _negacaoRepulsao: 0
   _poderVitalidade:
-    _nivel: 1
+    _nivel: 100
     _acrescimoVidaMax: 0
     _valorCura: 0
     _intervaloCura: 5
@@ -37573,7 +37585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ddfe43aec50b459ed46dbbcd0b00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valorPorTick: 0.5
+  _valorPorTick: 2
   _intervalo: 0.1
 --- !u!114 &970686662
 MonoBehaviour:
@@ -38572,6 +38584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 5c5a19eadf2995b4494dbc1b2160c0a5, type: 3}
+  _musculo: {fileID: 21300000, guid: 149088b9325d5494292eafa9b578a499, type: 3}
 --- !u!1 &1136126993
 GameObject:
   m_ObjectHideFlags: 0
@@ -38941,6 +38954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 2f58439c0d22ece4a8396cb5c2a22db3, type: 3}
+  _musculo: {fileID: 21300000, guid: e6f604336ab7a124cb7b3c17af272a17, type: 3}
 --- !u!1 &1201841493
 GameObject:
   m_ObjectHideFlags: 0
@@ -40671,6 +40685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 6d42ab69c317a8443a73069d0576c5cf, type: 3}
+  _musculo: {fileID: 21300000, guid: fcbd062f9b2050742befda7d7296cc41, type: 3}
 --- !u!1 &1385100461
 GameObject:
   m_ObjectHideFlags: 0
@@ -41100,6 +41115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _esqueleto: {fileID: 21300000, guid: 240d3b35eabd60644b6d4188a7d08383, type: 3}
+  _musculo: {fileID: 21300000, guid: 0e8a10451799a9b42942bd0fbe7619cf, type: 3}
 --- !u!1 &1450704315
 GameObject:
   m_ObjectHideFlags: 0

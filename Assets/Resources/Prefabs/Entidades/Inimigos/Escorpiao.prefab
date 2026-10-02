@@ -42,6 +42,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3064500525694786296
 SpriteRenderer:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,6 +58,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,9 +84,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 76962954, guid: 398c32f2f1b772846b0889a2503939a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,8 +98,8 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!114 &569087775687465013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +118,7 @@ MonoBehaviour:
   _nivelGeral: 0
   _experiencia: 0
   _experienciaParaProximoNivel: 0
+  _membros: []
   _poderForca:
     _nivel: 0
     _tipoDano: 0
@@ -131,8 +140,7 @@ MonoBehaviour:
   _poderVelocidade:
     _nivel: 0
     _acrescimoVelocidadeMovimento: 0
-    "_acrescimoVelocidadeAnima\xE7\xF5es": 0
-    _reducaoRecargaAtaques: 0
+    _acrescimoVelocidadeAnimacoes: 0
     _reducaoTempo: 0
   _poderFogo:
     _nivel: 0
@@ -210,6 +218,8 @@ MonoBehaviour:
       _negacaoUtilidade1: 0
       _utilidade2: 0
       _negacaoUtilidade2: 0
+  _rigidbody: {fileID: 0}
+  _animator: {fileID: 0}
   _mao: {fileID: 0}
   _alvo: {fileID: 0}
   _barraVida: {fileID: 0}
@@ -217,10 +227,13 @@ MonoBehaviour:
   _travar: 0
   _corBase: {r: 0, g: 0, b: 0, a: 0}
   _corBaseMao: {r: 0, g: 0, b: 0, a: 0}
-  _sons: []
+  _invulneravel: 0
+  _taxaDropPontoHabilidadePermanente: 0
+  _minimoDropPontoHabilidadePermanente: 0
+  _maximoDropPontoHabilidadePermanente: 0
 --- !u!95 &333077474056553733
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -234,6 +247,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -241,7 +255,7 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &7970695724397664359
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -252,8 +266,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 30
-  m_AngularDrag: 0.05
+  m_LinearDamping: 30
+  m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -296,6 +310,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153513454219815829}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -319,7 +334,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.1263146, y: -0.32393596}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,7 +346,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.5762348, y: 0.3521282}
   m_EdgeRadius: 0
 --- !u!114 &2234328185805644295
@@ -346,11 +361,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
-  m_ComponentVersion: 1
+  m_Priority: 0
+  m_ComponentVersion: 6
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
   - {x: -0.40020436, y: -0.4650716, z: 0}
@@ -358,11 +375,86 @@ MonoBehaviour:
   - {x: 0.045929268, y: -0.16863126, z: 0}
   - {x: 0.07586813, y: -0.47006136, z: 0}
   m_ShapePathHash: -722244850
-  m_Mesh: {fileID: 0}
   m_InstanceId: 29600
-  m_LocalBounds:
-    m_Center: {x: -0.16216812, y: -0.3193463, z: 0}
-    m_Extent: {x: 0.23803625, y: 0.15071505, z: 0}
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    rid: 5738648097764933985
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 0
+  m_PreviousShadowCastingSource: 0
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_SelectionSources:
+    rid: 5738648097764933986
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 5738648097764933985
+      type: {class: ShadowMesh2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Vertices:
+        - position: {x: -0.40020436, y: -0.4650716, z: 0}
+          tangent: {x: -1, y: 0, z: -0.3952146, w: -0.31832495}
+        - position: {x: -0.3952146, y: -0.31832495, z: 0}
+          tangent: {x: -1, y: 0, z: 0.045929268, w: -0.16863126}
+        - position: {x: 0.045929268, y: -0.16863126, z: 0}
+          tangent: {x: -1, y: 0, z: 0.07586813, w: -0.47006136}
+        - position: {x: 0.07586813, y: -0.47006136, z: 0}
+          tangent: {x: -1, y: 0, z: -0.40020436, w: -0.4650716}
+        - position: {x: 0.07586813, y: -0.47006136, z: 0}
+          tangent: {x: 0, y: 0, z: -0.40020436, w: -0.4650716}
+        - position: {x: -0.40020436, y: -0.4650716, z: 0}
+          tangent: {x: 0, y: 0, z: 0.07586813, w: -0.47006136}
+        - position: {x: 0.07586813, y: -0.47006136, z: 0}
+          tangent: {x: 1, y: 0, z: -0.40020436, w: -0.4650716}
+        - position: {x: 0.07586813, y: -0.47006136, z: 0}
+          tangent: {x: 3, y: 0, z: -0.40020436, w: -0.4650716}
+        - position: {x: -0.40020436, y: -0.4650716, z: 0}
+          tangent: {x: 0, y: 0, z: -0.3952146, w: -0.31832495}
+        - position: {x: -0.3952146, y: -0.31832495, z: 0}
+          tangent: {x: 0, y: 0, z: -0.40020436, w: -0.4650716}
+        - position: {x: -0.40020436, y: -0.4650716, z: 0}
+          tangent: {x: 1, y: 0, z: -0.3952146, w: -0.31832495}
+        - position: {x: -0.40020436, y: -0.4650716, z: 0}
+          tangent: {x: 3, y: 0, z: -0.3952146, w: -0.31832495}
+        - position: {x: -0.3952146, y: -0.31832495, z: 0}
+          tangent: {x: 0, y: 0, z: 0.045929268, w: -0.16863126}
+        - position: {x: 0.045929268, y: -0.16863126, z: 0}
+          tangent: {x: 0, y: 0, z: -0.3952146, w: -0.31832495}
+        - position: {x: -0.3952146, y: -0.31832495, z: 0}
+          tangent: {x: 1, y: 0, z: 0.045929268, w: -0.16863126}
+        - position: {x: -0.3952146, y: -0.31832495, z: 0}
+          tangent: {x: 3, y: 0, z: 0.045929268, w: -0.16863126}
+        - position: {x: 0.045929268, y: -0.16863126, z: 0}
+          tangent: {x: 0, y: 0, z: 0.07586813, w: -0.47006136}
+        - position: {x: 0.07586813, y: -0.47006136, z: 0}
+          tangent: {x: 0, y: 0, z: 0.045929268, w: -0.16863126}
+        - position: {x: 0.045929268, y: -0.16863126, z: 0}
+          tangent: {x: 1, y: 0, z: 0.07586813, w: -0.47006136}
+        - position: {x: 0.045929268, y: -0.16863126, z: 0}
+          tangent: {x: 3, y: 0, z: 0.07586813, w: -0.47006136}
+        m_Indices: 030000000400000005000000050000000000000003000000000000000800000009000000090000000100000000000000010000000c0000000d0000000d0000000200000001000000020000001000000011000000110000000300000002000000030000000600000007000000000000000a0000000b000000010000000e0000000f000000020000001200000013000000
+        m_LocalBounds:
+          m_Center: {x: -0.16216812, y: -0.3193463, z: 0}
+          m_Extent: {x: 0.23803625, y: 0.15071505, z: 0}
+        m_EdgeProcessing: 1
+        m_TrimEdge: 0
+        m_FlipX: 0
+        m_FlipY: 0
+        m_InitialTrim: 0
+    - rid: 5738648097764933986
+      type: {class: Shadow2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_SelectedHashCode: -1
+        m_SelectedSource:
+          rid: -2
+        m_Provider2DCache:
+          rid: -2
 --- !u!1 &246932661963994246
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +587,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -589,6 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _barraAtual: {fileID: 3492087725803126203}
   _barraTransicao: {fileID: 4789144876327498509}
+  _dono: {fileID: 0}
 --- !u!1 &2737860002741141307
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +794,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &534625764299681190
 SpriteRenderer:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -715,6 +810,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -736,9 +836,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -528632842, guid: b83e1ee85fc417e4db176322653f3e21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -748,8 +850,8 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!114 &7075253733927133202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,13 +871,12 @@ MonoBehaviour:
   - {fileID: 6035237331025542715, guid: f5ab6c0bb53ebf24eb0aab19ca68010c, type: 3}
   _ataquesDisponiveis: []
   _mirandoAlvo: 0
-  _spawnsAtaques:
-  - {fileID: 9201168702414707343}
   _travar: 0
+  _animator: {fileID: 0}
   _sons: []
 --- !u!95 &7489508457136182280
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -789,6 +890,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

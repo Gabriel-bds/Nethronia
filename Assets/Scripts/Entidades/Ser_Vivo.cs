@@ -97,7 +97,7 @@ public class Ser_Vivo : MonoBehaviour
     {
         if (_travar == 0)
         {
-            _rigidbody.velocity += _vetor  * _velocidadeMovimento;
+            _rigidbody.linearVelocity += _vetor  * _velocidadeMovimento;
             if(GetComponent<Player>() != null) 
             {
                 _animator.SetFloat("Velocity", _vetor.x + _vetor.y / 2);
@@ -135,7 +135,7 @@ public class Ser_Vivo : MonoBehaviour
             }
             else
             {
-                _animator.SetFloat("Velocity", _rigidbody.velocity.x + _rigidbody.velocity.y + _rigidbody.velocity.x * _rigidbody.velocity.y);
+                _animator.SetFloat("Velocity", _rigidbody.linearVelocity.x + _rigidbody.linearVelocity.y + _rigidbody.linearVelocity.x * _rigidbody.linearVelocity.y);
                 //_mao.GetComponent<Animator>().SetFloat("Velocidade_Movimento", _rigidbody.velocity.x + _rigidbody.velocity.y);
             }
         }
@@ -277,7 +277,7 @@ public class Ser_Vivo : MonoBehaviour
             t.SetParent(null, true);
 
             // --- 3) Congela fisica antes do Rebind
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.isKinematic = true;
             rb.simulated = false;
@@ -297,8 +297,8 @@ public class Ser_Vivo : MonoBehaviour
             rb.gravityScale = 0f;
 
             // --- 7) Aplica forcas reais
-            Vector2 direcao = _rigidbody.velocity.sqrMagnitude > 0f
-                ? _rigidbody.velocity.normalized
+            Vector2 direcao = _rigidbody.linearVelocity.sqrMagnitude > 0f
+                ? _rigidbody.linearVelocity.normalized
                 : UnityEngine.Random.insideUnitCircle.normalized;
             rb.AddForce(direcao * intensidade, ForceMode2D.Impulse);
 

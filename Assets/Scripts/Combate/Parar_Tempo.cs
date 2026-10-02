@@ -88,7 +88,7 @@ public class Parar_Tempo : Ataque
         _velocidadeBase = _dono._velocidadeMovimento;
         _animSpeedBase = _dono._animator.speed;
         _latenciaMiraBase = _dono._mao.GetComponent<Mao>()._latenciaMira;
-        _dragBase = _dono._rigidbody.drag;
+        _dragBase = _dono._rigidbody.linearDamping;
 
         if (_rotinaCompensacaoPlayer != null)
             StopCoroutine(_rotinaCompensacaoPlayer);
@@ -140,7 +140,7 @@ public class Parar_Tempo : Ataque
             )
         );
 
-        _dono._rigidbody.velocity = Vector2.zero;
+        _dono._rigidbody.linearVelocity = Vector2.zero;
 
         // ===== CAMERA =====
         if (_transposer != null)
@@ -195,7 +195,7 @@ public class Parar_Tempo : Ataque
             _dono._velocidadeMovimento = _velocidadeBase * fator;
             _dono._animator.speed = _animSpeedBase * fator;
             _dono._mao.GetComponent<Mao>()._latenciaMira = _latenciaMiraBase / fator;
-            _dono._rigidbody.drag = _dragBase * fator;
+            _dono._rigidbody.linearDamping = _dragBase * fator;
 
             yield return null;
         }
@@ -203,7 +203,7 @@ public class Parar_Tempo : Ataque
         _dono._velocidadeMovimento = _velocidadeBase * para;
         _dono._animator.speed = _animSpeedBase * para;
         _dono._mao.GetComponent<Mao>()._latenciaMira = _latenciaMiraBase / para;
-        _dono._rigidbody.drag = _dragBase * para;
+        _dono._rigidbody.linearDamping = _dragBase * para;
     }
 
     IEnumerator FinalizarHabilidade()

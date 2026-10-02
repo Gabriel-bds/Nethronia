@@ -20,6 +20,13 @@ public class Mao : MonoBehaviour
     [HideInInspector] public Animator _animator;
     [SerializeField] List<AudioSource> _sons = new List<AudioSource>();
     GameObject _ultimoAtq;
+
+    class RecargaEmAndamento
+    {
+        public float TempoTotal;
+        public float TempoRestante;
+    }
+    readonly Dictionary<GameObject, RecargaEmAndamento> _recargasEmAndamento = new Dictionary<GameObject, RecargaEmAndamento>();
     void Start()
     {
         _dono = GetComponentInParent<Ser_Vivo>();
@@ -95,6 +102,7 @@ public class Mao : MonoBehaviour
                 _atq.gameObject.transform.localScale = _dono.transform.localScale;
                 _atq.DefinirSpawn();
                 _ultimoAtq = _atq.gameObject;
+                Ataque.NotificarInstanciacao(_atq);
                 /*if(_atq.gameObject.GetComponent<Rajada>() == null)
                 {
                     _ataquesDisponiveis.Remove(o);
@@ -154,9 +162,39 @@ public class Mao : MonoBehaviour
                 StartCoroutine(quadro.CarregarHabilidade(tempo));
         }
 
-        yield return new WaitForSecondsRealtime(tempo);
+        RecargaEmAndamento recarga = new RecargaEmAndamento { TempoTotal = tempo, TempoRestante = tempo };
+        _recargasEmAndamento[ataque] = recarga;
+
+        while (recarga.TempoRestante > 0)
+        {
+            recarga.TempoRestante -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        if (_recargasEmAndamento.TryGetValue(ataque, out RecargaEmAndamento recargaAtual) && recargaAtual == recarga)
+            _recargasEmAndamento.Remove(ataque);
 
         _ataquesDisponiveis.Add(ataque);
+    }
+
+    // Adianta a recarga de todos os ataques em recarga em um percentual do tempo total deles
+    public void AdiantarRecargas(float percentualDoTempoTotal, int idAtaqueIgnorado)
+    {
+        foreach (KeyValuePair<GameObject, RecargaEmAndamento> recarga in _recargasEmAndamento)
+        {
+            if (recarga.Key == null) continue;
+            if (recarga.Key.GetComponent<Ataque>()._idAtaque == idAtaqueIgnorado) continue;
+
+            float adiantamento = Mathf.Min(recarga.Value.TempoRestante, recarga.Value.TempoTotal * percentualDoTempoTotal / 100f);
+            recarga.Value.TempoRestante -= adiantamento;
+
+            if (_dono.GetComponent<Player>() != null)
+            {
+                var quadro = Ataque.QuadroDoAtaque(_dono.gameObject, recarga.Key);
+                if (quadro != null)
+                    quadro.AdiantarRecarga(adiantamento);
+            }
+        }
     }
 
     public void RecarregarTodosAtaques()

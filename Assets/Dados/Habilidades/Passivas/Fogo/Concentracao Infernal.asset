@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470612e851d42444897ee8c6f00e9496, type: 3}
+  m_Name: Concentracao Infernal
+  m_EditorClassIdentifier: Assembly-CSharp::ConcentracaoInfernal
+  _nome: Concentracao Infernal
+  _descricao: O dano da rajada de fogo cresce a cada tique enquanto o jogador esta
+    parado; ao se mover, cai na mesma proporcao.
+  _icone: {fileID: 0}
+  _raridade: 3
+  _poder: 4
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _aumentoPorTiquePercentual:
+    _valorMinimo: 50
+    _valorMaximo: 100
+    _nivelMaximo: 100
+  _duracaoTique: 1
+  _multiplicadorMaximo:
+    _valorMinimo: 4
+    _valorMaximo: 10
+    _nivelMaximo: 100
+  _velocidadeConsideradaParado: 0.3
+  _multiplicadorMaximoParticulas: 3

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165213bd1aec0e244936c34a2496b723, type: 3}
+  m_Name: Ganho de Tempo
+  m_EditorClassIdentifier: Assembly-CSharp::GanhoTempo
+  _nome: Ganho de Tempo
+  _descricao: Ao atacar inimigos, todas as habilidades recarregam mais rapido.
+  _icone: {fileID: 0}
+  _raridade: 1
+  _poder: 3
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _diminuicaoRecargaPercentual:
+    _valorMinimo: 10
+    _valorMaximo: 30
+    _nivelMaximo: 100
+  _particulaRecargaAdiantada: {fileID: 0}

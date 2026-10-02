@@ -61,6 +61,7 @@ public class EfeitoCongelar : Efeito
         {
             base.Aplicar(_atacante, _vitima);
             _vitima._poderGelo._status._acumuloAtual = 0;
+            EstadosCombate.Registrar(_vitima, Estado_Combate.Congelado, 5f);
             Congelar(_vitima, _atacante);
             InstanciarParticulaEfeito(7, _vitima, _atacante);
         }

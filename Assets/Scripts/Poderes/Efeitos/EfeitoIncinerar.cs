@@ -72,7 +72,9 @@ public class EfeitoIncinerar : Efeito
                 float dano = atacante._poderFogo._status._dano - vitima._poderFogo._status._negacaoDano;
                 if (dano < 0) dano = 0;
 
+                dano = EventosCombate.ModificarDano(atacante, vitima, dano, Tipo_Dano.Fogo, null);
                 vitima.AplicarDano(dano);
+                EventosCombate.NotificarDanoCausado(atacante, vitima, dano, Tipo_Dano.Fogo, null);
 
                 yield return new WaitForSeconds(intervalo);
                 tempoRestante -= intervalo;

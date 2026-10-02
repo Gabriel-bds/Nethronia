@@ -44,6 +44,11 @@ public class Quadro_Habilidade : MonoBehaviour
         _recargaAtual = tempo;
     }
 
+    public void AdiantarRecarga(float segundos)
+    {
+        _recargaAtual = Mathf.Min(_recargaAtual + segundos, _recargaMaxima);
+    }
+
     void AtualizarQuadro()
     {
         _quadroNegro.fillAmount = 1 - _recargaAtual / _recargaMaxima;

@@ -78,7 +78,9 @@ public class Rajada : Ataque
                             _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
                             break;
                     }
+                    _danoSofrido = EventosCombate.ModificarDano(_dono, _atingido, _danoSofrido, _tipoDano, this);
                     _atingido.VidaAtual -= _danoSofrido;
+                    EventosCombate.NotificarDanoCausado(_dono, _atingido, _danoSofrido, _tipoDano, this);
                     //_atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido.VidaAtual);
                     _atingido.AnimacaoDanoSofrido(_danoSofrido * 100 / _atingido._vidaMax);
                     _atingido.StartCoroutine(_atingido.PiscarCor(_corDano));

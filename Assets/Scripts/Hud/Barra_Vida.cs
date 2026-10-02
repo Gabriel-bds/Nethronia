@@ -11,11 +11,21 @@ public class Barra_Vida : MonoBehaviour
     private void Awake()
     {
         //FindAnyObjectByType<Player>()._barraVida = this;
+        // Barra filha de um ser vivo (ex.: inimigo) mostra a vida dele; a do HUD mostra a do Player
+        if(_dono == null)
+        {
+            _dono = GetComponentInParent<Ser_Vivo>();
+        }
         if(_dono == null)
         {
             _dono = FindAnyObjectByType<Player>();
         }
         _dono.OnVidaAlterada += AtualizarVida;
+    }
+    private void OnDestroy()
+    {
+        if (_dono != null)
+            _dono.OnVidaAlterada -= AtualizarVida;
     }
     private void AtualizarVida(Ser_Vivo dono, float _vidaAtual, float _vidaMax)
     {

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1a480f215901a479edcde1d4c622c9, type: 3}
+  m_Name: Mutacao Toxica
+  m_EditorClassIdentifier: Assembly-CSharp::MutacaoToxica
+  _nome: Mutacao Toxica
+  _descricao: Inimigos envenenados sofrem X% a mais de dano e infligem X% a menos
+    de dano (acumula).
+  _icone: {fileID: 0}
+  _raridade: 3
+  _poder: 6
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _aumentoDanoRecebidoPercentual:
+    _valorMinimo: 10
+    _valorMaximo: 25
+    _nivelMaximo: 100
+  _reducaoDanoCausadoPercentual:
+    _valorMinimo: 10
+    _valorMaximo: 25
+    _nivelMaximo: 100
+  _reducaoMaximaPercentual: 80

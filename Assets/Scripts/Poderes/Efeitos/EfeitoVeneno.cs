@@ -18,6 +18,7 @@ public class EfeitoVeneno : Efeito
             base.Aplicar(_atacante, _vitima);
             Utilidades.AplicarDano(_vitima, Utilidades.ArredondarNegativo(_atacante._poderVeneno._status._dano - _vitima._poderVeneno._status._negacaoDano), 45, 3, _cor);
             _vitima._poderVeneno._status._acumuloAtual = 0;
+            EstadosCombate.Registrar(_vitima, Estado_Combate.Envenenado, 45f);
             InstanciarParticulaEfeito(45, _vitima, _atacante);
         }
     }
@@ -31,7 +32,10 @@ public class EfeitoVeneno : Efeito
             var _config = _particula.main;
             var _emissao = _particula.emission;
             _emissao.rateOverTime = new ParticleSystem.MinMaxCurve(Utilidades.LimitadorNumero(0, _emissao.rateOverTime.constant, (_atacante._poderVeneno._status._dano - _vitima._poderVeneno._status._negacaoDano) / (_vitima._vidaMax * 0.07f) * _emissao.rateOverTime.constant));
+            // A duracao so pode ser alterada com a particula parada
+            _particula.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
             _config.duration = _duracao;
+            _particula.Play(false);
         }
         Destroy(_instanciaParticula, _duracao);
     }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e31513487a65f459ea8492b1453118, type: 3}
+  m_Name: Ataque Safado
+  m_EditorClassIdentifier: Assembly-CSharp::AtaqueSafado
+  _nome: Ataque Safado
+  _descricao: Ataques fisicos podem destruir projeteis e tem a area aumentada.
+  _icone: {fileID: 0}
+  _raridade: 1
+  _poder: 0
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _aumentoPercentualArea:
+    _valorMinimo: 10
+    _valorMaximo: 50
+    _nivelMaximo: 100
+  _particulaProjetilDestruido: {fileID: 0}

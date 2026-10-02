@@ -41,6 +41,21 @@ public class Ataque : MonoBehaviour
     public float _distanciaMin;
     public float _distanciaMax;
     public float _distanciaPerfeita;
+
+    public static event Action<Ataque> AoInstanciarAtaque;
+    public float Repulsao => _repulsao;
+    protected float _ultimoDanoAplicado;
+
+    public static void NotificarInstanciacao(Ataque ataque)
+    {
+        AoInstanciarAtaque?.Invoke(ataque);
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ReiniciarEventosEstaticos()
+    {
+        AoInstanciarAtaque = null;
+    }
     protected virtual void Start()
     {
         _efeitoAplicado = GetComponent<Efeito>();
@@ -304,6 +319,8 @@ public class Ataque : MonoBehaviour
                     _atingido.Knockback(_repulsao / 100 * (_dono._poderEletricidade._repulsao - _atingido._poderEletricidade._negacaoRepulsao), _distancia);
                     break;
             }
+            _danoSofrido = EventosCombate.ModificarDano(_dono, _atingido, _danoSofrido, _tipoDano, this);
+            _ultimoDanoAplicado = _danoSofrido;
             _atingido.AplicarDano(_danoSofrido);
             //_atingido._barraVida.AtualizarVida(_atingido._vidaMax, _atingido._vidaAtual);
             //_atingido.StartCoroutine(_atingido.PiscarCor(_corDano));
@@ -333,10 +350,16 @@ public class Ataque : MonoBehaviour
             //_somHit.Play();
             //RuntimeManager.PlayOneShot(_tagSomHit);
             SomHit(_danoSofrido / _atingido._vidaMax);
+
+            EventosCombate.NotificarDanoCausado(_dono, _atingido, _danoSofrido, _tipoDano, this);
         }
     }
     protected void ControlarRecarga()
     {
+        GerenciadorHabilidades gerenciador = GerenciadorHabilidades.De(_dono);
+        if (gerenciador != null && gerenciador.PermiteUsoSemRecarga(this))
+            return;
+
         foreach(GameObject habilidade in _dono._mao.GetComponent<Mao>()._ataquesDisponiveis)
         {
             if(habilidade.GetComponent<Ataque>()._idAtaque == _idAtaque) 

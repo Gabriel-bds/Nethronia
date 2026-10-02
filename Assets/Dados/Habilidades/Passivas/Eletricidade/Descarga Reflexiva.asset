@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7580d916cb5554049adec9f5e9966748, type: 3}
+  m_Name: Descarga Reflexiva
+  m_EditorClassIdentifier: Assembly-CSharp::DescargaReflexiva
+  _nome: Descarga Reflexiva
+  _descricao: Ao ser atingido, ha X% de chance de criar uma onda de choque.
+  _icone: {fileID: 0}
+  _raridade: 2
+  _poder: 7
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _chancePercentual:
+    _valorMinimo: 10
+    _valorMaximo: 35
+    _nivelMaximo: 100
+  _raioArea:
+    _valorMinimo: 2
+    _valorMaximo: 5
+    _nivelMaximo: 100
+  _danoPercentualEletrico:
+    _valorMinimo: 150
+    _valorMaximo: 300
+    _nivelMaximo: 100
+  _corNumeroDano: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _particulaOndaChoque: {fileID: 0}
+  _duracaoParticula: 1.5

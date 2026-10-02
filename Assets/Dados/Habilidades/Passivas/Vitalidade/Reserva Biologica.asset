@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7efff705f0e95c4faa455376c6ec8a3, type: 3}
+  m_Name: Reserva Biologica
+  m_EditorClassIdentifier: Assembly-CSharp::ReservaBiologica
+  _nome: Reserva Biologica
+  _descricao: Permite ressuscitar de X mortes com X% de vida.
+  _icone: {fileID: 0}
+  _raridade: 3
+  _poder: 2
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _quantidadeRessurreicoes:
+    _valorMinimo: 2
+    _valorMaximo: 5
+    _nivelMaximo: 100
+  _recuperacaoVidaPercentual:
+    _valorMinimo: 30
+    _valorMaximo: 80
+    _nivelMaximo: 100
+  _tempoInvulneravelAposRessurreicao: 1.5
+  _corRessurreicao: {r: 1, g: 0.25, b: 0.35, a: 1}
+  _tempoTransicaoCor: 0.2
+  _particulaRessurreicao: {fileID: 0}

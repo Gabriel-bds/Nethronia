@@ -11,6 +11,10 @@ public class Projetil : Ataque
     [SerializeField] bool _progressaoEscala;
     [SerializeField] LayerMask _colisoes;
     [SerializeField] AudioSource _quebrandoSom;
+    [Tooltip("Se o dano for maior que a vida do atingido, o projetil continua com o dano que sobrou")]
+    [SerializeField] bool _atravessarComDanoRestante;
+    bool _atravessaInimigos;
+    readonly HashSet<Ser_Vivo> _jaAtingidos = new HashSet<Ser_Vivo>();
     protected override void Start()
     {
         Debug.Log("Instanciou projetil");
@@ -55,6 +59,8 @@ public class Projetil : Ataque
 
             if (atingido != null)
             {
+                if (_jaAtingidos.Contains(atingido)) return;
+
                 PeitoAco peito = atingido.GetComponentInChildren<PeitoAco>();
 
                 if (peito != null && peito.ativo)
@@ -75,7 +81,13 @@ public class Projetil : Ataque
 
                     return;
                 }
+                float vidaAntesDoAtaque = atingido.VidaAtual;
+                _ultimoDanoAplicado = 0;
                 AplicarAtaque(collision);
+                _jaAtingidos.Add(atingido);
+
+                if (_atravessaInimigos) return;
+                if (_atravessarComDanoRestante && ContinuarComDanoRestante(vidaAntesDoAtaque)) return;
             }
             try
             { 
@@ -126,6 +138,31 @@ public class Projetil : Ataque
             AutoDestruir();
         }
     }
+    bool ContinuarComDanoRestante(float vidaAntesDoAtaque)
+    {
+        if (_ultimoDanoAplicado <= 0) return false;
+
+        float danoRestante = _ultimoDanoAplicado - vidaAntesDoAtaque;
+        if (danoRestante <= 0) return false;
+
+        _dano *= danoRestante / _ultimoDanoAplicado;
+        return true;
+    }
+
+    // Usado por habilidades que fazem o projetil rebatido atravessar inimigos (ex.: Ricochete Perfeito)
+    public void PermitirAtravessarInimigos()
+    {
+        _atravessaInimigos = true;
+    }
+
+    // Usado por habilidades que destroem projeteis (ex.: Ataque Safado)
+    public void Quebrar()
+    {
+        Collider2D colisor = GetComponent<Collider2D>();
+        if (colisor != null) colisor.enabled = false;
+        IniciarDestruicao();
+    }
+
     public new void AutoDestruir()
     {
         Debug.Log("projetil auto destruindo");
@@ -164,6 +201,9 @@ public class Projetil : Ataque
 
         _colisoes &= ~(1 << layerNovoDono);
         _colisoes |= (1 << layerAntigoDono);
+
+        _jaAtingidos.Clear();
+        GerenciadorHabilidades.De(novoDono)?.NotificarProjetilRefletido(this);
     }
 
 

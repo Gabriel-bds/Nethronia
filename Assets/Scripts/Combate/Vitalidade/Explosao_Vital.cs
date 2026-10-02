@@ -58,6 +58,7 @@ public class ExplosaoVital : Ataque
         _jaAtingidos.Add(serVivo);
         serVivo.AplicarDano(_danoExplosao);
         Utilidades.InstanciarNumeroDano((-_danoExplosao).ToString(), serVivo.transform);
+        EventosCombate.NotificarDanoCausado(_dono, serVivo, _danoExplosao, _tipoDano, this);
 
         if (serVivo._sangue != null)
         {

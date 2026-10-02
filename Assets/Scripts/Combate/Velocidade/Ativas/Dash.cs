@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash : Ataque
@@ -6,6 +7,11 @@ public class Dash : Ataque
     [Header("Dash")]
     [SerializeField] float _forcaDash = 25f;
     [SerializeField] float _tempoDash = 0.25f;
+    [Tooltip("Quantos dashes seguidos podem ser feitos antes de entrar em recarga")]
+    [SerializeField] int _dashesConsecutivos = 1;
+
+    static readonly Dictionary<Ser_Vivo, int> _dashesSeguidosPorDono = new Dictionary<Ser_Vivo, int>();
+    static readonly Dictionary<Ser_Vivo, float> _ultimoDashPorDono = new Dictionary<Ser_Vivo, float>();
 
     [Header("Colisão")]
     [SerializeField] LayerMask _layerParede;
@@ -41,7 +47,30 @@ public class Dash : Ataque
         _distanciaAnterior = Vector2.Distance(origem, _alvo);
 
         IniciarDash();
-        ControlarRecarga();
+        if (!UsarSemRecarregar())
+            ControlarRecarga();
+    }
+
+    // Enquanto houver dashes consecutivos sobrando, o dash continua disponivel sem recarga
+    bool UsarSemRecarregar()
+    {
+        if (_dashesConsecutivos <= 1) return false;
+
+        if (_ultimoDashPorDono.TryGetValue(_dono, out float ultimoDash) && Time.time - ultimoDash > Mathf.Max(_tempoRecargaTotal, 1f))
+            _dashesSeguidosPorDono[_dono] = 0;
+        _ultimoDashPorDono[_dono] = Time.time;
+
+        _dashesSeguidosPorDono.TryGetValue(_dono, out int dashesSeguidos);
+        dashesSeguidos++;
+
+        if (dashesSeguidos >= _dashesConsecutivos)
+        {
+            _dashesSeguidosPorDono[_dono] = 0;
+            return false;
+        }
+
+        _dashesSeguidosPorDono[_dono] = dashesSeguidos;
+        return true;
     }
 
     void IniciarDash()
@@ -53,7 +82,7 @@ public class Dash : Ataque
         _serVivo.TravarCorpoMao(1);
         _serVivo.Invulneravel(1);
 
-        _rigidbody.velocity = Vector2.zero;
+        _rigidbody.linearVelocity = Vector2.zero;
 
         // IMPULSO FÍSICO
         _rigidbody.AddForce(_direcaoDash * _forcaDash, ForceMode2D.Impulse);
@@ -95,7 +124,7 @@ public class Dash : Ataque
 
         _ativo = false;
 
-        _rigidbody.velocity = Vector2.zero;
+        _rigidbody.linearVelocity = Vector2.zero;
 
         _serVivo.TravarCorpoMao(0);
         _serVivo.Invulneravel(0);

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835c88b91de593b4da209824ffcc69a3, type: 3}
+  m_Name: Suspiro
+  m_EditorClassIdentifier: Assembly-CSharp::Suspiro
+  _nome: Suspiro
+  _descricao: Com menos de 50% de vida, recebe menos dano quanto menos vida tiver,
+    com reducao de ate X% com a vida beirando 0.
+  _icone: {fileID: 0}
+  _raridade: 2
+  _poder: 1
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _reducaoMaximaPercentual:
+    _valorMinimo: 50
+    _valorMaximo: 80
+    _nivelMaximo: 100
+  _limiteVidaPercentual: 50
+  _particulaReducao: {fileID: 0}

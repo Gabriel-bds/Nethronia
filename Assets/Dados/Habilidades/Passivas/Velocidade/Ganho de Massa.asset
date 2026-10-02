@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f1ffcf00622ef4391d351ef0e53b97, type: 3}
+  m_Name: Ganho de Massa
+  m_EditorClassIdentifier: Assembly-CSharp::GanhoMassa
+  _nome: Ganho de Massa
+  _descricao: Bonus de dano fisico em movimento, relativo a velocidade do jogador.
+  _icone: {fileID: 0}
+  _raridade: 2
+  _poder: 3
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _ganhoForcaPercentual:
+    _valorMinimo: 10
+    _valorMaximo: 60
+    _nivelMaximo: 100
+  _velocidadeReferencia: 10
+  _particulaGolpeComMassa: {fileID: 0}

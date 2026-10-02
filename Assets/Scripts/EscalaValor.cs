@@ -7,6 +7,13 @@ public struct EscalaValor
     [SerializeField] private float _valorMaximo;
     [SerializeField] private int _nivelMaximo;
 
+    public EscalaValor(float valorMinimo, float valorMaximo, int nivelMaximo)
+    {
+        _valorMinimo = valorMinimo;
+        _valorMaximo = valorMaximo;
+        _nivelMaximo = nivelMaximo;
+    }
+
     public float Avaliar(int nivel)
     {
         if (_nivelMaximo <= 0) return _valorMinimo;

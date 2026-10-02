@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42d28eb2e356a24aaaa8760f32962ff, type: 3}
+  m_Name: Sangue Mortal
+  m_EditorClassIdentifier: Assembly-CSharp::SangueMortal
+  _nome: Sangue Mortal
+  _descricao: 'As pocas de sangue do jogador sao venenosas: inimigos nelas levam
+    dano de veneno e acumulo.'
+  _icone: {fileID: 0}
+  _raridade: 2
+  _poder: 6
+  _prioridade: 0
+  _nivelMaximoMagnitudeVisual: 100
+  _camadasAlvo:
+    serializedVersion: 2
+    m_Bits: 0
+  _danoPercentualVeneno:
+    _valorMinimo: 10
+    _valorMaximo: 40
+    _nivelMaximo: 100
+  _raioPoca:
+    _valorMinimo: 1
+    _valorMaximo: 2.5
+    _nivelMaximo: 100
+  _duracaoPoca:
+    _valorMinimo: 5
+    _valorMaximo: 12
+    _nivelMaximo: 100
+  _intervaloTique: 1
+  _intervaloMinimoEntrePocas: 0.5
+  _corNumeroDano: {r: 0.23529412, g: 0.627451, b: 0.23529412, a: 1}
+  _particulaPoca: {fileID: 0}

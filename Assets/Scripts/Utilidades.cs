@@ -152,6 +152,7 @@ public class Utilidades : MonoBehaviour
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
             await Task.Delay(_intervalo * 1000);
+            if (_vitima == null) return;
 
 
         }
@@ -170,6 +171,7 @@ public class Utilidades : MonoBehaviour
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
             
             await Task.Delay((int)Math.Ceiling(_intervalo * 1000));
+            if (_vitima == null) return;
         }
     }
     public static async void AplicarDano(Ser_Vivo _vitima, float _dano, int _duracao, int _intervalo, Color _corDano)
@@ -186,6 +188,7 @@ public class Utilidades : MonoBehaviour
             _emissao.rateOverTime = _dano * 100 / _vitima._vidaMax / 100 * _emissao.rateOverTime.constant;
 
             await Task.Delay(_intervalo * 1000);
+            if (_vitima == null) return;
         }
     }
     public static void CopiarPropriedades(object _origem, object _destino)

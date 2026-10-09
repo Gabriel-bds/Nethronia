@@ -13,7 +13,8 @@
       "Bash(Get-ChildItem -Path \"Assets\\\\Resources\\\\Prefabs\\\\Combate\\\\Ataques\\\\Player\\\\Vitalidade\" -Recurse)",
       "Bash(Select-Object -ExpandProperty Name)",
       "PowerShell(Get-Content \"C:\\\\Users\\\\Gabriel\\\\Documents\\\\Syen\\\\Jogos\\\\Nethronia\\\\Unity\\\\Nethronia\\\\Assets\\\\Resources\\\\Prefabs\\\\Combate\\\\Ataques\\\\Player\\\\Vitalidade\\\\Rito de cura\\\\RitoCura.prefab\" | Select-Object -Index \\(150..250\\))",
-      "PowerShell(Set-Content *)"
+      "PowerShell(Set-Content *)",
+      "Bash(git log *)"
     ]
   }
 }

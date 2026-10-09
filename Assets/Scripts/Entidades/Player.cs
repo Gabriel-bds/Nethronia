@@ -1,4 +1,4 @@
-using Cinemachine;
+
 using JetBrains.Annotations;
 using System;
 using System.Collections;
@@ -21,7 +21,7 @@ public class Player : Ser_Vivo
     protected override void Awake()
     { 
         
-        FindAnyObjectByType<CinemachineVirtualCamera>().Follow = gameObject.transform;
+        FindAnyObjectByType<Unity.Cinemachine.CinemachineVirtualCamera>().Follow = gameObject.transform;
         base.Awake();
         DefinirAtributos();
         _playerInput = GetComponent<PlayerInput>();
@@ -116,7 +116,7 @@ public class Player : Ser_Vivo
     }
     public void CongelarTempo()
     {
-        CinemachineVirtualCamera _camera = FindObjectOfType<CinemachineVirtualCamera>();
+        Unity.Cinemachine.CinemachineVirtualCamera _camera = FindObjectOfType<Unity.Cinemachine.CinemachineVirtualCamera>();
         if(Time.timeScale == 1)
         {
             Time.timeScale -= _poderVelocidade._reducaoTempo;
@@ -125,9 +125,9 @@ public class Player : Ser_Vivo
             _animator.speed = 1 / Time.timeScale;
             _mao.GetComponent<Animator>().speed = 1 / Time.timeScale;
             _mao.GetComponent<Mao>()._latenciaMira /= Time.timeScale; 
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_LookaheadTime *= Time.timeScale;
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping *=  Time.timeScale;
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping *= Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_LookaheadTime *= Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_XDamping *=  Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_YDamping *= Time.timeScale;
         }
         else
         {
@@ -136,9 +136,9 @@ public class Player : Ser_Vivo
             _velocidadeMovimento = 10 + _poderVelocidade._acrescimoVelocidadeMovimento;
             GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimacoes;
             _mao.GetComponent<Animator>().speed = 1 + _poderVelocidade._acrescimoVelocidadeAnimacoes;
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_LookaheadTime /= Time.timeScale;
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping /= Time.timeScale;
-            _camera.GetCinemachineComponent<CinemachineFramingTransposer>().m_YDamping /= Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_LookaheadTime /= Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_XDamping /= Time.timeScale;
+            _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>().m_YDamping /= Time.timeScale;
             Time.timeScale = 1;
         }
     }

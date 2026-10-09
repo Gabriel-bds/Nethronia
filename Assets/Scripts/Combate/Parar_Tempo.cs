@@ -1,4 +1,4 @@
-using Cinemachine;
+
 using System.Collections;
 using UnityEngine;
 
@@ -22,8 +22,8 @@ public class Parar_Tempo : Ataque
     float _dragBase;
 
     // ===== CAMERA =====
-    CinemachineVirtualCamera _camera;
-    CinemachineFramingTransposer _transposer;
+    Unity.Cinemachine.CinemachineVirtualCamera _camera;
+    Unity.Cinemachine.CinemachineFramingTransposer _transposer;
 
     float _camLookaheadBase;
     float _camXDampingBase;
@@ -98,10 +98,10 @@ public class Parar_Tempo : Ataque
         );
 
         // ===== CAMERA =====
-        _camera = FindObjectOfType<CinemachineVirtualCamera>();
+        _camera = FindObjectOfType<Unity.Cinemachine.CinemachineVirtualCamera>();
         if (_camera != null)
         {
-            _transposer = _camera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            _transposer = _camera.GetCinemachineComponent<Unity.Cinemachine.CinemachineFramingTransposer>();
             if (_transposer != null)
             {
                 _camLookaheadBase = _transposer.m_LookaheadTime;
